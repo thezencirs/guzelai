@@ -1,0 +1,32 @@
+name: Restore original Guzel AI app
+
+on:
+  push:
+    branches:
+      - restore-original
+    paths:
+      - payload/READY
+
+permissions:
+  contents: write
+
+jobs:
+  restore:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Restore source package
+        run: |
+          cat payload/part*.txt | base64 --decode > /tmp/guzelai.tar.gz
+          tar -xzf /tmp/guzelai.tar.gz -C .
+          rm -f api/health.js api/generate.js
+          git rm -r payload
+
+      - name: Commit restored app
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Restore original Guzel AI application"
+          git push
