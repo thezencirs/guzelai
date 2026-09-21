@@ -1,0 +1,31 @@
+name: Unpack Güzel AI source
+
+on:
+  push:
+    paths:
+      - "payload/guzelai.zip"
+
+permissions:
+  contents: write
+
+jobs:
+  unpack:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Unpack project
+        run: |
+          unzip -o payload/guzelai.zip -d .
+          rm -f payload/guzelai.zip
+          rmdir payload 2>/dev/null || true
+
+      - name: Commit project files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Import Güzel AI application" || exit 0
+          git push
