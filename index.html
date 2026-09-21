@@ -1,92 +1,186 @@
 <!doctype html>
 <html lang="tr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Güzel AI — Dijital Model & Reklam Stüdyosu</title>
-  <meta name="description" content="Güzel AI ile dijital model, reklam kampanyası, güzellik içeriği ve yaratıcı AI prodüksiyonu." />
-  <style>
-    *{box-sizing:border-box} body{margin:0;font-family:Inter,Arial,sans-serif;background:#0b0b0f;color:#f7f7f7}
-    a{color:inherit;text-decoration:none}.wrap{max-width:1180px;margin:auto;padding:0 22px}
-    header{position:sticky;top:0;z-index:10;background:rgba(11,11,15,.82);backdrop-filter:blur(14px);border-bottom:1px solid #ffffff14}
-    nav{height:72px;display:flex;align-items:center;justify-content:space-between}.logo{font-size:22px;font-weight:900;letter-spacing:-.04em}
-    .logo b{color:#ff5a8a}.navlinks{display:flex;gap:18px;color:#bbb;font-size:14px}
-    .hero{min-height:78vh;display:grid;grid-template-columns:1.1fr .9fr;gap:42px;align-items:center;padding:78px 0}
-    .badge{display:inline-flex;padding:8px 12px;border:1px solid #ffffff20;border-radius:999px;background:#ffffff08;font-size:12px;color:#ddd}
-    h1{font-size:clamp(46px,7vw,92px);line-height:.95;margin:20px 0 22px;letter-spacing:-.06em}
-    .lead{font-size:19px;line-height:1.65;color:#aaa;max-width:700px}.actions{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
-    button,.btn{border:0;border-radius:14px;padding:14px 18px;font-weight:800;cursor:pointer}.primary{background:linear-gradient(135deg,#ff4f87,#9d5cff);color:#fff}
-    .ghost{background:#ffffff0d;color:#fff;border:1px solid #ffffff18}
-    .visual{min-height:520px;border-radius:32px;border:1px solid #ffffff16;background:
-      radial-gradient(circle at 70% 22%,#c25cff55,transparent 30%),
-      radial-gradient(circle at 30% 72%,#ff4f8755,transparent 34%),
-      linear-gradient(160deg,#17121f,#0d0d12 70%);position:relative;overflow:hidden}
-    .orb{position:absolute;border-radius:50%;filter:blur(2px)} .o1{width:210px;height:210px;background:#ff5a8a33;left:46px;top:70px}
-    .o2{width:270px;height:270px;background:#8e5cff33;right:22px;bottom:28px}
-    .cardfloat{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:72%;padding:26px;border-radius:24px;background:#111118cc;border:1px solid #ffffff1f;box-shadow:0 30px 80px #0008}
-    .avatar{width:82px;height:82px;border-radius:22px;background:linear-gradient(135deg,#ff7aa2,#7c64ff);display:grid;place-items:center;font-size:32px;font-weight:900}
-    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding:24px 0 84px}.feature{background:#121218;border:1px solid #ffffff12;padding:24px;border-radius:20px}
-    .feature h3{margin:0 0 10px}.feature p{color:#999;line-height:1.6;margin:0}
-    .studio{padding:72px 0;border-top:1px solid #ffffff12}.panel{background:#121218;border:1px solid #ffffff12;padding:26px;border-radius:24px}
-    textarea{width:100%;min-height:130px;background:#09090d;color:#fff;border:1px solid #ffffff1b;border-radius:14px;padding:14px;resize:vertical}
-    #result{white-space:pre-wrap;color:#d7d7df;background:#09090d;border-radius:14px;padding:16px;min-height:100px;margin-top:14px;border:1px solid #ffffff10}
-    footer{padding:36px 0;color:#777;border-top:1px solid #ffffff12}
-    @media(max-width:850px){.hero{grid-template-columns:1fr}.visual{min-height:360px}.features{grid-template-columns:1fr}.navlinks{display:none}}
-  </style>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>guzelai MEDYA — AI Studio & Modeller</title>
+<meta name="description" content="guzelai MEDYA — yapay zeka modelleri, 9:16 klipler, web tasarımı, 3D reklamlar ve AI stüdyo."/>
+<style>
+:root{--pink:#ec4f79;--cyan:#53d0d0;--lav:#b69bd4;--ink:#070d18;--cream:#f8f4f1;--panel:#111820}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:#06101d;color:#fff;overflow-x:hidden}
+button,input,textarea{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}
+.topbar{height:102px;background:#fbf8f5;color:#171717;display:flex;align-items:center;position:sticky;top:0;z-index:50;border-bottom:1px solid #ddd5d0}
+.nav{width:min(1360px,calc(100% - 28px));margin:auto;display:flex;align-items:center;gap:24px}
+.brand{width:145px;display:flex;flex-direction:column;align-items:center;line-height:.9}.brandword{font-weight:1000;font-size:34px;letter-spacing:-2px;background:linear-gradient(90deg,#f04a79,#f2a23f,#f4dc4a,#64d1b6,#7da6ef,#d473d9);-webkit-background-clip:text;color:transparent}.brandsub{font-size:11px;letter-spacing:6px;font-weight:900;margin-top:8px}
+.navitems{display:flex;align-items:center;gap:9px;flex:1}.navbtn{border:0;background:transparent;padding:12px 15px;border-radius:28px;font-weight:650;font-size:15px;line-height:1.1}.navbtn.active{background:#151515;color:#fff}.navbtn small{font-size:9px;margin-left:5px;padding:2px 5px;border-radius:7px;background:#ff4d7c;color:#fff}.navbtn .mint{background:#61c8c8}.spacer{flex:1}
+.pill{border:1px solid #ded8d4;background:#fff;border-radius:28px;padding:12px 16px;font-weight:750}.darkpill{background:#111;color:#fff;border-color:#111}.pinkpill{background:var(--pink);color:#fff;border-color:var(--pink);box-shadow:0 10px 28px #ec4f7950}
+.hero{position:relative;min-height:754px;background:radial-gradient(circle at 58% 54%,#1c3b54 0,#0d2133 24%,#071322 49%,#040b14 100%);overflow:hidden}
+.stars,.confetti{position:absolute;inset:0;pointer-events:none}
+.stars{background-image:radial-gradient(#fff 1px,transparent 1.4px),radial-gradient(#6fe9e9 1px,transparent 1.5px),radial-gradient(#ff638b 1px,transparent 1.5px);background-size:150px 120px,220px 170px,310px 210px;background-position:0 20px,80px 50px,10px 100px;opacity:.65}
+.herohead{width:min(1360px,calc(100% - 32px));margin:auto;padding-top:28px;display:flex;align-items:center;justify-content:space-between;position:relative;z-index:5}
+.live{display:inline-flex;align-items:center;gap:10px;padding:9px 16px;border:1px solid #ffffff25;background:#ffffff12;border-radius:28px;font-weight:900;font-size:13px}.dot{width:10px;height:10px;border-radius:50%;background:#a491bb}.coords{display:flex;gap:10px;margin-left:10px}.micro{padding:8px 12px;border:1px solid #ffffff18;border-radius:20px;background:#050c14b8;color:#dfe7ed;font-family:ui-monospace,monospace;font-size:11px}.righttools{display:flex;gap:10px}.tool{border:1px solid #ffffff25;background:#ffffff18;color:#fff;border-radius:22px;padding:9px 14px;font-weight:800}.tool.pink{background:var(--pink);border-color:var(--pink);box-shadow:0 10px 25px #ec4f7960}
+.scene{width:min(1360px,calc(100% - 32px));margin:auto;position:relative;height:620px}
+.copy{position:absolute;z-index:12;left:0;top:85px;width:min(620px,48vw)}
+.chapter{display:inline-flex;gap:9px;padding:6px 11px;border-radius:20px;border:1px solid #ffffff18;background:#050c14cc;color:#d7c5eb;font-size:12px;font-weight:900}.chapter b{color:#56d3d0}
+h1{font-size:clamp(45px,5.1vw,75px);line-height:.94;letter-spacing:-4px;margin:17px 0 18px;font-weight:1000;text-transform:uppercase;max-width:650px}
+.lead{font-size:15px;line-height:1.55;color:#ecf1f4;max-width:610px;text-shadow:0 2px 15px #000}.lead b{font-weight:900}
+.ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}.cta{border:0;color:#fff;border-radius:28px;padding:14px 22px;font-weight:900;font-size:15px;box-shadow:0 9px 28px #0004}.lav{background:#b49bd1}.pink{background:#ec4f79}.black{background:#161616}.grad{background:linear-gradient(90deg,#ed6689,#67c9c3)}
+.globeWrap{position:absolute;left:27%;top:96px;width:820px;height:610px;z-index:3;filter:drop-shadow(0 0 20px #f44c8860)}
+.globe{position:absolute;width:560px;height:560px;left:90px;top:30px;border-radius:50%;background:
+radial-gradient(circle at 68% 26%,#e3edf438 0 7%,transparent 16%),
+radial-gradient(circle at 45% 65%,#b4c7d939 0 9%,transparent 19%),
+radial-gradient(circle at 34% 31%,#73906f 0 8%,#4c765b 9% 23%,transparent 24%),
+radial-gradient(circle at 56% 50%,#2a4f6b 0 49%,#1b3d55 50% 66%,#142f42 67%);
+box-shadow:inset -55px -25px 70px #05101c99,inset 35px 25px 50px #8cb0c329,0 0 0 3px #ef5d8a66,0 0 32px #f04f8270}
+.globe:before,.globe:after{content:"";position:absolute;inset:6%;border:1px solid #84b0c725;border-radius:50%;transform:rotate(18deg)}.globe:after{inset:20% 5%;transform:rotate(80deg)}
+.orbit{position:absolute;border:4px solid #ec557887;border-radius:50%;width:760px;height:245px;left:-12px;top:208px;transform:rotate(-15deg);animation:spin 12s linear infinite}.orbit.o2{border-width:2px;border-color:#35c8c484;transform:rotate(19deg);width:710px;height:210px;top:267px;left:35px;animation-duration:16s}.orbit.o3{border-width:1px;border-color:#fff4;width:600px;height:170px;top:178px;left:78px;transform:rotate(-35deg)}@keyframes spin{50%{filter:hue-rotate(32deg);opacity:.7}}
+.satellite{position:absolute;width:20px;height:20px;border-radius:50%;background:#fff;left:555px;top:182px;box-shadow:0 0 15px #fff}.satellite.s2{width:13px;height:13px;background:#e4aa38;left:432px;top:235px}.satellite.s3{width:18px;height:18px;background:#40c8c5;left:235px;top:298px}
+.modelcard{position:absolute;right:10px;bottom:18px;z-index:20;width:430px;border-radius:26px;background:#111820ee;border:1px solid #ffffff20;padding:20px 20px 18px;box-shadow:0 25px 55px #0008;backdrop-filter:blur(14px)}
+.modeltop{display:flex;gap:13px;align-items:center}.portrait{width:48px;height:60px;border-radius:13px;border:2px solid #c7a5e4;background:url('https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=300&auto=format&fit=crop&q=85') center/cover}.modelname{font-size:19px;font-weight:1000}.cyan{color:#4bd1cc}.modelmeta{font-size:12px;margin-top:4px}.roas{margin-left:auto;background:#ffffff16;border-radius:19px;padding:8px 10px;font-size:11px;font-weight:900}.signature{margin-left:auto;text-align:right;font-size:10px;color:#b8b7b8}.signature b{display:block;color:#f0b841;font-size:12px;margin-top:5px}
+.infobox{margin-top:14px;border:1px solid #ffffff15;background:#ffffff08;border-radius:16px;padding:12px 13px;font-size:11px}.row{display:flex;justify-content:space-between;gap:12px;padding:3px 0}.row span{color:#929ba3}.pager{display:flex;align-items:center;gap:8px;margin-top:14px}.round{width:34px;height:34px;border:1px solid #ffffff18;background:#ffffff10;color:#fff;border-radius:12px}.dress{margin-left:auto;background:#ffffff12;border:1px solid #ffffff1e;color:#fff;border-radius:14px;padding:10px 15px;font-weight:800}
+.stamp{position:absolute;right:12px;top:79px;width:96px;height:96px;border-radius:50%;border:2px dashed #e44e73;color:#f1d058;display:grid;place-items:center;text-align:center;font:800 11px ui-monospace,monospace;transform:rotate(-8deg);z-index:9}
+.atelier{position:absolute;left:0;bottom:12px;color:#e46688;font:10px ui-monospace,monospace;letter-spacing:2px}
+.section{background:#f8f5f2;color:#171717;padding:70px 0}.section .inner{width:min(1360px,calc(100% - 32px));margin:auto}.eyebrow{font:800 11px ui-monospace,monospace;letter-spacing:2px;color:#d84d77}.title{font-size:42px;letter-spacing:-2px;margin:7px 0 30px}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.card{background:#fff;border:1px solid #e7dfdb;border-radius:22px;padding:20px;min-height:205px;box-shadow:0 12px 35px #6a504d12}.card .icon{font-size:26px}.card h3{margin:18px 0 9px;font-size:18px}.card p{margin:0;color:#777;line-height:1.5;font-size:13px}.card button{margin-top:16px;border:0;border-radius:14px;padding:10px 13px;background:#171717;color:#fff;font-weight:800}
+.modal{position:fixed;inset:0;background:#02050bd9;backdrop-filter:blur(12px);z-index:100;display:none;align-items:center;justify-content:center;padding:20px}.modal.open{display:flex}.dialog{width:min(760px,100%);max-height:90vh;overflow:auto;background:#111820;border:1px solid #ffffff1d;border-radius:28px;padding:24px;box-shadow:0 35px 90px #000}.dialoghead{display:flex;align-items:center;justify-content:space-between}.close{width:38px;height:38px;border-radius:50%;border:1px solid #ffffff20;background:#ffffff10;color:#fff}.tabs{display:flex;gap:8px;margin:17px 0}.tab{border:1px solid #ffffff20;background:#ffffff0d;color:#fff;padding:9px 12px;border-radius:13px}.tab.active{background:#ec4f79;border-color:#ec4f79}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{display:flex;flex-direction:column;gap:6px}.field label{font-size:11px;color:#aab5bd}.field input,.field textarea,.field select{background:#070e17;border:1px solid #ffffff1b;color:#fff;border-radius:14px;padding:12px}.field textarea{min-height:110px;resize:vertical}.wide{grid-column:1/-1}.go{width:100%;margin-top:15px;border:0;border-radius:15px;background:linear-gradient(90deg,#ed547d,#5bc9c6);color:#fff;padding:14px;font-weight:1000}.result{margin-top:14px;white-space:pre-wrap;background:#070e17;border:1px solid #ffffff15;border-radius:15px;padding:15px;color:#d9e1e6;min-height:86px;font-size:13px;line-height:1.55}
+footer{background:#0c1117;padding:34px;color:#88949e;text-align:center;font-size:12px}
+@media(max-width:1050px){.navitems .navbtn:nth-child(n+4){display:none}.globeWrap{left:20%;opacity:.78}.copy{width:65vw}.modelcard{right:0;width:390px}.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:760px){.topbar{height:76px}.brand{width:115px}.brandword{font-size:28px}.navitems{display:none}.nav{gap:9px}.pill{padding:10px 11px;font-size:12px}.hero{min-height:900px}.herohead{padding-top:18px}.coords,.righttools .tool:first-child{display:none}.scene{height:810px}.copy{width:100%;top:60px}h1{font-size:48px;letter-spacing:-2.5px}.globeWrap{left:-120px;top:300px;transform:scale(.78)}.modelcard{left:8px;right:8px;bottom:10px;width:auto}.stamp{display:none}.grid{grid-template-columns:1fr}.formgrid{grid-template-columns:1fr}.wide{grid-column:auto}}
+</style>
 </head>
 <body>
-<header><div class="wrap"><nav><div class="logo">güzel<b>ai</b></div><div class="navlinks"><a href="#studio">AI Studio</a><a href="#services">Hizmetler</a><a href="#about">Hakkında</a></div></nav></div></header>
-<main>
-  <section class="wrap hero">
-    <div>
-      <span class="badge">AI MODEL • COMMERCIAL STUDIO • TÜRKİYE</span>
-      <h1>Güzelliğin<br/>dijital yüzü.</h1>
-      <p class="lead">Güzel AI; dijital model oluşturma, moda ve güzellik kampanyaları, reklam metinleri ve yaratıcı prodüksiyon akışlarını yapay zekâ ile birleştiren yeni nesil stüdyo.</p>
-      <div class="actions"><a class="btn primary" href="#studio">AI Studio'yu Dene</a><a class="btn ghost" href="#services">Neler yapıyoruz?</a></div>
+<header class="topbar">
+  <div class="nav">
+    <div class="brand"><div class="brandword">guzelai</div><div class="brandsub">MEDYA</div></div>
+    <div class="navitems">
+      <button class="navbtn active" onclick="scrollToHero()">Ana<br>Sayfa</button>
+      <button class="navbtn" onclick="openPanel('clips')">9:16<br>Klipler <small>REELS</small></button>
+      <button class="navbtn" onclick="openPanel('models')">Model<br>Üret <small class="mint">OYUN / 3D</small></button>
+      <button class="navbtn" onclick="openPanel('web')">Web<br>Siteleri <small class="mint">3D</small></button>
+      <button class="navbtn" onclick="openPanel('ads')">İnteraktif 3D<br>Reklamlar</button>
     </div>
-    <div class="visual">
-      <div class="orb o1"></div><div class="orb o2"></div>
-      <div class="cardfloat">
-        <div class="avatar">G</div>
-        <h2>Valentina / Digital Muse</h2>
-        <p style="color:#aaa;line-height:1.6">Kampanya, beauty, editorial ve sosyal medya prodüksiyonu için sentetik marka yüzü.</p>
-        <div style="display:flex;gap:8px;flex-wrap:wrap"><span class="badge">Editorial</span><span class="badge">Beauty</span><span class="badge">Video</span></div>
+    <button class="pill" onclick="openPanel('profile')">Giriş &<br>Profil</button>
+    <button class="pill">TR&nbsp; TR⌄</button>
+    <button class="pill darkpill" onclick="openStudio('campaign')">✣ AI Stüdyo &<br>Modeller</button>
+    <button class="pill pinkpill" onclick="openStudio('campaign')">Projenizi<br>Anlatın ↗</button>
+  </div>
+</header>
+
+<main id="hero" class="hero">
+  <div class="stars"></div>
+  <div class="herohead">
+    <div style="display:flex;align-items:center"><div class="live"><span class="dot"></span> CANLI DÜNYA: İSTANBUL & BOĞAZİÇİ</div><div class="coords"><span class="micro">◎ LAT 41.0°N • LON 29.0°E</span><span class="micro">↻ Hız: 1x</span></div></div>
+    <div class="righttools"><button class="tool">▱ Atelier Çizim</button><button class="tool">🔇 Sessiz</button><button class="tool pink" onclick="openStudio('campaign')">Projenizi Anlatın</button></div>
+  </div>
+  <div class="scene">
+    <div class="copy">
+      <div class="chapter"><b>06 / 07</b> • 🌸 İMZA İKSİR & GLOW</div>
+      <h1>EDİTORYAL AKDENİZ<br>& PARFÜM<br>SIGNATURE</h1>
+      <div class="lead"><b>İSTANBUL & BOĞAZİÇİ •</b> Boğaz Rüzgarı & Beyaz Amber Koku Görseli. Mouse tekerleğini çevirerek dünyayı döndürün, mankenlerin kategorilerini ve reklam stillerini canlı keşfedin.</div>
+      <div class="ctas">
+        <button class="cta lav" onclick="openStudio('campaign')">✣ Bu Mankenle Reklam Çek</button>
+        <button class="cta pink" onclick="openPanel('clips')">🎬 Clips & Yapılan İşler&nbsp; 9:16</button>
+        <button class="cta black" onclick="openPanel('web')">🌐 Tasarım Web Siteleri&nbsp; <span style="color:#58d4cb">DIRECTOR</span></button>
+        <button class="cta grad" onclick="openStudio('prompt')">⚡ Model Üret&nbsp; <span style="font-size:10px;background:#333;padding:3px 6px;border-radius:8px">OYUN & 3D</span></button>
+        <button class="cta" style="background:#ffffff20;border:1px solid #ffffff35" onclick="openPanel('agency')">Ajans Hizmetleri ›</button>
       </div>
     </div>
-  </section>
 
-  <section id="services" class="wrap features">
-    <div class="feature"><h3>AI Model Studio</h3><p>Markalara özel dijital yüzler, stil varyasyonları ve kampanya karakterleri.</p></div>
-    <div class="feature"><h3>Campaign Generator</h3><p>Storyboard, slogan, kamera planı ve yaratıcı reklam metnini tek akışta üret.</p></div>
-    <div class="feature"><h3>Beauty Intelligence</h3><p>Güzellik ve bakım içerikleri için kişiselleştirilmiş yaratıcı öneriler oluştur.</p></div>
-  </section>
-
-  <section id="studio" class="studio">
-    <div class="wrap">
-      <div class="panel">
-        <span class="badge">LIVE AI STUDIO</span>
-        <h2>Bir kampanya fikri yaz.</h2>
-        <textarea id="prompt" placeholder="Örn: Lüks parfüm markası için gece İstanbul'da geçen 15 saniyelik sinematik reklam..."></textarea>
-        <div class="actions"><button class="primary" onclick="generate()">Üret</button><button class="ghost" onclick="health()">Sistem Kontrolü</button></div>
-        <div id="result">Hazır.</div>
-      </div>
+    <div class="globeWrap" id="globeWrap">
+      <div class="orbit"></div><div class="orbit o2"></div><div class="orbit o3"></div>
+      <div class="globe"></div><div class="satellite"></div><div class="satellite s2"></div><div class="satellite s3"></div>
     </div>
-  </section>
+    <div class="stamp">Nº 06<br><b style="font-size:15px">2026</b><br>OTENTİK MEDYA</div>
+
+    <div class="modelcard">
+      <div class="modeltop">
+        <div class="portrait"></div>
+        <div><div class="modelname">Aura<br>Kaya</div><div class="modelmeta cyan">İSTANBUL & BOĞAZİÇİ<br>Marka Yüzü</div></div>
+        <div class="roas">4.1x<br><span style="font-size:8px">ROAS</span></div>
+        <div class="signature">GÜZELLİK İMZASI<b>Bronz Parıltı & Ultra Işıltılı Cam Ten<br>(Glass Skin)</b></div>
+      </div>
+      <div class="infobox"><div class="row"><span>Öne Çıkan Stil:</span><b>İpek Şifon Elbise & Altın Detaylı Küp...</b></div><div class="row"><span>Müzik / Ritim:</span><b class="cyan">Mediterranean Sunset Chill & Silk Stri...</b></div></div>
+      <div class="pager"><button class="round">‹</button><button class="round">›</button><b style="color:#8c98a1;font-size:12px">6/7</b><button class="dress" onclick="openStudio('prompt')">⚙ Kıyafet & Doku Düzenle</button></div>
+    </div>
+    <div class="atelier">ATELIER RULER ───── 9:16 / 4:5 / 16:9</div>
+  </div>
 </main>
-<footer id="about"><div class="wrap">© 2026 Güzel AI • guzelai.com</div></footer>
+
+<section class="section">
+<div class="inner">
+  <div class="eyebrow">GUZELAI CREATIVE OPERATING SYSTEM</div>
+  <h2 class="title">Tek ekranda model, klip, reklam ve web prodüksiyonu.</h2>
+  <div class="grid">
+    <div class="card"><div class="icon">🎬</div><h3>9:16 Klipler</h3><p>Reels/TikTok için editoryal kısa video fikirleri, sahne akışı ve kreatif plan.</p><button onclick="openPanel('clips')">Klip Stüdyosu</button></div>
+    <div class="card"><div class="icon">🧬</div><h3>Model Üret</h3><p>Gerçekçi, anime, pixel ve 3D estetikte dijital marka yüzü oluşturma.</p><button onclick="openStudio('prompt')">Model Promptu</button></div>
+    <div class="card"><div class="icon">🌐</div><h3>Web Siteleri</h3><p>Marka, ürün ve kampanya için sinematik, etkileşimli web deneyimleri.</p><button onclick="openPanel('web')">Web Director</button></div>
+    <div class="card"><div class="icon">✦</div><h3>AI Stüdyo</h3><p>Gemini destekli kampanya, güzellik, ses/video analizi ve prompt üretimi.</p><button onclick="openStudio('campaign')">AI Studio Aç</button></div>
+  </div>
+</div>
+</section>
+
+<footer>guzelai MEDYA • İstanbul / 2026 • AI Creative Studio</footer>
+
+<div id="modal" class="modal">
+  <div class="dialog">
+    <div class="dialoghead"><div><div class="eyebrow">GUZELAI AI STUDIO</div><h2 style="margin:5px 0 0;font-size:27px">Creative Director Console</h2></div><button class="close" onclick="closeModal()">✕</button></div>
+    <div class="tabs">
+      <button class="tab active" data-mode="campaign" onclick="selectMode('campaign',this)">Kampanya</button>
+      <button class="tab" data-mode="prompt" onclick="selectMode('prompt',this)">Model / Giydirme</button>
+      <button class="tab" data-mode="beauty" onclick="selectMode('beauty',this)">Beauty</button>
+      <button class="tab" data-mode="audio" onclick="selectMode('audio',this)">Ses & Video</button>
+    </div>
+    <div id="form"></div>
+    <button class="go" onclick="runAI()">✦ Güzel AI ile Üret</button>
+    <div id="result" class="result">Hazır. Bir çalışma modu seçip üretime başlayın.</div>
+  </div>
+</div>
+
 <script>
-async function health(){
-  const el=document.getElementById('result'); el.textContent='Kontrol ediliyor...';
-  try{const r=await fetch('/api/health'); el.textContent=JSON.stringify(await r.json(),null,2)}catch(e){el.textContent='Bağlantı hatası: '+e.message}
+let mode='campaign';
+const schemas={
+campaign:{endpoint:'/api/gemini/generate-campaign',fields:[
+ ['productName','Ürün / Marka','Lüks parfüm koleksiyonu'],['modelName','Manken','Aura Kaya'],
+ ['productCategory','Kategori','Parfüm / Moda / Kozmetik'],['targetVibe','Vibe','Akdeniz, lüks, sinematik'],
+ ['styleMode','Model Stili','Ultra Realistic'],['adFormat','Format','9:16 Reels / TikTok']
+]},
+prompt:{endpoint:'/api/gemini/generate-prompt',fields:[
+ ['modelName','Manken','Aura Kaya'],['outfit','Kıyafet','İpek şifon couture elbise'],
+ ['texture','Doku','İpek, altın mikro detay'],['cameraAngle','Kamera Açısı','Low angle editorial'],
+ ['lighting','Işık','Mediterranean golden hour'],['product','Ürün','Luxury fragrance']
+]},
+beauty:{endpoint:'/api/gemini/beauty-advice',fields:[
+ ['modelName','Manken','Aura Kaya'],['skinType','Cilt Tipi','Bronz / Glass Skin'],
+ ['routineFocus','Odak','Kamera öncesi parlaklık ve bakım'],['userQuestion','Soru','Çekim günü için ışıltılı cilt rutini?']
+]},
+audio:{endpoint:'/api/gemini/analyze-video-audio',fields:[
+ ['scriptText','Seslendirme Metni','Boğaz rüzgarında beyaz amberin imzasını keşfet.'],
+ ['tempo','Tempo','88 BPM / slow luxury'],['targetMood','Ruh Hali','Sensual Mediterranean Luxury'],
+ ['voiceStyle','Ses Karakteri','Sıcak, derin, fısıltılı kadın sesi']
+]}
+};
+function renderForm(){
+ const cfg=schemas[mode];let h='<div class="formgrid">';
+ cfg.fields.forEach((f,i)=>{h+='<div class="field '+(i===cfg.fields.length-1&&cfg.fields.length%2?'wide':'')+'"><label>'+f[1]+'</label>'+(f[0].includes('Text')||f[0].includes('Question')?'<textarea id="'+f[0]+'">'+f[2]+'</textarea>':'<input id="'+f[0]+'" value="'+f[2]+'">')+'</div>'});
+ h+='</div>';document.getElementById('form').innerHTML=h;
 }
-async function generate(){
-  const el=document.getElementById('result'); const prompt=document.getElementById('prompt').value.trim();
-  if(!prompt){el.textContent='Önce bir fikir yaz.';return}
-  el.textContent='Güzel AI düşünüyor...';
-  try{
-    const r=await fetch('/api/generate',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({prompt})});
-    const data=await r.json(); el.textContent=data.text||data.error||JSON.stringify(data,null,2);
-  }catch(e){el.textContent='Üretim hatası: '+e.message}
+function openStudio(m='campaign'){mode=m;document.getElementById('modal').classList.add('open');document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('active',x.dataset.mode===m));renderForm()}
+function closeModal(){document.getElementById('modal').classList.remove('open')}
+function selectMode(m,b){mode=m;document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));b.classList.add('active');renderForm()}
+async function runAI(){
+ const cfg=schemas[mode],payload={};cfg.fields.forEach(f=>payload[f[0]]=document.getElementById(f[0]).value);
+ const r=document.getElementById('result');r.textContent='Güzel AI üretiyor...';
+ try{const res=await fetch(cfg.endpoint,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(payload)});const data=await res.json();r.textContent=JSON.stringify(data,null,2)}
+ catch(e){r.textContent='Bağlantı hatası: '+e.message}
 }
+function openPanel(name){
+ const titles={clips:'9:16 Klip Stüdyosu',models:'Model Üretim Laboratuvarı',web:'Web Director',ads:'İnteraktif 3D Reklamlar',profile:'Profil & Marka Alanı',agency:'Ajans Hizmetleri'};
+ openStudio(name==='models'?'prompt':'campaign');
+ document.querySelector('.dialog h2').textContent=titles[name]||'Creative Director Console';
+}
+function scrollToHero(){document.getElementById('hero').scrollIntoView({behavior:'smooth'})}
+document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='modal')closeModal()});
+renderForm();
+let rot=0;document.addEventListener('wheel',e=>{rot+=e.deltaY*.02;document.getElementById('globeWrap').style.transform='rotate('+rot*.04+'deg)'},{passive:true});
 </script>
-</body></html>
+</body>
+</html>
