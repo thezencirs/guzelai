@@ -1,9 +1,17 @@
 import { assertPost, generateJson, sendError } from "../../lib/gemini.js";
+import { buildWebsitePrompt, fallbackWebsitePlan } from "../../lib/website-builder-engine.js";
 
 export default async function handler(req, res) {
   if (!assertPost(req, res)) return;
   try {
     const {
+      task,
+      brandName,
+      industry,
+      archetype,
+      goal,
+      reference,
+      additionalRequirements,
       modelName,
       style,
       outfit,
@@ -17,6 +25,24 @@ export default async function handler(req, res) {
       lighting,
       product,
     } = req.body || {};
+
+    if (task === "website_builder") {
+      const input = {
+        brandName,
+        industry,
+        archetype,
+        goal,
+        reference,
+        additionalRequirements,
+      };
+
+      const prompt = buildWebsitePrompt(input);
+      const fallback = fallbackWebsitePlan(input);
+
+      return res
+        .status(200)
+        .json(await generateJson({ req, prompt, fallback, temperature: 0.55 }));
+    }
 
     const fallback = {
       prompt: `Ultra-photorealistic fashion editorial of ${modelName || "Aura"}, ${style || "realistic"} style, wearing ${outfit || "couture outfit"} made of ${texture || "premium fabric"}, ${hairColor || "natural"} ${hairStyle || "editorial"} hair, ${makeup || "glam"} makeup, wearing ${accessory || "minimal accessories"}, advertising ${product || "luxury fashion"}, shot from ${cameraAngle || "editorial eye level"} with ${zoomLevel || "medium"} framing, ${lighting || "cinematic"} lighting, 8k resolution, premium color science, masterpiece.`,
