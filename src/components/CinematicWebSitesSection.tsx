@@ -264,8 +264,9 @@ export const CinematicWebSitesSection: React.FC<CinematicWebSitesSectionProps> =
 
   // Custom Brief generator state
   const [briefBrandName, setBriefBrandName] = useState<string>("");
-  const [briefIndustry, setBriefIndustry] = useState<string>("Lüks Moda & Giyim");
-  const [briefArchetype, setBriefArchetype] = useState<string>("Dark Luxury");
+  const [briefIndustry, setBriefIndustry] = useState<string>("Mimarlık & İç Mimarlık");
+  const [briefCustomIndustry, setBriefCustomIndustry] = useState<string>("");
+  const [briefArchetype, setBriefArchetype] = useState<string>("AI sektör ve marka karakterine göre karar versin");
   const [briefGoal, setBriefGoal] = useState<string>("Global Lansman & Yüksek Dönüşüm");
   const [briefReference, setBriefReference] = useState<string>("");
   const [briefRequirements, setBriefRequirements] = useState<string>("");
@@ -281,6 +282,14 @@ export const CinematicWebSitesSection: React.FC<CinematicWebSitesSectionProps> =
       return;
     }
 
+    const resolvedIndustry =
+      briefIndustry === "__custom__" ? briefCustomIndustry.trim() : briefIndustry;
+
+    if (!resolvedIndustry) {
+      setBriefError("Lütfen sektörünüzü seçin veya kendi sektörünüzü yazın.");
+      return;
+    }
+
     setBriefLoading(true);
     setBriefError("");
     setBriefGenerated(false);
@@ -293,7 +302,7 @@ export const CinematicWebSitesSection: React.FC<CinematicWebSitesSectionProps> =
         body: JSON.stringify({
           task: "website_builder",
           brandName: briefBrandName.trim(),
-          industry: briefIndustry,
+          industry: resolvedIndustry,
           archetype: briefArchetype,
           goal: briefGoal.trim(),
           reference: briefReference.trim(),
@@ -824,7 +833,7 @@ export const CinematicWebSitesSection: React.FC<CinematicWebSitesSectionProps> =
             {!briefGenerated ? (
               <div className="space-y-4 text-xs">
                 <p className="text-white/75 leading-relaxed">
-                  Marka fikrinizi, referanslarınızı ve hedefinizi girin. GüzelAI Website Builder Engine v2 bunu Design DNA → Site Architecture → Component System → Responsive → Build → QA → Fix → Final pipeline'ından geçirir.
+                  İşletmenizi, mesleğinizi veya markanızı seçin; referanslarınızı ve hedefinizi girin. GüzelAI Website Builder Engine v2, sektör ne olursa olsun bunu Design DNA → Site Architecture → Component System → Responsive → Build → QA → Fix → Final pipeline'ından geçirir.
                 </p>
 
                 <div className="space-y-1.5">
@@ -838,35 +847,145 @@ export const CinematicWebSitesSection: React.FC<CinematicWebSitesSectionProps> =
                   />
                 </div>
 
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div className="space-y-1.5">
-                    <label className="text-white/70 font-semibold">Sektör / Ürün Kategorisi:</label>
+                    <label className="text-white/70 font-semibold">Sektör / İş Alanı:</label>
                     <select
                       value={briefIndustry}
                       onChange={(e) => setBriefIndustry(e.target.value)}
                       className="w-full p-3 rounded-xl bg-black/50 border border-white/15 text-white focus:outline-none focus:border-[#E65A7F]"
                     >
-                      <option value="Lüks Moda & Haute Couture">Lüks Moda & Haute Couture</option>
-                      <option value="Süperspor Otomobil & Yachting">Süperspor Otomobil & Yachting</option>
-                      <option value="Pırlanta & Yüksek Mücevher">Pırlanta & Yüksek Mücevher</option>
-                      <option value="Kozmetik, Serum & Parfüm">Kozmetik, Serum & Parfüm</option>
-                      <option value="Sneakers & Sokak Kültürü">Sneakers & Sokak Kültürü</option>
-                      <option value="Organik İçecek & Gastronomi">Organik İçecek & Gastronomi</option>
+                      <optgroup label="Mimarlık, Tasarım & Yapı">
+                        <option value="Mimarlık & İç Mimarlık">Mimarlık & İç Mimarlık</option>
+                        <option value="İnşaat & Müteahhitlik">İnşaat & Müteahhitlik</option>
+                        <option value="Gayrimenkul & Emlak">Gayrimenkul & Emlak</option>
+                        <option value="Peyzaj Mimarlığı">Peyzaj Mimarlığı</option>
+                        <option value="Mobilya & Dekorasyon">Mobilya & Dekorasyon</option>
+                        <option value="Endüstriyel Tasarım">Endüstriyel Tasarım</option>
+                      </optgroup>
+
+                      <optgroup label="Hukuk, Finans & Profesyonel Hizmetler">
+                        <option value="Avukatlık & Hukuk Bürosu">Avukatlık & Hukuk Bürosu</option>
+                        <option value="Mali Müşavirlik & Muhasebe">Mali Müşavirlik & Muhasebe</option>
+                        <option value="Finans & Yatırım Danışmanlığı">Finans & Yatırım Danışmanlığı</option>
+                        <option value="Sigorta & Aracılık">Sigorta & Aracılık</option>
+                        <option value="Yönetim Danışmanlığı">Yönetim Danışmanlığı</option>
+                        <option value="İnsan Kaynakları & İşe Alım">İnsan Kaynakları & İşe Alım</option>
+                      </optgroup>
+
+                      <optgroup label="Sağlık, Eczacılık & Wellness">
+                        <option value="Eczane & Eczacılık">Eczane & Eczacılık</option>
+                        <option value="Doktor & Özel Klinik">Doktor & Özel Klinik</option>
+                        <option value="Diş Hekimliği & Ağız Sağlığı">Diş Hekimliği & Ağız Sağlığı</option>
+                        <option value="Psikoloji & Terapi">Psikoloji & Terapi</option>
+                        <option value="Fizyoterapi & Rehabilitasyon">Fizyoterapi & Rehabilitasyon</option>
+                        <option value="Diyetisyen & Beslenme">Diyetisyen & Beslenme</option>
+                        <option value="Güzellik Merkezi & Medikal Estetik">Güzellik Merkezi & Medikal Estetik</option>
+                        <option value="Veteriner Kliniği">Veteriner Kliniği</option>
+                      </optgroup>
+
+                      <optgroup label="Güzellik, Moda & Kişisel Hizmetler">
+                        <option value="Kuaför & Berber">Kuaför & Berber</option>
+                        <option value="Terzi & Özel Dikim">Terzi & Özel Dikim</option>
+                        <option value="Moda & Hazır Giyim">Moda & Hazır Giyim</option>
+                        <option value="Lüks Moda & Haute Couture">Lüks Moda & Haute Couture</option>
+                        <option value="Kozmetik, Serum & Parfüm">Kozmetik, Serum & Parfüm</option>
+                        <option value="Takı, Pırlanta & Mücevher">Takı, Pırlanta & Mücevher</option>
+                        <option value="Ayakkabı & Sneaker">Ayakkabı & Sneaker</option>
+                      </optgroup>
+
+                      <optgroup label="Yeme, İçme & Konaklama">
+                        <option value="Restoran & Lokanta">Restoran & Lokanta</option>
+                        <option value="Kafe & Pastane">Kafe & Pastane</option>
+                        <option value="Otel & Konaklama">Otel & Konaklama</option>
+                        <option value="Turizm & Seyahat Acentesi">Turizm & Seyahat Acentesi</option>
+                        <option value="Catering & Organizasyon">Catering & Organizasyon</option>
+                        <option value="Gıda Üretimi & Gastronomi">Gıda Üretimi & Gastronomi</option>
+                      </optgroup>
+
+                      <optgroup label="Eğitim & Kültür">
+                        <option value="Okul & Eğitim Kurumu">Okul & Eğitim Kurumu</option>
+                        <option value="Kurs, Akademi & Özel Ders">Kurs, Akademi & Özel Ders</option>
+                        <option value="Anaokulu & Kreş">Anaokulu & Kreş</option>
+                        <option value="Sanat, Galeri & Kültür">Sanat, Galeri & Kültür</option>
+                        <option value="Yayınevi & Kitap">Yayınevi & Kitap</option>
+                      </optgroup>
+
+                      <optgroup label="Teknoloji, Medya & Yaratıcı Sektörler">
+                        <option value="Yazılım & SaaS">Yazılım & SaaS</option>
+                        <option value="Yapay Zeka & Teknoloji Girişimi">Yapay Zeka & Teknoloji Girişimi</option>
+                        <option value="Dijital Ajans & Reklam">Dijital Ajans & Reklam</option>
+                        <option value="Fotoğraf & Video Prodüksiyon">Fotoğraf & Video Prodüksiyon</option>
+                        <option value="Medya & Haber">Medya & Haber</option>
+                        <option value="Müzik & Eğlence">Müzik & Eğlence</option>
+                        <option value="Oyun & E-Spor">Oyun & E-Spor</option>
+                      </optgroup>
+
+                      <optgroup label="Perakende, E-Ticaret & Tüketici">
+                        <option value="E-Ticaret & Online Mağaza">E-Ticaret & Online Mağaza</option>
+                        <option value="Perakende Mağaza">Perakende Mağaza</option>
+                        <option value="Elektronik & Teknoloji Ürünleri">Elektronik & Teknoloji Ürünleri</option>
+                        <option value="Otomotiv & Oto Galeri">Otomotiv & Oto Galeri</option>
+                        <option value="Süperspor Otomobil & Yachting">Süperspor Otomobil & Yachting</option>
+                        <option value="Çiçekçilik & Hediyelik">Çiçekçilik & Hediyelik</option>
+                      </optgroup>
+
+                      <optgroup label="Sanayi, Üretim & B2B">
+                        <option value="Sanayi & Üretim">Sanayi & Üretim</option>
+                        <option value="Makine & Endüstri">Makine & Endüstri</option>
+                        <option value="Enerji & Yenilenebilir Enerji">Enerji & Yenilenebilir Enerji</option>
+                        <option value="Lojistik & Nakliye">Lojistik & Nakliye</option>
+                        <option value="Tarım & Hayvancılık">Tarım & Hayvancılık</option>
+                        <option value="İhracat & Dış Ticaret">İhracat & Dış Ticaret</option>
+                        <option value="KOBİ & Esnaf">KOBİ & Esnaf</option>
+                      </optgroup>
+
+                      <optgroup label="Yerel Hizmetler & Diğer">
+                        <option value="Temizlik Hizmetleri">Temizlik Hizmetleri</option>
+                        <option value="Oto Servis & Bakım">Oto Servis & Bakım</option>
+                        <option value="Elektrik, Tesisat & Teknik Servis">Elektrik, Tesisat & Teknik Servis</option>
+                        <option value="Etkinlik & Organizasyon">Etkinlik & Organizasyon</option>
+                        <option value="Dernek, Vakıf & STK">Dernek, Vakıf & STK</option>
+                        <option value="Kişisel Marka & Portfolyo">Kişisel Marka & Portfolyo</option>
+                        <option value="__custom__">Diğer / Kendi Sektörümü Yazacağım…</option>
+                      </optgroup>
                     </select>
+
+                    {briefIndustry === "__custom__" && (
+                      <input
+                        type="text"
+                        value={briefCustomIndustry}
+                        onChange={(e) => setBriefCustomIndustry(e.target.value)}
+                        placeholder="Sektörünüzü yazın…"
+                        className="w-full p-3 rounded-xl bg-black/50 border border-[#44BDBD]/40 text-white placeholder-white/40 focus:outline-none focus:border-[#44BDBD]"
+                      />
+                    )}
                   </div>
 
                   <div className="space-y-1.5">
-                    <label className="text-white/70 font-semibold">Sinematik Arketip:</label>
+                    <label className="text-white/70 font-semibold">Tasarım Yönü:</label>
                     <select
                       value={briefArchetype}
                       onChange={(e) => setBriefArchetype(e.target.value)}
                       className="w-full p-3 rounded-xl bg-black/50 border border-white/15 text-white focus:outline-none focus:border-[#E65A7F]"
                     >
+                      <option value="AI sektör ve marka karakterine göre karar versin">✨ AI sektör ve markaya göre karar versin</option>
+                      <option value="Kurumsal Güven & Profesyonel">Kurumsal Güven & Profesyonel</option>
+                      <option value="Modern Minimal & Temiz">Modern Minimal & Temiz</option>
+                      <option value="Mimari Minimal & Editorial">Mimari Minimal & Editorial</option>
+                      <option value="Klinik Temiz & Güven Veren">Klinik Temiz & Güven Veren</option>
+                      <option value="Yerel İşletme & Samimi">Yerel İşletme & Samimi</option>
+                      <option value="Premium & Luxury">Premium & Luxury</option>
+                      <option value="Editorial & Moda">Editorial & Moda</option>
+                      <option value="Teknoloji & Futuristik">Teknoloji & Futuristik</option>
+                      <option value="Doğal & Organik">Doğal & Organik</option>
                       <option value="Dark Luxury (Gece & Zarafet)">Dark Luxury (Gece & Zarafet)</option>
                       <option value="Haute Runway (Paris Altın Işık)">Haute Runway (Paris Altın Işık)</option>
                       <option value="Cyberpunk Kinetic (Neon Tokyo)">Cyberpunk Kinetic (Neon Tokyo)</option>
-                      <option value="Organic Bio-Elixir (Doğal Laboratuvar)">Organic Bio-Elixir (Doğal Laboratuvar)</option>
                     </select>
+                    <p className="text-[10px] text-white/40 leading-relaxed">
+                      “AI karar versin” seçilirse GüzelAI sektör, hedef kitle ve ticari hedefe göre Design DNA'yı kendisi belirler.
+                    </p>
                   </div>
                 </div>
 
