@@ -22,7 +22,7 @@ Ses Karakteri: "${voiceStyle || "Kendinden emin ve sıcak"}"
 Yalnızca geçerli JSON döndür:
 {"audioMood":"...","optimalBpm":90,"voiceToneRecommendation":"...","foleySoundEffects":["..."],"cinematicPacingTips":"...","audioScriptPolish":"..."}`;
 
-    res.status(200).json(await generateJson({ prompt, fallback, temperature: 0.7 }));
+    res.status(200).json(await generateJson({ req, prompt, fallback, temperature: 0.7 }));
   } catch (error) {
     sendError(res, error, "Ses analizi yapılırken bir hata oluştu.");
   }

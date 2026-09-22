@@ -68,7 +68,7 @@ Türkçe, uygulanabilir, premium bir reklam paketi üret. Yalnızca geçerli JSO
   "promptBlueprint": "İngilizce profesyonel image/video prompt"
 }`;
 
-    res.status(200).json(await generateJson({ prompt, fallback, temperature: 0.8 }));
+    res.status(200).json(await generateJson({ req, prompt, fallback, temperature: 0.8 }));
   } catch (error) {
     sendError(res, error, "Kampanya oluşturulurken bir hata oluştu.");
   }

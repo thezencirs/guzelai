@@ -20,7 +20,7 @@ Kullanıcı odağı/sorusu: "${userQuestion || routineFocus || "Gündelik ışı
 Tıbbi teşhis koymadan, kozmetik ve çekim hazırlığı odağında pratik Türkçe öneriler üret. Yalnızca geçerli JSON döndür:
 {"advice":"...","morningRitual":["..."],"nightRitual":["..."],"makeupSecret":"...","voiceoverScript":"20-30 saniyelik metin"}`;
 
-    res.status(200).json(await generateJson({ prompt, fallback, temperature: 0.7 }));
+    res.status(200).json(await generateJson({ req, prompt, fallback, temperature: 0.7 }));
   } catch (error) {
     sendError(res, error, "Güzellik tavsiyesi üretilirken bir hata oluştu.");
   }

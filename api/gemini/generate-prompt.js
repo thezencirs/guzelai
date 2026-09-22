@@ -40,7 +40,7 @@ Işık: ${lighting || "Cinematic"}
 Yalnızca geçerli JSON döndür:
 {"prompt":"detaylı İngilizce prompt","negativePrompt":"negatif prompt","stylingTips":"Türkçe kreatif stil tavsiyesi"}`;
 
-    res.status(200).json(await generateJson({ prompt, fallback, temperature: 0.7 }));
+    res.status(200).json(await generateJson({ req, prompt, fallback, temperature: 0.7 }));
   } catch (error) {
     sendError(res, error, "Prompt üretilirken hata oluştu.");
   }
