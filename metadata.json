@@ -1,0 +1,6 @@
+{
+  "name": "GuzelAI Medya",
+  "description": "GuzelAI Medya — Cinematic AI Website Director, 9:16 dikey viral video reklam klipleri, 3D interaktif vitrinler ve haute glamour yapay zeka mankenler ile çalışan yeni nesil yaratıcı medya şirketi.",
+  "requestFramePermissions": ["camera", "microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
