@@ -1,1 +1,4 @@
-{"framework":null,"cleanUrls":true}
+{
+  "framework": "vite",
+  "cleanUrls": true
+}
