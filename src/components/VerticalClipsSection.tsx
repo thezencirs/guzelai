@@ -55,6 +55,9 @@ export const VerticalClipsSection: React.FC<VerticalClipsSectionProps> = ({
   const [isRenderingFilm, setIsRenderingFilm] = useState<boolean>(false);
   const [isFilmCompleted, setIsFilmCompleted] = useState<boolean>(false);
   const [isFilmPlaying, setIsFilmPlaying] = useState<boolean>(true);
+  const [generatedVideoUrl, setGeneratedVideoUrl] = useState<string>("");
+  const [renderError, setRenderError] = useState<string>("");
+  const [renderProgress, setRenderProgress] = useState<string>("");
 
   const filteredClips = VERTICAL_CLIPS.filter((clip) => {
     if (selectedCategory === "all") return true;
@@ -105,18 +108,78 @@ export const VerticalClipsSection: React.FC<VerticalClipsSectionProps> = ({
     setGeneratorStep(2);
   };
 
-  const handleFinalizeCommercialFilm = () => {
+  const handleFinalizeCommercialFilm = async () => {
     setIsRenderingFilm(true);
-    setTimeout(() => {
+    setRenderError("");
+    setGeneratedVideoUrl("");
+    setRenderProgress("Veo 3.1 işi hazırlanıyor...");
+    try {
+      const prompt = [
+        "Create a premium 9:16 vertical social media commercial.",
+        `Brand: ${brandName}.`,
+        `The SAME synthetic adult model identity must be preserved: ${selectedModel.name}.`,
+        `Campaign hook: ${hookHeadline}.`,
+        `CTA: ${ctaButtonText}.`,
+        `Camera motion: ${selectedMotion}.`,
+        `Music / audio mood: ${selectedMusic}.`,
+        "Preserve the reference person's face, hair, skin tone, age appearance and body identity. Premium corporate advertising, photorealistic fashion cinematography, clean brand-safe composition, no identity drift, no accidental text mutation. Native sound may be used.",
+      ].join(" ");
+
+      const start = await fetch("/api/videos/create", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          prompt,
+          referenceImage:
+            selectedModel.fullBodyImage || selectedModel.avatar || selectedLookImage,
+          aspectRatio: "9:16",
+          resolution: "1080p",
+          durationSeconds: 8,
+        }),
+      });
+      const job = await start.json();
+      if (!start.ok) throw new Error(job.error || "Veo işi başlatılamadı.");
+      if (!job.id) throw new Error("Veo iş kimliği alınamadı.");
+
+      for (let attempt = 0; attempt < 90; attempt += 1) {
+        setRenderProgress(`Veo render devam ediyor • kontrol ${attempt + 1}`);
+        await new Promise((resolve) => setTimeout(resolve, 8000));
+        const statusRes = await fetch(
+          `/api/videos/status?id=${encodeURIComponent(job.id)}`
+        );
+        const status = await statusRes.json();
+        if (!statusRes.ok) throw new Error(status.error || "Video durumu alınamadı.");
+
+        if (status.status === "completed") {
+          if (!status.url) {
+            throw new Error("Video tamamlandı ancak teslim URL'si alınamadı.");
+          }
+          setGeneratedVideoUrl(status.url);
+          setIsFilmCompleted(true);
+          setGeneratorStep(3);
+          setRenderProgress("Veo 3.1 reklam filmi hazır.");
+          return;
+        }
+
+        if (status.status === "failed") {
+          throw new Error(status.error?.message || status.error || "Veo üretimi başarısız.");
+        }
+      }
+
+      throw new Error("Video üretimi beklenenden uzun sürdü. Video Stüdyosundan tekrar kontrol edin.");
+    } catch (error: any) {
+      setRenderError(error?.message || "Reklam filmi oluşturulamadı.");
+    } finally {
       setIsRenderingFilm(false);
-      setIsFilmCompleted(true);
-      setGeneratorStep(3);
-    }, 1200);
+    }
   };
 
   const handleResetGenerator = () => {
     setIsLookApproved(false);
     setIsFilmCompleted(false);
+    setGeneratedVideoUrl("");
+    setRenderError("");
+    setRenderProgress("");
     setGeneratorStep(1);
   };
 
@@ -624,6 +687,15 @@ export const VerticalClipsSection: React.FC<VerticalClipsSectionProps> = ({
                         </>
                       )}
                     </button>
+                    {(renderProgress || renderError) && (
+                      <div className={`text-[11px] p-3 rounded-xl border ${
+                        renderError
+                          ? "bg-rose-50 border-rose-200 text-rose-700"
+                          : "bg-[#44BDBD]/10 border-[#44BDBD]/20 text-[#206f6f]"
+                      }`}>
+                        {renderError || renderProgress}
+                      </div>
+                    )}
                   </div>
                 </div>
 
@@ -711,13 +783,25 @@ export const VerticalClipsSection: React.FC<VerticalClipsSectionProps> = ({
 
                     {/* Video / Animated Simulation Canvas */}
                     <div className="relative w-full h-full rounded-[26px] overflow-hidden bg-black">
-                      <img
-                        src={selectedLookImage}
-                        alt="Completed Ad Film"
-                        className={`w-full h-full object-cover transition-transform duration-700 ${
-                          isFilmPlaying ? "scale-105" : "scale-100"
-                        }`}
-                      />
+                      {generatedVideoUrl ? (
+                        <video
+                          src={generatedVideoUrl}
+                          className="w-full h-full object-cover"
+                          autoPlay
+                          loop
+                          muted={isMuted}
+                          playsInline
+                          controls
+                        />
+                      ) : (
+                        <img
+                          src={selectedLookImage}
+                          alt="Completed Ad Film"
+                          className={`w-full h-full object-cover transition-transform duration-700 ${
+                            isFilmPlaying ? "scale-105" : "scale-100"
+                          }`}
+                        />
+                      )}
 
                       {/* Cinematic Lighting & Gradients */}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-black/60 pointer-events-none" />
@@ -753,13 +837,15 @@ export const VerticalClipsSection: React.FC<VerticalClipsSectionProps> = ({
                         </div>
                       </div>
 
-                      {/* Play/Pause Overlay Button */}
-                      <button
-                        onClick={() => setIsFilmPlaying(!isFilmPlaying)}
-                        className="absolute inset-0 m-auto w-14 h-14 rounded-full bg-black/40 backdrop-blur text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity z-20 hover:scale-110"
-                      >
-                        {isFilmPlaying ? <Pause className="w-6 h-6" /> : <Play className="w-6 h-6 ml-1" />}
-                      </button>
+                      {/* Play/Pause overlay is only used by the fallback preview. */}
+                      {!generatedVideoUrl && (
+                        <button
+                          onClick={() => setIsFilmPlaying(!isFilmPlaying)}
+                          className="absolute inset-0 m-auto w-14 h-14 rounded-full bg-black/40 backdrop-blur text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity z-20 hover:scale-110"
+                        >
+                          {isFilmPlaying ? <Pause className="w-6 h-6" /> : <Play className="w-6 h-6 ml-1" />}
+                        </button>
+                      )}
 
                       {/* Bottom Viral Ad Layer: Kinetic Hook, Sound, and CTA */}
                       <div className="absolute bottom-4 left-3.5 right-3.5 z-20 space-y-2.5">
@@ -840,7 +926,11 @@ export const VerticalClipsSection: React.FC<VerticalClipsSectionProps> = ({
                   <div className="space-y-3">
                     <button
                       onClick={() => {
-                        alert("Dikey reklam filminiz (1080x1920 MP4) indirme kuyruğuna alındı!");
+                        if (generatedVideoUrl) {
+                          window.open(generatedVideoUrl, "_blank", "noopener,noreferrer");
+                        } else {
+                          alert("Henüz gerçek video URL'si oluşmadı.");
+                        }
                       }}
                       className="w-full py-3.5 rounded-full bg-[#171717] hover:bg-[#262626] text-white text-xs sm:text-sm font-bold flex items-center justify-center gap-2 transition shadow-md"
                     >

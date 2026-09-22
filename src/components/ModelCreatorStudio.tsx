@@ -192,42 +192,63 @@ const config = {
     setTimeout(() => setIsCopiedApi(false), 2000);
   };
 
-  // Deploy Character into Live GuzelAI Roster
-  const handleDeployToLife = () => {
+  // Generate a real synthetic character with Gemini Image, then lock it into the live roster.
+  const handleDeployToLife = async () => {
     setIsDeploying(true);
-    setTimeout(() => {
-      setIsDeploying(false);
-      const matchedPreset = PRESET_INFLUENCERS.find((p) => p.id === selectedPresetId);
+    setDeployedSuccess(false);
+    try {
+      const response = await fetch("/api/images/generate-model", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          name: charName,
+          handle: charHandle,
+          archetype,
+          vibe: ethnicityVibe,
+          faceShape,
+          eyeColor,
+          hairStyle,
+          skinTone,
+          bodyType,
+          outfitStyle,
+          voiceTone,
+        }),
+      });
+      const data = await response.json();
+      if (!response.ok) {
+        throw new Error(data.error || "Model üretimi başarısız.");
+      }
+
       const newModel: AIModel = {
         id: `created-${Date.now()}`,
         name: charName,
-        title: `${archetype} & Metaverse Influencer`,
-        avatar: matchedPreset?.avatar || PRESET_INFLUENCERS[0].avatar,
-        fullBodyImage: matchedPreset?.fullBody || PRESET_INFLUENCERS[0].fullBody,
+        title: `${archetype} & Character Lock AI Influencer`,
+        avatar: data.masterPortrait,
+        fullBodyImage: data.fullBody,
         style: "realistic",
         nationalityVibe: ethnicityVibe,
         height: bodyType.includes("1.80m") ? "1.80m" : "1.76m",
         skinType: skinTone,
         hairDefault: hairStyle,
-        bio: `${charHandle} • GuzelAI Model Üretim Laboratuvarı'nda üretilmiş hiper-gerçekçi AI influencer. ${ethnicityVibe}. Marka işbirlikleri ve metaverse oyun entegrasyonlarına hazır.`,
-        tags: [archetype, "Metaverse Ready", "Unreal Engine 5", "9:16 Viral", "4K Commercial"],
+        bio: `${charHandle} • Gemini Image ile üretilmiş ve iki ana referansla Character Lock uygulanmış sentetik AI influencer. ${ethnicityVibe}. Aynı karakter sonraki fotoğraf ve Veo reklamlarında referans olarak kullanılmaya hazır.`,
+        tags: [archetype, "CHARACTER LOCK", data.engine || "Gemini Image", "9:16 Viral", "Commercial"],
         beautyRoutine: {
           morningSteps: ["Buzlu masaj silindiri", "Hyalüronik asit serum", "Glow nemlendirici"],
           nightSteps: ["Çift aşamalı temizleme", "Retinol bakım", "İpek yastık kılıfı"],
-          signatureSecret: "Kamera karşısında 8K Glass Skin yansıması",
+          signatureSecret: "Master Identity referanslarıyla yüz tutarlılığı",
           skincareFavorite: "Botanik Nemlendirici İksir",
-          makeupLook: "Fransız Nude & Zümrüt Bakışlar",
-          fragranceNotes: "Şampanya, İris Çiçeği ve Beyaz Amber",
-          dietWaterTip: "Günde 3 litre alkali su ve taze yeşil elma",
+          makeupLook: "Kurumsal kampanyaya göre dinamik",
+          fragranceNotes: "Marka kitine göre dinamik",
+          dietWaterTip: "Sentetik karakter profili",
         },
-        voiceSampleText: `Merhaba! Ben ${charName}. GuzelAI ile hem sosyal medyada viral 9:16 reklam filmlerinde hem de Unreal Engine 5 metaverse oyunlarında başroldeyim.`,
-        commercialNiches: ["Lüks Moda", "Metaverse & Oyun", "Kozmetik & Parfüm", "Süperspor & Yaşam"],
+        voiceSampleText: `Merhaba! Ben ${charName}. GüzelAI Character Lock ile aynı kimliğimi koruyarak kampanyalarda ve 9:16 reklamlarda yer alıyorum.`,
+        commercialNiches: ["Lüks Moda", "Kozmetik", "E-ticaret", "Otomotiv", "Sosyal Medya"],
         stats: {
-          campaignsCount: 14,
-          engagementRate: "%6.8",
-          popularity: 98,
+          campaignsCount: 0,
+          engagementRate: "%0",
+          popularity: 80,
         },
-        badge: "METAVERSE & OYUN HAZIR",
+        badge: "CHARACTER LOCK • AI GENERATED",
         isBrandCollabReady: true,
         isPremium: true,
       };
@@ -235,7 +256,14 @@ const config = {
       setCreatedModel(newModel);
       setDeployedSuccess(true);
       onDeployModelToRoster(newModel);
-    }, 1000);
+    } catch (error: any) {
+      alert(
+        error?.message ||
+          "Model üretilemedi. Profil > AI Bağlantısı bölümünden Gemini Image erişimini test edin."
+      );
+    } finally {
+      setIsDeploying(false);
+    }
   };
 
   return (
@@ -280,12 +308,12 @@ const config = {
               {isDeploying ? (
                 <>
                   <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                  <span>Model Hayata Geçiriliyor...</span>
+                  <span>Master Identity & Full Body Üretiliyor...</span>
                 </>
               ) : (
                 <>
                   <Zap className="w-4 h-4 fill-amber-300 text-amber-300" />
-                  <span>Modeli Hayata Geçir & Stüdyoya Aktar</span>
+                  <span>Gemini ile Modeli Üret, Kilitle & Stüdyoya Aktar</span>
                 </>
               )}
             </button>
