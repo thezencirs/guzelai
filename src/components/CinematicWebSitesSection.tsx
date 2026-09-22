@@ -25,6 +25,9 @@ import {
   Compass,
   Film,
   Award,
+  Loader2,
+  ClipboardCopy,
+  Braces,
 } from "lucide-react";
 
 interface CinematicWebSitesSectionProps {
@@ -264,7 +267,53 @@ export const CinematicWebSitesSection: React.FC<CinematicWebSitesSectionProps> =
   const [briefIndustry, setBriefIndustry] = useState<string>("Lüks Moda & Giyim");
   const [briefArchetype, setBriefArchetype] = useState<string>("Dark Luxury");
   const [briefGoal, setBriefGoal] = useState<string>("Global Lansman & Yüksek Dönüşüm");
+  const [briefReference, setBriefReference] = useState<string>("");
+  const [briefRequirements, setBriefRequirements] = useState<string>("");
   const [briefGenerated, setBriefGenerated] = useState<boolean>(false);
+  const [briefLoading, setBriefLoading] = useState<boolean>(false);
+  const [briefError, setBriefError] = useState<string>("");
+  const [websitePlan, setWebsitePlan] = useState<any | null>(null);
+  const [copiedMasterPrompt, setCopiedMasterPrompt] = useState<boolean>(false);
+
+  const handleGenerateWebsitePlan = async () => {
+    if (!briefBrandName.trim()) {
+      setBriefError("Lütfen marka veya proje ismini giriniz.");
+      return;
+    }
+
+    setBriefLoading(true);
+    setBriefError("");
+    setBriefGenerated(false);
+    setWebsitePlan(null);
+
+    try {
+      const response = await fetch("/api/gemini/generate-prompt", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          task: "website_builder",
+          brandName: briefBrandName.trim(),
+          industry: briefIndustry,
+          archetype: briefArchetype,
+          goal: briefGoal.trim(),
+          reference: briefReference.trim(),
+          additionalRequirements: briefRequirements.trim(),
+        }),
+      });
+
+      const data = await response.json();
+      if (!response.ok) {
+        throw new Error(data?.error || "Website Builder Engine çalıştırılamadı.");
+      }
+
+      setWebsitePlan(data);
+      setBriefGenerated(true);
+    } catch (error: any) {
+      setBriefError(error?.message || "Website Builder Engine çalıştırılamadı.");
+    } finally {
+      setBriefLoading(false);
+    }
+  };
 
   const exp = CINEMATIC_EXPERIENCES[activeExperienceIndex];
 
@@ -337,6 +386,11 @@ export const CinematicWebSitesSection: React.FC<CinematicWebSitesSectionProps> =
             <p className="text-sm sm:text-base text-white/75 leading-relaxed">
               Müşteri malzemeyi verir. <strong className="text-white font-bold">GuzelAI hikayeyi anlar</strong>, dijital deneyimi yönetir, 3D dünyaları tasarlar ve sinematik kamera hareketleriyle dönüştürür.
             </p>
+
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-400/10 border border-emerald-400/20 text-emerald-300 text-[10px] font-black tracking-wider uppercase">
+              <CheckCircle2 className="w-3.5 h-3.5" />
+              Website Builder Constitution v2 • Build → Inspect → Fix → Final
+            </div>
 
             {/* 14 Creative Roles Badges */}
             <div className="flex flex-wrap items-center gap-1.5 pt-2 text-[10px] font-mono text-white/60">
@@ -770,7 +824,7 @@ export const CinematicWebSitesSection: React.FC<CinematicWebSitesSectionProps> =
             {!briefGenerated ? (
               <div className="space-y-4 text-xs">
                 <p className="text-white/75 leading-relaxed">
-                  Marka malzemelerinizi ve hayalinizdeki sinematik deneyimi tanımlayın; GuzelAI Director ekibimiz için hazır bir prodüksiyon senaryosu üretelim.
+                  Marka fikrinizi, referanslarınızı ve hedefinizi girin. GüzelAI Website Builder Engine v2 bunu Design DNA → Site Architecture → Component System → Responsive → Build → QA → Fix → Final pipeline'ından geçirir.
                 </p>
 
                 <div className="space-y-1.5">
@@ -827,38 +881,130 @@ export const CinematicWebSitesSection: React.FC<CinematicWebSitesSectionProps> =
                   />
                 </div>
 
+                <div className="space-y-1.5">
+                  <label className="text-white/70 font-semibold">
+                    Referans Site / Görsel / Asset Notu <span className="text-white/40">(opsiyonel)</span>
+                  </label>
+                  <textarea
+                    value={briefReference}
+                    onChange={(e) => setBriefReference(e.target.value)}
+                    rows={3}
+                    placeholder="Örn: Referans site URL'si, yüklediğiniz görselin açıklaması, mevcut marka asset'leri, korunması gereken layout..."
+                    className="w-full p-3 rounded-xl bg-black/50 border border-white/15 text-white placeholder-white/40 focus:outline-none focus:border-[#44BDBD] resize-y"
+                  />
+                </div>
+
+                <div className="space-y-1.5">
+                  <label className="text-white/70 font-semibold">
+                    Ek Gereksinimler <span className="text-white/40">(opsiyonel)</span>
+                  </label>
+                  <textarea
+                    value={briefRequirements}
+                    onChange={(e) => setBriefRequirements(e.target.value)}
+                    rows={3}
+                    placeholder="Örn: Türkçe/İngilizce, ürün galerisi, rezervasyon formu, CMS, üyelik, sadece minimal motion, mevcut hero korunacak..."
+                    className="w-full p-3 rounded-xl bg-black/50 border border-white/15 text-white placeholder-white/40 focus:outline-none focus:border-[#44BDBD] resize-y"
+                  />
+                </div>
+
+                {briefError && (
+                  <div className="p-3 rounded-xl bg-rose-500/10 border border-rose-400/25 text-rose-300 text-[11px]">
+                    {briefError}
+                  </div>
+                )}
+
                 <button
-                  onClick={() => {
-                    if (!briefBrandName.trim()) {
-                      alert("Lütfen marka isminizi giriniz.");
-                      return;
-                    }
-                    setBriefGenerated(true);
-                  }}
-                  className="w-full py-3.5 rounded-full bg-[#E65A7F] hover:bg-[#D9496F] text-white font-bold transition shadow-lg shadow-[#E65A7F]/30"
+                  onClick={handleGenerateWebsitePlan}
+                  disabled={briefLoading}
+                  className="w-full py-3.5 rounded-full bg-[#E65A7F] hover:bg-[#D9496F] disabled:opacity-50 text-white font-bold transition shadow-lg shadow-[#E65A7F]/30 flex items-center justify-center gap-2"
                 >
-                  Senaryo ve Prodüksiyon Brief'i Oluştur
+                  {briefLoading ? (
+                    <>
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                      Website Builder Engine Tasarlıyor...
+                    </>
+                  ) : (
+                    <>
+                      <Braces className="w-4 h-4" />
+                      Design DNA + Site Mimarisi + Master Build Prompt Oluştur
+                    </>
+                  )}
                 </button>
               </div>
             ) : (
               <div className="space-y-4 text-xs">
-                <div className="p-4 rounded-2xl bg-black/60 border border-emerald-500/30 space-y-2">
+                <div className="p-4 rounded-2xl bg-black/60 border border-emerald-500/30 space-y-3">
                   <div className="flex items-center gap-2 text-emerald-400 font-bold text-sm">
                     <CheckCircle2 className="w-4 h-4" />
-                    <span>Sinematik Brief Hazırlandı</span>
+                    <span>Website Builder Engine v2 Planı Hazır</span>
                   </div>
-                  <div className="text-white/90 space-y-1">
-                    <div><strong>Marka:</strong> {briefBrandName}</div>
-                    <div><strong>Sektör:</strong> {briefIndustry}</div>
-                    <div><strong>Sinematik Stil:</strong> {briefArchetype}</div>
-                    <div><strong>Kamera Dili:</strong> 3D Push-in, Raymarching Işık Kırılımı ve 60 FPS Sıvı/Kumaş Fiziği</div>
-                    <div><strong>Hedef:</strong> {briefGoal}</div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-white/90">
+                    <div className="p-2.5 rounded-xl bg-white/5 border border-white/10">
+                      <span className="text-white/45 block text-[9px] uppercase">Proje</span>
+                      <strong>{websitePlan?.projectSummary?.name || briefBrandName}</strong>
+                    </div>
+                    <div className="p-2.5 rounded-xl bg-white/5 border border-white/10">
+                      <span className="text-white/45 block text-[9px] uppercase">Design DNA</span>
+                      <strong>{websitePlan?.designDNA?.character || briefArchetype}</strong>
+                    </div>
+                    <div className="p-2.5 rounded-xl bg-white/5 border border-white/10">
+                      <span className="text-white/45 block text-[9px] uppercase">Ana Hedef</span>
+                      <strong>{websitePlan?.projectSummary?.conversionGoal || briefGoal}</strong>
+                    </div>
+                    <div className="p-2.5 rounded-xl bg-white/5 border border-white/10">
+                      <span className="text-white/45 block text-[9px] uppercase">Sayfa Sayısı</span>
+                      <strong>{Array.isArray(websitePlan?.siteMap) ? websitePlan.siteMap.length : 1} planlandı</strong>
+                    </div>
                   </div>
                 </div>
 
-                <p className="text-white/70">
-                  Bu brief ile GuzelAI Cinematic Website Director ekibimiz 48 saat içinde interaktif sahne prototipinizi hazırlayabilir.
-                </p>
+                {Array.isArray(websitePlan?.siteMap) && websitePlan.siteMap.length > 0 && (
+                  <div className="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-2">
+                    <div className="text-[#44BDBD] font-black uppercase tracking-wider text-[10px]">
+                      Site Architecture
+                    </div>
+                    {websitePlan.siteMap.slice(0, 4).map((page: any, index: number) => (
+                      <div key={index} className="flex items-start justify-between gap-3 border-b border-white/5 last:border-0 py-1.5">
+                        <strong className="text-white">{page.page}</strong>
+                        <span className="text-white/55 text-right">{page.purpose}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                <div className="p-4 rounded-2xl bg-[#090B10] border border-[#44BDBD]/25 space-y-2">
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="text-[#44BDBD] font-black uppercase tracking-wider text-[10px]">
+                      Master Build Prompt
+                    </span>
+                    <button
+                      type="button"
+                      onClick={async () => {
+                        const prompt = websitePlan?.masterBuildPrompt || "";
+                        if (!prompt) return;
+                        await navigator.clipboard.writeText(prompt);
+                        setCopiedMasterPrompt(true);
+                        setTimeout(() => setCopiedMasterPrompt(false), 1600);
+                      }}
+                      className="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-white/20 text-white text-[10px] font-bold flex items-center gap-1"
+                    >
+                      <ClipboardCopy className="w-3 h-3" />
+                      {copiedMasterPrompt ? "Kopyalandı" : "Kopyala"}
+                    </button>
+                  </div>
+                  <p className="text-white/65 leading-relaxed max-h-32 overflow-y-auto pr-2">
+                    {websitePlan?.masterBuildPrompt || "Master build prompt üretilemedi."}
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center">
+                  {["Design DNA", "Responsive", "QA + Fix", "Preservation"].map((item) => (
+                    <div key={item} className="p-2 rounded-xl bg-white/5 border border-white/10 text-[10px] font-bold text-white/75">
+                      ✓ {item}
+                    </div>
+                  ))}
+                </div>
 
                 <div className="flex gap-3">
                   <button
@@ -868,10 +1014,13 @@ export const CinematicWebSitesSection: React.FC<CinematicWebSitesSectionProps> =
                     }}
                     className="flex-1 py-3 rounded-full bg-[#E65A7F] hover:bg-[#D9496F] text-white font-bold transition"
                   >
-                    GuzelAI Ekibine Gönder & Teklif Al
+                    Bu Planla Projeyi Başlat
                   </button>
                   <button
-                    onClick={() => setBriefGenerated(false)}
+                    onClick={() => {
+                      setBriefGenerated(false);
+                      setWebsitePlan(null);
+                    }}
                     className="px-4 py-3 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold transition"
                   >
                     Düzenle
