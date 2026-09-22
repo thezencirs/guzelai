@@ -421,7 +421,7 @@ export const CinematicWebSitesSection: React.FC<CinematicWebSitesSectionProps> =
               className="px-6 py-3.5 rounded-full bg-[#E65A7F] hover:bg-[#D9496F] text-white text-xs sm:text-sm font-extrabold tracking-tight transition shadow-xl shadow-[#E65A7F]/30 flex items-center gap-2"
             >
               <Sparkles className="w-4 h-4" />
-              <span>Markana Sinematik Web Sitesi Tasarla</span>
+              <span>Markana / İşletmene Web Sitesi Tasarla</span>
             </button>
 
             <button
@@ -819,7 +819,7 @@ export const CinematicWebSitesSection: React.FC<CinematicWebSitesSectionProps> =
               <div className="flex items-center gap-2">
                 <Film className="w-5 h-5 text-[#E65A7F]" />
                 <h3 className="text-lg sm:text-xl font-black text-white">
-                  Sinematik Web Sitesi Briefing Üreticisi
+                  AI Web Sitesi Tasarım & Briefing Motoru
                 </h3>
               </div>
               <button
