@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { TranslationSchema } from "../i18n/translations";
 import { UserProfile } from "../components/AuthOnboardingModal";
+import { AIConnectionPanel } from "../components/AIConnectionPanel";
+import { GoogleSignInButton } from "../components/GoogleSignInButton";
 import {
   ArrowLeft,
   User,
@@ -230,6 +232,8 @@ export const AuthPage: React.FC<AuthPageProps> = ({
               </div>
             </div>
 
+            <AIConnectionPanel credits={currentUser.credits} />
+
             {/* Account Stats & API Keys */}
             <div className="p-6 rounded-3xl bg-white border border-[#171717]/10 shadow-xs space-y-4">
               <h3 className="text-base font-black text-[#171717] flex items-center gap-2">
@@ -242,13 +246,13 @@ export const AuthPage: React.FC<AuthPageProps> = ({
               <div className="flex items-center gap-2 bg-[#FAF8F5] p-3 rounded-xl border border-[#171717]/10 font-mono text-xs">
                 <span className="text-[#171717]/50 select-none">KEY:</span>
                 <span className="font-bold text-[#171717] truncate flex-1">
-                  gzl_live_99x82fa7b810d729e924c519283
+                  gzl_live_••••••••••••••••••••
                 </span>
                 <button
-                  onClick={() => alert("API anahtarı panoya kopyalandı!")}
+                  onClick={() => alert("Geliştirici API anahtarı üretim AI bağlantısından ayrıdır. Bu alan v2 geliştirici erişimi için hazırlanmıştır.")}
                   className="px-3 py-1 bg-white hover:bg-neutral-100 rounded-lg border border-[#171717]/10 text-[11px] font-bold"
                 >
-                  Kopyala
+                  Durum
                 </button>
               </div>
             </div>
@@ -321,6 +325,18 @@ export const AuthPage: React.FC<AuthPageProps> = ({
                   >
                     Giriş Yap
                   </button>
+                </div>
+
+                <GoogleSignInButton
+                  onSuccess={(user) => {
+                    onLoginSuccess(user);
+                    setIsSuccessNotification(true);
+                  }}
+                />
+                <div className="flex items-center gap-3 text-[10px] text-[#171717]/40">
+                  <div className="h-px bg-[#171717]/10 flex-1" />
+                  <span>veya e-posta ile</span>
+                  <div className="h-px bg-[#171717]/10 flex-1" />
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
