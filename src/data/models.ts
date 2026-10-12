@@ -1,6 +1,46 @@
 import { AIModel, ProductPreset, TextureOption, WardrobeOption, AccessoryItem } from "../types";
 
 export const AI_MODELS: AIModel[] = [
+{
+  "id": "guzelai-leyla-001",
+  "name": "Leyla",
+  "title": "Dostluk ve gündelik hayat • Kurgusal AI karakter",
+  "style": "realistic",
+  "avatar": "/influencers/leyla/reference.png",
+  "fullBodyImage": "/influencers/leyla/reference.png",
+  "nationalityVibe": "İstanbul kafe atmosferi",
+  "height": "Tanımlanmadı",
+  "skinType": "Referans görseldeki doğal ten tonu",
+  "hairDefault": "Koyu kahverengi, omuz hizasında dalgalı saç",
+  "bio": "Leyla ile küçük anlar, sıcak sohbetler. Dostluk ve gündelik hayattan paylaşmak isteyeceğin kısa hikâyeler. Leyla gerçek bir kişi değil, GüzelAI’nin kurgusal yapay zekâ karakteridir.",
+  "tags": [
+    "Kurgusal AI",
+    "Dostluk",
+    "Gündelik hayat"
+  ],
+  "commercialNiches": [],
+  "voiceSampleText": "Az konuşuyoruz ama iyi ki varsın.",
+  "isBrandCollabReady": false,
+  "badge": "LEYLA • İLK SOSYAL MEDYA KARAKTERİ",
+  "galleryImages": [
+    "/influencers/leyla/reference.png"
+  ],
+  "exactPromptSnippet": "Her görsel üretiminde referans görsel kullanılmalı. Yalnız metin tarifi yüz tutarlılığı garantisi değildir. Referans kullanılmadıysa veya yüz doğrulanmadıysa yayın bekletilir. {\"hair\":\"Koyu kahverengi, omuz hizasında dalgalı saç\",\"face\":\"Yüz geometrisi ve ten tonu referans görselden korunur; yeni yüz icat edilmez\",\"signatureWardrobe\":\"Krem örgü kazak; sıcak nötr renkler\",\"pilotSetting\":\"İstanbul kafesi, iki çay, sıcak doğal ışık\"}",
+  "stats": {
+    "campaignsCount": 0,
+    "engagementRate": "Henüz ölçülmedi",
+    "popularity": 0
+  },
+  "beautyRoutine": {
+    "morningSteps": [],
+    "nightSteps": [],
+    "signatureSecret": "Kurgusal karakter; gerçek bakım deneyimi yok.",
+    "skincareFavorite": "Tanımlanmadı",
+    "makeupLook": "Doğal",
+    "fragranceNotes": "Tanımlanmadı",
+    "dietWaterTip": "Sağlık veya beslenme önerisi sunmaz."
+  }
+},
   {
     id: "valentina-cruz",
     name: "Valentina Cruz",

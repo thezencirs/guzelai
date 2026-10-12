@@ -69,6 +69,20 @@ export const HomePage: React.FC<HomePageProps> = ({
         onScrollToWebsites={onNavigateWebsites}
       />
 
+      <section id="leyla" className="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-10 items-center">
+        <img src="/influencers/leyla/reference.png" alt="Leyla, İstanbul kafesinde iki çayla; kurgusal AI karakter" className="w-full max-w-md rounded-3xl" loading="lazy" />
+        <div className="space-y-5">
+          <p className="text-sm tracking-widest uppercase">GüzelAI ile tanış • Leyla</p>
+          <h2 className="text-4xl font-bold">Küçük anlar. Güzel dostluklar.</h2>
+          <p className="text-lg leading-relaxed">Leyla ile küçük anlar, sıcak sohbetler. Dostluk ve gündelik hayattan paylaşmak isteyeceğin kısa hikâyeler. Leyla gerçek bir kişi değil, GüzelAI’nin kurgusal yapay zekâ karakteridir.</p>
+          <p>28 yaşındaki kurgusal Leyla’nın dünyası: sıcak bir çay, ince bir espri ve arkadaşına göndermek istediğin bir cümle.</p>
+          <div className="flex flex-wrap gap-4">
+            <a className="px-5 py-3 rounded-full bg-[#171717] text-white" href="https://www.instagram.com/guzelaicom/" target="_blank" rel="noopener noreferrer">Instagram’da izle</a>
+            <a className="px-5 py-3 rounded-full border border-[#171717]" href="https://whatsapp.com/channel/0029VbDetYc3mFYDwZSry016" target="_blank" rel="noopener noreferrer">WhatsApp kanalına katıl</a>
+          </div>
+          <p className="text-sm text-neutral-600">Görseller ve hikâyeler yapay zekâ desteğiyle hazırlanır.</p>
+        </div>
+      </section>
       {/* 2. Web App Direct Page Launchers Bar (Prominent Portal Cards) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-20">
         <div className="bg-white/90 backdrop-blur-xl rounded-3xl p-6 sm:p-8 border border-[#171717]/10 shadow-xl">

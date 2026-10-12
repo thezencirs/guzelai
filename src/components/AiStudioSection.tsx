@@ -43,7 +43,8 @@ export const AiStudioSection: React.FC<AiStudioSectionProps> = ({
   };
 
   // Sample 6 camera angles preview for active model
-  const cameraAnglePreviews = activeModel.galleryImages && activeModel.galleryImages.length > 1 ? [
+  const isLeyla = activeModel.id === "guzelai-leyla-001";
+  const cameraAnglePreviews = isLeyla ? [{name:"Leyla — ana referans görsel",img:activeModel.avatar}] : activeModel.galleryImages && activeModel.galleryImages.length > 1 ? [
     { name: "1. Ferrari 360 Kapı Eşiği (Candid Reel)", img: activeModel.galleryImages[1] || activeModel.fullBodyImage },
     { name: "2. Günbatımı Sahil Yolu Kaput Çekimi", img: activeModel.galleryImages[2] || activeModel.fullBodyImage },
     { name: "3. Portre & Kırmızı Fiyonk (Headshot)", img: activeModel.galleryImages[0] || activeModel.avatar },
@@ -219,9 +220,9 @@ export const AiStudioSection: React.FC<AiStudioSectionProps> = ({
               <div className="flex items-center justify-between">
                 <div className="text-xs font-bold text-white flex items-center gap-2">
                   <Camera className="w-4 h-4 text-[#44BDBD]" />
-                  <span>Tek Çekimde Senkronize 6 Kamera Açısı:</span>
+                  <span>{isLeyla ? "Leyla’nın referans görseli" : "Tek Çekimde Senkronize 6 Kamera Açısı:"}</span>
                 </div>
-                <span className="text-[11px] text-white/50">8K Commercial Ultra-Sharp</span>
+                <span className="text-[11px] text-white/50">{isLeyla ? "Kurgusal AI karakter • 28 yaş" : "8K Commercial Ultra-Sharp"}</span>
               </div>
 
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
