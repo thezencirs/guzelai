@@ -3,6 +3,7 @@ import { TranslationSchema } from "../i18n/translations";
 import { VERTICAL_CLIPS, VerticalClipAd } from "../data/verticalClips";
 import { EditorialTypographyVideoPlayer } from "../components/EditorialTypographyVideoPlayer";
 import { VerticalClipsSection } from "../components/VerticalClipsSection";
+import { VerifiedKombinShowcase } from "../components/VerifiedKombinShowcase";
 import {
   ArrowLeft,
   Film,
@@ -139,6 +140,8 @@ export const ClipsPage: React.FC<ClipsPageProps> = ({
 
       {/* Main Page Body */}
       <div className="max-w-7xl mx-auto px-4 sm:px-8 pb-24 space-y-12">
+        <VerifiedKombinShowcase />
+
         {/* 1. EDITORIAL TYPOGRAPHY SHOWCASE (Matches the user's video directly) */}
         {selectedTab === "editorial_player" && (
           <div className="space-y-6">

@@ -172,9 +172,16 @@ export default function App() {
       } else {
         setCurrentPage("home");
         setActiveMobileTab("home");
+        if (hash === "kombinler") {
+          setTimeout(() => {
+            const el = document.getElementById("kombinler");
+            if (el) el.scrollIntoView({ behavior: "smooth" });
+          }, 150);
+        }
       }
     };
 
+    handleHashChange();
     window.addEventListener("hashchange", handleHashChange);
     return () => window.removeEventListener("hashchange", handleHashChange);
   }, []);

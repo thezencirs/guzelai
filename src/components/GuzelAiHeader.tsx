@@ -174,6 +174,16 @@ export const GuzelAiHeader: React.FC<GuzelAiHeaderProps> = ({
           </button>
 
           <button
+            onClick={() => scrollTo("kombinler")}
+            className="transition-all tracking-tight px-3 py-1.5 rounded-full flex items-center gap-1.5 hover:text-emerald-700 hover:bg-emerald-500/10"
+          >
+            <span>Kombin Linkleri</span>
+            <span className="text-[9px] px-1.5 py-0.2 rounded-full font-black bg-emerald-500 text-black">
+              DOĞRULANMIŞ
+            </span>
+          </button>
+
+          <button
             onClick={() => scrollTo("interactive-formats-section")}
             className="hover:text-[#FB5D2E] transition-colors tracking-tight hidden xl:flex items-center gap-1.5 px-2.5 py-1.5"
           >
@@ -356,6 +366,15 @@ export const GuzelAiHeader: React.FC<GuzelAiHeaderProps> = ({
               <span className="font-bold text-emerald-700">Giriş / Profil Portalı</span>
               <span className="text-xs px-2 py-0.5 rounded-full bg-amber-400 text-black font-black">
                 {currentUser?.isLoggedIn ? `${currentUser.credits} Kredi` : "+50 KREDİ"}
+              </span>
+            </button>
+            <button
+              onClick={() => scrollTo("kombinler")}
+              className="text-left py-2 border-b border-[#171717]/5 flex items-center justify-between"
+            >
+              <span className="font-bold text-emerald-700">Kombin & E-Ticaret Linkleri</span>
+              <span className="text-xs px-2 py-0.5 rounded-full bg-emerald-500 text-black font-black">
+                DOĞRULANMIŞ
               </span>
             </button>
             <button
