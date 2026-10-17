@@ -283,7 +283,7 @@ export const VerifiedKombinShowcase: React.FC = () => {
               </p>
             </div>
 
-            {/* Direct Community Channels: WhatsApp Channel & Telegram Bot */}
+            {/* Direct Community Channels: WhatsApp Channel & Instagram Reels */}
             <div className="flex flex-wrap items-center gap-3 shrink-0">
               <a
                 href={current.platforms.whatsapp_channel}
@@ -296,13 +296,13 @@ export const VerifiedKombinShowcase: React.FC = () => {
                 <ExternalLink className="w-3.5 h-3.5" />
               </a>
               <a
-                href={current.platforms.telegram_bot}
+                href={current.platforms.instagram_reels}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-3 rounded-2xl bg-[#44BDBD] hover:bg-[#38a8a8] text-black font-black text-xs sm:text-sm flex items-center gap-2 transition shadow-lg shadow-[#44BDBD]/20"
+                className="px-4 py-3 rounded-2xl bg-[#E65A7F] hover:bg-[#d44d71] text-white font-black text-xs sm:text-sm flex items-center gap-2 transition shadow-lg shadow-[#E65A7F]/20"
               >
-                <Send className="w-4 h-4" />
-                <span>Telegram Botu (@guzelaibot)</span>
+                <Play className="w-4 h-4 fill-white" />
+                <span>Instagram Reels (@guzelaicom)</span>
                 <ExternalLink className="w-3.5 h-3.5" />
               </a>
             </div>
