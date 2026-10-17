@@ -2,12 +2,12 @@
   "site": "https://guzelai.com",
   "showcase_url": "https://guzelai.com/#kombinler",
   "whatsapp_channel": "https://whatsapp.com/channel/0029VbDetYc3mFYDwZSry016",
-  "updated_at": "17.10.2026 03:31",
+  "updated_at": "17.10.2026 03:32",
   "latest": {
-    "id": "kombin_20261017_033116",
+    "id": "kombin_20261017_033251",
     "archetype_id": "curly_khaki_suede_palazzo",
     "title": "Haki Süet Bomber & Antrasit Palazzo Sonbahar Stili",
-    "published_at": "17.10.2026 03:31",
+    "published_at": "17.10.2026 03:32",
     "total_price_str": "8.023,91₺",
     "total_price_val": 8023.91,
     "collage_url": "/data/latest_kombin_collage.jpg",
@@ -16,11 +16,11 @@
       "total_items": 6,
       "verified_items": 6,
       "all_verified": true,
-      "checked_at": "17.10.2026 03:31",
+      "checked_at": "17.10.2026 03:32",
       "legal_notice": "⚖️ Yasal Uyarı: Reklam veya sponsorlu iş birliği içermez; tamamen kombin önerisi ve bilgilendirme amaçlıdır (zorunlu #reklam #işbirliğideğil)."
     },
     "platforms": {
-      "instagram_reels": "https://www.instagram.com/guzelaicom/",
+      "instagram_reels": "https://www.instagram.com/reel/Dek0-8uMHlc/",
       "tiktok": "https://www.tiktok.com/@guzelaicom",
       "youtube_shorts": "https://www.youtube.com/@guzelaicom/shorts",
       "x_twitter": "https://x.com/guzelaicom",
@@ -48,7 +48,7 @@
         "store_name": "Trendyol",
         "store_domain": "trendyol.com",
         "verified_badge": "Doğrulanmış Trendyol Linki",
-        "checked_at": "2026-10-17 03:31:04"
+        "checked_at": "2026-10-17 03:32:46"
       },
       {
         "key": "cap",
@@ -68,7 +68,7 @@
         "store_name": "Trendyol",
         "store_domain": "trendyol.com",
         "verified_badge": "Doğrulanmış Trendyol Linki",
-        "checked_at": "2026-10-17 03:31:05"
+        "checked_at": "2026-10-17 03:32:47"
       },
       {
         "key": "top",
@@ -88,7 +88,7 @@
         "store_name": "Trendyol",
         "store_domain": "trendyol.com",
         "verified_badge": "Doğrulanmış Trendyol Linki",
-        "checked_at": "2026-10-17 03:31:06"
+        "checked_at": "2026-10-17 03:32:47"
       },
       {
         "key": "bottom",
@@ -108,7 +108,7 @@
         "store_name": "Trendyol",
         "store_domain": "trendyol.com",
         "verified_badge": "Doğrulanmış Trendyol Linki",
-        "checked_at": "2026-10-17 03:31:07"
+        "checked_at": "2026-10-17 03:32:48"
       },
       {
         "key": "bag",
@@ -128,7 +128,7 @@
         "store_name": "Trendyol",
         "store_domain": "trendyol.com",
         "verified_badge": "Doğrulanmış Trendyol Linki",
-        "checked_at": "2026-10-17 03:31:08"
+        "checked_at": "2026-10-17 03:32:49"
       },
       {
         "key": "shoes",
@@ -148,11 +148,160 @@
         "store_name": "Trendyol",
         "store_domain": "trendyol.com",
         "verified_badge": "Doğrulanmış Trendyol Linki",
-        "checked_at": "2026-10-17 03:31:16"
+        "checked_at": "2026-10-17 03:32:51"
       }
     ]
   },
   "broadcasts": [
+    {
+      "id": "kombin_20261017_033251",
+      "archetype_id": "curly_khaki_suede_palazzo",
+      "title": "Haki Süet Bomber & Antrasit Palazzo Sonbahar Stili",
+      "published_at": "17.10.2026 03:32",
+      "total_price_str": "8.023,91₺",
+      "total_price_val": 8023.91,
+      "collage_url": "/data/latest_kombin_collage.jpg",
+      "website_showcase_url": "https://guzelai.com/#kombinler",
+      "verification_summary": {
+        "total_items": 6,
+        "verified_items": 6,
+        "all_verified": true,
+        "checked_at": "17.10.2026 03:32",
+        "legal_notice": "⚖️ Yasal Uyarı: Reklam veya sponsorlu iş birliği içermez; tamamen kombin önerisi ve bilgilendirme amaçlıdır (zorunlu #reklam #işbirliğideğil)."
+      },
+      "platforms": {
+        "instagram_reels": "https://www.instagram.com/reel/Dek0-8uMHlc/",
+        "tiktok": "https://www.tiktok.com/@guzelaicom",
+        "youtube_shorts": "https://www.youtube.com/@guzelaicom/shorts",
+        "x_twitter": "https://x.com/guzelaicom",
+        "pinterest": "https://tr.pinterest.com/",
+        "threads": "https://www.threads.net/@guzelaicom",
+        "telegram_bot": "https://t.me/guzelaibot",
+        "whatsapp_channel": "https://whatsapp.com/channel/0029VbDetYc3mFYDwZSry016"
+      },
+      "items": [
+        {
+          "key": "outerwear",
+          "category": "Dış Giyim",
+          "emoji": "🧥",
+          "brand": "NET OF NOT",
+          "name": "Oversize Kadın Bomber Haki Süet Deri Ceket",
+          "full_name": "NET OF NOT Oversize Kadın Bomber Haki Süet Deri Ceket",
+          "price": "1.424,99₺",
+          "price_val": 1424.99,
+          "sku": "985362984",
+          "color": "Haki",
+          "product_url": "https://www.trendyol.com/net-of-not/oversize-kadin-bomber-haki-suet-deri-ceket-p-985362984",
+          "image_url": "https://cdn.dsmcdn.com/ty1753/prod/QC_PREP/20250910/20/7dfc80a6-17a4-3901-a8c3-b461800247a7/1_org_zoom.jpg",
+          "verified": true,
+          "http_status": 200,
+          "store_name": "Trendyol",
+          "store_domain": "trendyol.com",
+          "verified_badge": "Doğrulanmış Trendyol Linki",
+          "checked_at": "2026-10-17 03:32:46"
+        },
+        {
+          "key": "cap",
+          "category": "Aksesuar & Gözlük",
+          "emoji": "🕶️",
+          "brand": "NILU MODA",
+          "name": "Premium Siyah Oval Vintage Güneş Gözlüğü",
+          "full_name": "NILU MODA Premium Siyah Kadın Güneş Gözlüğü UV400 Korumalı Oval Vintage Tasarım",
+          "price": "130,29₺",
+          "price_val": 130.29,
+          "sku": "1160666803",
+          "color": "Siyah",
+          "product_url": "https://www.trendyol.com/nilu-moda/premium-siyah-kadin-gunes-gozlugu-uv400-korumali-oval-vintage-tasarim-p-1160666803",
+          "image_url": "https://cdn.dsmcdn.com/ty1935/prod/QC_PREP/20260625/09/d21386fe-930a-3d8a-b762-8b7984913232/1_org_zoom.jpg",
+          "verified": true,
+          "http_status": 200,
+          "store_name": "Trendyol",
+          "store_domain": "trendyol.com",
+          "verified_badge": "Doğrulanmış Trendyol Linki",
+          "checked_at": "2026-10-17 03:32:47"
+        },
+        {
+          "key": "top",
+          "category": "Üst Giyim",
+          "emoji": "👕",
+          "brand": "GÜLCE MODA",
+          "name": "Kadın Bisiklet Yaka Yumuşak Dokulu Oversize Triko Kazak",
+          "full_name": "GÜLCE MODA Kadın Bisiklet Yaka Yumuşak Dokulu Oversize Triko Kazak",
+          "price": "431,23₺",
+          "price_val": 431.23,
+          "sku": "963371271",
+          "color": "Ekru",
+          "product_url": "https://www.trendyol.com/gulce-moda/kadin-bisiklet-yaka-yumusak-dokulu-oversize-triko-kazak-p-963371271",
+          "image_url": "https://cdn.dsmcdn.com/ty1956/prod/QC_ENRICHMENT/20260913/00/a333cf9f-e2a1-333a-95c1-410ec6a7c513/1_org_zoom.jpg",
+          "verified": true,
+          "http_status": 200,
+          "store_name": "Trendyol",
+          "store_domain": "trendyol.com",
+          "verified_badge": "Doğrulanmış Trendyol Linki",
+          "checked_at": "2026-10-17 03:32:47"
+        },
+        {
+          "key": "bottom",
+          "category": "Alt Giyim",
+          "emoji": "👖",
+          "brand": "RITNICE",
+          "name": "Kadın Rena Kemerli Likralı Antrasit Palazzo Pantolon",
+          "full_name": "RITNICE Kadın Rena Kemerli Likralı Antrasit Palazzo Pantolon",
+          "price": "789₺",
+          "price_val": 789.0,
+          "sku": "866458994",
+          "color": "Antrasit",
+          "product_url": "https://www.trendyol.com/ritnice/kadin-rena-kemerli-likrali-antrasit-palazzo-pantolon-p-866458994",
+          "image_url": "https://cdn.dsmcdn.com/ty1945/prod/QC_ENRICHMENT/20260819/16/3d01e71d-545b-3160-b00e-91c7a8b4ec07/1_org_zoom.jpg",
+          "verified": true,
+          "http_status": 200,
+          "store_name": "Trendyol",
+          "store_domain": "trendyol.com",
+          "verified_badge": "Doğrulanmış Trendyol Linki",
+          "checked_at": "2026-10-17 03:32:48"
+        },
+        {
+          "key": "bag",
+          "category": "Çanta",
+          "emoji": "👜",
+          "brand": "HAPBUY",
+          "name": "Kadın Siyah Yumuşak Dokulu Deri Omuz Çantası",
+          "full_name": "HAPBUY Kadın Siyah Omuz Çantası Yumuşak İç ve Dış Dokulu Suni Deri El Çantası",
+          "price": "449₺",
+          "price_val": 449.0,
+          "sku": "826407400",
+          "color": "Siyah",
+          "product_url": "https://www.trendyol.com/hapbuy/kadin-siyah-omuz-cantasi-yumusak-ic-ve-dis-dokulu-kaliteli-iscilik-ve-yumusak-suni-deri-el-cantasi-p-826407400",
+          "image_url": "https://cdn.dsmcdn.com/ty1723/prod/QC_ENRICHMENT/20250808/10/5f0408d2-bd1e-3652-abdc-2aa23cadf6f3/1_org_zoom.jpg",
+          "verified": true,
+          "http_status": 200,
+          "store_name": "Trendyol",
+          "store_domain": "trendyol.com",
+          "verified_badge": "Doğrulanmış Trendyol Linki",
+          "checked_at": "2026-10-17 03:32:49"
+        },
+        {
+          "key": "shoes",
+          "category": "Ayakkabı",
+          "emoji": "👟",
+          "brand": "ADIDAS",
+          "name": "Samba OG Unisex Beyaz Sneaker",
+          "full_name": "ADIDAS Samba OG Unisex Beyaz Sneaker",
+          "price": "4.799,40₺",
+          "price_val": 4799.4,
+          "sku": "5999429",
+          "color": "Beyaz",
+          "product_url": "https://www.trendyol.com/adidas/samba-og-unisex-beyaz-sneaker-p-5999429",
+          "image_url": "https://cdn.dsmcdn.com/ty1942/prod/QC_ENRICHMENT/20260723/16/0a7c34eb-c83f-34b1-9e30-97557acf00f3/1_org_zoom.jpg",
+          "verified": true,
+          "http_status": 200,
+          "store_name": "Trendyol",
+          "store_domain": "trendyol.com",
+          "verified_badge": "Doğrulanmış Trendyol Linki",
+          "checked_at": "2026-10-17 03:32:51"
+        }
+      ]
+    },
     {
       "id": "kombin_20261017_033116",
       "archetype_id": "curly_khaki_suede_palazzo",
