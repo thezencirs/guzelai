@@ -25,6 +25,7 @@ export interface VerifiedKombinItem {
   color?: string;
   product_url: string;
   image_url: string;
+  visual_card_url?: string;
   verified: boolean;
   http_status: number;
   store_name: string;
@@ -36,9 +37,11 @@ export interface VerifiedKombinItem {
 export interface KombinBroadcastEntry {
   id: string;
   title: string;
+  viral_hook?: string;
   published_at: string;
   total_price_str: string;
   collage_url: string;
+  video_url?: string;
   website_showcase_url: string;
   verification_summary: {
     total_items: number;
@@ -54,7 +57,6 @@ export interface KombinBroadcastEntry {
     x_twitter: string;
     pinterest: string;
     threads: string;
-    telegram_bot: string;
     whatsapp_channel: string;
   };
   items: VerifiedKombinItem[];
@@ -62,10 +64,13 @@ export interface KombinBroadcastEntry {
 
 const FALLBACK_ENTRY: KombinBroadcastEntry = {
   id: "kombin_default_live",
-  title: "Denim Ceket & Gri Athleisure Kombin",
+  title: "5.000₺ Bütçeyle 50.000₺'lik 'Old Money' Görünmenin Sırrı! (4. Parçaya Dikkat) 🔥",
+  viral_hook:
+    "🛑 SAKIN GEÇME! Girdiğin her ortamda 'Üzerindekileri hangi lüks markadan aldın?' dedirten, boyu 10 cm daha uzun gösteren o 6 parçalık Old Money sırrı çözüldü! 👇✨",
   published_at: "17.10.2026 • Canlı Yayın",
-  total_price_str: "5.439,75₺",
+  total_price_str: "5.185,44₺",
   collage_url: "/data/latest_kombin_collage.jpg",
+  video_url: "/data/latest_kombin_video.mp4",
   website_showcase_url: "https://guzelai.com/#kombinler",
   verification_summary: {
     total_items: 6,
@@ -76,13 +81,12 @@ const FALLBACK_ENTRY: KombinBroadcastEntry = {
       "⚖️ Yasal Uyarı: Reklam veya sponsorlu iş birliği içermez; tamamen kombin önerisi ve bilgilendirme amaçlıdır (zorunlu #reklam #işbirliğideğil).",
   },
   platforms: {
-    instagram_reels: "https://www.instagram.com/reel/Dekp_nkMlFl/",
+    instagram_reels: "https://www.instagram.com/reel/Dek4QoIsu5q/",
     tiktok: "https://www.tiktok.com/@guzelaicom",
     youtube_shorts: "https://www.youtube.com/@guzelaicom/shorts",
     x_twitter: "https://x.com/guzelaicom",
     pinterest: "https://tr.pinterest.com/",
     threads: "https://www.threads.net/@guzelaicom",
-    telegram_bot: "https://t.me/guzelaibot",
     whatsapp_channel: "https://whatsapp.com/channel/0029VbDetYc3mFYDwZSry016",
   },
   items: [
@@ -274,12 +278,11 @@ export const VerifiedKombinShowcase: React.FC = () => {
                 </span>
               </div>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight text-white">
-                Günün 2K Video Kombinleri & Görselli Mağaza Linkleri
+                {current.title || "Herkesin Sorduğu O Viral Kombin & Görselli Mağaza Linkleri 🔥"}
               </h2>
-              <p className="text-xs sm:text-sm text-white/75 leading-relaxed">
-                GuzelAI Medya tarafından üretilen her 9:16 2K kombin videosundaki ürünler yayın
-                öncesinde otomatik olarak kontrol edilir ve doğrulanmış e-ticaret mağaza linkleriyle
-                burada görselli olarak listelenir.
+              <p className="text-xs sm:text-sm text-white/85 leading-relaxed">
+                {current.viral_hook ||
+                  "Girdiğin her ortamda 'Üzerindekini nereden aldın?' dedirten, stokları kontrol edilmiş %100 Kadın kombin parçaları ve doğrudan mağaza linkleri:"}
               </p>
             </div>
 
@@ -312,7 +315,7 @@ export const VerifiedKombinShowcase: React.FC = () => {
           <div className="mt-6 pt-5 border-t border-white/10 flex flex-wrap items-center justify-between gap-3">
             <div className="flex flex-wrap items-center gap-2">
               <span className="text-[11px] font-mono uppercase tracking-wider text-white/50 mr-1">
-                Bu Videonun Yayınlandığı Platformlar:
+                Bu Kombinin Yayınlandığı Platformlar:
               </span>
               <a
                 href={current.platforms.instagram_reels}
@@ -387,30 +390,31 @@ export const VerifiedKombinShowcase: React.FC = () => {
           </div>
         </div>
 
-        {/* Main Content Grid: Left Collage & Video Status | Right 6 Visual Verified Store Cards */}
+        {/* Main Content Grid: Left Short Graph-Motion Video & Collage | Right 6 Visual Verified Store Cards */}
         <div className="p-6 sm:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start bg-[#FAF8F5]/60">
-          {/* Left 4 Cols: 2K Kombin Collage + Video Info */}
+          {/* Left 4 Cols: Short Graph-Motion Video + Collage */}
           <div className="lg:col-span-4 space-y-5">
-            <div className="rounded-3xl overflow-hidden border border-[#171717]/10 bg-white shadow-md relative group">
-              <img
-                src={current.collage_url}
-                alt={current.title}
+            <div className="rounded-3xl overflow-hidden border border-[#171717]/10 bg-black shadow-md relative group">
+              <video
+                src={current.video_url || "/data/latest_kombin_video.mp4"}
+                poster={current.collage_url}
+                autoPlay
+                muted
+                loop
+                playsInline
+                controls
                 className="w-full aspect-[9/16] object-cover"
-                onError={(e) => {
-                  (e.currentTarget as HTMLImageElement).src =
-                    "/influencers/leyla/reference.png";
-                }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-transparent flex flex-col justify-end p-5 text-white">
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#E65A7F] text-white text-[11px] font-black w-fit mb-2">
+              <div className="p-5 bg-[#171717] text-white space-y-2">
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#E65A7F] text-white text-[11px] font-black w-fit">
                   <Sparkles className="w-3 h-3" />
                   <span>TOPLAM KOMBİN: {current.total_price_str}</span>
                 </span>
-                <h3 className="text-xl font-black leading-tight">{current.title}</h3>
-                <p className="text-xs text-white/80 mt-1">
+                <h3 className="text-lg font-black leading-tight">{current.title}</h3>
+                <p className="text-xs text-white/75">
                   Yayın & Kontrol Zamanı: {current.published_at}
                 </p>
-                <div className="grid grid-cols-2 gap-2 mt-4">
+                <div className="grid grid-cols-2 gap-2 pt-2">
                   <a
                     href={current.platforms.instagram_reels}
                     target="_blank"
@@ -460,7 +464,7 @@ export const VerifiedKombinShowcase: React.FC = () => {
                   Görselli Doğrulanmış Mağaza Linkleri
                 </span>
                 <h3 className="text-xl sm:text-2xl font-black text-[#171717]">
-                  Kombindeki Parçaları İncele & Doğrudan Mağazada Aç
+                  Kombindeki Parçaları Görselleriyle İncele & Mağazada Aç
                 </h3>
               </div>
               <span className="text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-3 py-1.5 rounded-full w-fit">
@@ -482,6 +486,12 @@ export const VerifiedKombinShowcase: React.FC = () => {
                         alt={item.full_name}
                         className="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-300 bg-white"
                         loading="lazy"
+                        onError={(e) => {
+                          const fallback = item.visual_card_url || `/data/item_card_${item.key}.jpg`;
+                          if ((e.currentTarget as HTMLImageElement).src !== window.location.origin + fallback) {
+                            (e.currentTarget as HTMLImageElement).src = fallback;
+                          }
+                        }}
                       />
                       {/* Top Left Category Pill */}
                       <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-[#171717]/85 backdrop-blur-md text-white text-xs font-extrabold flex items-center gap-1.5">
