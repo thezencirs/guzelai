@@ -2,12 +2,12 @@
   "site": "https://guzelai.com",
   "showcase_url": "https://guzelai.com/#kombinler",
   "whatsapp_channel": "https://whatsapp.com/channel/0029VbDetYc3mFYDwZSry016",
-  "updated_at": "17.10.2026 02:26",
+  "updated_at": "17.10.2026 03:11",
   "latest": {
-    "id": "kombin_20261017_022633",
+    "id": "kombin_20261017_031112",
     "archetype_id": "casual_denim_sherpa_grey",
     "title": "Denim Ceket & Gri Athleisure Kombin",
-    "published_at": "17.10.2026 02:26",
+    "published_at": "17.10.2026 03:11",
     "total_price_str": "5.439,75₺",
     "total_price_val": 5439.75,
     "collage_url": "/data/latest_kombin_collage.jpg",
@@ -16,7 +16,7 @@
       "total_items": 6,
       "verified_items": 6,
       "all_verified": true,
-      "checked_at": "17.10.2026 02:26",
+      "checked_at": "17.10.2026 03:11",
       "legal_notice": "⚖️ Yasal Uyarı: Reklam veya sponsorlu iş birliği içermez; tamamen kombin önerisi ve bilgilendirme amaçlıdır (zorunlu #reklam #işbirliğideğil)."
     },
     "platforms": {
@@ -48,7 +48,7 @@
         "store_name": "Trendyol",
         "store_domain": "trendyol.com",
         "verified_badge": "Doğrulanmış Trendyol Linki",
-        "checked_at": "2026-10-17 02:26:21"
+        "checked_at": "2026-10-17 03:10:59"
       },
       {
         "key": "cap",
@@ -68,7 +68,7 @@
         "store_name": "Trendyol",
         "store_domain": "trendyol.com",
         "verified_badge": "Doğrulanmış Trendyol Linki",
-        "checked_at": "2026-10-17 02:26:22"
+        "checked_at": "2026-10-17 03:11:00"
       },
       {
         "key": "top",
@@ -88,7 +88,7 @@
         "store_name": "Trendyol",
         "store_domain": "trendyol.com",
         "verified_badge": "Doğrulanmış Trendyol Linki",
-        "checked_at": "2026-10-17 02:26:23"
+        "checked_at": "2026-10-17 03:11:01"
       },
       {
         "key": "bottom",
@@ -108,7 +108,7 @@
         "store_name": "Trendyol",
         "store_domain": "trendyol.com",
         "verified_badge": "Doğrulanmış Trendyol Linki",
-        "checked_at": "2026-10-17 02:26:24"
+        "checked_at": "2026-10-17 03:11:02"
       },
       {
         "key": "bag",
@@ -128,7 +128,7 @@
         "store_name": "Trendyol",
         "store_domain": "trendyol.com",
         "verified_badge": "Doğrulanmış Trendyol Linki",
-        "checked_at": "2026-10-17 02:26:25"
+        "checked_at": "2026-10-17 03:11:11"
       },
       {
         "key": "shoes",
@@ -148,16 +148,16 @@
         "store_name": "Trendyol",
         "store_domain": "trendyol.com",
         "verified_badge": "Doğrulanmış Trendyol Linki",
-        "checked_at": "2026-10-17 02:26:33"
+        "checked_at": "2026-10-17 03:11:12"
       }
     ]
   },
   "broadcasts": [
     {
-      "id": "kombin_20261017_022633",
+      "id": "kombin_20261017_031112",
       "archetype_id": "casual_denim_sherpa_grey",
       "title": "Denim Ceket & Gri Athleisure Kombin",
-      "published_at": "17.10.2026 02:26",
+      "published_at": "17.10.2026 03:11",
       "total_price_str": "5.439,75₺",
       "total_price_val": 5439.75,
       "collage_url": "/data/latest_kombin_collage.jpg",
@@ -166,7 +166,7 @@
         "total_items": 6,
         "verified_items": 6,
         "all_verified": true,
-        "checked_at": "17.10.2026 02:26",
+        "checked_at": "17.10.2026 03:11",
         "legal_notice": "⚖️ Yasal Uyarı: Reklam veya sponsorlu iş birliği içermez; tamamen kombin önerisi ve bilgilendirme amaçlıdır (zorunlu #reklam #işbirliğideğil)."
       },
       "platforms": {
@@ -198,7 +198,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol Linki",
-          "checked_at": "2026-10-17 02:26:21"
+          "checked_at": "2026-10-17 03:10:59"
         },
         {
           "key": "cap",
@@ -218,7 +218,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol Linki",
-          "checked_at": "2026-10-17 02:26:22"
+          "checked_at": "2026-10-17 03:11:00"
         },
         {
           "key": "top",
@@ -238,7 +238,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol Linki",
-          "checked_at": "2026-10-17 02:26:23"
+          "checked_at": "2026-10-17 03:11:01"
         },
         {
           "key": "bottom",
@@ -258,7 +258,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol Linki",
-          "checked_at": "2026-10-17 02:26:24"
+          "checked_at": "2026-10-17 03:11:02"
         },
         {
           "key": "bag",
@@ -278,7 +278,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol Linki",
-          "checked_at": "2026-10-17 02:26:25"
+          "checked_at": "2026-10-17 03:11:11"
         },
         {
           "key": "shoes",
@@ -298,7 +298,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol Linki",
-          "checked_at": "2026-10-17 02:26:33"
+          "checked_at": "2026-10-17 03:11:12"
         }
       ]
     }
