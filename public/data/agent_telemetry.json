@@ -1,0 +1,197 @@
+{
+  "generated_at": "2026-10-18 11:41:48",
+  "timestamp_epoch": 1792312908.801553,
+  "overall_health": "HEALTHY",
+  "instagram": {
+    "username": "guzelaicom",
+    "session_healthy": true,
+    "device_profile_locked": true,
+    "bearer_token_present": true,
+    "account_status": "HEALTHY_ACTIVE",
+    "risk_level": "LOW",
+    "risk_notes": [],
+    "compliance_checks": {
+      "persistent_device_uuid": true,
+      "zero_auto_comment_bot": true,
+      "zero_raw_urls_in_caption": true,
+      "hashtag_count_safe": true,
+      "cooldown_4h_active": true
+    },
+    "metrics": {
+      "follower_count": 282,
+      "following_count": 52,
+      "media_count": 30,
+      "total_reel_views": 256,
+      "total_reel_likes": 6,
+      "total_reel_comments": 9,
+      "avg_views_per_reel": 25.6,
+      "engagement_rate_pct": 5.86
+    },
+    "deltas": {
+      "follower_delta": 0,
+      "total_views_delta": 0,
+      "total_likes_delta": 0
+    },
+    "recent_reels": [
+      {
+        "code": "DeoIDlQo3Yj",
+        "pk": "4010490898711541283",
+        "url": "https://www.instagram.com/reel/DeoIDlQo3Yj/",
+        "taken_at": "2026-10-18 07:16",
+        "play_count": 17,
+        "like_count": 0,
+        "comment_count": 0,
+        "title": "🔥 Nişantaşı Galeri & Akşamüstü Kahve Quiet Luxury: Stradivarius Süet, Calvin Kle"
+      },
+      {
+        "code": "DemC8aEssyO",
+        "pk": "4009905465477745806",
+        "url": "https://www.instagram.com/reel/DemC8aEssyO/",
+        "taken_at": "2026-10-17 11:53",
+        "play_count": 2,
+        "like_count": 0,
+        "comment_count": 1,
+        "title": "🔥 Pinterest'te En Çok Kaydedilen Old Money Sonbahar Renk Kurgusu: Camel, Buz Mav"
+      },
+      {
+        "code": "Del9WNNM7yb",
+        "pk": "4009880850089098395",
+        "url": "https://www.instagram.com/reel/Del9WNNM7yb/",
+        "taken_at": "2026-10-17 11:04",
+        "play_count": 2,
+        "like_count": 0,
+        "comment_count": 1,
+        "title": "🔥 Bordo & Koyu Kahve Peluş Deri Mont: Sonbaharın En Viral 2K Kapsül Kombini 🔥🍂✨"
+      },
+      {
+        "code": "DelxD5YsMxj",
+        "pk": "4009826815298292835",
+        "url": "https://www.instagram.com/reel/DelxD5YsMxj/",
+        "taken_at": "2026-10-17 09:17",
+        "play_count": 137,
+        "like_count": 0,
+        "comment_count": 1,
+        "title": "🔥 Tesla'nın dik pistinden bile düşmeden indiren o Cadılar Bayramı kombini 🎃🔥✨"
+      },
+      {
+        "code": "Dek4QoIsu5q",
+        "pk": "4009577001478450794",
+        "url": "https://www.instagram.com/reel/Dek4QoIsu5q/",
+        "taken_at": "2026-10-17 01:01",
+        "play_count": 19,
+        "like_count": 0,
+        "comment_count": 1,
+        "title": "🛑 KAYDIRMAYI DURDUR! Gündüz ofisten akşam Ekim & Cadılar Bayramı (Halloween) dav"
+      },
+      {
+        "code": "Dek0-8uMHlc",
+        "pk": "4009562592492157276",
+        "url": "https://www.instagram.com/reel/Dek0-8uMHlc/",
+        "taken_at": "2026-10-17 00:32",
+        "play_count": 26,
+        "like_count": 1,
+        "comment_count": 1,
+        "title": "Günün Kombin Önerisi: Haki Süet Bomber & Antrasit Palazzo Sonbahar Stili ✨"
+      },
+      {
+        "code": "Dekp_nkMlFl",
+        "pk": "4009514259983782245",
+        "url": "https://www.instagram.com/reel/Dekp_nkMlFl/",
+        "taken_at": "2026-10-16 22:56",
+        "play_count": 1,
+        "like_count": 0,
+        "comment_count": 1,
+        "title": "Günün Kombin Önerisi: Denim Ceket & Gri Athleisure Kombin ✨"
+      },
+      {
+        "code": "DekUz9ss650",
+        "pk": "4009421100138344052",
+        "url": "https://www.instagram.com/reel/DekUz9ss650/",
+        "taken_at": "2026-10-16 19:51",
+        "play_count": 23,
+        "like_count": 0,
+        "comment_count": 1,
+        "title": "Günün Kombin Önerisi: Siyah Ceket & Palazzo Jean Sokak Stili ✨"
+      },
+      {
+        "code": "DekCnpXMljj",
+        "pk": "4009341088831789283",
+        "url": "https://www.instagram.com/reel/DekCnpXMljj/",
+        "taken_at": "2026-10-16 17:12",
+        "play_count": 29,
+        "like_count": 0,
+        "comment_count": 1,
+        "title": "Günün Kombin Önerisi: Pastel Mavi Pijama & Sabah Ev Stili ✨"
+      },
+      {
+        "code": "CQYfkqJBuhq",
+        "pk": "2600967643398072426",
+        "url": "https://www.instagram.com/reel/CQYfkqJBuhq/",
+        "taken_at": "2021-06-21 12:45",
+        "play_count": 0,
+        "like_count": 5,
+        "comment_count": 1,
+        "title": "🌼 Çiçeklendik"
+      }
+    ],
+    "cooldown_status": {
+      "last_upload_epoch": 1792307822.1824791,
+      "minutes_since_last_upload": 84,
+      "cooldown_4h_remaining_min": 155,
+      "ready_for_next_post": false
+    }
+  },
+  "other_platforms": {
+    "guzelai_web": {
+      "status": "HEALTHY",
+      "http_code": 200,
+      "latency_ms": 2043,
+      "showcase_section_active": false,
+      "active_go_redirect_links": 0
+    },
+    "github_actions": {
+      "status": "HEALTHY",
+      "latest_run_id": 39107345431,
+      "run_status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-18T07:21:16Z",
+      "cloud_ip_protection": "ACTIVE (dry_run=true default)"
+    },
+    "tiktok": {
+      "handle": "@guzelaicom",
+      "session_or_profile_present": true,
+      "latest_content_ready": true,
+      "operating_mode": "STANDBY_SAFE (FYP linksiz format hazır)"
+    },
+    "threads": {
+      "handle": "@guzelaicom",
+      "session_or_profile_present": true,
+      "latest_content_ready": true,
+      "operating_mode": "STANDBY_SAFE (Instagram SSO bağlı, tıklanabilir link metni hazır)"
+    },
+    "youtube_shorts": {
+      "handle": "@guzelaicom",
+      "session_or_profile_present": true,
+      "latest_content_ready": true,
+      "operating_mode": "READY (2K dikey video + başlık/açıklama hazır)"
+    },
+    "pinterest": {
+      "handle": "@guzelaicom",
+      "session_or_profile_present": true,
+      "latest_content_ready": true,
+      "operating_mode": "READY (Old Money vitrin kartı + doğrudan link hazır)"
+    },
+    "x_twitter": {
+      "handle": "@guzelaicom",
+      "session_or_profile_present": true,
+      "latest_content_ready": true,
+      "operating_mode": "READY (<=100 karakter ana tweet + kombin zinciri hazır)"
+    },
+    "telegram": {
+      "handle": "@guzelaibot",
+      "session_or_profile_present": true,
+      "latest_content_ready": true,
+      "operating_mode": "READY (HTML ürün kartı hazır)"
+    }
+  }
+}
