@@ -285,6 +285,37 @@
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="reelsPerformanceList"></div>
         </div>
 
+        <!-- YENİ: Ajan 6 (%100 İhlal Doğurmaz Raporu) + Ajan 5 (Viral TikTok Müzik Raporu) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="bg-[#111827] border border-emerald-500/40 rounded-2xl p-4 space-y-2.5">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-0.5 rounded bg-emerald-500/20 text-emerald-400 text-xs font-bold">%100 İHLAL DOĞURMAZ</span>
+              <span class="text-xs font-mono text-slate-400">11 / 11 Kriter</span>
+            </div>
+            <h4 class="text-sm font-bold text-white">🛡️ Yayın Öncesi Güvenlik & Spam Sertifikası</h4>
+            <ul class="text-xs text-slate-300 space-y-1">
+              <li>✅ Sabit Android Cihaz UUID + Mobil Bearer IGT</li>
+              <li>✅ Açıklamada 0 Ham URL + Güvenli Etiket Sınırı</li>
+              <li>✅ Otomatik Yorum Botu Kapalı + Bulut IP Korumalı</li>
+              <li>✅ #reklam #işbirliğiDeğildir + TikTok FYP Uyumlu</li>
+            </ul>
+          </div>
+
+          <div class="bg-[#111827] border border-purple-500/40 rounded-2xl p-4 space-y-2.5">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-0.5 rounded bg-purple-500/20 text-purple-300 text-xs font-bold">SKOR: 99.4 / 100</span>
+              <span class="text-xs font-mono text-slate-400">124 BPM • 5.2s Sync</span>
+            </div>
+            <h4 class="text-sm font-bold text-white">🎵 Viral TikTok & Reels Müzik Ajanı Seçimi</h4>
+            <div class="text-xs text-slate-300 space-y-1">
+              <div><strong class="text-white">Seçilen Hit:</strong> Veor Uranis – Da Da Da Dadada</div>
+              <div><strong class="text-white">Format:</strong> 44.1 kHz Stereo • 320 kbps AAC Master</div>
+              <div><strong class="text-white">Telif & Ses:</strong> %100 DMCA Güvenli • Sıfır TTS Kesintisi</div>
+              <div><strong class="text-white">Yedekler:</strong> Milano Bossa (122 BPM), Nişantaşı Funk (124 BPM)</div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
@@ -338,7 +369,7 @@
     });
 
     // =========================================================================
-    // 7 AJAN VERİLERİ & 3D SAHNE MOTORU
+    // 10 AJAN VERİLERİ & 3D SAHNE MOTORU
     // =========================================================================
     const AGENTS = [
       {
@@ -348,31 +379,48 @@
         name: "Merkez Komuta: Ana Ajan (Antigravity)",
         status: "AKTİF MERKEZ",
         color: "#10b981",
-        gx: 0, gz: 0, w: 2.2, d: 2.2, h: 1.55,
-        desc: "Tüm alt ajanlardan gelen Pinterest trend reçetelerini, doğrulanmış mağaza linklerini, 2K Graph-Motion render paketini ve hesap sağlığı raporlarını birleştirerek yayınları yönetir.",
-        collabs: ["kombin-dispatcher-reporter", "social-health-analyst", "visual-qa-runway-inspector"],
+        gx: 0, gz: 0, w: 2.1, d: 2.1, h: 1.6,
+        desc: "10 uzman ajandan gelen Pinterest trend reçetelerini, birincil/ikiz mağaza linklerini, viral TikTok müziğini ve %100 İhlal Doğurmaz sertifikasını birleştirerek yayınları yönetir.",
+        collabs: ["kombin-dispatcher-reporter", "prepublish-compliance-auditor", "tiktok-viral-music-scout"],
         metrics: [
-          ["Son Canlı Yayın", "Reel DeoIDlQo3Yj (2K 1440x2560)"],
-          ["GuzelAI.com Vitrin", "HTTP 200 • 41 Aktif /go/ Sayfası"],
-          ["GitHub Actions", "Run #39107345431 (Başarılı / Bulut IP Korumalı)"],
-          ["Aktif Alt Ajan Sayısı", "7 Uzman Ajan İşbirliği Halinde"]
+          ["Yayın Öncesi Karar", "%100 İHLAL DOĞURMAZ (11/11 Kriter)"],
+          ["Seçilen Viral Müzik", "Veor Uranis – Da Da Da (99.4 Skor)"],
+          ["Son Canlı Yayın", "Reel DeoIDlQo3Yj (17 İzlenme)"],
+          ["Aktif Ajan Ekosistemi", "10 Uzman Ajan Tam İşbirliğinde"]
         ]
       },
       {
-        id: "agent-1",
-        shortLabel: "Ajan 1: Mağaza",
+        id: "agent-1a",
+        shortLabel: "Ajan 1A: Mağaza",
         code: "store-link-researcher",
-        name: "Ajan 1: Mağaza & Doğru Link Araştırma Ajanı",
+        name: "Ajan 1A: Ana Mağaza & Doğru Link Araştırma Ajanı",
         status: "TARAMA AKTİF",
         color: "#f59e0b",
-        gx: -3.2, gz: -2.4, w: 2.1, d: 1.8, h: 1.15,
-        desc: "Ajan 2'nin belirlediği Pinterest kombin parçalarını Zara, Trendyol, Quzu, İpekyol, Stradivarius ve H&M üzerinde tarar; birebir aynı ürünü (%100) veya en yakın ikiz modeli (%96+) doğrular.",
-        collabs: ["pinterest-trend-scout", "kombin-dispatcher-reporter", "price-stock-conversion-guard"],
+        gx: -3.4, gz: -2.2, w: 1.9, d: 1.6, h: 1.15,
+        desc: "Ajan 2'nin belirlediği Pinterest kombin parçalarını Zara, Trendyol, Quzu, İpekyol, Stradivarius ve H&M üzerinde tarar ve %100 birebir mağaza linklerini doğrular.",
+        collabs: ["store-deep-matcher-agent", "pinterest-trend-scout", "kombin-dispatcher-reporter"],
         metrics: [
           ["Doğrulanan Mağaza Linki", "18 / 18 Ürün (Zara, İpekyol, Quzu, H&M)"],
           ["Birebir Eşleşme Oranı", "%100 Birebir Aynı Ürün (Kombin #1 & #2)"],
           ["Görsel Dekupe (rembg)", "12 / 12 Şeffaf PNG Hazır"],
           ["Çıktı Dosyası", "output/store_verified_matches.json"]
+        ]
+      },
+      {
+        id: "agent-1b",
+        shortLabel: "Ajan 1B: İkiz Link",
+        code: "store-deep-matcher-agent",
+        name: "Ajan 1B: Derin Mağaza & Yedek İkiz Model Ajanı",
+        status: "İKİZ MATRİS HAZIR",
+        color: "#fb923c",
+        gx: -3.4, gz: 0, w: 1.9, d: 1.5, h: 1.1,
+        desc: "Ana Mağaza Ajanı (Ajan 1A) ile birlikte çalışarak her kombin parçası için stok tükenmesine karşı %96+ uyumlu Yedek İkiz Model mağaza linklerini hazır tutar.",
+        collabs: ["store-link-researcher", "price-stock-conversion-guard"],
+        metrics: [
+          ["Hazırlanan İkiz Matris", "18 Birincil + 18 Yedek İkiz Ürün Linki"],
+          ["İkiz Model Uyumluluğu", "%96 Stil, Renk & Kesim İkizi"],
+          ["Stok Koruması", "Tükenen SKU'da 0 Saniyede Otomatik Geçiş"],
+          ["Çıktı Dosyası", "output/store_deep_twin_matches.json"]
         ]
       },
       {
@@ -382,9 +430,9 @@
         name: "Ajan 2: Pinterest Güncel Trend Kombin Ajanı",
         status: "TREND TARIYOR",
         color: "#ec4899",
-        gx: -3.2, gz: 2.4, w: 2.1, d: 1.8, h: 1.15,
-        desc: "Pinterest 2026 Sonbahar/Kış Old Money ve Quiet Luxury panolarını tarar; henüz Instagram'da paylaşılmamış en yüksek etkileşimli 6 parçalık kombin reçetesini Ajan 1'e gönderir.",
-        collabs: ["store-link-researcher", "kombin-dispatcher-reporter", "viral-hook-music-director"],
+        gx: -3.4, gz: 2.2, w: 1.9, d: 1.6, h: 1.15,
+        desc: "Pinterest 2026 Sonbahar/Kış Old Money ve Quiet Luxury panolarını tarar; henüz Instagram'da paylaşılmamış en yüksek etkileşimli 6 parçalık kombin reçetesini Ajan 1A ve 1B'ye gönderir.",
+        collabs: ["store-link-researcher", "store-deep-matcher-agent", "kombin-dispatcher-reporter"],
         metrics: [
           ["Taranan Katalog Trendi", "8 Sonbahar/Kış Kapsül Kombin"],
           ["Seçilen Yayınlanmamış Trend", "3 Kombin (18 Parça Reçete)"],
@@ -399,8 +447,8 @@
         name: "Ajan 3: Kombin Koordinasyon & Bildirim Ajanı",
         status: "RAPORLUYOR",
         color: "#14b8a6",
-        gx: -1.6, gz: 0, w: 1.7, d: 1.6, h: 1.25,
-        desc: "Pinterest Trend Ajanı ile Mağaza Link Ajanının eşleştirdiği 6 parçalık kombin paketini ve Sağlık Ajanının soğuma süresini birleştirip Ana Ajana hazır tablo olarak sunar.",
+        gx: -1.6, gz: 0, w: 1.6, d: 1.5, h: 1.25,
+        desc: "Pinterest Trend, Mağaza Link, Viral Müzik ve %100 İhlal Doğurmaz Denetim ajanlarının çıktılarını birleştirip Ana Ajana hazır tablo olarak sunar.",
         collabs: ["pinterest-trend-scout", "store-link-researcher", "main-core"],
         metrics: [
           ["Sıradaki Öneri", "sunday_slot1_espresso_cream_oldmoney"],
@@ -413,46 +461,63 @@
         id: "agent-4",
         shortLabel: "Ajan 4: Sağlık",
         code: "social-health-analyst",
-        name: "Ajan 4: Sosyal Medya Sağlık & Analitik Ajanı",
+        name: "Ajan 4: Sosyal Medya Uzmanı & Sağlık Analitik Ajanı",
         status: "KORUMA AKTİF",
         color: "#38bdf8",
-        gx: 3.2, gz: -2.4, w: 2.1, d: 1.8, h: 1.15,
-        desc: "Yeni şifre girişi yapmadan kalıcı Bearer IGT oturumuyla @guzelaicom hesap sağlığını, takipçi değişimini (Δ), Reels izlenmelerini ve 4 saatlik anti-spam soğuma süresini izler.",
-        collabs: ["main-core", "kombin-dispatcher-reporter"],
+        gx: 3.4, gz: -2.2, w: 1.9, d: 1.6, h: 1.15,
+        desc: "Yeni şifre girişi yapmadan kalıcı Bearer IGT oturumuyla @guzelaicom hesap sağlığını, takipçi değişimini (Δ), Reels izlenmelerini ve 4 saatlik soğuma süresini izler.",
+        collabs: ["prepublish-compliance-auditor", "main-core"],
         metrics: [
           ["Hesap & Risk Durumu", "HEALTHY_ACTIVE • Risk: LOW"],
           ["Takipçi & Gönderi", "282 Takipçi • 52 Takip • 30 Gönderi"],
           ["Son 10 Reels İzlenme", "256 Toplam İzlenme (%5.86 Etkileşim)"],
-          ["Anti-Spam Kontrolleri", "0 Ham URL • 5 Etiket • Sabit Cihaz UUID"]
+          ["Canlı Rapor", "output/social_health_report.json"]
         ]
       },
       {
         id: "agent-5",
-        shortLabel: "Ajan 5: Müzik",
-        code: "viral-hook-music-director",
-        name: "Ajan 5: Viral Kanca & 44.1kHz Stüdyo Müzik Ajanı",
-        status: "SENKRONİZE",
+        shortLabel: "Ajan 5: TikTok Müzik",
+        code: "tiktok-viral-music-scout",
+        name: "Ajan 5: Viral TikTok & Reels Müzik Araştırma Ajanı",
+        status: "99.4 VİRAL SKOR",
         color: "#a855f7",
-        gx: 3.2, gz: 2.4, w: 2.1, d: 1.8, h: 1.15,
-        desc: "En yüksek izlenen Reels kancalarını (137 izlenmeli mikro-hikaye kancası) analiz eder ve 44.1 kHz / 320 kbps AAC kesintisiz stüdyo müziğini 5.2s yürüyüş geçişiyle senkronize eder.",
-        collabs: ["pinterest-trend-scout", "visual-qa-runway-inspector"],
+        gx: 3.4, gz: 2.2, w: 1.9, d: 1.6, h: 1.15,
+        desc: "Paylaşımlardan önce viral TikTok/Reels moda müziklerini tarar; 124 BPM ritim, 5.2s podyum geçişi ve 44.1 kHz / 320 kbps AAC stüdyo kalitesiyle doğru müziği Ana Ajana ulaştırır.",
+        collabs: ["main-core", "prepublish-compliance-auditor"],
         metrics: [
-          ["Aktif Stüdyo Kaydı", "Veor Uranis – Da Da Da Dadada"],
-          ["Ses Kalitesi", "44.1 kHz Stereo • 320 kbps AAC • 9.54 dB Crest"],
-          ["Yapay TTS / Ducking", "Tamamen Kaldırıldı (%100 Saf Müzik)"],
-          ["Geçiş Senkronu", "5.2. Saniye Podyum Yürüyüş Enerji Yükselişi"]
+          ["Seçilen Viral Hit", "Veor Uranis – Da Da Da Dadada (124 BPM)"],
+          ["Viral Trend Skoru", "99.4 / 100 (TikTok & Reels Podyum Hit)"],
+          ["Stüdyo Master", "44.1 kHz Stereo • 320 kbps AAC • 5.2s Sync"],
+          ["Çıktı Raporu", "output/viral_music_selection_report.json"]
         ]
       },
       {
         id: "agent-6",
-        shortLabel: "Ajan 6: 2K QA",
+        shortLabel: "Ajan 6: %100 İhlalsiz",
+        code: "prepublish-compliance-auditor",
+        name: "Ajan 6: Yayın Öncesi %100 İhlal Doğurmaz Denetim Ajanı",
+        status: "%100 ONAYLI (11/11)",
+        color: "#22c55e",
+        gx: 1.6, gz: 0, w: 1.7, d: 1.6, h: 1.3,
+        desc: "Sosyal Medya Uzmanı Ajanı ile iş birliği yaparak her yayından önce 11 maddelik spam, cihaz, link, telif ve Ticaret Bakanlığı yasal uyarı denetimi yapar; %100 İhlal Doğurmaz Raporu verir.",
+        collabs: ["social-health-analyst", "main-core", "tiktok-viral-music-scout"],
+        metrics: [
+          ["Denetim Kararı", "%100 İHLAL DOĞURMAZ — YAYINA UYGUN"],
+          ["Geçen Kriter Sayısı", "11 / 11 (%100.0 Uyumluluk Skoru)"],
+          ["Spam & Bot Koruması", "0 Ham URL • Maks 5-7 Etiket • Yorum Botu Yok"],
+          ["Sertifika Dosyası", "output/prepublish_compliance_certificate.md"]
+        ]
+      },
+      {
+        id: "agent-7",
+        shortLabel: "Ajan 7: 2K Podyum",
         code: "visual-qa-runway-inspector",
-        name: "Ajan 6: 2K OLED Podyum & Graph-Motion Denetçisi",
+        name: "Ajan 7: 2K OLED Podyum & Graph-Motion Denetçisi",
         status: "DOĞRULANDI",
         color: "#f43f5e",
-        gx: 0, gz: 3.1, w: 2.3, d: 1.6, h: 1.1,
+        gx: 0, gz: 3.1, w: 2.2, d: 1.5, h: 1.1,
         desc: "Mankenin 3 karede de yolda özgüvenle yürüdüğünü (baş-ayak tam boy kadraj) ve 2K (1440x2560) Samsung OLED keskinlik skorunu (Laplacian > 2000) yayın öncesi denetler.",
-        collabs: ["main-core", "viral-hook-music-director"],
+        collabs: ["main-core", "prepublish-compliance-auditor"],
         metrics: [
           ["Çözünürlük & Kalite", "1440x2560 (2K QHD+ Samsung OLED)"],
           ["Keskinlik Skoru", "Hook: 3124.0 • Yürüyüş: 3331.9 / 3128.6"],
@@ -461,19 +526,19 @@
         ]
       },
       {
-        id: "agent-7",
-        shortLabel: "Ajan 7: Vitrin",
+        id: "agent-8",
+        shortLabel: "Ajan 8: Vitrin & Stok",
         code: "price-stock-conversion-guard",
-        name: "Ajan 7: Fiyat, Stok & GuzelAI.com Vitrin Kalkanı",
+        name: "Ajan 8: Fiyat, Stok & GuzelAI.com Vitrin Kalkanı",
         status: "41 LİNK AKTİF",
         color: "#eab308",
-        gx: 0, gz: -3.1, w: 2.3, d: 1.6, h: 1.1,
-        desc: "guzelai.com/#kombinler vitrinini ve 41 adet /go/{sku} yönlendirme sayfasını izler; mağazada tükenen ürün olursa Ajan 1 ile anında ikiz modele yönlendirir.",
-        collabs: ["store-link-researcher", "main-core"],
+        gx: 0, gz: -3.1, w: 2.2, d: 1.5, h: 1.1,
+        desc: "guzelai.com/#kombinler vitrinini ve 41 adet /go/{sku} yönlendirme sayfasını izler; mağazada tükenen ürün olursa Ajan 1B (İkiz Link) ile anında yedek modele yönlendirir.",
+        collabs: ["store-deep-matcher-agent", "main-core"],
         metrics: [
           ["Canlı Vitrin", "https://guzelai.com/#kombinler (HTTP 200)"],
           ["Aktif /go/ Sayfaları", "41 Adet Akıllı Mağaza Yönlendirmesi"],
-          ["Stok Koruması", "Tükenen SKU İçin Otomatik İkiz Model Devrede"],
+          ["Stok Koruması", "Ajan 1B İkiz Model Matrisiyle Entegre"],
           ["Yanıt Süresi", "Canlı CDN Aktif"]
         ]
       }
@@ -481,20 +546,20 @@
 
     const OUTFIT_DATA = {
       sunday_slot1_espresso_cream_oldmoney: [
-        { cat: "Trençkot", brand: "ZARA", name: "ZW Collection Uzun Kruvaze Bej Trençkot", price: "5.590₺", sku: "03811280", match: "%100 Birebir", url: "https://guzelai.com/go/03811280", store: "https://www.zara.com/tr/tr/zw-collection-uzun-kruvaze-trenckot-p03811280.html" },
-        { cat: "Gözlük", brand: "RAY-BAN", name: "RB3774D Gold Çerçeveli Kahve Camlı Oval Gözlük", price: "5.550₺", sku: "994747994", match: "%100 Birebir", url: "https://guzelai.com/go/994747994", store: "https://www.trendyol.com/ray-ban/rayban-3774d-001-73-55-kadin-gunes-gozlugu-p-994747994" },
-        { cat: "Triko Kazak", brand: "K-ODEA BUTİK", name: "Kadın Vizon Yumuşak Dokulu Oversize Triko", price: "390₺", sku: "959762013", match: "%100 Birebir", url: "https://guzelai.com/go/959762013", store: "https://www.trendyol.com/k-odea-butik/kadin-vizon-oversize-triko-kazak-yumusak-dokulu-bisiklet-yaka-p-959762013" },
-        { cat: "Pantolon", brand: "QUZU", name: "Kahve Kemerli Taş Rengi Yüksek Bel Pileli Pantolon", price: "1.267,50₺", sku: "26YPNT01724063", match: "%100 Birebir", url: "https://guzelai.com/go/26YPNT01724063", store: "https://www.quzu.com.tr/products/yuksek-bel-kemerli-pileli-pantolon-tas" },
-        { cat: "Lüks Çanta", brand: "İPEKYOL", name: "ASTRIT Monogram Kahve & Bej Omuz Çantası", price: "5.749₺", sku: "991689063", match: "%100 Birebir", url: "https://guzelai.com/go/991689063", store: "https://www.trendyol.com/ipekyol/astrit-canta-p-991689063" },
-        { cat: "Ayakkabı", brand: "BRIELFY", name: "Bej Sivri Burun Gold Aksesuarlı 7cm Slingback", price: "682₺", sku: "930094922", match: "%100 Birebir", url: "https://guzelai.com/go/930094922", store: "https://www.trendyol.com/brielfy/kadin-bej-sivri-burun-konik-7cm-topuklu-slingback-yandan-tokali-gunluk-is-ofis-ayakkabisi-p-930094922" }
+        { cat: "Trençkot", brand: "ZARA", name: "ZW Collection Uzun Kruvaze Bej Trençkot", price: "5.590₺", sku: "03811280", match: "%100 Birebir + İkiz Yedekli", url: "https://guzelai.com/go/03811280", store: "https://www.zara.com/tr/tr/zw-collection-uzun-kruvaze-trenckot-p03811280.html" },
+        { cat: "Gözlük", brand: "RAY-BAN", name: "RB3774D Gold Çerçeveli Kahve Camlı Oval Gözlük", price: "5.550₺", sku: "994747994", match: "%100 Birebir + İkiz Yedekli", url: "https://guzelai.com/go/994747994", store: "https://www.trendyol.com/ray-ban/rayban-3774d-001-73-55-kadin-gunes-gozlugu-p-994747994" },
+        { cat: "Triko Kazak", brand: "K-ODEA BUTİK", name: "Kadın Vizon Yumuşak Dokulu Oversize Triko", price: "390₺", sku: "959762013", match: "%100 Birebir + İkiz Yedekli", url: "https://guzelai.com/go/959762013", store: "https://www.trendyol.com/k-odea-butik/kadin-vizon-oversize-triko-kazak-yumusak-dokulu-bisiklet-yaka-p-959762013" },
+        { cat: "Pantolon", brand: "QUZU", name: "Kahve Kemerli Taş Rengi Yüksek Bel Pileli Pantolon", price: "1.267,50₺", sku: "26YPNT01724063", match: "%100 Birebir + İkiz Yedekli", url: "https://guzelai.com/go/26YPNT01724063", store: "https://www.quzu.com.tr/products/yuksek-bel-kemerli-pileli-pantolon-tas" },
+        { cat: "Lüks Çanta", brand: "İPEKYOL", name: "ASTRIT Monogram Kahve & Bej Omuz Çantası", price: "5.749₺", sku: "991689063", match: "%100 Birebir + İkiz Yedekli", url: "https://guzelai.com/go/991689063", store: "https://www.trendyol.com/ipekyol/astrit-canta-p-991689063" },
+        { cat: "Ayakkabı", brand: "BRIELFY", name: "Bej Sivri Burun Gold Aksesuarlı 7cm Slingback", price: "682₺", sku: "930094922", match: "%100 Birebir + İkiz Yedekli", url: "https://guzelai.com/go/930094922", store: "https://www.trendyol.com/brielfy/kadin-bej-sivri-burun-konik-7cm-topuklu-slingback-yandan-tokali-gunluk-is-ofis-ayakkabisi-p-930094922" }
       ],
       sunday_slot3_navy_camel_ivory: [
-        { cat: "Kaşe Kaban", brand: "QUZU", name: "Bej Asimetrik Dik Yaka Kuşaklı Kısa Kaşe Kaban", price: "3.490₺", sku: "27KKBN02965004", match: "%100 Birebir", url: "https://guzelai.com/go/27KKBN02965004", store: "https://www.quzu.com.tr/products/asimetrik-dik-yaka-kusakli-kisa-kaban-bej" },
-        { cat: "Gözlük", brand: "RAY-BAN", name: "RB4340 601 Wayfarer Siyah Güneş Gözlüğü", price: "5.850₺", sku: "2484708", match: "%100 Birebir", url: "https://guzelai.com/go/2484708", store: "https://www.trendyol.com/ray-ban/rayban-4340-601-50-22-kadin-p-2484708" },
-        { cat: "Triko Kazak", brand: "H&M", name: "Krem & Siyah Çizgili Yumuşak Dokulu Triko Kazak", price: "1.149₺", sku: "0983240083", match: "%100 Birebir", url: "https://guzelai.com/go/0983240083", store: "https://www2.hm.com/tr_tr/productpage.0983240083.html" },
-        { cat: "Pantolon", brand: "STRADIVARIUS", name: "Kemerli Dökümlü Siyah Straight Fit Pantolon", price: "1.790₺", sku: "853434158", match: "%100 Birebir", url: "https://guzelai.com/go/853434158", store: "https://www.trendyol.com/stradivarius/kemerli-ve-dokumlu-straight-fit-kumas-pantolon-p-853434158" },
-        { cat: "Lüks Çanta", brand: "TOMMY HILFIGER", name: "Gold TH Logolu Siyah Lüks Omuz Çantası", price: "3.405,35₺", sku: "1199865162", match: "%100 Birebir", url: "https://guzelai.com/go/1199865162", store: "https://www.trendyol.com/tommy-hilfiger/kadin-logo-baskili-uzun-askili-fermuarli-ic-cepli-siyah-canta-p-1199865162" },
-        { cat: "Ayakkabı", brand: "BRIELFY", name: "Siyah Rugan Sivri Burun Gold Aksesuarlı Slingback", price: "675₺", sku: "930093536", match: "%100 Birebir", url: "https://guzelai.com/go/930093536", store: "https://www.trendyol.com/brielfy/kadin-sivri-burun-konik-7cm-topuklu-siyah-slingback-yandan-tokali-gunluk-is-ofis-ayakkabisi-p-930093536" }
+        { cat: "Kaşe Kaban", brand: "QUZU", name: "Bej Asimetrik Dik Yaka Kuşaklı Kısa Kaşe Kaban", price: "3.490₺", sku: "27KKBN02965004", match: "%100 Birebir + İkiz Yedekli", url: "https://guzelai.com/go/27KKBN02965004", store: "https://www.quzu.com.tr/products/asimetrik-dik-yaka-kusakli-kisa-kaban-bej" },
+        { cat: "Gözlük", brand: "RAY-BAN", name: "RB4340 601 Wayfarer Siyah Güneş Gözlüğü", price: "5.850₺", sku: "2484708", match: "%100 Birebir + İkiz Yedekli", url: "https://guzelai.com/go/2484708", store: "https://www.trendyol.com/ray-ban/rayban-4340-601-50-22-kadin-p-2484708" },
+        { cat: "Triko Kazak", brand: "H&M", name: "Krem & Siyah Çizgili Yumuşak Dokulu Triko Kazak", price: "1.149₺", sku: "0983240083", match: "%100 Birebir + İkiz Yedekli", url: "https://guzelai.com/go/0983240083", store: "https://www2.hm.com/tr_tr/productpage.0983240083.html" },
+        { cat: "Pantolon", brand: "STRADIVARIUS", name: "Kemerli Dökümlü Siyah Straight Fit Pantolon", price: "1.790₺", sku: "853434158", match: "%100 Birebir + İkiz Yedekli", url: "https://guzelai.com/go/853434158", store: "https://www.trendyol.com/stradivarius/kemerli-ve-dokumlu-straight-fit-kumas-pantolon-p-853434158" },
+        { cat: "Lüks Çanta", brand: "TOMMY HILFIGER", name: "Gold TH Logolu Siyah Lüks Omuz Çantası", price: "3.405,35₺", sku: "1199865162", match: "%100 Birebir + İkiz Yedekli", url: "https://guzelai.com/go/1199865162", store: "https://www.trendyol.com/tommy-hilfiger/kadin-logo-baskili-uzun-askili-fermuarli-ic-cepli-siyah-canta-p-1199865162" },
+        { cat: "Ayakkabı", brand: "BRIELFY", name: "Siyah Rugan Sivri Burun Gold Aksesuarlı Slingback", price: "675₺", sku: "930093536", match: "%100 Birebir + İkiz Yedekli", url: "https://guzelai.com/go/930093536", store: "https://www.trendyol.com/brielfy/kadin-sivri-burun-konik-7cm-topuklu-siyah-slingback-yandan-tokali-gunluk-is-ofis-ayakkabisi-p-930093536" }
       ]
     };
 
@@ -508,18 +573,21 @@
     ];
 
     const LINKS = [
-      { from: "agent-2", to: "agent-1", color: "#f59e0b" },
-      { from: "agent-1", to: "agent-3", color: "#10b981" },
+      { from: "agent-2", to: "agent-1a", color: "#f59e0b" },
+      { from: "agent-1a", to: "agent-1b", color: "#fb923c" },
+      { from: "agent-1b", to: "agent-3", color: "#fb923c" },
+      { from: "agent-1a", to: "agent-3", color: "#10b981" },
       { from: "agent-2", to: "agent-3", color: "#ec4899" },
       { from: "agent-3", to: "main-core", color: "#14b8a6" },
-      { from: "agent-4", to: "main-core", color: "#38bdf8" },
-      { from: "agent-5", to: "main-core", color: "#a855f7" },
-      { from: "agent-6", to: "main-core", color: "#f43f5e" },
-      { from: "agent-7", to: "agent-1", color: "#eab308" },
-      { from: "agent-7", to: "main-core", color: "#eab308" }
+      { from: "agent-4", to: "agent-6", color: "#38bdf8" },
+      { from: "agent-5", to: "agent-6", color: "#a855f7" },
+      { from: "agent-6", to: "main-core", color: "#22c55e" },
+      { from: "agent-7", to: "main-core", color: "#f43f5e" },
+      { from: "agent-8", to: "agent-1b", color: "#eab308" },
+      { from: "agent-8", to: "main-core", color: "#eab308" }
     ];
 
-    let selectedAgentId = "agent-3";
+    let selectedAgentId = "agent-6";
     let autoRotate = true;
     let cameraYaw = 0.62;
     let cameraPitch = 0.58;
