@@ -127,8 +127,8 @@
     <div class="bg-[#111827] border-2 border-slate-800 rounded-2xl p-4 sm:p-5 flex flex-col xl:flex-row xl:items-center xl:justify-between gap-4">
       <div>
         <div class="flex flex-wrap items-center gap-2">
-          <span class="px-2 py-0.5 rounded bg-emerald-500/20 border border-emerald-500/40 text-[11px] font-bold text-emerald-300 font-mono-game">⛏️ GUZELAI CRAFT v2.4</span>
-          <span class="text-xs font-medium text-amber-300">10 Karakter • 10 Departman • Canlı Minecraft Yolu & Masa Araçları</span>
+          <span class="px-2 py-0.5 rounded bg-emerald-500/20 border border-emerald-500/40 text-[11px] font-bold text-emerald-300 font-mono-game">⛏️ GUZELAI CRAFT v2.5</span>
+          <span class="text-xs font-medium text-amber-300">10 Pixel Karakter • 10 Departman • Canlı Minecraft Yolu & Masa Araçları</span>
         </div>
         <h1 class="text-lg sm:text-2xl font-extrabold text-white mt-1">🟩 Pixel Minecraft Ajan Dünyası & Canlı Operasyon Oyunu</h1>
         <p class="text-xs text-slate-400 mt-0.5">
@@ -203,28 +203,28 @@
 
         <!-- Oyun Ekranı -->
         <div class="relative mt-2.5 rounded-xl overflow-hidden border-2 border-slate-700 bg-[#0b1320] shadow-inner">
-          <canvas id="minecraftWorldCanvas" height="600"></canvas>
+          <canvas id="minecraftWorldCanvas" width="960" height="620" style="height: 620px;"></canvas>
 
           <!-- Sol Üst Oyun İçi HUD Bilgi Kutusu -->
-          <div class="absolute top-3 left-3 pointer-events-none bg-slate-950/85 border border-slate-700/90 rounded-xl px-3 py-2 text-[11px] font-mono-game space-y-1 max-w-xs">
+          <div class="absolute top-3 left-3 pointer-events-none bg-slate-950/90 border border-emerald-500/40 rounded-xl px-3 py-2 text-[11px] font-mono-game space-y-1 max-w-sm shadow-lg">
             <div class="flex items-center gap-2 text-emerald-400 font-bold">
               <span>⛏️ WORLD: GUZELAI_CRAFT</span>
               <span id="hudTimeBadge" class="text-amber-300">☀️ GÜNDÜZ</span>
             </div>
-            <div class="text-slate-300" id="hudActiveWalker">Aktif Yürüyen: 10 Ajan Yolda & Masada</div>
-            <div class="text-slate-400">Yol: Kırıktaş & Meşe • Redstone Lambası Aktif</div>
+            <div class="text-white font-semibold" id="hudActiveWalker">10 Pixel Ajan Masasında & Minecraft Yolunda Aktif!</div>
+            <div class="text-slate-400">Karaktere tıklayın veya alt slottan seçip WASD ile yürütün</div>
           </div>
 
           <!-- Sağ Alt Mobil / Fare Yön Tuşları (D-Pad) -->
-          <div class="absolute bottom-4 right-4 bg-slate-950/85 border border-slate-700 rounded-xl p-2 flex flex-col items-center gap-1 select-none">
+          <div class="absolute bottom-4 right-4 bg-slate-950/90 border border-slate-700 rounded-xl p-2 flex flex-col items-center gap-1 select-none shadow-lg">
             <div class="text-[9px] font-mono-game text-amber-300 mb-0.5">KARAKTERİ YÜRÜT</div>
-            <button onclick="nudgeSelectedAgent(0, -0.45)" class="mc-btn w-7 h-7 rounded text-xs font-bold text-white flex items-center justify-center">▲</button>
+            <button onclick="nudgeSelectedAgent(0, -0.45)" class="mc-btn w-8 h-8 rounded text-xs font-bold text-white flex items-center justify-center">▲</button>
             <div class="flex gap-1">
-              <button onclick="nudgeSelectedAgent(-0.45, 0)" class="mc-btn w-7 h-7 rounded text-xs font-bold text-white flex items-center justify-center">◀</button>
-              <button onclick="sendSelectedAgentOnRoad()" title="Yolda Göreve Gönder" class="mc-btn w-7 h-7 rounded text-[10px] font-bold text-emerald-300 flex items-center justify-center">GO</button>
-              <button onclick="nudgeSelectedAgent(0.45, 0)" class="mc-btn w-7 h-7 rounded text-xs font-bold text-white flex items-center justify-center">▶</button>
+              <button onclick="nudgeSelectedAgent(-0.45, 0)" class="mc-btn w-8 h-8 rounded text-xs font-bold text-white flex items-center justify-center">◀</button>
+              <button onclick="sendSelectedAgentOnRoad()" title="Yolda Göreve Gönder" class="mc-btn w-8 h-8 rounded text-[10px] font-bold text-emerald-300 flex items-center justify-center">YOL</button>
+              <button onclick="nudgeSelectedAgent(0.45, 0)" class="mc-btn w-8 h-8 rounded text-xs font-bold text-white flex items-center justify-center">▶</button>
             </div>
-            <button onclick="nudgeSelectedAgent(0, 0.45)" class="mc-btn w-7 h-7 rounded text-xs font-bold text-white flex items-center justify-center">▼</button>
+            <button onclick="nudgeSelectedAgent(0, 0.45)" class="mc-btn w-8 h-8 rounded text-xs font-bold text-white flex items-center justify-center">▼</button>
           </div>
         </div>
 
@@ -240,7 +240,7 @@
             </div>
             <div class="flex items-center gap-1 text-amber-400 font-bold">
               <span>⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡</span>
-              <span class="text-slate-400 text-[11px] ml-1">10/10 AJAN ENERJİ</span>
+              <span class="text-slate-400 text-[11px] ml-1">10/10 AJAN AKTİF</span>
             </div>
           </div>
 
@@ -318,7 +318,7 @@
       <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
         <div>
           <h2 class="text-base sm:text-lg font-bold text-white">📋 Minecraft Dünyasındaki 10 Ajanın İsimleri, Departmanları, Masaları ve Araçları</h2>
-          <p class="text-xs text-slate-400">Herhangi bir satıra tıkladığınızda kamera o ajanın Minecraft masasına odaklanır ve karakter el sallayarak selam verir.</p>
+          <p class="text-xs text-slate-400">Herhangi bir satıra tıkladığınızda o karakter seçilir ve başının üstündeki konuşma balonu parlar.</p>
         </div>
       </div>
       <div class="overflow-x-auto">
@@ -467,54 +467,7 @@
 
   <script>
     // =========================================================================
-    // 1. SHA-256 ŞİFRE DOĞRULAMA MOTORU
-    // =========================================================================
-    const ALLOWED_HASHES = new Set([
-      "8118dfe2b7b596eb414cf068688d502689bbd18eeef0ad7efbdfe9500ac4dc4e",
-      "664da613be74eae207b4279006042036d85fc7c5c40642d668bdb7cd1982bd49",
-      "74e14473d08ce1e3ff398302f4134aee11005052d574a0d3d811803075701d77",
-      "966d205c7876093dbc8b1b0678cd0b8541d7ef5f5a5eadd5504e213aeb62498d"
-    ]);
-    const STORAGE_KEY = "guzelai_admin_3d_auth_v1";
-
-    async function sha256Hex(str) {
-      const buf = new TextEncoder().encode(str.trim());
-      const digest = await window.crypto.subtle.digest("SHA-256", buf);
-      return Array.from(new Uint8Array(digest)).map(b => b.toString(16).padStart(2, "0")).join("");
-    }
-
-    function unlockDashboard() {
-      document.getElementById("authGate").classList.add("hidden");
-      document.getElementById("dashboardRoot").classList.remove("hidden");
-      initMinecraftWorld();
-    }
-
-    if (localStorage.getItem(STORAGE_KEY) === "unlocked") {
-      unlockDashboard();
-    }
-
-    document.getElementById("loginForm").addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const raw = document.getElementById("pwdInput").value;
-      const hash = await sha256Hex(raw);
-      if (ALLOWED_HASHES.has(hash)) {
-        if (document.getElementById("rememberMe").checked) {
-          localStorage.setItem(STORAGE_KEY, "unlocked");
-        }
-        document.getElementById("authError").classList.add("hidden");
-        unlockDashboard();
-      } else {
-        document.getElementById("authError").classList.remove("hidden");
-      }
-    });
-
-    document.getElementById("btnLockSession").addEventListener("click", () => {
-      localStorage.removeItem(STORAGE_KEY);
-      window.location.reload();
-    });
-
-    // =========================================================================
-    // 2. 10 MINECRAFT AJANI, İSİMLERİ, DEPARTMANLARI, MASALARI VE ARAÇLARI
+    // 1. 10 MINECRAFT AJANI, İSİMLERİ, DEPARTMANLARI, MASALARI VE ARAÇLARI
     // =========================================================================
     const AGENTS = [
       {
@@ -526,7 +479,7 @@
         roleTitle: "Baş Koordinatör",
         deptName: "MERKEZ KOMUTA DEPARTMANI",
         deskName: "Komut Bloğu & Büyü Masası",
-        tools: ["🟧 Komut Bloğu", "📖 Büyü Kitabı", "🖥️ 3'lü Hologram Ekran", "📡 Redstone Anteni"],
+        tools: ["🟧 Komut Bloğu", "📖 Büyü Kitabı", "🖥️ 3'lü Ekran", "📡 Anten"],
         speech: "10 Departman Senkron! Yayın Onaylı!",
         particle: "✦",
         code: "antigravity-core",
@@ -557,7 +510,7 @@
         roleTitle: "Pinterest Trend Avcısı",
         deptName: "PINTEREST TREND DEPARTMANI",
         deskName: "Harita & Moodboard Masası",
-        tools: ["🗺️ Harita Masası", "🔭 Altın Dürbün", "🎨 Renk Paleti", "📌 Trend İğnesi"],
+        tools: ["🗺️ Harita Masası", "🔭 Altın Dürbün", "🎨 Renk Paleti", "📌 Pin Panosu"],
         speech: "3 Yeni Old Money Kombin Buldum!",
         particle: "📌",
         code: "pinterest-trend-scout",
@@ -569,7 +522,7 @@
         skinColor: "#f8d4b4",
         deskTopColor: "#ec4899",
         deskWoodColor: "#831843",
-        gx: -5.2, gz: -3.6,
+        gx: -4.8, gz: -3.2,
         desc: "Pinterest Trend Departmanı uzmanı LUNA; Harita Masası ve Altın Dürbünü ile 2026 Sonbahar/Kış Old Money panolarını tarar, henüz paylaşılmamış kombin reçetelerini çıkarıp taş yoldan KAAN ve MİRA'ya götürür.",
         collabs: ["agent-1a", "agent-1b", "agent-3"],
         metrics: [
@@ -588,7 +541,7 @@
         roleTitle: "Mağaza Link Uzmanı",
         deptName: "MAĞAZA ARAŞTIRMA DEPARTMANI",
         deskName: "Zümrüt Ticaret & Barkod Masası",
-        tools: ["💎 Zümrüt Tarayıcı", "🏷️ Zara/İpekyol Katalog", "⚖️ Altın Terazi", "📦 Ürün Sandığı"],
+        tools: ["💎 Zümrüt Tarayıcı", "🏷️ Zara/İpekyol Katalog", "⚖️ Altın Terazi", "📦 SKU Sandığı"],
         speech: "18/18 Birebir Mağaza Linki Hazır!",
         particle: "◆",
         code: "store-link-researcher",
@@ -600,7 +553,7 @@
         skinColor: "#eab68c",
         deskTopColor: "#10b981",
         deskWoodColor: "#78350f",
-        gx: -5.2, gz: 0,
+        gx: -4.8, gz: 0,
         desc: "Mağaza Araştırma Departmanı uzmanı KAAN; Zümrüt Barkod Tarayıcısı ile Zara, Trendyol, İpekyol, Quzu ve H&M mağazalarını tarar, LUNA'nın getirdiği kombinlerin %100 birebir ürün linklerini doğrular.",
         collabs: ["agent-1b", "agent-2", "agent-3"],
         metrics: [
@@ -631,7 +584,7 @@
         skinColor: "#f5cba7",
         deskTopColor: "#94a3b8",
         deskWoodColor: "#475569",
-        gx: -5.2, gz: 3.6,
+        gx: -4.8, gz: 3.2,
         desc: "İkiz Model Departmanı uzmanı MİRA; KAAN ile yan yana çalışarak Çiftli Örs Masasında her ürün için %96+ benzerlikte Yedek İkiz Model mağaza linki üretir. Bir ürün tükenirse anında ikizini devreye sokar.",
         collabs: ["agent-1a", "agent-8", "agent-3"],
         metrics: [
@@ -662,7 +615,7 @@
         skinColor: "#f3c6a0",
         deskTopColor: "#14b8a6",
         deskWoodColor: "#78350f",
-        gx: -2.4, gz: -2.2,
+        gx: -2.1, gz: -2.4,
         desc: "Koordinasyon Departmanı sorumlusu EFE; LUNA, KAAN ve MİRA'dan aldığı tüm kombin ve mağaza linki paketlerini Kürsü Masasında resmi brifinge dönüştürüp Minecraft yolundan Merkezdeki ATLAS'a ulaştırır.",
         collabs: ["main-core", "agent-1a", "agent-2"],
         metrics: [
@@ -693,7 +646,7 @@
         skinColor: "#eab68c",
         deskTopColor: "#22c55e",
         deskWoodColor: "#1e1b4b",
-        gx: 2.4, gz: -2.2,
+        gx: 2.1, gz: -2.4,
         desc: "%100 İhlalsiz Denetim Departmanı başmüfettişi DEMİR; SELİN ile iş birliği yaparak her yayından önce 11 güvenlik, telif, sabit cihaz ve spam kriterini denetler ve resmi '%100 İhlal Doğurmaz Raporu' mührünü basar.",
         collabs: ["main-core", "agent-4", "agent-5"],
         metrics: [
@@ -724,9 +677,9 @@
         skinColor: "#f3c6a0",
         deskTopColor: "#a855f7",
         deskWoodColor: "#3b0764",
-        gx: 5.2, gz: -3.6,
+        gx: 4.8, gz: -3.2,
         desc: "Viral TikTok Müzik Stüdyosu direktörü DJ RİTMO; Elmas Müzik Kutusu (Jukebox) ve Nota Blokları ile TikTok/Reels trendlerini analiz eder, 124 BPM yürüyüş ritmine tam oturan %100 telif güvenli müziği ATLAS'a ulaştırır.",
-        collabs: ["main-core", "agent-6", "agent-9"],
+        collabs: ["main-core", "agent-6", "agent-7"],
         metrics: [
           ["Karakter & Seviye", "🎵 DJ RİTMO (Lv.98 Viral Müzik Ajanı)"],
           ["Masa & Araçlar", "Elmas Jukebox, Nota Blokları, 124 BPM Mikser"],
@@ -755,7 +708,7 @@
         skinColor: "#f8d4b4",
         deskTopColor: "#38bdf8",
         deskWoodColor: "#0c4a6e",
-        gx: 5.2, gz: 0,
+        gx: 4.8, gz: 0,
         desc: "Sosyal Medya Sağlık Departmanı uzmanı SELİN; kalıcı SM-S908E mobil oturumuyla @guzelaicom'un takipçi, izlenme ve etkileşim nabzını tutar, Müfettiş DEMİR ile birlikte hesabın sıfır kısıtlamayla büyümesini sağlar.",
         collabs: ["agent-6", "main-core"],
         metrics: [
@@ -786,9 +739,9 @@
         skinColor: "#eab68c",
         deskTopColor: "#f43f5e",
         deskWoodColor: "#881337",
-        gx: 5.2, gz: 3.6,
+        gx: 4.8, gz: 3.2,
         desc: "2K Podyum Stüdyosu yönetmeni ARDA; Sinema Kamerası ve Glowstone Işık Kuleleri ile mankenin yolda özgüvenle yürüdüğü 3 karenin tam boy kadrajını ve 2K (1440x2560) keskinlik skorunu denetler.",
-        collabs: ["main-core", "agent-6", "agent-9"],
+        collabs: ["main-core", "agent-6", "agent-5"],
         metrics: [
           ["Karakter & Seviye", "🎬 ARDA (Lv.93 2K Podyum Yönetmeni)"],
           ["Masa & Araçlar", "2K Kamera Tripodu, Glowstone Işık Kulesi"],
@@ -817,7 +770,7 @@
         skinColor: "#f3c6a0",
         deskTopColor: "#eab308",
         deskWoodColor: "#713f12",
-        gx: 0, gz: 4.2,
+        gx: 0, gz: 3.6,
         desc: "Vitrin & Stok Departmanı muhafızı BORA; Ender Sandığı Masasından guzelai.com/#kombinler vitrinini ve 41 adet /go/{sku} kısa linkini korur. Stok biterse MİRA'nın ikiz linkini otomatik devreye alır.",
         collabs: ["agent-1b", "main-core"],
         metrics: [
@@ -829,49 +782,40 @@
       }
     ];
 
-    // Minecraft Yürüyüş Yolu Düğümleri (Kırıktaş & Meşe Tahtası Yol Ağı)
-    // Merkez (0,0) ile tüm departman masalarını birbirine bağlayan gerçek Minecraft yolu
     const ROAD_SEGMENTS = [
-      // Ana Batı-Doğu Bulvarı
-      { x1: -5.2, z1: 0, x2: 5.2, z2: 0 },
-      // Batı Departmanlar Caddesi (LUNA - KAAN - MİRA)
-      { x1: -3.6, z1: -3.6, x2: -3.6, z2: 3.6 },
-      { x1: -5.2, z1: -3.6, x2: -3.6, z2: -3.6 },
-      { x1: -5.2, z1: 3.6, x2: -3.6, z2: 3.6 },
-      // Doğu Departmanlar Caddesi (DJ RİTMO - SELİN - ARDA)
-      { x1: 3.6, z1: -3.6, x2: 3.6, z2: 3.6 },
-      { x1: 3.6, z1: -3.6, x2: 5.2, z2: -3.6 },
-      { x1: 3.6, z1: 3.6, x2: 5.2, z2: 3.6 },
-      // İç Koordinasyon & İhlal Denetim Yolu (EFE & DEMİR)
-      { x1: -2.4, z1: -2.2, x2: -2.4, z2: 0 },
-      { x1: 2.4, z1: -2.2, x2: 2.4, z2: 0 },
-      { x1: -2.4, z1: -2.2, x2: 2.4, z2: -2.2 },
-      // Güney Vitrin Caddesi (BORA)
-      { x1: 0, z1: 0, x2: 0, z2: 4.2 },
-      { x1: -3.6, z1: 3.6, x2: 3.6, z2: 3.6 }
+      { x1: -4.8, z1: 0, x2: 4.8, z2: 0 },
+      { x1: -3.3, z1: -3.2, x2: -3.3, z2: 3.2 },
+      { x1: -4.8, z1: -3.2, x2: -3.3, z2: -3.2 },
+      { x1: -4.8, z1: 3.2, x2: -3.3, z2: 3.2 },
+      { x1: 3.3, z1: -3.2, x2: 3.3, z2: 3.2 },
+      { x1: 3.3, z1: -3.2, x2: 4.8, z2: -3.2 },
+      { x1: 3.3, z1: 3.2, x2: 4.8, z2: 3.2 },
+      { x1: -2.1, z1: -2.4, x2: -2.1, z2: 0 },
+      { x1: 2.1, z1: -2.4, x2: 2.1, z2: 0 },
+      { x1: -2.1, z1: -2.4, x2: 2.1, z2: -2.4 },
+      { x1: 0, z1: 0, x2: 0, z2: 3.6 },
+      { x1: -3.3, z1: 3.2, x2: 3.3, z2: 3.2 }
     ];
 
-    // Yol Kenarı Redstone Sokak Lambaları
     const REDSTONE_LAMPS = [
-      { gx: -3.6, gz: -1.8 },
-      { gx: -3.6, gz: 1.8 },
-      { gx: 3.6, gz: -1.8 },
-      { gx: 3.6, gz: 1.8 },
-      { gx: -1.4, gz: -1.2 },
-      { gx: 1.4, gz: -1.2 },
-      { gx: -1.4, gz: 1.5 },
-      { gx: 1.4, gz: 1.5 }
+      { gx: -3.3, gz: -1.5 },
+      { gx: -3.3, gz: 1.5 },
+      { gx: 3.3, gz: -1.5 },
+      { gx: 3.3, gz: 1.5 },
+      { gx: -1.2, gz: -1.2 },
+      { gx: 1.2, gz: -1.2 },
+      { gx: -1.2, gz: 1.4 },
+      { gx: 1.2, gz: 1.4 }
     ];
 
-    // Minecraft Meşe Ağaçları (Köy Çevresi)
     const MINECRAFT_TREES = [
-      { gx: -6.5, gz: -5.0 },
-      { gx: 0, gz: -4.8 },
-      { gx: 6.5, gz: -5.0 },
-      { gx: -6.6, gz: 1.8 },
-      { gx: 6.6, gz: 1.8 },
-      { gx: -6.4, gz: 5.0 },
-      { gx: 6.4, gz: 5.0 }
+      { gx: -6.1, gz: -4.4 },
+      { gx: 0, gz: -4.4 },
+      { gx: 6.1, gz: -4.4 },
+      { gx: -6.2, gz: 1.6 },
+      { gx: 6.2, gz: 1.6 },
+      { gx: -6.0, gz: 4.5 },
+      { gx: 6.0, gz: 4.5 }
     ];
 
     const OUTFIT_DATA = {
@@ -903,54 +847,48 @@
     ];
 
     // =========================================================================
-    // 3. OYUN DURUMU VE KARAKTER YÜRÜYÜŞ MOTORU (MINECRAFT ROAD PATHFINDING)
+    // 2. OYUN DURUMU VE KARAKTER YÜRÜYÜŞ MOTORU
     // =========================================================================
     let selectedAgentId = "agent-6";
     let autoRotate = false;
     let isNightMode = false;
-    let cameraYaw = 0.52;
-    let cameraPitch = 0.62;
-    let zoomFactor = 1.05;
+    let cameraYaw = 0.46;
+    let cameraPitch = 0.64;
+    let zoomFactor = 1.08;
     let isDragging = false;
     let lastMouseX = 0;
     let lastMouseY = 0;
     let clickableHitboxes = [];
     let initialized = false;
 
-    // Her ajanın canlı karakter pozisyonu ve yürüyüş rotası
     const agentWalkStates = {};
     AGENTS.forEach((ag, idx) => {
       agentWalkStates[ag.id] = {
         x: ag.gx,
-        z: ag.gz + 0.55, // Masanın hemen önünde durur
+        z: ag.gz + 0.62,
         homeX: ag.gx,
-        homeZ: ag.gz + 0.55,
+        homeZ: ag.gz + 0.62,
         waypoints: [],
         walking: false,
-        facingAngle: 0,
         stepPhase: idx * 0.9,
         waveTimer: 0,
-        carryingIcon: ag.icon,
         bubbleText: ag.speech
       };
     });
 
-    // İki departman arasında Minecraft taş yolunu takip eden waypoint dizisi üretir
     function buildMinecraftRoadPath(fromX, fromZ, toX, toZ) {
       const pts = [];
-      // Önce en yakın yol kavşağına çık
-      const startHubX = fromX < -3.0 ? -3.6 : (fromX > 3.0 ? 3.6 : fromX);
-      const endHubX = toX < -3.0 ? -3.6 : (toX > 3.0 ? 3.6 : toX);
+      const startHubX = fromX < -2.8 ? -3.3 : (fromX > 2.8 ? 3.3 : fromX);
+      const endHubX = toX < -2.8 ? -3.3 : (toX > 2.8 ? 3.3 : toX);
 
       pts.push({ x: startHubX, z: fromZ });
-      pts.push({ x: startHubX, z: 0 }); // Ana bulvara in
-      pts.push({ x: endHubX, z: 0 });   // Ana bulvardan karşı caddeye yürü
-      pts.push({ x: endHubX, z: toZ }); // Hedef departman hizasına yürü
-      pts.push({ x: toX, z: toZ });     // Hedef masanın önüne var
+      pts.push({ x: startHubX, z: 0 });
+      pts.push({ x: endHubX, z: 0 });
+      pts.push({ x: endHubX, z: toZ });
+      pts.push({ x: toX, z: toZ });
       return pts;
     }
 
-    // Bir ajanı taş yoldan işbirliği yaptığı departmana yürütüp geri masasına döndürür
     window.sendAgentOnMission = function(agentId, targetId) {
       const ag = AGENTS.find(a => a.id === agentId);
       if (!ag) return;
@@ -958,15 +896,15 @@
       const destId = targetId || ag.collabs[Math.floor(Math.random() * ag.collabs.length)] || "main-core";
       const destAg = AGENTS.find(a => a.id === destId) || AGENTS[0];
 
-      const targetX = destAg.gx + (Math.random() * 0.5 - 0.25);
-      const targetZ = destAg.gz + 0.7;
+      const targetX = destAg.gx + (Math.random() * 0.4 - 0.2);
+      const targetZ = destAg.gz + 0.72;
 
       const forwardPath = buildMinecraftRoadPath(st.x, st.z, targetX, targetZ);
       const returnPath = buildMinecraftRoadPath(targetX, targetZ, st.homeX, st.homeZ);
 
-      st.waypoints = [...forwardPath, { x: targetX, z: targetZ, waitTicks: 70 }, ...returnPath];
+      st.waypoints = [...forwardPath, { x: targetX, z: targetZ, waitTicks: 75 }, ...returnPath];
       st.walking = true;
-      st.bubbleText = `🚶‍♂️ ${destAg.charName} masasına gidiyor...`;
+      st.bubbleText = `🚶‍♂️ ${destAg.charName}'a gidiyor`;
       pushConsoleLog(`<span class="text-amber-300">&lt;${ag.charName}&gt;</span> Minecraft taş yolundan <strong>${destAg.charName}</strong> (${destAg.deptName}) masasına yürüyor!`);
     };
 
@@ -974,56 +912,52 @@
       sendAgentOnMission(selectedAgentId);
     };
 
-    // Klavye (WASD / Ok Tuşları) veya D-Pad ile seçili ajanı yolda manuel yürütme
     window.nudgeSelectedAgent = function(dx, dz) {
       const st = agentWalkStates[selectedAgentId];
       if (!st) return;
       st.waypoints = [];
       st.walking = true;
-      st.x = Math.max(-6.2, Math.min(6.2, st.x + dx));
-      st.z = Math.max(-4.5, Math.min(4.8, st.z + dz));
-      st.stepPhase += 1.2;
-      st.facingAngle = Math.atan2(dx, dz);
-      st.bubbleText = "🕹️ Manuel Yürüyüş Aktif!";
+      st.x = Math.max(-5.8, Math.min(5.8, st.x + dx));
+      st.z = Math.max(-4.2, Math.min(4.4, st.z + dz));
+      st.stepPhase += 1.3;
+      st.bubbleText = "🕹️ Yolda Yürüyor!";
       setTimeout(() => {
         if (st.waypoints.length === 0) st.walking = false;
       }, 350);
     };
 
-    // Tüm ajanları aynı anda Minecraft yollarına çıkar
     function triggerAllAgentsParade() {
       AGENTS.forEach((ag, idx) => {
         if (ag.id === "main-core") return;
         setTimeout(() => {
           const target = ag.collabs[0] || "main-core";
           sendAgentOnMission(ag.id, target);
-        }, idx * 280);
+        }, idx * 250);
       });
     }
 
-    // Tüm ajanları Merkezdeki ATLAS'ın etrafındaki meydana topla
     function triggerCentralPlazaMeeting() {
       pushConsoleLog(`<span class="text-emerald-400">[SUNUCU ANONSU]</span> 👑 <strong>ATLAS</strong> tüm departman ajanlarını Merkez Komuta Meydanına toplantıya çağırdı!`);
       AGENTS.forEach((ag, idx) => {
         const st = agentWalkStates[ag.id];
         if (ag.id === "main-core") {
           st.waveTimer = 120;
-          st.bubbleText = "📢 Toplantı Başladı! Yayına Hazırız!";
+          st.bubbleText = "📢 Toplantı Başladı!";
           return;
         }
         const angle = (idx / (AGENTS.length - 1)) * Math.PI * 2;
-        const meetX = Math.cos(angle) * 1.65;
-        const meetZ = Math.sin(angle) * 1.45;
+        const meetX = Math.cos(angle) * 1.55;
+        const meetZ = Math.sin(angle) * 1.35;
         const toCenter = buildMinecraftRoadPath(st.x, st.z, meetX, meetZ);
         const backHome = buildMinecraftRoadPath(meetX, meetZ, st.homeX, st.homeZ);
         st.waypoints = [...toCenter, { x: meetX, z: meetZ, waitTicks: 140 }, ...backHome];
         st.walking = true;
-        st.bubbleText = "🏛️ Merkez Meydana Yürüyor!";
+        st.bubbleText = "🏛️ Meydana Yürüyor!";
       });
     }
 
     // =========================================================================
-    // 4. ARAYÜZ SEÇİMİ VE TABLO GÜNCELLEMELERİ
+    // 3. ARAYÜZ SEÇİMİ VE TABLO GÜNCELLEMELERİ
     // =========================================================================
     window.selectAgent = function(id) {
       selectedAgentId = id;
@@ -1176,8 +1110,19 @@
     }
 
     // =========================================================================
-    // 5. 3D VOXEL / MINECRAFT DÜNYASI RENDER MOTORU
+    // 4. 3D VOXEL / MINECRAFT DÜNYASI RENDER MOTORU (BÜYÜK NET PIXEL KARAKTERLER)
     // =========================================================================
+    function drawBoxRounded(ctx, x, y, w, h, r, fill, stroke, lw = 1.5) {
+      ctx.beginPath();
+      if (typeof ctx.roundRect === "function") {
+        ctx.roundRect(x, y, w, h, r);
+      } else {
+        ctx.rect(x, y, w, h);
+      }
+      if (fill) { ctx.fillStyle = fill; ctx.fill(); }
+      if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = lw; ctx.stroke(); }
+    }
+
     function initMinecraftWorld() {
       if (initialized) return;
       initialized = true;
@@ -1188,15 +1133,14 @@
       for (let i = 0; i < 5; i++) pushConsoleLog();
       setInterval(() => pushConsoleLog(), 4500);
 
-      // Her 5 saniyede bir rastgele 2 ajan Minecraft taş yoluna çıkıp departmanlar arası yürüsün
-      setTimeout(() => triggerAllAgentsParade(), 900);
+      setTimeout(() => triggerAllAgentsParade(), 600);
       setInterval(() => {
         const walkers = AGENTS.filter(a => a.id !== "main-core" && !agentWalkStates[a.id].walking);
         if (walkers.length > 0) {
           const pick = walkers[Math.floor(Math.random() * walkers.length)];
           sendAgentOnMission(pick.id);
         }
-      }, 4800);
+      }, 4500);
 
       const canvas = document.getElementById("minecraftWorldCanvas");
       const ctx = canvas.getContext("2d");
@@ -1229,7 +1173,6 @@
         if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = lw; ctx.stroke(); }
       }
 
-      // Gerçek 3D Voxel Küp Çizici (Üst, Yan ve Ön Yüzey Gölgelendirmeli)
       function drawVoxelBox(gx, gy, gz, w, h, d, topHex, sideHex, strokeHex, cx, cy, scale) {
         const hw = w / 2, hd = d / 2;
         const b0 = project3D(gx - hw, gy, gz - hd, cx, cy, scale);
@@ -1244,7 +1187,7 @@
 
         const baseSide = sideHex || shadeHex(topHex, 0.76);
         const darkSide = shadeHex(baseSide, 0.82);
-        const outline = strokeHex || "rgba(15,23,42,0.55)";
+        const outline = strokeHex || "rgba(15,23,42,0.6)";
 
         const faces = [
           { pts: [b0, b1, t1, t0], col: darkSide },
@@ -1256,34 +1199,24 @@
           (a.pts[0].depth + a.pts[1].depth + a.pts[2].depth + a.pts[3].depth) -
           (b.pts[0].depth + b.pts[1].depth + b.pts[2].depth + b.pts[3].depth)
         ));
-        faces.forEach(f => drawPoly(f.pts, f.col, outline, 0.8));
-        drawPoly([t0, t1, t2, t3], topHex, outline, 0.9);
-
-        return { t0, t1, t2, t3, b0, b1, b2, b3 };
+        faces.forEach(f => drawPoly(f.pts, f.col, outline, 0.9));
+        drawPoly([t0, t1, t2, t3], topHex, outline, 1.0);
       }
 
-      // Minecraft Meşe Ağacı Çizici
       function drawMinecraftTree(gx, gz, cx, cy, scale) {
-        // Gövde (Meşe Odunu)
-        drawVoxelBox(gx, 0, gz, 0.36, 0.85, 0.36, "#78350f", "#5c2808", "rgba(0,0,0,0.45)", cx, cy, scale);
-        // Alt Yaprak Bloğu
-        drawVoxelBox(gx, 0.75, gz, 1.05, 0.55, 1.05, isNightMode ? "#15803d" : "#22c55e", "#166534", "rgba(0,0,0,0.35)", cx, cy, scale);
-        // Üst Yaprak Bloğu
-        drawVoxelBox(gx, 1.25, gz, 0.68, 0.42, 0.68, isNightMode ? "#16a34a" : "#4ade80", "#15803d", "rgba(0,0,0,0.35)", cx, cy, scale);
+        drawVoxelBox(gx, 0, gz, 0.38, 0.9, 0.38, "#78350f", "#5c2808", "rgba(0,0,0,0.5)", cx, cy, scale);
+        drawVoxelBox(gx, 0.8, gz, 1.1, 0.58, 1.1, isNightMode ? "#15803d" : "#22c55e", "#166534", "rgba(0,0,0,0.4)", cx, cy, scale);
+        drawVoxelBox(gx, 1.32, gz, 0.72, 0.45, 0.72, isNightMode ? "#16a34a" : "#4ade80", "#15803d", "rgba(0,0,0,0.4)", cx, cy, scale);
       }
 
-      // Minecraft Redstone Sokak Lambası Çizici
       function drawRedstoneLamp(gx, gz, timeSec, cx, cy, scale) {
-        // Çit direği
-        drawVoxelBox(gx, 0, gz, 0.14, 0.72, 0.14, "#92400e", "#78350f", "rgba(0,0,0,0.4)", cx, cy, scale);
-        // Redstone Lamba Küpü
+        drawVoxelBox(gx, 0, gz, 0.16, 0.75, 0.16, "#92400e", "#78350f", "rgba(0,0,0,0.4)", cx, cy, scale);
         const glowColor = isNightMode ? "#fde047" : "#fbbf24";
-        drawVoxelBox(gx, 0.72, gz, 0.34, 0.34, 0.34, glowColor, "#f59e0b", "#fef08a", cx, cy, scale);
-        // Işık halesi
-        const pt = project3D(gx, 0.89, gz, cx, cy, scale);
-        const r = (isNightMode ? 18 : 10) + Math.sin(timeSec * 4 + gx) * 2;
+        drawVoxelBox(gx, 0.75, gz, 0.36, 0.36, 0.36, glowColor, "#f59e0b", "#fef08a", cx, cy, scale);
+        const pt = project3D(gx, 0.92, gz, cx, cy, scale);
+        const r = (isNightMode ? 22 : 12) + Math.sin(timeSec * 4 + gx) * 2;
         const grad = ctx.createRadialGradient(pt.x, pt.y, 2, pt.x, pt.y, r);
-        grad.addColorStop(0, "rgba(253, 224, 71, 0.65)");
+        grad.addColorStop(0, "rgba(253, 224, 71, 0.7)");
         grad.addColorStop(1, "rgba(253, 224, 71, 0)");
         ctx.fillStyle = grad;
         ctx.beginPath();
@@ -1291,182 +1224,233 @@
         ctx.fill();
       }
 
-      // Departman İstasyonu, Masası, Masa Üstü Araçları ve Departman Tabelası Çizici
+      // Departman İstasyonu, Masası, 3D Araçları ve Departman Tabelası
       function drawDepartmentStation(ag, timeSec, cx, cy, scale) {
         const isSelected = ag.id === selectedAgentId;
 
-        // 1. Departman Zemin Platformu (Minecraft Meşe / Kuvars Döşeme Bloğu)
-        const floorW = ag.id === "main-core" ? 2.3 : 1.85;
-        const floorD = ag.id === "main-core" ? 2.1 : 1.65;
-        const floorTop = isSelected ? shadeHex(ag.color, 0.55) : "#334155";
+        const floorW = ag.id === "main-core" ? 2.1 : 1.75;
+        const floorD = ag.id === "main-core" ? 1.9 : 1.55;
+        const floorTop = isSelected ? shadeHex(ag.color, 0.6) : "#334155";
         const floorSide = isSelected ? ag.color : "#1e293b";
-        drawVoxelBox(ag.gx, 0, ag.gz, floorW, 0.12, floorD, floorTop, floorSide, isSelected ? "#fde047" : "rgba(255,255,255,0.22)", cx, cy, scale);
+        drawVoxelBox(ag.gx, 0, ag.gz, floorW, 0.14, floorD, floorTop, floorSide, isSelected ? "#fde047" : "rgba(255,255,255,0.28)", cx, cy, scale);
 
-        // Köşe Meşe Meşale Direkleri
-        const postOffsets = [[-floorW/2 + 0.12, -floorD/2 + 0.12], [floorW/2 - 0.12, -floorD/2 + 0.12]];
-        postOffsets.forEach(([ox, oz]) => {
-          drawVoxelBox(ag.gx + ox, 0.12, ag.gz + oz, 0.14, 0.78, 0.14, "#92400e", "#78350f", "rgba(0,0,0,0.45)", cx, cy, scale);
-          drawVoxelBox(ag.gx + ox, 0.90, ag.gz + oz, 0.18, 0.18, 0.18, "#fde047", "#f59e0b", "#ffffff", cx, cy, scale);
-        });
+        // Çalışma Masası (Masanın üstünde 3D bilgisayar, alet ve sandık blokları)
+        const deskZ = ag.gz - 0.25;
+        drawVoxelBox(ag.gx, 0.14, deskZ, 1.18, 0.50, 0.62, ag.deskTopColor, ag.deskWoodColor, "#090d16", cx, cy, scale);
 
-        // 2. Minecraft Çalışma Masası (Crafting / Command / Jukebox / Lectern Desk)
-        const deskZ = ag.gz - 0.18;
-        // Masa Gövdesi
-        drawVoxelBox(ag.gx, 0.12, deskZ, 1.15, 0.46, 0.62, ag.deskTopColor, ag.deskWoodColor, "#0f172a", cx, cy, scale);
-
-        // 3. Masanın Üzerindeki 3 Boyutlu Araçlar (Her Departmana Özel Voxel Ekipmanlar!)
-        // Sol Araç: Bilgisayar / Hologram Monitör Bloğu
-        drawVoxelBox(ag.gx - 0.30, 0.58, deskZ - 0.05, 0.34, 0.28, 0.12, "#38bdf8", "#0284c7", "#e0f2fe", cx, cy, scale);
-        // Orta Araç: Departmana Özel Ana Alet (Plak, Mühür, Dürbün, Zümrüt, Örs, İksir)
+        // Masa Üstü 3D Araçlar:
+        // 1. Sol Monitör Bloğu
+        drawVoxelBox(ag.gx - 0.32, 0.64, deskZ - 0.05, 0.36, 0.30, 0.14, "#38bdf8", "#0284c7", "#e0f2fe", cx, cy, scale);
+        // 2. Orta Parlayan Uzmanlık Aracı
         const pulseH = 0.04 * Math.sin(timeSec * 4 + ag.gx);
-        drawVoxelBox(ag.gx + 0.05, 0.58 + pulseH, deskZ + 0.04, 0.26, 0.24, 0.26, "#fde047", ag.color, "#ffffff", cx, cy, scale);
-        // Sağ Araç: Kitaplık / Sandık / Hoparlör Bloğu
-        drawVoxelBox(ag.gx + 0.36, 0.58, deskZ - 0.04, 0.26, 0.32, 0.24, "#a855f7", "#6b21a8", "#f3e8ff", cx, cy, scale);
+        drawVoxelBox(ag.gx + 0.04, 0.64 + pulseH, deskZ + 0.04, 0.28, 0.26, 0.28, "#fde047", ag.color, "#ffffff", cx, cy, scale);
+        // 3. Sağ Kitaplık / Jukebox / Kalkan Bloğu
+        drawVoxelBox(ag.gx + 0.38, 0.64, deskZ - 0.04, 0.28, 0.34, 0.24, "#a855f7", "#6b21a8", "#f3e8ff", cx, cy, scale);
 
-        // 4. Masa Önü Okunaklı "MASA & ARAÇLAR" Pixel Etiketi
-        const deskLabelPt = project3D(ag.gx, 0.32, ag.gz + floorD/2 + 0.05, cx, cy, scale);
+        // Masanın Önünde Okunaklı Masa & Araç Etiketi
+        const deskPt = project3D(ag.gx, 0.22, deskZ - 0.35, cx, cy, scale);
         ctx.font = "700 10px 'JetBrains Mono', monospace";
-        const toolText = `🪑 ${ag.deskName} • ${ag.tools[0]} ${ag.tools[1]}`;
-        const tw = ctx.measureText(toolText).width + 14;
-        ctx.fillStyle = "rgba(9, 13, 22, 0.88)";
-        ctx.strokeStyle = isSelected ? "#fde047" : ag.color;
-        ctx.lineWidth = isSelected ? 1.8 : 1.1;
-        ctx.beginPath();
-        ctx.roundRect(deskLabelPt.x - tw/2, deskLabelPt.y - 10, tw, 20, 4);
-        ctx.fill();
-        ctx.stroke();
+        const deskLabel = `🪑 ${ag.deskName} [${ag.tools[0]}]`;
+        const dw = ctx.measureText(deskLabel).width + 12;
+        drawBoxRounded(ctx, deskPt.x - dw / 2, deskPt.y - 26, dw, 18, 4, "rgba(9, 13, 22, 0.9)", ag.color, 1.2);
         ctx.fillStyle = "#fde047";
         ctx.textAlign = "center";
         ctx.textBaseline = "middle";
-        ctx.fillText(toolText, deskLabelPt.x, deskLabelPt.y);
+        ctx.fillText(deskLabel, deskPt.x, deskPt.y - 17);
 
-        // 5. Departman Üst Tabelası (Büyük Okunaklı Minecraft Departman Tabelası)
-        const bannerPt = project3D(ag.gx, 1.55, ag.gz - 0.35, cx, cy, scale);
-        ctx.font = "800 11px 'JetBrains Mono', monospace";
-        const deptTitle = `${ag.icon} ${ag.deptName}`;
-        const dw = ctx.measureText(deptTitle).width + 18;
-        ctx.fillStyle = isSelected ? ag.color : "rgba(15, 23, 42, 0.92)";
-        ctx.strokeStyle = isSelected ? "#fde047" : ag.color;
-        ctx.lineWidth = isSelected ? 2.2 : 1.4;
-        ctx.beginPath();
-        ctx.roundRect(bannerPt.x - dw/2, bannerPt.y - 12, dw, 23, 5);
-        ctx.fill();
-        ctx.stroke();
+        // Departman Tabelası
+        const deptText = `${ag.icon} ${ag.deptName}`;
+        ctx.font = "800 10px 'JetBrains Mono', monospace";
+        const bw = ctx.measureText(deptText).width + 14;
+        drawBoxRounded(
+          ctx,
+          deskPt.x - bw / 2,
+          deskPt.y - 47,
+          bw,
+          19,
+          4,
+          isSelected ? ag.color : "rgba(15, 23, 42, 0.94)",
+          isSelected ? "#fde047" : ag.color,
+          isSelected ? 2 : 1.3
+        );
         ctx.fillStyle = "#ffffff";
-        ctx.fillText(deptTitle, bannerPt.x, bannerPt.y);
+        ctx.fillText(deptText, deskPt.x, deskPt.y - 37.5);
 
-        // Tıklama Alanı Kaydı (Masa & Departman)
         clickableHitboxes.push({
           id: ag.id,
-          minX: bannerPt.x - dw/2 - 10,
-          maxX: bannerPt.x + dw/2 + 10,
-          minY: bannerPt.y - 16,
-          maxY: deskLabelPt.y + 14
+          minX: deskPt.x - Math.max(dw, bw) / 2 - 12,
+          maxX: deskPt.x + Math.max(dw, bw) / 2 + 12,
+          minY: deskPt.y - 50,
+          maxY: deskPt.y + 20
         });
       }
 
-      // Gerçek Pixel-Voxel Minecraft Karakteri (Baş, Gövde, Sallanan Kollar, Yürüyen Bacaklar + Üstünde İsmi!)
-      function drawMinecraftCharacter(ag, timeSec, cx, cy, scale) {
+      // BÜYÜK VE NET PIXEL MINECRAFT KARAKTERİ (Steve/Alex Stilinde Pixel-Art + Üstünde İsmi!)
+      function drawBigPixelMinecraftAgent(ag, timeSec, cx, cy, scale) {
         const st = agentWalkStates[ag.id];
         const isSelected = ag.id === selectedAgentId;
 
-        // Yürüyüş animasyon açısı
-        const swing = st.walking ? Math.sin(st.stepPhase) * 0.14 : Math.sin(timeSec * 3 + ag.gx) * 0.03;
-        const bobY = st.walking ? Math.abs(Math.sin(st.stepPhase)) * 0.08 : 0;
+        const swing = st.walking ? Math.sin(st.stepPhase) * 7 : Math.sin(timeSec * 3.5 + ag.gx) * 1.5;
+        const bobPx = st.walking ? Math.abs(Math.sin(st.stepPhase)) * 5 : Math.abs(Math.sin(timeSec * 2.5 + ag.gx)) * 1.5;
 
-        const px = st.x;
-        const pz = st.z;
+        const basePt = project3D(st.x, 0.14, st.z, cx, cy, scale);
+        const sx = Math.round(basePt.x);
+        const sy = Math.round(basePt.y - bobPx);
+        const s = Math.max(0.85, Math.min(1.45, zoomFactor));
 
-        // Karakter Yerdeki Gölgesi
-        const shadowPt = project3D(px, 0.03, pz, cx, cy, scale);
-        ctx.fillStyle = "rgba(0, 0, 0, 0.42)";
+        // 1. Seçili Karakter Parlama Halkası ve Yerdeki Gölgesi
+        ctx.fillStyle = isSelected ? "rgba(253, 224, 71, 0.35)" : "rgba(0, 0, 0, 0.48)";
         ctx.beginPath();
-        ctx.ellipse(shadowPt.x, shadowPt.y, 11 * zoomFactor, 5.5 * zoomFactor, 0, 0, Math.PI * 2);
+        ctx.ellipse(sx, Math.round(basePt.y + 3), 18 * s, 8 * s, 0, 0, Math.PI * 2);
         ctx.fill();
+        if (isSelected) {
+          ctx.strokeStyle = "#fde047";
+          ctx.lineWidth = 2;
+          ctx.stroke();
+        }
 
-        // 1. Sol ve Sağ Bacaklar (Yürürken İleri-Geri Adım Atar)
-        drawVoxelBox(px - 0.09, 0.12 + bobY, pz + swing, 0.15, 0.30, 0.15, ag.pantsColor, shadeHex(ag.pantsColor, 0.75), "#090d16", cx, cy, scale);
-        drawVoxelBox(px + 0.09, 0.12 + bobY, pz - swing, 0.15, 0.30, 0.15, ag.pantsColor, shadeHex(ag.pantsColor, 0.75), "#090d16", cx, cy, scale);
+        // Pixel Karakter Boyutları (Net ve Büyük Görünüm)
+        const legW = Math.round(9 * s), legH = Math.round(16 * s);
+        const bodyW = Math.round(20 * s), bodyH = Math.round(22 * s);
+        const armW = Math.round(8 * s), armH = Math.round(20 * s);
+        const headW = Math.round(24 * s), headH = Math.round(24 * s);
 
-        // 2. Gövde (Departman Kıyafeti)
-        drawVoxelBox(px, 0.42 + bobY, pz, 0.34, 0.38, 0.20, ag.shirtColor, shadeHex(ag.shirtColor, 0.8), "#090d16", cx, cy, scale);
+        const legsTopY = sy - legH;
+        const bodyTopY = legsTopY - bodyH;
+        const headTopY = bodyTopY - headH;
 
-        // 3. Sol ve Sağ Kollar (Yürürken veya Masada Çalışırken Sallanır)
-        const rightArmWave = st.waveTimer > 0 ? 0.24 : 0;
-        drawVoxelBox(px - 0.24, 0.44 + bobY, pz - swing, 0.13, 0.34, 0.14, ag.shirtColor, ag.skinColor, "#090d16", cx, cy, scale);
-        drawVoxelBox(px + 0.24, 0.44 + bobY + rightArmWave, pz + swing, 0.13, 0.34, 0.14, ag.shirtColor, ag.skinColor, "#090d16", cx, cy, scale);
+        // 2. Sol ve Sağ Pixel Bacaklar (Yürürken Adım Atar)
+        ctx.fillStyle = ag.pantsColor;
+        ctx.strokeStyle = "#090d16";
+        ctx.lineWidth = 1.5;
+        // Sol Bacak
+        ctx.fillRect(sx - legW - 1, legsTopY + swing * 0.4, legW, legH);
+        ctx.strokeRect(sx - legW - 1, legsTopY + swing * 0.4, legW, legH);
+        // Sağ Bacak
+        ctx.fillRect(sx + 1, legsTopY - swing * 0.4, legW, legH);
+        ctx.strokeRect(sx + 1, legsTopY - swing * 0.4, legW, legH);
+        // Botlar (Ayakkabı পিক্সেলleri)
+        ctx.fillStyle = "#111827";
+        ctx.fillRect(sx - legW - 1, legsTopY + legH - 4 + swing * 0.4, legW, 4);
+        ctx.fillRect(sx + 1, legsTopY + legH - 4 - swing * 0.4, legW, 4);
 
-        // 4. Kafa Küpü (Voxel Head + Saç/Şapka Bloğu)
-        drawVoxelBox(px, 0.80 + bobY, pz, 0.32, 0.32, 0.32, ag.skinColor, shadeHex(ag.skinColor, 0.88), "#090d16", cx, cy, scale);
-        // Saç / Kask Üst Katmanı
-        drawVoxelBox(px, 1.06 + bobY, pz, 0.34, 0.10, 0.34, ag.hairColor, shadeHex(ag.hairColor, 0.8), "#090d16", cx, cy, scale);
+        // 3. Sol Kol (Sallanan Kol)
+        ctx.fillStyle = ag.shirtColor;
+        ctx.fillRect(sx - bodyW / 2 - armW, bodyTopY - swing * 0.5, armW, armH - 5);
+        ctx.strokeRect(sx - bodyW / 2 - armW, bodyTopY - swing * 0.5, armW, armH - 5);
+        // Sol El (Ten Rengi)
+        ctx.fillStyle = ag.skinColor;
+        ctx.fillRect(sx - bodyW / 2 - armW, bodyTopY + armH - 5 - swing * 0.5, armW, 5);
+        ctx.strokeRect(sx - bodyW / 2 - armW, bodyTopY + armH - 5 - swing * 0.5, armW, 5);
 
-        // Yüzdeki Pixel Gözler
-        const facePt = project3D(px, 0.94 + bobY, pz + 0.16, cx, cy, scale);
-        ctx.fillStyle = "#090d16";
-        ctx.fillRect(facePt.x - 5, facePt.y - 2, 3, 3);
-        ctx.fillRect(facePt.x + 2, facePt.y - 2, 3, 3);
+        // 4. Gövde (Minecraft Kıyafeti + Yaka/Kemer Detayı)
+        ctx.fillStyle = ag.shirtColor;
+        ctx.fillRect(sx - bodyW / 2, bodyTopY, bodyW, bodyH);
+        ctx.strokeRect(sx - bodyW / 2, bodyTopY, bodyW, bodyH);
+        // Göğüs Rozeti / Kravat Pixel Detayı
+        ctx.fillStyle = "#fde047";
+        ctx.fillRect(sx - 3, bodyTopY + 4, 6, 6);
+        // Kemer
+        ctx.fillStyle = "#1f2937";
+        ctx.fillRect(sx - bodyW / 2, bodyTopY + bodyH - 4, bodyW, 4);
 
-        // Elinde Tuttuğu Pixel Eşya / Alet İkonu
-        const handPt = project3D(px + 0.30, 0.62 + bobY + rightArmWave, pz + swing + 0.1, cx, cy, scale);
-        ctx.font = "14px sans-serif";
+        // 5. Sağ Kol + Elinde Tuttuğu Departman Aracı
+        const waveOffset = st.waveTimer > 0 ? -10 : swing * 0.5;
+        ctx.fillStyle = ag.shirtColor;
+        ctx.fillRect(sx + bodyW / 2, bodyTopY + waveOffset, armW, armH - 5);
+        ctx.strokeRect(sx + bodyW / 2, bodyTopY + waveOffset, armW, armH - 5);
+        ctx.fillStyle = ag.skinColor;
+        ctx.fillRect(sx + bodyW / 2, bodyTopY + armH - 5 + waveOffset, armW, 5);
+        ctx.strokeRect(sx + bodyW / 2, bodyTopY + armH - 5 + waveOffset, armW, 5);
+
+        // Sağ Eldeki Parlayan Pixel Araç İkonu
+        ctx.font = `${Math.round(16 * s)}px sans-serif`;
         ctx.textAlign = "center";
-        ctx.fillText(ag.icon, handPt.x, handPt.y);
+        ctx.textBaseline = "middle";
+        ctx.fillText(ag.icon, sx + bodyW / 2 + armW + 8, bodyTopY + armH / 2 + waveOffset);
 
-        // Çalışırken Çıkan Pixel Efekt Parçacığı (Nota, Zümrüt, Kalkan, Kalp)
-        const particleY = 1.28 + ((timeSec * 0.6 + Math.abs(ag.gx)) % 0.45);
-        const partPt = project3D(px + 0.22, particleY, pz, cx, cy, scale);
-        ctx.font = "700 12px monospace";
-        ctx.fillStyle = ag.color;
-        ctx.fillText(ag.particle, partPt.x, partPt.y);
+        // 6. Kafa Bloğu (Büyük Net Minecraft Kafa + Saç + Gözler + Ağız)
+        // Kafa 3D Yan/Üst Derinlik Efekti
+        ctx.fillStyle = shadeHex(ag.skinColor, 0.82);
+        ctx.fillRect(sx - headW / 2 + 3, headTopY - 3, headW, headH);
+        // Ön Yüz
+        ctx.fillStyle = ag.skinColor;
+        ctx.fillRect(sx - headW / 2, headTopY, headW, headH);
+        ctx.strokeStyle = isSelected ? "#fde047" : "#090d16";
+        ctx.lineWidth = isSelected ? 2.2 : 1.6;
+        ctx.strokeRect(sx - headW / 2, headTopY, headW, headH);
 
-        // 5. KARAKTERİN TAM ÜSTÜNDE YAZAN MINECRAFT İSİM ETİKETİ (NAMETAG)
-        const namePt = project3D(px, 1.34 + bobY, pz, cx, cy, scale);
-        const nameText = `★ ${ag.charName} [${ag.roleTitle}]`;
+        // Pixel Saç / Kask / Şapka Bloğu
+        ctx.fillStyle = ag.hairColor;
+        ctx.fillRect(sx - headW / 2 - 1, headTopY - 2, headW + 2, Math.round(headH * 0.34));
+        ctx.fillRect(sx - headW / 2 - 1, headTopY, 3, Math.round(headH * 0.58));
+        ctx.fillRect(sx + headW / 2 - 2, headTopY, 3, Math.round(headH * 0.58));
+
+        // Pixel Gözler (Beyaz + Koyu Gözbebeği)
+        const eyeY = headTopY + Math.round(headH * 0.48);
+        ctx.fillStyle = "#ffffff";
+        ctx.fillRect(sx - 8, eyeY, 6, 4);
+        ctx.fillRect(sx + 2, eyeY, 6, 4);
+        ctx.fillStyle = "#090d16";
+        ctx.fillRect(sx - 6, eyeY, 3, 4);
+        ctx.fillRect(sx + 4, eyeY, 3, 4);
+
+        // Pixel Gülümseyen Ağız
+        ctx.fillStyle = "#7c2d12";
+        ctx.fillRect(sx - 3, headTopY + Math.round(headH * 0.76), 6, 2.5);
+
+        // 7. KARAKTERİN TAM ÜSTÜNDE YAZAN MINECRAFT İSİM ETİKETİ (NAMETAG)
+        const nameY = headTopY - 16;
+        const nameText = `★ ${ag.charName} (${ag.roleTitle})`;
         ctx.font = "800 11px 'JetBrains Mono', monospace";
         const nw = ctx.measureText(nameText).width + 16;
 
-        // Minecraft Yarı Saydam Siyah İsim Kutusu
-        ctx.fillStyle = isSelected ? "rgba(16, 185, 129, 0.95)" : "rgba(0, 0, 0, 0.82)";
-        ctx.strokeStyle = isSelected ? "#fde047" : "#ffffff";
-        ctx.lineWidth = isSelected ? 2 : 1;
-        ctx.beginPath();
-        ctx.roundRect(namePt.x - nw/2, namePt.y - 22, nw, 20, 4);
-        ctx.fill();
-        ctx.stroke();
-
+        drawBoxRounded(
+          ctx,
+          sx - nw / 2,
+          nameY - 11,
+          nw,
+          21,
+          5,
+          isSelected ? "rgba(16, 185, 129, 0.96)" : "rgba(9, 13, 22, 0.92)",
+          isSelected ? "#fde047" : "#ffffff",
+          isSelected ? 2.2 : 1.3
+        );
         ctx.fillStyle = isSelected ? "#fde047" : "#ffffff";
         ctx.textAlign = "center";
         ctx.textBaseline = "middle";
-        ctx.fillText(nameText, namePt.x, namePt.y - 12);
+        ctx.fillText(nameText, sx, nameY - 0.5);
 
-        // Canlı Durum / Konuşma Balonu (Yürürken veya Seçiliyken)
+        // Yürürken veya Seçiliyken Üstteki Konuşma Balonu
         if (st.walking || isSelected) {
-          const speechStr = st.walking ? st.bubbleText : `💬 "${ag.speech}"`;
+          const bubbleStr = st.walking ? st.bubbleText : `💬 ${ag.speech}`;
           ctx.font = "700 10px 'JetBrains Mono', monospace";
-          const sw = ctx.measureText(speechStr).width + 14;
-          ctx.fillStyle = "rgba(254, 240, 138, 0.95)";
-          ctx.strokeStyle = "#ca8a04";
-          ctx.lineWidth = 1.2;
-          ctx.beginPath();
-          ctx.roundRect(namePt.x - sw/2, namePt.y - 44, sw, 18, 4);
-          ctx.fill();
-          ctx.stroke();
+          const sw = ctx.measureText(bubbleStr).width + 14;
+          drawBoxRounded(
+            ctx,
+            sx - sw / 2,
+            nameY - 33,
+            sw,
+            19,
+            5,
+            "rgba(254, 240, 138, 0.97)",
+            "#ca8a04",
+            1.4
+          );
           ctx.fillStyle = "#090d16";
-          ctx.fillText(speechStr, namePt.x, namePt.y - 35);
+          ctx.fillText(bubbleStr, sx, nameY - 23.5);
         }
 
-        // Karakter Tıklama Hitbox'ı
+        // Karakter Tıklama Alanı
         clickableHitboxes.push({
           id: ag.id,
-          minX: namePt.x - nw/2 - 6,
-          maxX: namePt.x + nw/2 + 6,
-          minY: namePt.y - 44,
-          maxY: shadowPt.y + 8
+          minX: sx - Math.max(nw / 2, 24),
+          maxX: sx + Math.max(nw / 2, 24),
+          minY: nameY - 36,
+          maxY: sy + 8
         });
       }
 
-      // Karakterlerin Minecraft Yolu Üzerindeki Yürüyüş Fiziğini Günceller
       function updateWalkingPhysics() {
         let activeWalkerCount = 0;
         AGENTS.forEach(ag => {
@@ -1518,94 +1502,90 @@
         }
       }
 
-      // Ana Oyun Render Döngüsü
       function renderScene(ts) {
         const timeSec = ts * 0.001;
         updateWalkingPhysics();
 
         const rect = canvas.getBoundingClientRect();
-        if (canvas.width !== Math.floor(rect.width)) canvas.width = Math.floor(rect.width);
+        const targetW = Math.max(720, Math.floor(rect.width || 960));
+        if (canvas.width !== targetW) canvas.width = targetW;
         const W = canvas.width, H = canvas.height;
 
-        // 1. Gökyüzü (Minecraft Overworld Gündüz Mavisi veya Gece Yıldızlı Gökyüzü)
+        // 1. Gökyüzü
         const skyGrad = ctx.createLinearGradient(0, 0, 0, H);
         if (isNightMode) {
           skyGrad.addColorStop(0, "#050814");
           skyGrad.addColorStop(0.55, "#0f172a");
           skyGrad.addColorStop(1, "#090d16");
         } else {
-          skyGrad.addColorStop(0, "#1e3a8a");
+          skyGrad.addColorStop(0, "#1d4ed8");
           skyGrad.addColorStop(0.45, "#0284c7");
           skyGrad.addColorStop(1, "#0b1528");
         }
         ctx.fillStyle = skyGrad;
         ctx.fillRect(0, 0, W, H);
 
-        // Pixel Güneş veya Ay + Pixel Bulutlar
+        // Pixel Güneş/Ay ve Bulutlar
         ctx.fillStyle = isNightMode ? "#f8fafc" : "#fde047";
-        ctx.fillRect(W - 95, 28, 36, 36);
-        ctx.fillStyle = "rgba(255,255,255,0.18)";
+        ctx.fillRect(W - 95, 24, 38, 38);
+        ctx.fillStyle = "rgba(255,255,255,0.22)";
         const cloudX = (ts * 0.015) % (W + 160) - 80;
-        ctx.fillRect(cloudX, 34, 74, 16);
-        ctx.fillRect(cloudX + 16, 24, 44, 12);
-        ctx.fillRect((cloudX + 360) % (W + 120), 52, 86, 16);
+        ctx.fillRect(cloudX, 32, 78, 16);
+        ctx.fillRect(cloudX + 16, 22, 46, 12);
+        ctx.fillRect((cloudX + 360) % (W + 120), 50, 88, 16);
 
         if (autoRotate && !isDragging) cameraYaw += 0.002;
         const cx = W * 0.5;
         const cy = H * 0.56;
-        const scale = Math.min(W, H) * 0.072 * zoomFactor;
+        const scale = Math.min(W, H) * 0.075 * zoomFactor;
 
-        // 2. Minecraft Çimen Dünyası Tabanı (Grass Block Top + Dirt Side)
+        // 2. Minecraft Çimen Dünyası Tabanı (Grass Block + Dirt Side)
         const worldCornersTop = [
-          project3D(-7.2, 0, -5.6, cx, cy, scale),
-          project3D(7.2, 0, -5.6, cx, cy, scale),
-          project3D(7.2, 0, 5.6, cx, cy, scale),
-          project3D(-7.2, 0, 5.6, cx, cy, scale)
+          project3D(-6.8, 0, -5.2, cx, cy, scale),
+          project3D(6.8, 0, -5.2, cx, cy, scale),
+          project3D(6.8, 0, 5.2, cx, cy, scale),
+          project3D(-6.8, 0, 5.2, cx, cy, scale)
         ];
         const worldCornersBot = [
-          project3D(-7.2, -0.45, -5.6, cx, cy, scale),
-          project3D(7.2, -0.45, -5.6, cx, cy, scale),
-          project3D(7.2, -0.45, 5.6, cx, cy, scale),
-          project3D(-7.2, -0.45, 5.6, cx, cy, scale)
+          project3D(-6.8, -0.45, -5.2, cx, cy, scale),
+          project3D(6.8, -0.45, -5.2, cx, cy, scale),
+          project3D(6.8, -0.45, 5.2, cx, cy, scale),
+          project3D(-6.8, -0.45, 5.2, cx, cy, scale)
         ];
-        // Toprak Yan Yüzeyler (Dirt Block Sides)
         drawPoly([worldCornersBot[1], worldCornersBot[2], worldCornersTop[2], worldCornersTop[1]], "#78350f", "#451a03", 1);
         drawPoly([worldCornersBot[2], worldCornersBot[3], worldCornersTop[3], worldCornersTop[2]], "#5c2808", "#451a03", 1);
         drawPoly([worldCornersBot[3], worldCornersBot[0], worldCornersTop[0], worldCornersTop[3]], "#78350f", "#451a03", 1);
-        // Çimen Üst Yüzey (Minecraft Grass Block Green)
         drawPoly(worldCornersTop, isNightMode ? "#14532d" : "#15803d", "#166534", 1.5);
 
-        // Voxel Çimen Karo Izgarası (1x1 Blok Çizgileri)
-        ctx.strokeStyle = isNightMode ? "rgba(34, 197, 94, 0.14)" : "rgba(74, 222, 128, 0.22)";
+        // Voxel Blok Izgarası
+        ctx.strokeStyle = isNightMode ? "rgba(34, 197, 94, 0.16)" : "rgba(74, 222, 128, 0.24)";
         ctx.lineWidth = 1;
-        for (let gx = -7; gx <= 7; gx++) {
-          const p1 = project3D(gx, 0.01, -5.5, cx, cy, scale);
-          const p2 = project3D(gx, 0.01, 5.5, cx, cy, scale);
+        for (let gx = -6; gx <= 6; gx++) {
+          const p1 = project3D(gx, 0.01, -5.0, cx, cy, scale);
+          const p2 = project3D(gx, 0.01, 5.0, cx, cy, scale);
           ctx.beginPath(); ctx.moveTo(p1.x, p1.y); ctx.lineTo(p2.x, p2.y); ctx.stroke();
         }
         for (let gz = -5; gz <= 5; gz++) {
-          const q1 = project3D(-7, 0.01, gz, cx, cy, scale);
-          const q2 = project3D(7, 0.01, gz, cx, cy, scale);
+          const q1 = project3D(-6.5, 0.01, gz, cx, cy, scale);
+          const q2 = project3D(6.5, 0.01, gz, cx, cy, scale);
           ctx.beginPath(); ctx.moveTo(q1.x, q1.y); ctx.lineTo(q2.x, q2.y); ctx.stroke();
         }
 
-        // 3. KARAKTERLERİN YÜRÜDÜĞÜ MINECRAFT TAŞ & MEŞE YOLU (Cobblestone & Oak Border Path)
+        // 3. KARAKTERLERİN YÜRÜDÜĞÜ MINECRAFT TAŞ & MEŞE YOLU
         ROAD_SEGMENTS.forEach(seg => {
           const minX = Math.min(seg.x1, seg.x2) - 0.38;
           const maxX = Math.max(seg.x1, seg.x2) + 0.38;
           const minZ = Math.min(seg.z1, seg.z2) - 0.38;
           const maxZ = Math.max(seg.z1, seg.z2) + 0.38;
 
-          // Meşe Tahtası Bordür (Oak Plank Border)
           const oakPts = [
-            project3D(minX - 0.08, 0.015, minZ - 0.08, cx, cy, scale),
-            project3D(maxX + 0.08, 0.015, minZ - 0.08, cx, cy, scale),
-            project3D(maxX + 0.08, 0.015, maxZ + 0.08, cx, cy, scale),
-            project3D(minX - 0.08, 0.015, maxZ + 0.08, cx, cy, scale)
+            project3D(minX - 0.09, 0.015, minZ - 0.09, cx, cy, scale),
+            project3D(maxX + 0.09, 0.015, minZ - 0.09, cx, cy, scale),
+            project3D(maxX + 0.09, 0.015, maxZ + 0.09, cx, cy, scale),
+            project3D(minX - 0.09, 0.015, maxZ + 0.09, cx, cy, scale)
           ];
           drawPoly(oakPts, "#92400e", "#78350f", 1);
 
-          // Kırıktaş Yürüyüş Yolu (Cobblestone Path)
           const stonePts = [
             project3D(minX, 0.025, minZ, cx, cy, scale),
             project3D(maxX, 0.025, minZ, cx, cy, scale),
@@ -1614,29 +1594,27 @@
           ];
           drawPoly(stonePts, "#64748b", "#475569", 1);
 
-          // Yolun ortasındaki sarı/altın Minecraft yön taşları
           const steps = Math.max(2, Math.round(Math.hypot(seg.x2 - seg.x1, seg.z2 - seg.z1) * 1.6));
           for (let s = 0; s <= steps; s++) {
             const tx = seg.x1 + (seg.x2 - seg.x1) * (s / steps);
             const tz = seg.z1 + (seg.z2 - seg.z1) * (s / steps);
             const sp = [
-              project3D(tx - 0.09, 0.03, tz - 0.09, cx, cy, scale),
-              project3D(tx + 0.09, 0.03, tz - 0.09, cx, cy, scale),
-              project3D(tx + 0.09, 0.03, tz + 0.09, cx, cy, scale),
-              project3D(tx - 0.09, 0.03, tz + 0.09, cx, cy, scale)
+              project3D(tx - 0.1, 0.03, tz - 0.1, cx, cy, scale),
+              project3D(tx + 0.1, 0.03, tz - 0.1, cx, cy, scale),
+              project3D(tx + 0.1, 0.03, tz + 0.1, cx, cy, scale),
+              project3D(tx - 0.1, 0.03, tz + 0.1, cx, cy, scale)
             ];
-            drawPoly(sp, "#94a3b8", "rgba(15,23,42,0.4)", 0.6);
+            drawPoly(sp, "#cbd5e1", "rgba(15,23,42,0.4)", 0.6);
           }
         });
 
-        // Yürüyüş Yolu Etiketi (Merkez Kavşakta Okunaklı)
-        const roadSignPt = project3D(-1.35, 0.06, 0.38, cx, cy, scale);
-        ctx.font = "700 9px 'JetBrains Mono', monospace";
+        const roadSignPt = project3D(0, 0.06, 1.65, cx, cy, scale);
+        ctx.font = "800 10px 'JetBrains Mono', monospace";
         ctx.fillStyle = "#fde047";
         ctx.textAlign = "center";
-        ctx.fillText("🛤️ MINECRAFT AJAN YÜRÜYÜŞ YOLU", roadSignPt.x, roadSignPt.y);
+        ctx.fillText("🛤️ MINECRAFT KARAKTER YÜRÜYÜŞ YOLU", roadSignPt.x, roadSignPt.y);
 
-        // 4. Derinlik Sıralı (Z-Sort) Çizim: Ağaçlar, Lambalar, Departman Masaları ve Yürüyen Karakterler
+        // 4. Derinlik Sıralı Çizim: Ağaçlar, Lambalar, Departman Masaları ve Büyük Pixel Karakterler
         clickableHitboxes = [];
         const renderQueue = [];
 
@@ -1656,14 +1634,14 @@
 
         AGENTS.forEach(ag => {
           renderQueue.push({
-            depth: project3D(ag.gx, 0.4, ag.gz, cx, cy, scale).depth,
+            depth: project3D(ag.gx, 0.35, ag.gz - 0.25, cx, cy, scale).depth,
             draw: () => drawDepartmentStation(ag, timeSec, cx, cy, scale)
           });
 
           const st = agentWalkStates[ag.id];
           renderQueue.push({
-            depth: project3D(st.x, 0.6, st.z, cx, cy, scale).depth + 0.05,
-            draw: () => drawMinecraftCharacter(ag, timeSec, cx, cy, scale)
+            depth: project3D(st.x, 0.65, st.z, cx, cy, scale).depth + 0.15,
+            draw: () => drawBigPixelMinecraftAgent(ag, timeSec, cx, cy, scale)
           });
         });
 
@@ -1673,7 +1651,6 @@
         requestAnimationFrame(renderScene);
       }
 
-      // Fare & Dokunmatik Kamera Kontrolleri
       canvas.addEventListener("pointerdown", e => {
         isDragging = true;
         lastMouseX = e.clientX;
@@ -1693,10 +1670,12 @@
         zoomFactor = Math.max(0.65, Math.min(1.85, zoomFactor + (e.deltaY < 0 ? 0.08 : -0.08)));
       }, { passive: false });
 
-      // Karakter veya Masaya Tıklama
       canvas.addEventListener("click", e => {
         const rect = canvas.getBoundingClientRect();
-        const mx = e.clientX - rect.left, my = e.clientY - rect.top;
+        const scaleX = canvas.width / rect.width;
+        const scaleY = canvas.height / rect.height;
+        const mx = (e.clientX - rect.left) * scaleX;
+        const my = (e.clientY - rect.top) * scaleY;
         for (let i = clickableHitboxes.length - 1; i >= 0; i--) {
           const b = clickableHitboxes[i];
           if (mx >= b.minX && mx <= b.maxX && my >= b.minY && my <= b.maxY) {
@@ -1710,7 +1689,6 @@
         }
       });
 
-      // Klavye Oyun Kontrolleri (1-0 Slot Seçimi ve WASD/Ok Tuşlarıyla Karakteri Yürütme)
       window.addEventListener("keydown", e => {
         if (document.activeElement && document.activeElement.tagName === "INPUT") return;
         const k = e.key.toLowerCase();
@@ -1724,7 +1702,6 @@
         }
       });
 
-      // Üst Buton Aksiyonları
       document.getElementById("btnParade").addEventListener("click", () => triggerAllAgentsParade());
       document.getElementById("btnMeeting").addEventListener("click", () => triggerCentralPlazaMeeting());
       document.getElementById("btnDayNight").addEventListener("click", () => {
@@ -1736,9 +1713,9 @@
         e.target.textContent = `🔄 Kamera Döndür: ${autoRotate ? "Açık" : "Kapalı"}`;
       });
       document.getElementById("btnResetCamera").addEventListener("click", () => {
-        cameraYaw = 0.52;
-        cameraPitch = 0.62;
-        zoomFactor = 1.05;
+        cameraYaw = 0.46;
+        cameraPitch = 0.64;
+        zoomFactor = 1.08;
       });
       document.getElementById("btnZoomIn").addEventListener("click", () => {
         zoomFactor = Math.min(1.85, zoomFactor + 0.14);
@@ -1747,13 +1724,60 @@
         zoomFactor = Math.max(0.65, zoomFactor - 0.14);
       });
       document.getElementById("btnTopView").addEventListener("click", () => {
-        cameraPitch = cameraPitch > 0.95 ? 0.62 : 1.15;
+        cameraPitch = cameraPitch > 0.95 ? 0.64 : 1.15;
       });
       document.getElementById("outfitSelector").addEventListener("change", e => {
         renderOutfitTable(e.target.value);
       });
 
       requestAnimationFrame(renderScene);
+    }
+
+    // =========================================================================
+    // 5. SHA-256 ŞİFRE DOĞRULAMA MOTORU (TÜM SABİTLER YÜKLENDİKTEN SONRA ÇALIŞIR!)
+    // =========================================================================
+    const ALLOWED_HASHES = new Set([
+      "8118dfe2b7b596eb414cf068688d502689bbd18eeef0ad7efbdfe9500ac4dc4e",
+      "664da613be74eae207b4279006042036d85fc7c5c40642d668bdb7cd1982bd49",
+      "74e14473d08ce1e3ff398302f4134aee11005052d574a0d3d811803075701d77",
+      "966d205c7876093dbc8b1b0678cd0b8541d7ef5f5a5eadd5504e213aeb62498d"
+    ]);
+    const STORAGE_KEY = "guzelai_admin_3d_auth_v1";
+
+    async function sha256Hex(str) {
+      const buf = new TextEncoder().encode(str.trim());
+      const digest = await window.crypto.subtle.digest("SHA-256", buf);
+      return Array.from(new Uint8Array(digest)).map(b => b.toString(16).padStart(2, "0")).join("");
+    }
+
+    function unlockDashboard() {
+      document.getElementById("authGate").classList.add("hidden");
+      document.getElementById("dashboardRoot").classList.remove("hidden");
+      initMinecraftWorld();
+    }
+
+    document.getElementById("loginForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const raw = document.getElementById("pwdInput").value;
+      const hash = await sha256Hex(raw);
+      if (ALLOWED_HASHES.has(hash)) {
+        if (document.getElementById("rememberMe").checked) {
+          localStorage.setItem(STORAGE_KEY, "unlocked");
+        }
+        document.getElementById("authError").classList.add("hidden");
+        unlockDashboard();
+      } else {
+        document.getElementById("authError").classList.remove("hidden");
+      }
+    });
+
+    document.getElementById("btnLockSession").addEventListener("click", () => {
+      localStorage.removeItem(STORAGE_KEY);
+      window.location.reload();
+    });
+
+    if (localStorage.getItem(STORAGE_KEY) === "unlocked") {
+      unlockDashboard();
     }
   </script>
 </body>
