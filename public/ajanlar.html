@@ -4,22 +4,60 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow" />
-  <title>GuzelAI.com • Özel Yönetim & 3D Ajan Komuta Merkezi</title>
+  <title>GuzelAI Craft • 10 Ajanlı Minecraft Komuta Dünyası & Özel Yönetim</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=JetBrains+Mono:wght@500;700;800&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
     body {
-      background-color: #090d16;
+      background-color: #070b12;
       color: #f8fafc;
       font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    .font-pixel {
+      font-family: 'Press Start 2P', 'JetBrains Mono', monospace;
+      letter-spacing: 0.02em;
+    }
+    .font-mono-game {
+      font-family: 'JetBrains Mono', monospace;
     }
     canvas {
       display: block;
       width: 100%;
       cursor: grab;
       touch-action: none;
+      image-rendering: pixelated;
     }
     canvas:active {
       cursor: grabbing;
+    }
+    .mc-btn {
+      background: linear-gradient(180deg, #4b5563 0%, #374151 100%);
+      border-top: 2px solid #9ca3af;
+      border-left: 2px solid #9ca3af;
+      border-right: 2px solid #1f2937;
+      border-bottom: 3px solid #111827;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.15);
+      transition: transform 0.08s, filter 0.12s;
+    }
+    .mc-btn:hover {
+      filter: brightness(1.14);
+    }
+    .mc-btn:active {
+      transform: translateY(1px);
+      border-bottom-width: 1px;
+    }
+    .mc-slot {
+      background: rgba(17, 24, 39, 0.92);
+      border-top: 2px solid #374151;
+      border-left: 2px solid #374151;
+      border-right: 2px solid #9ca3af;
+      border-bottom: 2px solid #9ca3af;
+    }
+    .mc-slot-active {
+      background: rgba(16, 185, 129, 0.28);
+      border: 3px solid #fde047 !important;
+      box-shadow: 0 0 14px rgba(253, 224, 71, 0.45);
+      transform: translateY(-2px);
     }
   </style>
 </head>
@@ -28,20 +66,20 @@
   <!-- ===================================================================== -->
   <!-- 1. ŞİFRELİ GİRİŞ EKRANI (SADECE YETKİLİ ŞİFRE İLE AÇILIR)             -->
   <!-- ===================================================================== -->
-  <div id="authGate" class="min-h-screen flex items-center justify-center p-4 bg-[#090d16]">
-    <div class="w-full max-w-md bg-[#111827] border border-slate-800 rounded-2xl p-7 shadow-2xl space-y-6">
+  <div id="authGate" class="min-h-screen flex items-center justify-center p-4 bg-[#070b12]">
+    <div class="w-full max-w-md bg-[#111827] border-2 border-emerald-500/40 rounded-2xl p-7 shadow-2xl space-y-6">
       <div class="flex items-center justify-between">
         <div class="flex items-center gap-2.5">
-          <span class="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></span>
-          <span class="text-xs font-semibold tracking-wider uppercase text-emerald-400">GuzelAI Özel Yönetim</span>
+          <span class="w-3 h-3 rounded-sm bg-emerald-400 animate-pulse"></span>
+          <span class="text-xs font-bold tracking-wider uppercase text-emerald-400 font-mono-game">GUZELAI CRAFT • ÖZEL YÖNETİM</span>
         </div>
         <a href="https://guzelai.com" class="text-xs text-slate-400 hover:text-white transition">← Siteye Dön</a>
       </div>
 
       <div>
-        <h1 class="text-xl font-bold text-white">🔒 3D Ajan Komuta Merkezi & Özel İzleme</h1>
+        <h1 class="text-xl font-bold text-white">⛏️ Minecraft Ajan Dünyası & Özel Komuta Merkezi</h1>
         <p class="text-xs text-slate-400 mt-1.5 leading-relaxed">
-          Bu sayfa yalnızca hesap sahibine özeldir. 7 aktif ajanın 3D kat planını, canlı mağaza/Pinterest eşleşmelerini, takipçi/izlenme analizini ve son üretilen 2K Reels videosunu görüntülemek için şifrenizi girin.
+          Bu dünya yalnızca hesap sahibine özeldir. 10 uzman ajanın kendi departmanlarını, masalarını, araçlarını, Minecraft yolundaki canlı yürüyüşlerini, %100 İhlal Doğurmaz Raporunu ve 2K Reels videonuzu görmek için şifrenizi girin.
         </p>
       </div>
 
@@ -74,127 +112,234 @@
           type="submit"
           class="w-full py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm shadow-lg shadow-emerald-600/20 transition"
         >
-          Şifreyi Doğrula ve 3D Komuta Merkezini Aç
+          ⛏️ Şifreyi Doğrula ve Minecraft Ajan Dünyasına Gir
         </button>
       </form>
     </div>
   </div>
 
   <!-- ===================================================================== -->
-  <!-- 2. KORUMALI 3D AJAN KOMUTA MERKEZİ & 2K VİDEO İZLEME PANELİ           -->
+  <!-- 2. KORUMALI MINECRAFT AJAN DÜNYASI & 2K VİDEO KOMUTA PANELİ            -->
   <!-- ===================================================================== -->
-  <div id="dashboardRoot" class="hidden max-w-7xl mx-auto p-4 sm:p-6 space-y-6">
+  <div id="dashboardRoot" class="hidden max-w-[1440px] mx-auto p-3 sm:p-5 space-y-5">
 
-    <!-- Üst Bar -->
-    <div class="bg-[#111827] border border-slate-800 rounded-2xl p-5 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+    <!-- Üst Oyun Başlığı & Kontroller -->
+    <div class="bg-[#111827] border-2 border-slate-800 rounded-2xl p-4 sm:p-5 flex flex-col xl:flex-row xl:items-center xl:justify-between gap-4">
       <div>
-        <div class="flex items-center gap-2.5">
-          <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-          <span class="text-xs font-medium text-emerald-400">GuzelAI.com Özel Yönetim • Şifreli Oturum Açık</span>
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="px-2 py-0.5 rounded bg-emerald-500/20 border border-emerald-500/40 text-[11px] font-bold text-emerald-300 font-mono-game">⛏️ GUZELAI CRAFT v2.4</span>
+          <span class="text-xs font-medium text-amber-300">10 Karakter • 10 Departman • Canlı Minecraft Yolu & Masa Araçları</span>
         </div>
-        <h1 class="text-xl sm:text-2xl font-bold text-white mt-1">3D Ajan Stüdyosu Kat Planı & Canlı Operasyon Merkezi</h1>
-        <p class="text-xs sm:text-sm text-slate-400 mt-0.5">
-          7 uzman ajanın 3 boyutlu kat planındaki canlı çalışmasını, son 2K Graph-Motion Reels videonuzu, mağaza linklerini ve @guzelaicom sağlık durumunu buradan takip edebilirsiniz.
+        <h1 class="text-lg sm:text-2xl font-extrabold text-white mt-1">🟩 Pixel Minecraft Ajan Dünyası & Canlı Operasyon Oyunu</h1>
+        <p class="text-xs text-slate-400 mt-0.5">
+          Her ajanın üzerinde <strong class="text-white">ismi, seviyesi, departmanı ve masa araçları</strong> yazar. Karakterler taş/meşe <strong class="text-amber-300">Minecraft yolunda</strong> yürüyerek birbirine veri taşır; <strong class="text-emerald-300">WASD / Ok tuşlarıyla</strong> seçili ajanı kendiniz de yürütebilirsiniz!
         </p>
       </div>
 
-      <div class="flex flex-wrap items-center gap-2.5">
-        <button id="btnRotateToggle" class="px-3.5 py-2 rounded-xl border border-slate-700 bg-slate-800/80 text-xs font-medium text-slate-200 hover:bg-slate-700 transition">
-          3D Otomatik Döndür: Açık
+      <div class="flex flex-wrap items-center gap-2">
+        <button id="btnParade" class="mc-btn px-3 py-2 rounded-lg text-xs font-bold text-amber-300">
+          🚶‍♂️ Tüm Ajanları Yola Çıkar
         </button>
-        <button id="btnResetCamera" class="px-3.5 py-2 rounded-xl border border-slate-700 bg-slate-800/80 text-xs font-medium text-slate-200 hover:bg-slate-700 transition">
-          Açıyı Sıfırla
+        <button id="btnMeeting" class="mc-btn px-3 py-2 rounded-lg text-xs font-bold text-sky-300">
+          🏛️ Merkez Meydanda Topla
         </button>
-        <button id="btnTriggerPulse" class="px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold transition">
-          ⚡ Ajan İşbirliği Akışını Tetikle
+        <button id="btnDayNight" class="mc-btn px-3 py-2 rounded-lg text-xs font-bold text-purple-300">
+          🌙 Mod: Gündüz / Gece
         </button>
-        <button id="btnLockSession" class="px-3.5 py-2 rounded-xl border border-rose-500/40 bg-rose-500/10 text-rose-300 hover:bg-rose-500/20 text-xs font-medium transition">
-          🔒 Kilitle & Çıkış
+        <button id="btnRotateToggle" class="mc-btn px-3 py-2 rounded-lg text-xs font-bold text-slate-200">
+          🔄 Kamera Döndür: Kapalı
+        </button>
+        <button id="btnResetCamera" class="mc-btn px-3 py-2 rounded-lg text-xs font-bold text-emerald-300">
+          🎯 Kamerayı Ortala
+        </button>
+        <button id="btnLockSession" class="px-3 py-2 rounded-lg border border-rose-500/40 bg-rose-500/10 text-rose-300 hover:bg-rose-500/20 text-xs font-bold transition">
+          🔒 Çıkış
         </button>
       </div>
     </div>
 
     <!-- Üst KPI Kartları -->
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-3.5">
-      <div class="bg-[#111827] border border-slate-800 rounded-2xl p-4">
-        <div class="text-xs text-slate-400">Instagram (@guzelaicom)</div>
-        <div class="text-base sm:text-lg font-bold text-emerald-400 mt-1" id="kpiHealth">HEALTHY • Düşük Risk</div>
-        <div class="text-xs text-slate-400 mt-1">Sabit Cihaz UUID + Bearer IGT Aktif</div>
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-3">
+      <div class="bg-[#111827] border border-slate-800 rounded-2xl p-3.5">
+        <div class="text-xs text-slate-400">🩺 SELİN (Sosyal Medya Uzmanı)</div>
+        <div class="text-sm sm:text-base font-bold text-emerald-400 mt-1" id="kpiHealth">HEALTHY • 282 Takipçi</div>
+        <div class="text-[11px] text-slate-400 mt-0.5" id="kpiLatestReel">Reel DeoIDlQo3Yj: 17 İzlenme (8.5x Hız)</div>
       </div>
-      <div class="bg-[#111827] border border-slate-800 rounded-2xl p-4">
-        <div class="text-xs text-slate-400">Takipçi & Son 10 Reels İzlenme</div>
-        <div class="text-base sm:text-lg font-bold text-white mt-1" id="kpiFollowers">282 Takipçi • 256 İzlenme</div>
-        <div class="text-xs text-emerald-400 mt-1" id="kpiLatestReel">Yeni Reel (DeoIDlQo3Yj): 17 İzlenme (8.5x Hız)</div>
+      <div class="bg-[#111827] border border-slate-800 rounded-2xl p-3.5">
+        <div class="text-xs text-slate-400">🛍️ KAAN & 🧬 MİRA (Mağaza + İkiz Link)</div>
+        <div class="text-sm sm:text-base font-bold text-amber-300 mt-1">18 Birebir + 18 İkiz Model</div>
+        <div class="text-[11px] text-slate-400 mt-0.5">Zara, İpekyol, Quzu, Stradivarius, H&M</div>
       </div>
-      <div class="bg-[#111827] border border-slate-800 rounded-2xl p-4">
-        <div class="text-xs text-slate-400">Ajan 1 & 2 Doğrulanmış Linkler</div>
-        <div class="text-base sm:text-lg font-bold text-white mt-1">18 / 18 Parça • 41 /go/ Link</div>
-        <div class="text-xs text-slate-400 mt-1">Zara, İpekyol, Quzu, Ray-Ban, H&M</div>
+      <div class="bg-[#111827] border border-slate-800 rounded-2xl p-3.5">
+        <div class="text-xs text-slate-400">🎵 DJ RİTMO (Viral TikTok Müzik Ajanı)</div>
+        <div class="text-sm sm:text-base font-bold text-purple-300 mt-1">Da Da Da Dadada (99.4/100)</div>
+        <div class="text-[11px] text-slate-400 mt-0.5">124 BPM • 5.2s Yürüyüş Sync • 320kbps</div>
       </div>
-      <div class="bg-[#111827] border border-slate-800 rounded-2xl p-4">
-        <div class="text-xs text-slate-400">4 Saatlik Anti-Spam Koruması</div>
-        <div class="text-base sm:text-lg font-bold text-amber-400 mt-1" id="kpiCooldown">Güvenli Soğuma Aktif</div>
-        <div class="text-xs text-slate-400 mt-1">0 Ham URL • Maks 5 Niş Etiket</div>
+      <div class="bg-[#111827] border border-emerald-500/40 rounded-2xl p-3.5">
+        <div class="text-xs text-slate-400">🛡️ MÜFETTİŞ DEMİR (İhlal Denetim Ajanı)</div>
+        <div class="text-sm sm:text-base font-bold text-emerald-400 mt-1">%100 İHLAL DOĞURMAZ</div>
+        <div class="text-[11px] text-slate-300 mt-0.5">11 / 11 Kriter Onaylı • Yayına Hazır</div>
       </div>
     </div>
 
-    <!-- Orta Bölüm: 3D Kat Planı (Sol 8 Sütun) + Seçili Ajan Telemetri & Konsol (Sağ 4 Sütun) -->
+    <!-- ===================================================================== -->
+    <!-- ANA OYUN ALANI: MINECRAFT DÜNYASI (Sol 8 Sütun) + AJAN KARTI (Sağ 4)   -->
+    <!-- ===================================================================== -->
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
-      <!-- 3D Kat Planı -->
-      <div class="lg:col-span-8 bg-[#111827] border border-slate-800 rounded-2xl p-4 sm:p-5 flex flex-col">
-        <div class="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-slate-800">
-          <div>
-            <h2 class="text-base font-bold text-white">🏛️ 3D İzometrik Ajan Stüdyosu Kat Planı</h2>
-            <p class="text-xs text-slate-400">Parmağınızla veya fareyle sürükleyerek 3D açıyı döndürün; detaylar için odalara dokunun.</p>
+
+      <!-- Sol 8 Sütun: Minecraft Voxel Dünyası Canvas & Hotbar -->
+      <div class="lg:col-span-8 bg-[#111827] border-2 border-slate-800 rounded-2xl p-3 sm:p-4 flex flex-col">
+        <div class="flex flex-wrap items-center justify-between gap-2 pb-2.5 border-b border-slate-800">
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-bold text-emerald-400 font-mono-game">🗺️ MINECRAFT KÖYÜ HARİTASI:</span>
+            <span class="text-xs text-slate-300">Sürükle: Döndür • Tekerlek / Buton: Yakınlaştır • <kbd class="px-1.5 py-0.5 bg-slate-800 rounded text-amber-300 font-mono-game">W A S D</kbd>: Seçili Karakteri Yolda Yürüt</span>
           </div>
-          <div class="flex flex-wrap items-center gap-3 text-xs text-slate-300">
-            <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-amber-400 inline-block"></span>Pinterest ↔ Mağaza</span>
-            <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-emerald-400 inline-block"></span>Doğrulanmış Link → Ana Ajan</span>
-            <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-sky-400 inline-block"></span>Sağlık & İzlenme</span>
+          <div class="flex items-center gap-1.5">
+            <button id="btnZoomIn" class="mc-btn px-2.5 py-1 rounded text-xs font-bold text-white">➕ Yakınlaş</button>
+            <button id="btnZoomOut" class="mc-btn px-2.5 py-1 rounded text-xs font-bold text-white">➖ Uzaklaş</button>
+            <button id="btnTopView" class="mc-btn px-2.5 py-1 rounded text-xs font-bold text-amber-200">🦅 Kuşbakışı / 3D</button>
           </div>
         </div>
 
-        <div class="relative mt-3 rounded-xl overflow-hidden border border-slate-800 bg-[#0b1120]">
-          <canvas id="floorplan3d" height="460"></canvas>
+        <!-- Oyun Ekranı -->
+        <div class="relative mt-2.5 rounded-xl overflow-hidden border-2 border-slate-700 bg-[#0b1320] shadow-inner">
+          <canvas id="minecraftWorldCanvas" height="600"></canvas>
+
+          <!-- Sol Üst Oyun İçi HUD Bilgi Kutusu -->
+          <div class="absolute top-3 left-3 pointer-events-none bg-slate-950/85 border border-slate-700/90 rounded-xl px-3 py-2 text-[11px] font-mono-game space-y-1 max-w-xs">
+            <div class="flex items-center gap-2 text-emerald-400 font-bold">
+              <span>⛏️ WORLD: GUZELAI_CRAFT</span>
+              <span id="hudTimeBadge" class="text-amber-300">☀️ GÜNDÜZ</span>
+            </div>
+            <div class="text-slate-300" id="hudActiveWalker">Aktif Yürüyen: 10 Ajan Yolda & Masada</div>
+            <div class="text-slate-400">Yol: Kırıktaş & Meşe • Redstone Lambası Aktif</div>
+          </div>
+
+          <!-- Sağ Alt Mobil / Fare Yön Tuşları (D-Pad) -->
+          <div class="absolute bottom-4 right-4 bg-slate-950/85 border border-slate-700 rounded-xl p-2 flex flex-col items-center gap-1 select-none">
+            <div class="text-[9px] font-mono-game text-amber-300 mb-0.5">KARAKTERİ YÜRÜT</div>
+            <button onclick="nudgeSelectedAgent(0, -0.45)" class="mc-btn w-7 h-7 rounded text-xs font-bold text-white flex items-center justify-center">▲</button>
+            <div class="flex gap-1">
+              <button onclick="nudgeSelectedAgent(-0.45, 0)" class="mc-btn w-7 h-7 rounded text-xs font-bold text-white flex items-center justify-center">◀</button>
+              <button onclick="sendSelectedAgentOnRoad()" title="Yolda Göreve Gönder" class="mc-btn w-7 h-7 rounded text-[10px] font-bold text-emerald-300 flex items-center justify-center">GO</button>
+              <button onclick="nudgeSelectedAgent(0.45, 0)" class="mc-btn w-7 h-7 rounded text-xs font-bold text-white flex items-center justify-center">▶</button>
+            </div>
+            <button onclick="nudgeSelectedAgent(0, 0.45)" class="mc-btn w-7 h-7 rounded text-xs font-bold text-white flex items-center justify-center">▼</button>
+          </div>
         </div>
 
-        <!-- Oda Seçim Butonları -->
-        <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2 mt-3" id="roomQuickButtons"></div>
+        <!-- Minecraft Can / XP Barı & 10 Slotlu Envanter Hotbar -->
+        <div class="mt-3 bg-[#090d16] border border-slate-800 rounded-xl p-3 space-y-2">
+          <div class="flex flex-wrap items-center justify-between text-xs font-mono-game gap-2">
+            <div class="flex items-center gap-1 text-rose-500 font-bold tracking-wider">
+              <span>♥♥♥♥♥♥♥♥♥♥</span>
+              <span class="text-slate-400 text-[11px] ml-1">100/100 HESAP SAĞLIĞI</span>
+            </div>
+            <div class="text-emerald-400 font-bold text-center">
+              ★ XP LEVEL 100 • %100 İHLAL DOĞURMAZ YAYIN ONAYLI ★
+            </div>
+            <div class="flex items-center gap-1 text-amber-400 font-bold">
+              <span>⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡</span>
+              <span class="text-slate-400 text-[11px] ml-1">10/10 AJAN ENERJİ</span>
+            </div>
+          </div>
+
+          <!-- Yeşil XP Çubuğu -->
+          <div class="w-full h-2 bg-slate-800 rounded-sm overflow-hidden border border-slate-700">
+            <div class="h-full bg-gradient-to-r from-emerald-500 via-lime-400 to-emerald-500 w-full"></div>
+          </div>
+
+          <!-- 10 Ajan Minecraft Hotbar Slotları -->
+          <div class="grid grid-cols-2 sm:grid-cols-5 lg:grid-cols-10 gap-1.5 pt-1" id="minecraftHotbar"></div>
+        </div>
       </div>
 
-      <!-- Sağ Panel: Seçili Ajan Detayı + Canlı Konsol -->
-      <div class="lg:col-span-4 bg-[#111827] border border-slate-800 rounded-2xl p-5 flex flex-col justify-between space-y-4">
-        <div>
-          <div class="flex items-center justify-between">
-            <span id="agentBadge" class="px-2.5 py-1 rounded-md text-xs font-semibold bg-emerald-500/15 text-emerald-400">AKTİF İŞBİRLİĞİ</span>
-            <span id="agentCodeName" class="text-xs font-mono text-slate-400">kombin-dispatcher-reporter</span>
+      <!-- Sağ 4 Sütun: Seçili Minecraft Karakterinin Departmanı, Masası, Araçları & Canlı Sohbet -->
+      <div class="lg:col-span-4 bg-[#111827] border-2 border-slate-800 rounded-2xl p-4 sm:p-5 flex flex-col justify-between space-y-4">
+        <div class="space-y-3.5">
+          <!-- Karakter Başlığı -->
+          <div class="p-3.5 rounded-xl bg-[#0b1120] border border-slate-800 space-y-2">
+            <div class="flex items-center justify-between">
+              <span id="agentBadge" class="px-2.5 py-0.5 rounded text-xs font-bold bg-emerald-500/20 text-emerald-300 font-mono-game">LVL 99 • AKTİF</span>
+              <span id="agentCodeName" class="text-[11px] font-mono-game text-slate-400">prepublish-compliance-auditor</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <div id="agentAvatarBox" class="w-12 h-12 rounded-xl flex items-center justify-center text-2xl border-2 border-white/20 shadow-inner bg-emerald-600/30">
+                🛡️
+              </div>
+              <div>
+                <div id="agentCharName" class="text-base font-extrabold text-amber-300 font-mono-game">★ MÜFETTİŞ DEMİR</div>
+                <div id="agentDeptTitle" class="text-xs font-bold text-white">%100 İhlal Doğurmaz Denetim Departmanı</div>
+              </div>
+            </div>
+            <p id="agentDesc" class="text-xs text-slate-300 leading-relaxed pt-1"></p>
           </div>
-          <h3 id="agentTitle" class="text-lg font-bold text-white mt-2">Ajan 3: Koordinasyon & Bildirim</h3>
-          <p id="agentDesc" class="text-xs sm:text-sm text-slate-300 mt-1 leading-relaxed"></p>
 
-          <div class="mt-4 pt-4 border-t border-slate-800 space-y-2">
-            <div class="text-xs font-semibold text-slate-200">Canlı Ajan Metrikleri & Son Çıktılar</div>
-            <div id="agentMetricsList" class="space-y-2 text-xs"></div>
+          <!-- Masası & Araçları Kutusu -->
+          <div class="p-3.5 rounded-xl bg-[#0b1120] border border-amber-500/30 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-amber-300 font-mono-game">🪑 MASA & KULLANDIĞI ARAÇLAR</span>
+              <button onclick="sendSelectedAgentOnRoad()" class="px-2 py-0.5 rounded bg-amber-500/20 hover:bg-amber-500/30 text-amber-200 text-[11px] font-semibold transition">
+                🚶‍♂️ Yola Gönder
+              </button>
+            </div>
+            <div class="text-xs text-white font-semibold" id="agentDeskName">Masa: Obsidyen Kalkan & Mühür Kürsüsü</div>
+            <div class="flex flex-wrap gap-1.5 pt-1" id="agentToolsList"></div>
           </div>
 
-          <div class="mt-4 pt-4 border-t border-slate-800">
-            <div class="text-xs font-semibold text-slate-200 mb-2">İşbirliği Yaptığı Ajanlar</div>
+          <!-- Canlı Metrikler -->
+          <div class="space-y-1.5">
+            <div class="text-xs font-bold text-slate-200 font-mono-game">📊 DEPARTMAN CANLI ÇIKTILARI</div>
+            <div id="agentMetricsList" class="space-y-1.5 text-xs"></div>
+          </div>
+
+          <!-- İşbirliği Yolu Bağlantıları -->
+          <div>
+            <div class="text-xs font-bold text-slate-200 mb-1.5 font-mono-game">🛤️ MINECRAFT YOLUYLA GİTTİĞİ DEPARTMANLAR</div>
             <div id="agentCollabLinks" class="flex flex-wrap gap-1.5"></div>
           </div>
         </div>
 
+        <!-- Canlı Oyun Sohbeti / Komut Günlüğü -->
         <div class="pt-3 border-t border-slate-800">
           <div class="flex items-center justify-between mb-1.5">
-            <span class="text-xs font-semibold text-slate-200">Canlı Ajan İletişim Günlüğü</span>
-            <span class="text-xs text-emerald-400">● Canlı Akış</span>
+            <span class="text-xs font-bold text-slate-200 font-mono-game">💬 MINECRAFT SUNUCU SOHBETİ (CANLI)</span>
+            <span class="text-xs text-emerald-400 font-mono-game">● 10/10 Çevrimiçi</span>
           </div>
-          <div id="liveConsole" class="bg-[#0b1120] border border-slate-800 rounded-xl p-3 h-40 overflow-y-auto space-y-1.5 text-xs font-mono"></div>
+          <div id="liveConsole" class="bg-[#070b12] border border-slate-800 rounded-xl p-3 h-40 overflow-y-auto space-y-1.5 text-xs font-mono-game"></div>
         </div>
       </div>
     </div>
 
     <!-- ===================================================================== -->
-    <!-- ÖZEL VİDEO İZLEME & DOĞRULANMIŞ MAĞAZA LİNKLERİ BÖLÜMÜ                -->
+    <!-- 10 DEPARTMANIN TAM LİSTESİ (İSİM, DEPARTMAN, MASA VE ARAÇLAR TABLOSU)   -->
+    <!-- ===================================================================== -->
+    <div class="bg-[#111827] border-2 border-slate-800 rounded-2xl p-5">
+      <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+        <div>
+          <h2 class="text-base sm:text-lg font-bold text-white">📋 Minecraft Dünyasındaki 10 Ajanın İsimleri, Departmanları, Masaları ve Araçları</h2>
+          <p class="text-xs text-slate-400">Herhangi bir satıra tıkladığınızda kamera o ajanın Minecraft masasına odaklanır ve karakter el sallayarak selam verir.</p>
+        </div>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse text-xs">
+          <thead>
+            <tr class="border-b border-slate-800 text-slate-400 font-mono-game">
+              <th class="py-2.5 pr-3">Karakter İsmi</th>
+              <th class="py-2.5 pr-3">Departmanı</th>
+              <th class="py-2.5 pr-3">Minecraft Masası</th>
+              <th class="py-2.5 pr-3">Masadaki Araçlar & Ekipmanlar</th>
+              <th class="py-2.5 pr-3">Anlık Görev / Durum</th>
+              <th class="py-2.5">İşlem</th>
+            </tr>
+          </thead>
+          <tbody id="allDepartmentsTable" class="divide-y divide-slate-800/70"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ===================================================================== -->
+    <!-- ÖZEL 2K VİDEO İZLEME & DOĞRULANMIŞ MAĞAZA LİNKLERİ BÖLÜMÜ             -->
     <!-- ===================================================================== -->
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
 
@@ -243,15 +388,15 @@
         </div>
       </div>
 
-      <!-- Sağ 8 Sütun: Ajan 1 & Ajan 2 Doğrulanmış Mağaza Linkleri + Ajan 4 Reels İzlenme Analizi -->
+      <!-- Sağ 8 Sütun: KAAN & MİRA Mağaza Linkleri + SELİN İzlenme Analizi + DEMİR & DJ RİTMO Kartları -->
       <div class="lg:col-span-8 space-y-5">
 
-        <!-- Ajan 1 & Ajan 2 Ortak Çıktısı -->
+        <!-- KAAN & MİRA Ortak Çıktısı -->
         <div class="bg-[#111827] border border-slate-800 rounded-2xl p-5">
           <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
             <div>
-              <h3 class="text-base font-bold text-white">🛍️ Ajan 1 & Ajan 2 İşbirliği: Doğrulanmış Pinterest Kombin Linkleri</h3>
-              <p class="text-xs text-slate-400">Pinterest Trend Ajanı reçetesiyle %100 birebir eşleşen canlı Türkiye mağaza ürünleri</p>
+              <h3 class="text-base font-bold text-white">🛍️ KAAN & MİRA İşbirliği: Birebir + İkiz Model Mağaza Linkleri</h3>
+              <p class="text-xs text-slate-400">LUNA (Pinterest Trend Ajanı) reçetesiyle %100 birebir eşleşen ve %96 ikiz yedekli Türkiye mağaza ürünleri</p>
             </div>
             <select id="outfitSelector" class="px-3 py-2 rounded-xl border border-slate-700 bg-[#0b1120] text-xs text-white">
               <option value="sunday_slot1_espresso_cream_oldmoney">Kombin #1: Pazar Brunch Old Money (Zara, İpekyol, Ray-Ban) - 19.228,50₺</option>
@@ -276,23 +421,23 @@
           </div>
         </div>
 
-        <!-- Ajan 4: Instagram Reels İzlenme Performansı -->
+        <!-- SELİN: Instagram Reels İzlenme Performansı -->
         <div class="bg-[#111827] border border-slate-800 rounded-2xl p-5">
           <div class="mb-3">
-            <h3 class="text-base font-bold text-white">📊 Ajan 4 (`social-health-analyst`): Canlı Reels İzlenme & Keşfet Analizi</h3>
+            <h3 class="text-base font-bold text-white">📊 SELİN (`social-health-analyst`): Canlı Reels İzlenme & Keşfet Analizi</h3>
             <p class="text-xs text-slate-400">@guzelaicom son yayınlanan Reels videolarının organik izlenme ve etkileşim performansı</p>
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="reelsPerformanceList"></div>
         </div>
 
-        <!-- YENİ: Ajan 6 (%100 İhlal Doğurmaz Raporu) + Ajan 5 (Viral TikTok Müzik Raporu) -->
+        <!-- MÜFETTİŞ DEMİR (%100 İhlal Doğurmaz Raporu) + DJ RİTMO (Viral TikTok Müzik Raporu) -->
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div class="bg-[#111827] border border-emerald-500/40 rounded-2xl p-4 space-y-2.5">
             <div class="flex items-center justify-between">
               <span class="px-2.5 py-0.5 rounded bg-emerald-500/20 text-emerald-400 text-xs font-bold">%100 İHLAL DOĞURMAZ</span>
               <span class="text-xs font-mono text-slate-400">11 / 11 Kriter</span>
             </div>
-            <h4 class="text-sm font-bold text-white">🛡️ Yayın Öncesi Güvenlik & Spam Sertifikası</h4>
+            <h4 class="text-sm font-bold text-white">🛡️ MÜFETTİŞ DEMİR: Yayın Öncesi Güvenlik Sertifikası</h4>
             <ul class="text-xs text-slate-300 space-y-1">
               <li>✅ Sabit Android Cihaz UUID + Mobil Bearer IGT</li>
               <li>✅ Açıklamada 0 Ham URL + Güvenli Etiket Sınırı</li>
@@ -306,7 +451,7 @@
               <span class="px-2.5 py-0.5 rounded bg-purple-500/20 text-purple-300 text-xs font-bold">SKOR: 99.4 / 100</span>
               <span class="text-xs font-mono text-slate-400">124 BPM • 5.2s Sync</span>
             </div>
-            <h4 class="text-sm font-bold text-white">🎵 Viral TikTok & Reels Müzik Ajanı Seçimi</h4>
+            <h4 class="text-sm font-bold text-white">🎵 DJ RİTMO: Viral TikTok & Reels Müzik Seçimi</h4>
             <div class="text-xs text-slate-300 space-y-1">
               <div><strong class="text-white">Seçilen Hit:</strong> Veor Uranis – Da Da Da Dadada</div>
               <div><strong class="text-white">Format:</strong> 44.1 kHz Stereo • 320 kbps AAC Master</div>
@@ -322,7 +467,7 @@
 
   <script>
     // =========================================================================
-    // SHA-256 ŞİFRE DOĞRULAMA MOTORU (Düz metin şifre kodda yer almaz)
+    // 1. SHA-256 ŞİFRE DOĞRULAMA MOTORU
     // =========================================================================
     const ALLOWED_HASHES = new Set([
       "8118dfe2b7b596eb414cf068688d502689bbd18eeef0ad7efbdfe9500ac4dc4e",
@@ -341,7 +486,7 @@
     function unlockDashboard() {
       document.getElementById("authGate").classList.add("hidden");
       document.getElementById("dashboardRoot").classList.remove("hidden");
-      initCommandCenter();
+      initMinecraftWorld();
     }
 
     if (localStorage.getItem(STORAGE_KEY) === "unlocked") {
@@ -369,179 +514,364 @@
     });
 
     // =========================================================================
-    // 10 AJAN VERİLERİ & 3D SAHNE MOTORU
+    // 2. 10 MINECRAFT AJANI, İSİMLERİ, DEPARTMANLARI, MASALARI VE ARAÇLARI
     // =========================================================================
     const AGENTS = [
       {
         id: "main-core",
-        shortLabel: "Ana Ajan",
+        slotKey: "1",
+        icon: "👑",
+        charName: "ATLAS",
+        level: "Lv.99",
+        roleTitle: "Baş Koordinatör",
+        deptName: "MERKEZ KOMUTA DEPARTMANI",
+        deskName: "Komut Bloğu & Büyü Masası",
+        tools: ["🟧 Komut Bloğu", "📖 Büyü Kitabı", "🖥️ 3'lü Hologram Ekran", "📡 Redstone Anteni"],
+        speech: "10 Departman Senkron! Yayın Onaylı!",
+        particle: "✦",
         code: "antigravity-core",
-        name: "Merkez Komuta: Ana Ajan (Antigravity)",
-        status: "AKTİF MERKEZ",
+        status: "MERKEZ ÜS AKTİF",
         color: "#10b981",
-        gx: 0, gz: 0, w: 2.1, d: 2.1, h: 1.6,
-        desc: "10 uzman ajandan gelen Pinterest trend reçetelerini, birincil/ikiz mağaza linklerini, viral TikTok müziğini ve %100 İhlal Doğurmaz sertifikasını birleştirerek yayınları yönetir.",
-        collabs: ["kombin-dispatcher-reporter", "prepublish-compliance-auditor", "tiktok-viral-music-scout"],
+        shirtColor: "#059669",
+        pantsColor: "#1e293b",
+        hairColor: "#fbbf24",
+        skinColor: "#f3c6a0",
+        deskTopColor: "#f97316",
+        deskWoodColor: "#78350f",
+        gx: 0, gz: 0,
+        desc: "Merkez Komuta Departmanı yöneticisi ATLAS; diğer 9 departmandan Minecraft yoluyla gelen Pinterest kombinlerini, mağaza linklerini, viral TikTok müziğini ve %100 İhlal Doğurmaz sertifikasını birleştirip yayını başlatır.",
+        collabs: ["agent-3", "agent-6", "agent-5", "agent-4"],
         metrics: [
+          ["Karakter & Seviye", "👑 ATLAS (Lv.99 Baş Koordinatör)"],
+          ["Departman Masası", "Komut Bloğu & Büyü Masası (Merkez Meydan)"],
           ["Yayın Öncesi Karar", "%100 İHLAL DOĞURMAZ (11/11 Kriter)"],
-          ["Seçilen Viral Müzik", "Veor Uranis – Da Da Da (99.4 Skor)"],
-          ["Son Canlı Yayın", "Reel DeoIDlQo3Yj (17 İzlenme)"],
-          ["Aktif Ajan Ekosistemi", "10 Uzman Ajan Tam İşbirliğinde"]
+          ["Son Canlı Yayın", "Reel DeoIDlQo3Yj (17 İzlenme • 8.5x Hız)"]
+        ]
+      },
+      {
+        id: "agent-2",
+        slotKey: "2",
+        icon: "📌",
+        charName: "LUNA",
+        level: "Lv.94",
+        roleTitle: "Pinterest Trend Avcısı",
+        deptName: "PINTEREST TREND DEPARTMANI",
+        deskName: "Harita & Moodboard Masası",
+        tools: ["🗺️ Harita Masası", "🔭 Altın Dürbün", "🎨 Renk Paleti", "📌 Trend İğnesi"],
+        speech: "3 Yeni Old Money Kombin Buldum!",
+        particle: "📌",
+        code: "pinterest-trend-scout",
+        status: "TREND TARIYOR",
+        color: "#ec4899",
+        shirtColor: "#db2777",
+        pantsColor: "#312e81",
+        hairColor: "#581c87",
+        skinColor: "#f8d4b4",
+        deskTopColor: "#ec4899",
+        deskWoodColor: "#831843",
+        gx: -5.2, gz: -3.6,
+        desc: "Pinterest Trend Departmanı uzmanı LUNA; Harita Masası ve Altın Dürbünü ile 2026 Sonbahar/Kış Old Money panolarını tarar, henüz paylaşılmamış kombin reçetelerini çıkarıp taş yoldan KAAN ve MİRA'ya götürür.",
+        collabs: ["agent-1a", "agent-1b", "agent-3"],
+        metrics: [
+          ["Karakter & Seviye", "📌 LUNA (Lv.94 Pinterest Trend Avcısı)"],
+          ["Masa & Araçlar", "Harita Masası, Altın Dürbün, Moodboard"],
+          ["Bulunan Trend Kombin", "3 Yayınlanmamış Kombin (18 Parça Reçete)"],
+          ["Çıktı Dosyası", "output/pinterest_trends_queue.json"]
         ]
       },
       {
         id: "agent-1a",
-        shortLabel: "Ajan 1A: Mağaza",
+        slotKey: "3",
+        icon: "🛍️",
+        charName: "KAAN",
+        level: "Lv.96",
+        roleTitle: "Mağaza Link Uzmanı",
+        deptName: "MAĞAZA ARAŞTIRMA DEPARTMANI",
+        deskName: "Zümrüt Ticaret & Barkod Masası",
+        tools: ["💎 Zümrüt Tarayıcı", "🏷️ Zara/İpekyol Katalog", "⚖️ Altın Terazi", "📦 Ürün Sandığı"],
+        speech: "18/18 Birebir Mağaza Linki Hazır!",
+        particle: "◆",
         code: "store-link-researcher",
-        name: "Ajan 1A: Ana Mağaza & Doğru Link Araştırma Ajanı",
-        status: "TARAMA AKTİF",
+        status: "%100 BİREBİR LİNK",
         color: "#f59e0b",
-        gx: -3.4, gz: -2.2, w: 1.9, d: 1.6, h: 1.15,
-        desc: "Ajan 2'nin belirlediği Pinterest kombin parçalarını Zara, Trendyol, Quzu, İpekyol, Stradivarius ve H&M üzerinde tarar ve %100 birebir mağaza linklerini doğrular.",
-        collabs: ["store-deep-matcher-agent", "pinterest-trend-scout", "kombin-dispatcher-reporter"],
+        shirtColor: "#d97706",
+        pantsColor: "#1e3a8a",
+        hairColor: "#27272a",
+        skinColor: "#eab68c",
+        deskTopColor: "#10b981",
+        deskWoodColor: "#78350f",
+        gx: -5.2, gz: 0,
+        desc: "Mağaza Araştırma Departmanı uzmanı KAAN; Zümrüt Barkod Tarayıcısı ile Zara, Trendyol, İpekyol, Quzu ve H&M mağazalarını tarar, LUNA'nın getirdiği kombinlerin %100 birebir ürün linklerini doğrular.",
+        collabs: ["agent-1b", "agent-2", "agent-3"],
         metrics: [
-          ["Doğrulanan Mağaza Linki", "18 / 18 Ürün (Zara, İpekyol, Quzu, H&M)"],
-          ["Birebir Eşleşme Oranı", "%100 Birebir Aynı Ürün (Kombin #1 & #2)"],
-          ["Görsel Dekupe (rembg)", "12 / 12 Şeffaf PNG Hazır"],
+          ["Karakter & Seviye", "🛍️ KAAN (Lv.96 Mağaza Link Uzmanı)"],
+          ["Masa & Araçlar", "Zümrüt Ticaret Masası, Barkod Tarayıcı"],
+          ["Doğrulanan Ürün", "18 / 18 Parça (%100 Birebir Mağaza Linki)"],
           ["Çıktı Dosyası", "output/store_verified_matches.json"]
         ]
       },
       {
         id: "agent-1b",
-        shortLabel: "Ajan 1B: İkiz Link",
+        slotKey: "4",
+        icon: "🧬",
+        charName: "MİRA",
+        level: "Lv.95",
+        roleTitle: "İkiz Model Eşleştirici",
+        deptName: "İKİZ MODEL & YEDEK DEPARTMANI",
+        deskName: "Çiftli Örs & Klonlama Masası",
+        tools: ["🔨 Çiftli Örs (Anvil)", "🧬 %96 İkiz Kristali", "🧰 Yedek SKU Sandığı", "🔗 Klon Köprüsü"],
+        speech: "18 Yedek İkiz Model Linki Kilitlendi!",
+        particle: "⚡",
         code: "store-deep-matcher-agent",
-        name: "Ajan 1B: Derin Mağaza & Yedek İkiz Model Ajanı",
         status: "İKİZ MATRİS HAZIR",
         color: "#fb923c",
-        gx: -3.4, gz: 0, w: 1.9, d: 1.5, h: 1.1,
-        desc: "Ana Mağaza Ajanı (Ajan 1A) ile birlikte çalışarak her kombin parçası için stok tükenmesine karşı %96+ uyumlu Yedek İkiz Model mağaza linklerini hazır tutar.",
-        collabs: ["store-link-researcher", "price-stock-conversion-guard"],
+        shirtColor: "#ea580c",
+        pantsColor: "#334155",
+        hairColor: "#9a3412",
+        skinColor: "#f5cba7",
+        deskTopColor: "#94a3b8",
+        deskWoodColor: "#475569",
+        gx: -5.2, gz: 3.6,
+        desc: "İkiz Model Departmanı uzmanı MİRA; KAAN ile yan yana çalışarak Çiftli Örs Masasında her ürün için %96+ benzerlikte Yedek İkiz Model mağaza linki üretir. Bir ürün tükenirse anında ikizini devreye sokar.",
+        collabs: ["agent-1a", "agent-8", "agent-3"],
         metrics: [
-          ["Hazırlanan İkiz Matris", "18 Birincil + 18 Yedek İkiz Ürün Linki"],
-          ["İkiz Model Uyumluluğu", "%96 Stil, Renk & Kesim İkizi"],
-          ["Stok Koruması", "Tükenen SKU'da 0 Saniyede Otomatik Geçiş"],
+          ["Karakter & Seviye", "🧬 MİRA (Lv.95 İkiz Model Eşleştirici)"],
+          ["Masa & Araçlar", "Çiftli Örs, %96 İkiz Klonlama Kristali"],
+          ["Hazır İkiz Matris", "18 Birincil + 18 Yedek İkiz Mağaza Linki"],
           ["Çıktı Dosyası", "output/store_deep_twin_matches.json"]
         ]
       },
       {
-        id: "agent-2",
-        shortLabel: "Ajan 2: Pinterest",
-        code: "pinterest-trend-scout",
-        name: "Ajan 2: Pinterest Güncel Trend Kombin Ajanı",
-        status: "TREND TARIYOR",
-        color: "#ec4899",
-        gx: -3.4, gz: 2.2, w: 1.9, d: 1.6, h: 1.15,
-        desc: "Pinterest 2026 Sonbahar/Kış Old Money ve Quiet Luxury panolarını tarar; henüz Instagram'da paylaşılmamış en yüksek etkileşimli 6 parçalık kombin reçetesini Ajan 1A ve 1B'ye gönderir.",
-        collabs: ["store-link-researcher", "store-deep-matcher-agent", "kombin-dispatcher-reporter"],
-        metrics: [
-          ["Taranan Katalog Trendi", "8 Sonbahar/Kış Kapsül Kombin"],
-          ["Seçilen Yayınlanmamış Trend", "3 Kombin (18 Parça Reçete)"],
-          ["Sıradaki Konsept", "Pazar Brunch Old Money (#C8A98E Bej/Vizon)"],
-          ["Çıktı Dosyası", "output/pinterest_trends_queue.json"]
-        ]
-      },
-      {
         id: "agent-3",
-        shortLabel: "Ajan 3: Rapor",
+        slotKey: "5",
+        icon: "📨",
+        charName: "EFE",
+        level: "Lv.93",
+        roleTitle: "Koordinasyon Habercisi",
+        deptName: "KOORDİNASYON & RAPOR DEPARTMANI",
+        deskName: "Kürsü & Telgraf Masası",
+        tools: ["📜 Brifing Kürsüsü", "🪶 Tüy Kalem & Kitap", "🔔 Altın Çan", "📫 Rapor Sandığı"],
+        speech: "Raporu ATLAS'a Teslim Ediyorum!",
+        particle: "✉",
         code: "kombin-dispatcher-reporter",
-        name: "Ajan 3: Kombin Koordinasyon & Bildirim Ajanı",
-        status: "RAPORLUYOR",
+        status: "RAPOR TAŞIYOR",
         color: "#14b8a6",
-        gx: -1.6, gz: 0, w: 1.6, d: 1.5, h: 1.25,
-        desc: "Pinterest Trend, Mağaza Link, Viral Müzik ve %100 İhlal Doğurmaz Denetim ajanlarının çıktılarını birleştirip Ana Ajana hazır tablo olarak sunar.",
-        collabs: ["pinterest-trend-scout", "store-link-researcher", "main-core"],
+        shirtColor: "#0d9488",
+        pantsColor: "#0f172a",
+        hairColor: "#451a03",
+        skinColor: "#f3c6a0",
+        deskTopColor: "#14b8a6",
+        deskWoodColor: "#78350f",
+        gx: -2.4, gz: -2.2,
+        desc: "Koordinasyon Departmanı sorumlusu EFE; LUNA, KAAN ve MİRA'dan aldığı tüm kombin ve mağaza linki paketlerini Kürsü Masasında resmi brifinge dönüştürüp Minecraft yolundan Merkezdeki ATLAS'a ulaştırır.",
+        collabs: ["main-core", "agent-1a", "agent-2"],
         metrics: [
-          ["Sıradaki Öneri", "sunday_slot1_espresso_cream_oldmoney"],
-          ["Prime-Time Yedek", "sunday_slot3_navy_camel_ivory"],
-          ["Manken Yürüyüş Kareleri", "3/3 Tam Boy Sokak Yürüyüşü Hazır"],
+          ["Karakter & Seviye", "📨 EFE (Lv.93 Koordinasyon Habercisi)"],
+          ["Masa & Araçlar", "Brifing Kürsüsü, Tüy Kalem, Altın Çan"],
+          ["Sıradaki Öneri", "Pazar Brunch Old Money (19.228,50₺)"],
           ["Brifing Dosyası", "output/latest_agent_briefing.md"]
         ]
       },
       {
-        id: "agent-4",
-        shortLabel: "Ajan 4: Sağlık",
-        code: "social-health-analyst",
-        name: "Ajan 4: Sosyal Medya Uzmanı & Sağlık Analitik Ajanı",
-        status: "KORUMA AKTİF",
-        color: "#38bdf8",
-        gx: 3.4, gz: -2.2, w: 1.9, d: 1.6, h: 1.15,
-        desc: "Yeni şifre girişi yapmadan kalıcı Bearer IGT oturumuyla @guzelaicom hesap sağlığını, takipçi değişimini (Δ), Reels izlenmelerini ve 4 saatlik soğuma süresini izler.",
-        collabs: ["prepublish-compliance-auditor", "main-core"],
-        metrics: [
-          ["Hesap & Risk Durumu", "HEALTHY_ACTIVE • Risk: LOW"],
-          ["Takipçi & Gönderi", "282 Takipçi • 52 Takip • 30 Gönderi"],
-          ["Son 10 Reels İzlenme", "256 Toplam İzlenme (%5.86 Etkileşim)"],
-          ["Canlı Rapor", "output/social_health_report.json"]
-        ]
-      },
-      {
-        id: "agent-5",
-        shortLabel: "Ajan 5: TikTok Müzik",
-        code: "tiktok-viral-music-scout",
-        name: "Ajan 5: Viral TikTok & Reels Müzik Araştırma Ajanı",
-        status: "99.4 VİRAL SKOR",
-        color: "#a855f7",
-        gx: 3.4, gz: 2.2, w: 1.9, d: 1.6, h: 1.15,
-        desc: "Paylaşımlardan önce viral TikTok/Reels moda müziklerini tarar; 124 BPM ritim, 5.2s podyum geçişi ve 44.1 kHz / 320 kbps AAC stüdyo kalitesiyle doğru müziği Ana Ajana ulaştırır.",
-        collabs: ["main-core", "prepublish-compliance-auditor"],
-        metrics: [
-          ["Seçilen Viral Hit", "Veor Uranis – Da Da Da Dadada (124 BPM)"],
-          ["Viral Trend Skoru", "99.4 / 100 (TikTok & Reels Podyum Hit)"],
-          ["Stüdyo Master", "44.1 kHz Stereo • 320 kbps AAC • 5.2s Sync"],
-          ["Çıktı Raporu", "output/viral_music_selection_report.json"]
-        ]
-      },
-      {
         id: "agent-6",
-        shortLabel: "Ajan 6: %100 İhlalsiz",
+        slotKey: "6",
+        icon: "🛡️",
+        charName: "DEMİR",
+        level: "Lv.99",
+        roleTitle: "İhlal Denetim Müfettişi",
+        deptName: "%100 İHLALSİZ DENETİM DEPARTMANI",
+        deskName: "Obsidyen Kalkan & Mühür Masası",
+        tools: ["🛡️ Elmas Kalkan", "🏅 %100 İhlalsiz Mühür", "⚖️ 11/11 Kanun Kitabı", "🔍 Spam Dedektörü"],
+        speech: "%100 İhlal Doğurmaz Raporu Onaylandı!",
+        particle: "🛡️",
         code: "prepublish-compliance-auditor",
-        name: "Ajan 6: Yayın Öncesi %100 İhlal Doğurmaz Denetim Ajanı",
-        status: "%100 ONAYLI (11/11)",
+        status: "%100 İHLALSİZ (11/11)",
         color: "#22c55e",
-        gx: 1.6, gz: 0, w: 1.7, d: 1.6, h: 1.3,
-        desc: "Sosyal Medya Uzmanı Ajanı ile iş birliği yaparak her yayından önce 11 maddelik spam, cihaz, link, telif ve Ticaret Bakanlığı yasal uyarı denetimi yapar; %100 İhlal Doğurmaz Raporu verir.",
-        collabs: ["social-health-analyst", "main-core", "tiktok-viral-music-scout"],
+        shirtColor: "#16a34a",
+        pantsColor: "#18181b",
+        hairColor: "#e2e8f0",
+        skinColor: "#eab68c",
+        deskTopColor: "#22c55e",
+        deskWoodColor: "#1e1b4b",
+        gx: 2.4, gz: -2.2,
+        desc: "%100 İhlalsiz Denetim Departmanı başmüfettişi DEMİR; SELİN ile iş birliği yaparak her yayından önce 11 güvenlik, telif, sabit cihaz ve spam kriterini denetler ve resmi '%100 İhlal Doğurmaz Raporu' mührünü basar.",
+        collabs: ["main-core", "agent-4", "agent-5"],
         metrics: [
-          ["Denetim Kararı", "%100 İHLAL DOĞURMAZ — YAYINA UYGUN"],
-          ["Geçen Kriter Sayısı", "11 / 11 (%100.0 Uyumluluk Skoru)"],
-          ["Spam & Bot Koruması", "0 Ham URL • Maks 5-7 Etiket • Yorum Botu Yok"],
+          ["Karakter & Seviye", "🛡️ MÜFETTİŞ DEMİR (Lv.99 Başmüfettiş)"],
+          ["Masa & Araçlar", "Obsidyen Kalkan Masası, %100 İhlalsiz Mühür"],
+          ["Denetim Kararı", "%100 İHLAL DOĞURMAZ — YAYINA UYGUN (11/11)"],
           ["Sertifika Dosyası", "output/prepublish_compliance_certificate.md"]
         ]
       },
       {
-        id: "agent-7",
-        shortLabel: "Ajan 7: 2K Podyum",
-        code: "visual-qa-runway-inspector",
-        name: "Ajan 7: 2K OLED Podyum & Graph-Motion Denetçisi",
-        status: "DOĞRULANDI",
-        color: "#f43f5e",
-        gx: 0, gz: 3.1, w: 2.2, d: 1.5, h: 1.1,
-        desc: "Mankenin 3 karede de yolda özgüvenle yürüdüğünü (baş-ayak tam boy kadraj) ve 2K (1440x2560) Samsung OLED keskinlik skorunu (Laplacian > 2000) yayın öncesi denetler.",
-        collabs: ["main-core", "prepublish-compliance-auditor"],
+        id: "agent-5",
+        slotKey: "7",
+        icon: "🎵",
+        charName: "DJ RİTMO",
+        level: "Lv.98",
+        roleTitle: "Viral TikTok Müzik Ajanı",
+        deptName: "VİRAL TIKTOK MÜZİK STÜDYOSU",
+        deskName: "Elmas Müzik Kutusu & Mikser Masası",
+        tools: ["💿 Elmas Jukebox", "🎹 Nota Blokları", "🎧 320kbps Kulaklık", "🎚️ 124 BPM Mikser"],
+        speech: "Da Da Da Dadada (99.4 Skor) Hazır!",
+        particle: "♫",
+        code: "tiktok-viral-music-scout",
+        status: "99.4 VİRAL MÜZİK",
+        color: "#a855f7",
+        shirtColor: "#9333ea",
+        pantsColor: "#1e1b4b",
+        hairColor: "#38bdf8",
+        skinColor: "#f3c6a0",
+        deskTopColor: "#a855f7",
+        deskWoodColor: "#3b0764",
+        gx: 5.2, gz: -3.6,
+        desc: "Viral TikTok Müzik Stüdyosu direktörü DJ RİTMO; Elmas Müzik Kutusu (Jukebox) ve Nota Blokları ile TikTok/Reels trendlerini analiz eder, 124 BPM yürüyüş ritmine tam oturan %100 telif güvenli müziği ATLAS'a ulaştırır.",
+        collabs: ["main-core", "agent-6", "agent-9"],
         metrics: [
-          ["Çözünürlük & Kalite", "1440x2560 (2K QHD+ Samsung OLED)"],
-          ["Keskinlik Skoru", "Hook: 3124.0 • Yürüyüş: 3331.9 / 3128.6"],
-          ["Yürüyüş Kadrajı", "3/3 Tam Boy Sokak Yürüyüşü (Zoom 1.02-1.08)"],
-          ["Kalite Raporu", "PASSED (%100 Doğal • Ghosting Yok)"]
+          ["Karakter & Seviye", "🎵 DJ RİTMO (Lv.98 Viral Müzik Ajanı)"],
+          ["Masa & Araçlar", "Elmas Jukebox, Nota Blokları, 124 BPM Mikser"],
+          ["Seçilen Viral Parça", "Veor Uranis – Da Da Da Dadada (99.4/100)"],
+          ["Çıktı Raporu", "output/viral_music_selection_report.json"]
+        ]
+      },
+      {
+        id: "agent-4",
+        slotKey: "8",
+        icon: "🩺",
+        charName: "SELİN",
+        level: "Lv.97",
+        roleTitle: "Sosyal Medya Uzmanı",
+        deptName: "SOSYAL MEDYA SAĞLIK DEPARTMANI",
+        deskName: "İksir & Mobil Sinyal Analiz Masası",
+        tools: ["🧪 Sağlık İksiri Standı", "📱 SM-S908E Anteni", "📈 İzlenme Radarı", "❤️ Kalp Monitörü"],
+        speech: "@guzelaicom Sağlığı %100 Güvende!",
+        particle: "❤",
+        code: "social-health-analyst",
+        status: "HEALTHY • 282 TAKİPÇİ",
+        color: "#38bdf8",
+        shirtColor: "#0284c7",
+        pantsColor: "#1e293b",
+        hairColor: "#f59e0b",
+        skinColor: "#f8d4b4",
+        deskTopColor: "#38bdf8",
+        deskWoodColor: "#0c4a6e",
+        gx: 5.2, gz: 0,
+        desc: "Sosyal Medya Sağlık Departmanı uzmanı SELİN; kalıcı SM-S908E mobil oturumuyla @guzelaicom'un takipçi, izlenme ve etkileşim nabzını tutar, Müfettiş DEMİR ile birlikte hesabın sıfır kısıtlamayla büyümesini sağlar.",
+        collabs: ["agent-6", "main-core"],
+        metrics: [
+          ["Karakter & Seviye", "🩺 SELİN (Lv.97 Sosyal Medya Uzmanı)"],
+          ["Masa & Araçlar", "İksir Standı, SM-S908E Anteni, İzlenme Radarı"],
+          ["Hesap & Takipçi", "HEALTHY_ACTIVE • 282 Takipçi • 256 İzlenme"],
+          ["Canlı Rapor", "output/social_health_report.json"]
+        ]
+      },
+      {
+        id: "agent-7",
+        slotKey: "9",
+        icon: "🎬",
+        charName: "ARDA",
+        level: "Lv.93",
+        roleTitle: "2K Podyum Yönetmeni",
+        deptName: "2K PODYUM & GÖRSEL QA STÜDYOSU",
+        deskName: "2K OLED Kamera & Işık Masası",
+        tools: ["🎥 2K Sinema Kamerası", "💡 Glowstone Işık Kulesi", "🎞️ Kadraj Cetveli", "👠 Podyum Sensörü"],
+        speech: "3/3 Manken Yürüyüşü 2K OLED Net!",
+        particle: "🎬",
+        code: "visual-qa-runway-inspector",
+        status: "2K QA ONAYLI",
+        color: "#f43f5e",
+        shirtColor: "#e11d48",
+        pantsColor: "#18181b",
+        hairColor: "#171717",
+        skinColor: "#eab68c",
+        deskTopColor: "#f43f5e",
+        deskWoodColor: "#881337",
+        gx: 5.2, gz: 3.6,
+        desc: "2K Podyum Stüdyosu yönetmeni ARDA; Sinema Kamerası ve Glowstone Işık Kuleleri ile mankenin yolda özgüvenle yürüdüğü 3 karenin tam boy kadrajını ve 2K (1440x2560) keskinlik skorunu denetler.",
+        collabs: ["main-core", "agent-6", "agent-9"],
+        metrics: [
+          ["Karakter & Seviye", "🎬 ARDA (Lv.93 2K Podyum Yönetmeni)"],
+          ["Masa & Araçlar", "2K Kamera Tripodu, Glowstone Işık Kulesi"],
+          ["Keskinlik Skoru", "Laplacian 3331.9 (2K QHD+ Samsung OLED)"],
+          ["Yürüyüş Kadrajı", "3/3 Tam Boy Sokak Yürüyüşü Doğrulandı"]
         ]
       },
       {
         id: "agent-8",
-        shortLabel: "Ajan 8: Vitrin & Stok",
+        slotKey: "0",
+        icon: "💎",
+        charName: "BORA",
+        level: "Lv.92",
+        roleTitle: "Vitrin & Stok Muhafızı",
+        deptName: "VİTRİN & STOK KALKANI DEPARTMANI",
+        deskName: "Ender Sandığı & /go/ Portal Masası",
+        tools: ["🔮 Ender Sandığı", "🚪 41 /go/ Portalı", "💰 Canlı TL Tabelası", "⚡ Redstone Şalteri"],
+        speech: "41 /go/ Linki ve Vitrin Aktif!",
+        particle: "💎",
         code: "price-stock-conversion-guard",
-        name: "Ajan 8: Fiyat, Stok & GuzelAI.com Vitrin Kalkanı",
         status: "41 LİNK AKTİF",
         color: "#eab308",
-        gx: 0, gz: -3.1, w: 2.2, d: 1.5, h: 1.1,
-        desc: "guzelai.com/#kombinler vitrinini ve 41 adet /go/{sku} yönlendirme sayfasını izler; mağazada tükenen ürün olursa Ajan 1B (İkiz Link) ile anında yedek modele yönlendirir.",
-        collabs: ["store-deep-matcher-agent", "main-core"],
+        shirtColor: "#ca8a04",
+        pantsColor: "#1f2937",
+        hairColor: "#78350f",
+        skinColor: "#f3c6a0",
+        deskTopColor: "#eab308",
+        deskWoodColor: "#713f12",
+        gx: 0, gz: 4.2,
+        desc: "Vitrin & Stok Departmanı muhafızı BORA; Ender Sandığı Masasından guzelai.com/#kombinler vitrinini ve 41 adet /go/{sku} kısa linkini korur. Stok biterse MİRA'nın ikiz linkini otomatik devreye alır.",
+        collabs: ["agent-1b", "main-core"],
         metrics: [
+          ["Karakter & Seviye", "💎 BORA (Lv.92 Vitrin & Stok Muhafızı)"],
+          ["Masa & Araçlar", "Ender Sandığı, 41 /go/ Portalı, TL Tabelası"],
           ["Canlı Vitrin", "https://guzelai.com/#kombinler (HTTP 200)"],
-          ["Aktif /go/ Sayfaları", "41 Adet Akıllı Mağaza Yönlendirmesi"],
-          ["Stok Koruması", "Ajan 1B İkiz Model Matrisiyle Entegre"],
-          ["Yanıt Süresi", "Canlı CDN Aktif"]
+          ["Stok Koruması", "MİRA İkiz Model Matrisiyle Canlı Senkron"]
         ]
       }
+    ];
+
+    // Minecraft Yürüyüş Yolu Düğümleri (Kırıktaş & Meşe Tahtası Yol Ağı)
+    // Merkez (0,0) ile tüm departman masalarını birbirine bağlayan gerçek Minecraft yolu
+    const ROAD_SEGMENTS = [
+      // Ana Batı-Doğu Bulvarı
+      { x1: -5.2, z1: 0, x2: 5.2, z2: 0 },
+      // Batı Departmanlar Caddesi (LUNA - KAAN - MİRA)
+      { x1: -3.6, z1: -3.6, x2: -3.6, z2: 3.6 },
+      { x1: -5.2, z1: -3.6, x2: -3.6, z2: -3.6 },
+      { x1: -5.2, z1: 3.6, x2: -3.6, z2: 3.6 },
+      // Doğu Departmanlar Caddesi (DJ RİTMO - SELİN - ARDA)
+      { x1: 3.6, z1: -3.6, x2: 3.6, z2: 3.6 },
+      { x1: 3.6, z1: -3.6, x2: 5.2, z2: -3.6 },
+      { x1: 3.6, z1: 3.6, x2: 5.2, z2: 3.6 },
+      // İç Koordinasyon & İhlal Denetim Yolu (EFE & DEMİR)
+      { x1: -2.4, z1: -2.2, x2: -2.4, z2: 0 },
+      { x1: 2.4, z1: -2.2, x2: 2.4, z2: 0 },
+      { x1: -2.4, z1: -2.2, x2: 2.4, z2: -2.2 },
+      // Güney Vitrin Caddesi (BORA)
+      { x1: 0, z1: 0, x2: 0, z2: 4.2 },
+      { x1: -3.6, z1: 3.6, x2: 3.6, z2: 3.6 }
+    ];
+
+    // Yol Kenarı Redstone Sokak Lambaları
+    const REDSTONE_LAMPS = [
+      { gx: -3.6, gz: -1.8 },
+      { gx: -3.6, gz: 1.8 },
+      { gx: 3.6, gz: -1.8 },
+      { gx: 3.6, gz: 1.8 },
+      { gx: -1.4, gz: -1.2 },
+      { gx: 1.4, gz: -1.2 },
+      { gx: -1.4, gz: 1.5 },
+      { gx: 1.4, gz: 1.5 }
+    ];
+
+    // Minecraft Meşe Ağaçları (Köy Çevresi)
+    const MINECRAFT_TREES = [
+      { gx: -6.5, gz: -5.0 },
+      { gx: 0, gz: -4.8 },
+      { gx: 6.5, gz: -5.0 },
+      { gx: -6.6, gz: 1.8 },
+      { gx: 6.6, gz: 1.8 },
+      { gx: -6.4, gz: 5.0 },
+      { gx: 6.4, gz: 5.0 }
     ];
 
     const OUTFIT_DATA = {
@@ -556,7 +886,7 @@
       sunday_slot3_navy_camel_ivory: [
         { cat: "Kaşe Kaban", brand: "QUZU", name: "Bej Asimetrik Dik Yaka Kuşaklı Kısa Kaşe Kaban", price: "3.490₺", sku: "27KKBN02965004", match: "%100 Birebir + İkiz Yedekli", url: "https://guzelai.com/go/27KKBN02965004", store: "https://www.quzu.com.tr/products/asimetrik-dik-yaka-kusakli-kisa-kaban-bej" },
         { cat: "Gözlük", brand: "RAY-BAN", name: "RB4340 601 Wayfarer Siyah Güneş Gözlüğü", price: "5.850₺", sku: "2484708", match: "%100 Birebir + İkiz Yedekli", url: "https://guzelai.com/go/2484708", store: "https://www.trendyol.com/ray-ban/rayban-4340-601-50-22-kadin-p-2484708" },
-        { cat: "Triko Kazak", brand: "H&M", name: "Krem & Siyah Çizgili Yumuşak Dokulu Triko Kazak", price: "1.149₺", sku: "0983240083", match: "%100 Birebir + İkiz Yedekli", url: "https://guzelai.com/go/0983240083", store: "https://www2.hm.com/tr_tr/productpage.0983240083.html" },
+        { cat: "Triko Kazak", brand: "H&M", name: "Krem & Siyah Çizgili Yumuşak Dokulu Triko Kazak", price: "1.149₺", sku: "0983240083", match: "%100 Birebir + İkiz Yedekli", url: "https://guzelai.com/go/0983240083", store: "https://www.hm.com/tr_tr/productpage.0983240083.html" },
         { cat: "Pantolon", brand: "STRADIVARIUS", name: "Kemerli Dökümlü Siyah Straight Fit Pantolon", price: "1.790₺", sku: "853434158", match: "%100 Birebir + İkiz Yedekli", url: "https://guzelai.com/go/853434158", store: "https://www.trendyol.com/stradivarius/kemerli-ve-dokumlu-straight-fit-kumas-pantolon-p-853434158" },
         { cat: "Lüks Çanta", brand: "TOMMY HILFIGER", name: "Gold TH Logolu Siyah Lüks Omuz Çantası", price: "3.405,35₺", sku: "1199865162", match: "%100 Birebir + İkiz Yedekli", url: "https://guzelai.com/go/1199865162", store: "https://www.trendyol.com/tommy-hilfiger/kadin-logo-baskili-uzun-askili-fermuarli-ic-cepli-siyah-canta-p-1199865162" },
         { cat: "Ayakkabı", brand: "BRIELFY", name: "Siyah Rugan Sivri Burun Gold Aksesuarlı Slingback", price: "675₺", sku: "930093536", match: "%100 Birebir + İkiz Yedekli", url: "https://guzelai.com/go/930093536", store: "https://www.trendyol.com/brielfy/kadin-sivri-burun-konik-7cm-topuklu-siyah-slingback-yandan-tokali-gunluk-is-ofis-ayakkabisi-p-930093536" }
@@ -572,51 +902,146 @@
       { code: "Dek4QoIsu5q", date: "17 Eki 01:01", title: "Gündüz Ofisten Akşam Davetine Kapsül Kombin", views: 19, maxViews: 150, badge: "19 İzlenme", color: "bg-teal-500" }
     ];
 
-    const LINKS = [
-      { from: "agent-2", to: "agent-1a", color: "#f59e0b" },
-      { from: "agent-1a", to: "agent-1b", color: "#fb923c" },
-      { from: "agent-1b", to: "agent-3", color: "#fb923c" },
-      { from: "agent-1a", to: "agent-3", color: "#10b981" },
-      { from: "agent-2", to: "agent-3", color: "#ec4899" },
-      { from: "agent-3", to: "main-core", color: "#14b8a6" },
-      { from: "agent-4", to: "agent-6", color: "#38bdf8" },
-      { from: "agent-5", to: "agent-6", color: "#a855f7" },
-      { from: "agent-6", to: "main-core", color: "#22c55e" },
-      { from: "agent-7", to: "main-core", color: "#f43f5e" },
-      { from: "agent-8", to: "agent-1b", color: "#eab308" },
-      { from: "agent-8", to: "main-core", color: "#eab308" }
-    ];
-
+    // =========================================================================
+    // 3. OYUN DURUMU VE KARAKTER YÜRÜYÜŞ MOTORU (MINECRAFT ROAD PATHFINDING)
+    // =========================================================================
     let selectedAgentId = "agent-6";
-    let autoRotate = true;
-    let cameraYaw = 0.62;
-    let cameraPitch = 0.58;
+    let autoRotate = false;
+    let isNightMode = false;
+    let cameraYaw = 0.52;
+    let cameraPitch = 0.62;
+    let zoomFactor = 1.05;
     let isDragging = false;
     let lastMouseX = 0;
     let lastMouseY = 0;
-    let packets = [];
-    let projectedBoxes = [];
+    let clickableHitboxes = [];
     let initialized = false;
 
-    function spawnPackets(burst = false) {
-      LINKS.forEach((lnk, idx) => {
-        packets.push({
-          from: lnk.from,
-          to: lnk.to,
-          color: lnk.color,
-          t: burst ? (idx * 0.08) % 1 : Math.random(),
-          speed: burst ? 0.012 : 0.006 + Math.random() * 0.004
-        });
+    // Her ajanın canlı karakter pozisyonu ve yürüyüş rotası
+    const agentWalkStates = {};
+    AGENTS.forEach((ag, idx) => {
+      agentWalkStates[ag.id] = {
+        x: ag.gx,
+        z: ag.gz + 0.55, // Masanın hemen önünde durur
+        homeX: ag.gx,
+        homeZ: ag.gz + 0.55,
+        waypoints: [],
+        walking: false,
+        facingAngle: 0,
+        stepPhase: idx * 0.9,
+        waveTimer: 0,
+        carryingIcon: ag.icon,
+        bubbleText: ag.speech
+      };
+    });
+
+    // İki departman arasında Minecraft taş yolunu takip eden waypoint dizisi üretir
+    function buildMinecraftRoadPath(fromX, fromZ, toX, toZ) {
+      const pts = [];
+      // Önce en yakın yol kavşağına çık
+      const startHubX = fromX < -3.0 ? -3.6 : (fromX > 3.0 ? 3.6 : fromX);
+      const endHubX = toX < -3.0 ? -3.6 : (toX > 3.0 ? 3.6 : toX);
+
+      pts.push({ x: startHubX, z: fromZ });
+      pts.push({ x: startHubX, z: 0 }); // Ana bulvara in
+      pts.push({ x: endHubX, z: 0 });   // Ana bulvardan karşı caddeye yürü
+      pts.push({ x: endHubX, z: toZ }); // Hedef departman hizasına yürü
+      pts.push({ x: toX, z: toZ });     // Hedef masanın önüne var
+      return pts;
+    }
+
+    // Bir ajanı taş yoldan işbirliği yaptığı departmana yürütüp geri masasına döndürür
+    window.sendAgentOnMission = function(agentId, targetId) {
+      const ag = AGENTS.find(a => a.id === agentId);
+      if (!ag) return;
+      const st = agentWalkStates[agentId];
+      const destId = targetId || ag.collabs[Math.floor(Math.random() * ag.collabs.length)] || "main-core";
+      const destAg = AGENTS.find(a => a.id === destId) || AGENTS[0];
+
+      const targetX = destAg.gx + (Math.random() * 0.5 - 0.25);
+      const targetZ = destAg.gz + 0.7;
+
+      const forwardPath = buildMinecraftRoadPath(st.x, st.z, targetX, targetZ);
+      const returnPath = buildMinecraftRoadPath(targetX, targetZ, st.homeX, st.homeZ);
+
+      st.waypoints = [...forwardPath, { x: targetX, z: targetZ, waitTicks: 70 }, ...returnPath];
+      st.walking = true;
+      st.bubbleText = `🚶‍♂️ ${destAg.charName} masasına gidiyor...`;
+      pushConsoleLog(`<span class="text-amber-300">&lt;${ag.charName}&gt;</span> Minecraft taş yolundan <strong>${destAg.charName}</strong> (${destAg.deptName}) masasına yürüyor!`);
+    };
+
+    window.sendSelectedAgentOnRoad = function() {
+      sendAgentOnMission(selectedAgentId);
+    };
+
+    // Klavye (WASD / Ok Tuşları) veya D-Pad ile seçili ajanı yolda manuel yürütme
+    window.nudgeSelectedAgent = function(dx, dz) {
+      const st = agentWalkStates[selectedAgentId];
+      if (!st) return;
+      st.waypoints = [];
+      st.walking = true;
+      st.x = Math.max(-6.2, Math.min(6.2, st.x + dx));
+      st.z = Math.max(-4.5, Math.min(4.8, st.z + dz));
+      st.stepPhase += 1.2;
+      st.facingAngle = Math.atan2(dx, dz);
+      st.bubbleText = "🕹️ Manuel Yürüyüş Aktif!";
+      setTimeout(() => {
+        if (st.waypoints.length === 0) st.walking = false;
+      }, 350);
+    };
+
+    // Tüm ajanları aynı anda Minecraft yollarına çıkar
+    function triggerAllAgentsParade() {
+      AGENTS.forEach((ag, idx) => {
+        if (ag.id === "main-core") return;
+        setTimeout(() => {
+          const target = ag.collabs[0] || "main-core";
+          sendAgentOnMission(ag.id, target);
+        }, idx * 280);
       });
     }
 
+    // Tüm ajanları Merkezdeki ATLAS'ın etrafındaki meydana topla
+    function triggerCentralPlazaMeeting() {
+      pushConsoleLog(`<span class="text-emerald-400">[SUNUCU ANONSU]</span> 👑 <strong>ATLAS</strong> tüm departman ajanlarını Merkez Komuta Meydanına toplantıya çağırdı!`);
+      AGENTS.forEach((ag, idx) => {
+        const st = agentWalkStates[ag.id];
+        if (ag.id === "main-core") {
+          st.waveTimer = 120;
+          st.bubbleText = "📢 Toplantı Başladı! Yayına Hazırız!";
+          return;
+        }
+        const angle = (idx / (AGENTS.length - 1)) * Math.PI * 2;
+        const meetX = Math.cos(angle) * 1.65;
+        const meetZ = Math.sin(angle) * 1.45;
+        const toCenter = buildMinecraftRoadPath(st.x, st.z, meetX, meetZ);
+        const backHome = buildMinecraftRoadPath(meetX, meetZ, st.homeX, st.homeZ);
+        st.waypoints = [...toCenter, { x: meetX, z: meetZ, waitTicks: 140 }, ...backHome];
+        st.walking = true;
+        st.bubbleText = "🏛️ Merkez Meydana Yürüyor!";
+      });
+    }
+
+    // =========================================================================
+    // 4. ARAYÜZ SEÇİMİ VE TABLO GÜNCELLEMELERİ
+    // =========================================================================
     window.selectAgent = function(id) {
       selectedAgentId = id;
       const ag = AGENTS.find(a => a.id === id) || AGENTS[0];
-      document.getElementById("agentBadge").textContent = ag.status;
+      const st = agentWalkStates[ag.id];
+      if (st) st.waveTimer = 60;
+
+      document.getElementById("agentBadge").textContent = `${ag.level} • ${ag.status}`;
       document.getElementById("agentCodeName").textContent = ag.code;
-      document.getElementById("agentTitle").textContent = ag.name;
+      document.getElementById("agentAvatarBox").textContent = ag.icon;
+      document.getElementById("agentCharName").textContent = `★ ${ag.charName} [${ag.roleTitle}]`;
+      document.getElementById("agentDeptTitle").textContent = ag.deptName;
       document.getElementById("agentDesc").textContent = ag.desc;
+      document.getElementById("agentDeskName").textContent = `🪑 Masa: ${ag.deskName}`;
+
+      document.getElementById("agentToolsList").innerHTML = ag.tools.map(t => `
+        <span class="px-2 py-1 rounded-lg bg-[#111827] border border-slate-700 text-[11px] font-semibold text-amber-200">${t}</span>
+      `).join("");
 
       document.getElementById("agentMetricsList").innerHTML = ag.metrics.map(([k, v]) => `
         <div class="flex items-center justify-between py-2 px-3 rounded-xl bg-[#0b1120] border border-slate-800">
@@ -626,26 +1051,57 @@
       `).join("");
 
       document.getElementById("agentCollabLinks").innerHTML = ag.collabs.map(cid => {
-        const target = AGENTS.find(a => a.code === cid || a.id === cid);
-        const label = target ? target.shortLabel : cid;
-        const tid = target ? target.id : "main-core";
-        return `<button onclick="selectAgent('${tid}')" class="px-2.5 py-1.5 rounded-lg border border-slate-700 bg-[#0b1120] text-xs text-slate-200 hover:border-emerald-500 transition">↔ ${label}</button>`;
+        const target = AGENTS.find(a => a.id === cid || a.code === cid);
+        if (!target) return "";
+        return `
+          <button onclick="sendAgentOnMission('${ag.id}', '${target.id}')" class="px-2.5 py-1.5 rounded-lg border border-slate-700 bg-[#0b1120] text-xs text-slate-200 hover:border-amber-400 transition">
+            🚶‍♂️ ${target.icon} ${target.charName}'a Yürü
+          </button>
+        `;
       }).join("");
 
-      renderQuickButtons();
+      renderHotbar();
+      renderAllDepartmentsTable();
     };
 
-    function renderQuickButtons() {
-      document.getElementById("roomQuickButtons").innerHTML = AGENTS.map(a => {
-        const active = a.id === selectedAgentId;
+    function renderHotbar() {
+      document.getElementById("minecraftHotbar").innerHTML = AGENTS.map(ag => {
+        const active = ag.id === selectedAgentId;
         return `
-          <button onclick="selectAgent('${a.id}')" class="px-2.5 py-2 rounded-xl border text-xs font-semibold transition truncate ${
-            active
-              ? "border-emerald-500 bg-emerald-500/20 text-white"
-              : "border-slate-800 bg-[#0b1120] text-slate-400 hover:text-white"
-          }">
-            ${a.shortLabel}
+          <button onclick="selectAgent('${ag.id}')" class="mc-slot ${active ? 'mc-slot-active' : ''} p-2 rounded-lg flex flex-col items-center justify-center text-center transition relative">
+            <span class="absolute top-1 left-1.5 text-[9px] font-mono-game text-slate-400">[${ag.slotKey}]</span>
+            <span class="text-lg leading-none mt-1">${ag.icon}</span>
+            <span class="text-[11px] font-extrabold text-amber-300 font-mono-game mt-1 truncate w-full">${ag.charName}</span>
+            <span class="text-[9px] text-slate-300 truncate w-full">${ag.roleTitle}</span>
           </button>
+        `;
+      }).join("");
+    }
+
+    function renderAllDepartmentsTable() {
+      document.getElementById("allDepartmentsTable").innerHTML = AGENTS.map(ag => {
+        const active = ag.id === selectedAgentId;
+        return `
+          <tr onclick="selectAgent('${ag.id}')" class="cursor-pointer transition ${active ? 'bg-emerald-500/10' : 'hover:bg-slate-800/50'}">
+            <td class="py-2.5 pr-3 font-mono-game font-bold text-amber-300 whitespace-nowrap">
+              ${ag.icon} ${ag.charName} <span class="text-[10px] text-emerald-400">(${ag.level})</span>
+            </td>
+            <td class="py-2.5 pr-3 font-bold text-white">${ag.deptName}</td>
+            <td class="py-2.5 pr-3 text-slate-300">${ag.deskName}</td>
+            <td class="py-2.5 pr-3">
+              <div class="flex flex-wrap gap-1">
+                ${ag.tools.map(t => `<span class="px-1.5 py-0.5 rounded bg-slate-800 text-[10px] text-amber-200">${t}</span>`).join("")}
+              </div>
+            </td>
+            <td class="py-2.5 pr-3">
+              <span class="px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-400 font-semibold whitespace-nowrap">${ag.status}</span>
+            </td>
+            <td class="py-2.5 whitespace-nowrap">
+              <button onclick="event.stopPropagation(); sendAgentOnMission('${ag.id}')" class="px-2.5 py-1 rounded bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 font-semibold">
+                🚶‍♂️ Yolda Yürüt
+              </button>
+            </td>
+          </tr>
         `;
       }).join("");
     }
@@ -693,65 +1149,62 @@
       }).join("");
     }
 
-    const LOG_MESSAGES = [
-      "[Ajan 2 • pinterest-trend-scout] 8 sonbahar trendi tarandı, yayınlanmamış 3 kombin seçildi.",
-      "[Ajan 1 • store-link-researcher] Zara (03811280) & İpekyol (991689063) HTTP 200 doğrulandı (%100 Eşleşme).",
-      "[Ajan 3 • kombin-dispatcher] Kombin #1 (19.228,50₺) ve 6 mağaza linki Ana Ajana iletildi.",
-      "[Ajan 4 • social-health-analyst] @guzelaicom HEALTHY_ACTIVE | 282 Takipçi | Reel DeoIDlQo3Yj: 17 izlenme.",
-      "[Ajan 5 • viral-hook-music] Veor Uranis 44.1kHz 320kbps AAC stüdyo master 5.2s yürüyüş geçişine kilitlendi.",
-      "[Ajan 6 • visual-qa-runway] 3/3 sokak yürüyüş karesi (Laplacian 3331.9) 2K OLED testinden geçti.",
-      "[Ajan 7 • price-stock-guard] guzelai.com/#kombinler üzerinde 41 adet /go/{sku} yönlendirmesi aktif."
+    const SERVER_CHAT_MESSAGES = [
+      "<span class='text-pink-400'>&lt;LUNA • Pinterest&gt;</span> Harita Masasında 3 yeni Old Money kombin reçetesi çıkardım, taş yoldan KAAN'a götürüyorum!",
+      "<span class='text-amber-400'>&lt;KAAN • Mağaza&gt;</span> Zümrüt Tarayıcı ile Zara (03811280) ve İpekyol (991689063) linklerini %100 doğruladım!",
+      "<span class='text-orange-400'>&lt;MİRA • İkiz Model&gt;</span> Çiftli Örs Masasında 18 parçanın tamamı için %96 uyumlu Yedek İkiz Model linklerini hazırladım!",
+      "<span class='text-purple-400'>&lt;DJ RİTMO • TikTok Müzik&gt;</span> Elmas Jukebox'ta 'Veor Uranis – Da Da Da Dadada' (124 BPM, 99.4 Skor) seçildi ve 5.2s yürüyüşe senkronlandı!",
+      "<span class='text-emerald-400'>&lt;DEMİR • İhlal Müfettişi&gt;</span> Obsidyen Kürsüde 11/11 güvenlik kriteri denetlendi: %100 İHLAL DOĞURMAZ mührü basıldı!",
+      "<span class='text-sky-400'>&lt;SELİN • Sosyal Medya&gt;</span> @guzelaicom 282 takipçi, son Reel DeoIDlQo3Yj 8.5x ivmeyle izleniyor, hesap sağlığı %100!",
+      "<span class='text-rose-400'>&lt;ARDA • 2K Podyum&gt;</span> Glowstone ışıklar altında 3/3 tam boy sokak yürüyüş karesi 2K OLED testinden geçti!",
+      "<span class='text-yellow-400'>&lt;BORA • Vitrin Muhafızı&gt;</span> Ender Sandığında 41 adet guzelai.com/go/{sku} yönlendirme kapısı aktif!"
     ];
-    let logIdx = 0;
+    let chatIdx = 0;
 
     function pushConsoleLog(customMsg) {
       const box = document.getElementById("liveConsole");
       if (!box) return;
       const now = new Date().toLocaleTimeString("tr-TR");
-      const msg = customMsg || LOG_MESSAGES[logIdx++ % LOG_MESSAGES.length];
+      const msg = customMsg || SERVER_CHAT_MESSAGES[chatIdx++ % SERVER_CHAT_MESSAGES.length];
       const line = document.createElement("div");
-      line.className = "text-slate-300";
-      line.innerHTML = `<span class="text-emerald-400">[${now}]</span> ${msg}`;
+      line.className = "text-slate-300 leading-snug";
+      line.innerHTML = `<span class="text-slate-500">[${now}]</span> ${msg}`;
       box.prepend(line);
-      while (box.children.length > 14) {
+      while (box.children.length > 16) {
         box.removeChild(box.lastChild);
       }
     }
 
-    async function fetchLiveTelemetry() {
-      try {
-        const res = await fetch("/data/agent_telemetry.json?t=" + Date.now());
-        if (!res.ok) return;
-        const data = await res.json();
-        if (data.instagram && data.instagram.metrics) {
-          const m = data.instagram.metrics;
-          document.getElementById("kpiFollowers").textContent = `${m.follower_count} Takipçi • ${m.total_reel_views} İzlenme`;
-          if (data.instagram.recent_reels && data.instagram.recent_reels.length > 0) {
-            const latest = data.instagram.recent_reels[0];
-            document.getElementById("kpiLatestReel").textContent = `Son Reel (${latest.code}): ${latest.play_count} İzlenme`;
-          }
-        }
-      } catch (_) {}
-    }
-
-    function initCommandCenter() {
+    // =========================================================================
+    // 5. 3D VOXEL / MINECRAFT DÜNYASI RENDER MOTORU
+    // =========================================================================
+    function initMinecraftWorld() {
       if (initialized) return;
       initialized = true;
 
-      spawnPackets(false);
-      selectAgent("agent-3");
+      selectAgent("agent-6");
       renderOutfitTable("sunday_slot1_espresso_cream_oldmoney");
       renderReelsList();
-      fetchLiveTelemetry();
       for (let i = 0; i < 5; i++) pushConsoleLog();
       setInterval(() => pushConsoleLog(), 4500);
 
-      const canvas = document.getElementById("floorplan3d");
+      // Her 5 saniyede bir rastgele 2 ajan Minecraft taş yoluna çıkıp departmanlar arası yürüsün
+      setTimeout(() => triggerAllAgentsParade(), 900);
+      setInterval(() => {
+        const walkers = AGENTS.filter(a => a.id !== "main-core" && !agentWalkStates[a.id].walking);
+        if (walkers.length > 0) {
+          const pick = walkers[Math.floor(Math.random() * walkers.length)];
+          sendAgentOnMission(pick.id);
+        }
+      }, 4800);
+
+      const canvas = document.getElementById("minecraftWorldCanvas");
       const ctx = canvas.getContext("2d");
 
       function project3D(x, y, z, cx, cy, scale) {
         const cosY = Math.cos(cameraYaw), sinY = Math.sin(cameraYaw);
-        const rx = x * cosY - z * sinY, rz = x * sinY + z * cosY;
+        const rx = x * cosY - z * sinY;
+        const rz = x * sinY + z * cosY;
         const cosP = Math.cos(cameraPitch), sinP = Math.sin(cameraPitch);
         return {
           x: cx + rx * scale,
@@ -760,147 +1213,467 @@
         };
       }
 
-      function hexToRgba(hex, alpha) {
+      function shadeHex(hex, factor) {
         const h = hex.replace("#", "");
-        return `rgba(${parseInt(h.slice(0,2),16)},${parseInt(h.slice(2,4),16)},${parseInt(h.slice(4,6),16)},${alpha})`;
+        const r = Math.min(255, Math.max(0, Math.round(parseInt(h.slice(0,2), 16) * factor)));
+        const g = Math.min(255, Math.max(0, Math.round(parseInt(h.slice(2,4), 16) * factor)));
+        const b = Math.min(255, Math.max(0, Math.round(parseInt(h.slice(4,6), 16) * factor)));
+        return `rgb(${r},${g},${b})`;
       }
 
-      function drawPolygon(pts, fill, stroke, lineWidth = 1) {
+      function drawPoly(pts, fill, stroke, lw = 1) {
         ctx.beginPath();
         pts.forEach((p, i) => (i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y)));
         ctx.closePath();
         if (fill) { ctx.fillStyle = fill; ctx.fill(); }
-        if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = lineWidth; ctx.stroke(); }
+        if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = lw; ctx.stroke(); }
       }
 
-      function drawExtrudedRoom(ag, cx, cy, scale, timeSec) {
-        const hw = ag.w / 2, hd = ag.d / 2;
-        const isSelected = ag.id === selectedAgentId;
-        const h = ag.h + (isSelected ? 0.08 * Math.sin(timeSec * 4) : 0);
+      // Gerçek 3D Voxel Küp Çizici (Üst, Yan ve Ön Yüzey Gölgelendirmeli)
+      function drawVoxelBox(gx, gy, gz, w, h, d, topHex, sideHex, strokeHex, cx, cy, scale) {
+        const hw = w / 2, hd = d / 2;
+        const b0 = project3D(gx - hw, gy, gz - hd, cx, cy, scale);
+        const b1 = project3D(gx + hw, gy, gz - hd, cx, cy, scale);
+        const b2 = project3D(gx + hw, gy, gz + hd, cx, cy, scale);
+        const b3 = project3D(gx - hw, gy, gz + hd, cx, cy, scale);
 
-        const cornersBottom = [
-          project3D(ag.gx - hw, 0, ag.gz - hd, cx, cy, scale),
-          project3D(ag.gx + hw, 0, ag.gz - hd, cx, cy, scale),
-          project3D(ag.gx + hw, 0, ag.gz + hd, cx, cy, scale),
-          project3D(ag.gx - hw, 0, ag.gz + hd, cx, cy, scale)
-        ];
-        const cornersTop = [
-          project3D(ag.gx - hw, h, ag.gz - hd, cx, cy, scale),
-          project3D(ag.gx + hw, h, ag.gz - hd, cx, cy, scale),
-          project3D(ag.gx + hw, h, ag.gz + hd, cx, cy, scale),
-          project3D(ag.gx - hw, h, ag.gz + hd, cx, cy, scale)
-        ];
+        const t0 = project3D(gx - hw, gy + h, gz - hd, cx, cy, scale);
+        const t1 = project3D(gx + hw, gy + h, gz - hd, cx, cy, scale);
+        const t2 = project3D(gx + hw, gy + h, gz + hd, cx, cy, scale);
+        const t3 = project3D(gx - hw, gy + h, gz + hd, cx, cy, scale);
 
-        drawPolygon(cornersBottom, hexToRgba(ag.color, isSelected ? 0.28 : 0.14), hexToRgba(ag.color, isSelected ? 0.95 : 0.5), isSelected ? 2.2 : 1.2);
+        const baseSide = sideHex || shadeHex(topHex, 0.76);
+        const darkSide = shadeHex(baseSide, 0.82);
+        const outline = strokeHex || "rgba(15,23,42,0.55)";
 
         const faces = [
-          [cornersBottom[0], cornersBottom[1], cornersTop[1], cornersTop[0]],
-          [cornersBottom[1], cornersBottom[2], cornersTop[2], cornersTop[1]],
-          [cornersBottom[2], cornersBottom[3], cornersTop[3], cornersTop[2]],
-          [cornersBottom[3], cornersBottom[0], cornersTop[0], cornersTop[3]]
+          { pts: [b0, b1, t1, t0], col: darkSide },
+          { pts: [b1, b2, t2, t1], col: baseSide },
+          { pts: [b2, b3, t3, t2], col: baseSide },
+          { pts: [b3, b0, t0, t3], col: darkSide }
         ];
-        faces.sort((a, b) => ((a[0].depth+a[1].depth+a[2].depth+a[3].depth)/4) - ((b[0].depth+b[1].depth+b[2].depth+b[3].depth)/4));
-        faces.forEach((f, idx) => {
-          drawPolygon(f, hexToRgba(ag.color, isSelected ? 0.24 + idx * 0.04 : 0.12 + idx * 0.03), hexToRgba(ag.color, isSelected ? 0.85 : 0.4), isSelected ? 1.6 : 1);
-        });
+        faces.sort((a, b) => (
+          (a.pts[0].depth + a.pts[1].depth + a.pts[2].depth + a.pts[3].depth) -
+          (b.pts[0].depth + b.pts[1].depth + b.pts[2].depth + b.pts[3].depth)
+        ));
+        faces.forEach(f => drawPoly(f.pts, f.col, outline, 0.8));
+        drawPoly([t0, t1, t2, t3], topHex, outline, 0.9);
 
-        drawPolygon(cornersTop, hexToRgba(ag.color, isSelected ? 0.44 : 0.24), isSelected ? "#ffffff" : hexToRgba(ag.color, 0.85), isSelected ? 2.2 : 1.2);
-
-        const centerTop = project3D(ag.gx, h + 0.25 + 0.06 * Math.sin(timeSec * 3 + ag.gx), ag.gz, cx, cy, scale);
-        ctx.beginPath();
-        ctx.arc(centerTop.x, centerTop.y, isSelected ? 7 : 5, 0, Math.PI * 2);
-        ctx.fillStyle = ag.color;
-        ctx.fill();
-        ctx.lineWidth = 2;
-        ctx.strokeStyle = "#ffffff";
-        ctx.stroke();
-
-        const labelPt = project3D(ag.gx, h + 0.58, ag.gz, cx, cy, scale);
-        ctx.font = isSelected ? "600 12px sans-serif" : "500 12px sans-serif";
-        const bw = ctx.measureText(ag.shortLabel).width + 18, bh = 22;
-
-        ctx.fillStyle = isSelected ? ag.color : "rgba(15, 23, 42, 0.9)";
-        ctx.strokeStyle = isSelected ? "#ffffff" : hexToRgba(ag.color, 0.8);
-        ctx.lineWidth = 1.2;
-        ctx.beginPath();
-        ctx.roundRect(labelPt.x - bw / 2, labelPt.y - bh / 2, bw, bh, 6);
-        ctx.fill();
-        ctx.stroke();
-
-        ctx.fillStyle = "#ffffff";
-        ctx.textAlign = "center";
-        ctx.textBaseline = "middle";
-        ctx.fillText(ag.shortLabel, labelPt.x, labelPt.y);
-
-        const minX = Math.min(...cornersBottom.map(p => p.x), ...cornersTop.map(p => p.x));
-        const maxX = Math.max(...cornersBottom.map(p => p.x), ...cornersTop.map(p => p.x));
-        const minY = Math.min(...cornersBottom.map(p => p.y), ...cornersTop.map(p => p.y), labelPt.y - 14);
-        const maxY = Math.max(...cornersBottom.map(p => p.y), ...cornersTop.map(p => p.y));
-        projectedBoxes.push({ id: ag.id, minX, maxX, minY, maxY });
+        return { t0, t1, t2, t3, b0, b1, b2, b3 };
       }
 
+      // Minecraft Meşe Ağacı Çizici
+      function drawMinecraftTree(gx, gz, cx, cy, scale) {
+        // Gövde (Meşe Odunu)
+        drawVoxelBox(gx, 0, gz, 0.36, 0.85, 0.36, "#78350f", "#5c2808", "rgba(0,0,0,0.45)", cx, cy, scale);
+        // Alt Yaprak Bloğu
+        drawVoxelBox(gx, 0.75, gz, 1.05, 0.55, 1.05, isNightMode ? "#15803d" : "#22c55e", "#166534", "rgba(0,0,0,0.35)", cx, cy, scale);
+        // Üst Yaprak Bloğu
+        drawVoxelBox(gx, 1.25, gz, 0.68, 0.42, 0.68, isNightMode ? "#16a34a" : "#4ade80", "#15803d", "rgba(0,0,0,0.35)", cx, cy, scale);
+      }
+
+      // Minecraft Redstone Sokak Lambası Çizici
+      function drawRedstoneLamp(gx, gz, timeSec, cx, cy, scale) {
+        // Çit direği
+        drawVoxelBox(gx, 0, gz, 0.14, 0.72, 0.14, "#92400e", "#78350f", "rgba(0,0,0,0.4)", cx, cy, scale);
+        // Redstone Lamba Küpü
+        const glowColor = isNightMode ? "#fde047" : "#fbbf24";
+        drawVoxelBox(gx, 0.72, gz, 0.34, 0.34, 0.34, glowColor, "#f59e0b", "#fef08a", cx, cy, scale);
+        // Işık halesi
+        const pt = project3D(gx, 0.89, gz, cx, cy, scale);
+        const r = (isNightMode ? 18 : 10) + Math.sin(timeSec * 4 + gx) * 2;
+        const grad = ctx.createRadialGradient(pt.x, pt.y, 2, pt.x, pt.y, r);
+        grad.addColorStop(0, "rgba(253, 224, 71, 0.65)");
+        grad.addColorStop(1, "rgba(253, 224, 71, 0)");
+        ctx.fillStyle = grad;
+        ctx.beginPath();
+        ctx.arc(pt.x, pt.y, r, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      // Departman İstasyonu, Masası, Masa Üstü Araçları ve Departman Tabelası Çizici
+      function drawDepartmentStation(ag, timeSec, cx, cy, scale) {
+        const isSelected = ag.id === selectedAgentId;
+
+        // 1. Departman Zemin Platformu (Minecraft Meşe / Kuvars Döşeme Bloğu)
+        const floorW = ag.id === "main-core" ? 2.3 : 1.85;
+        const floorD = ag.id === "main-core" ? 2.1 : 1.65;
+        const floorTop = isSelected ? shadeHex(ag.color, 0.55) : "#334155";
+        const floorSide = isSelected ? ag.color : "#1e293b";
+        drawVoxelBox(ag.gx, 0, ag.gz, floorW, 0.12, floorD, floorTop, floorSide, isSelected ? "#fde047" : "rgba(255,255,255,0.22)", cx, cy, scale);
+
+        // Köşe Meşe Meşale Direkleri
+        const postOffsets = [[-floorW/2 + 0.12, -floorD/2 + 0.12], [floorW/2 - 0.12, -floorD/2 + 0.12]];
+        postOffsets.forEach(([ox, oz]) => {
+          drawVoxelBox(ag.gx + ox, 0.12, ag.gz + oz, 0.14, 0.78, 0.14, "#92400e", "#78350f", "rgba(0,0,0,0.45)", cx, cy, scale);
+          drawVoxelBox(ag.gx + ox, 0.90, ag.gz + oz, 0.18, 0.18, 0.18, "#fde047", "#f59e0b", "#ffffff", cx, cy, scale);
+        });
+
+        // 2. Minecraft Çalışma Masası (Crafting / Command / Jukebox / Lectern Desk)
+        const deskZ = ag.gz - 0.18;
+        // Masa Gövdesi
+        drawVoxelBox(ag.gx, 0.12, deskZ, 1.15, 0.46, 0.62, ag.deskTopColor, ag.deskWoodColor, "#0f172a", cx, cy, scale);
+
+        // 3. Masanın Üzerindeki 3 Boyutlu Araçlar (Her Departmana Özel Voxel Ekipmanlar!)
+        // Sol Araç: Bilgisayar / Hologram Monitör Bloğu
+        drawVoxelBox(ag.gx - 0.30, 0.58, deskZ - 0.05, 0.34, 0.28, 0.12, "#38bdf8", "#0284c7", "#e0f2fe", cx, cy, scale);
+        // Orta Araç: Departmana Özel Ana Alet (Plak, Mühür, Dürbün, Zümrüt, Örs, İksir)
+        const pulseH = 0.04 * Math.sin(timeSec * 4 + ag.gx);
+        drawVoxelBox(ag.gx + 0.05, 0.58 + pulseH, deskZ + 0.04, 0.26, 0.24, 0.26, "#fde047", ag.color, "#ffffff", cx, cy, scale);
+        // Sağ Araç: Kitaplık / Sandık / Hoparlör Bloğu
+        drawVoxelBox(ag.gx + 0.36, 0.58, deskZ - 0.04, 0.26, 0.32, 0.24, "#a855f7", "#6b21a8", "#f3e8ff", cx, cy, scale);
+
+        // 4. Masa Önü Okunaklı "MASA & ARAÇLAR" Pixel Etiketi
+        const deskLabelPt = project3D(ag.gx, 0.32, ag.gz + floorD/2 + 0.05, cx, cy, scale);
+        ctx.font = "700 10px 'JetBrains Mono', monospace";
+        const toolText = `🪑 ${ag.deskName} • ${ag.tools[0]} ${ag.tools[1]}`;
+        const tw = ctx.measureText(toolText).width + 14;
+        ctx.fillStyle = "rgba(9, 13, 22, 0.88)";
+        ctx.strokeStyle = isSelected ? "#fde047" : ag.color;
+        ctx.lineWidth = isSelected ? 1.8 : 1.1;
+        ctx.beginPath();
+        ctx.roundRect(deskLabelPt.x - tw/2, deskLabelPt.y - 10, tw, 20, 4);
+        ctx.fill();
+        ctx.stroke();
+        ctx.fillStyle = "#fde047";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillText(toolText, deskLabelPt.x, deskLabelPt.y);
+
+        // 5. Departman Üst Tabelası (Büyük Okunaklı Minecraft Departman Tabelası)
+        const bannerPt = project3D(ag.gx, 1.55, ag.gz - 0.35, cx, cy, scale);
+        ctx.font = "800 11px 'JetBrains Mono', monospace";
+        const deptTitle = `${ag.icon} ${ag.deptName}`;
+        const dw = ctx.measureText(deptTitle).width + 18;
+        ctx.fillStyle = isSelected ? ag.color : "rgba(15, 23, 42, 0.92)";
+        ctx.strokeStyle = isSelected ? "#fde047" : ag.color;
+        ctx.lineWidth = isSelected ? 2.2 : 1.4;
+        ctx.beginPath();
+        ctx.roundRect(bannerPt.x - dw/2, bannerPt.y - 12, dw, 23, 5);
+        ctx.fill();
+        ctx.stroke();
+        ctx.fillStyle = "#ffffff";
+        ctx.fillText(deptTitle, bannerPt.x, bannerPt.y);
+
+        // Tıklama Alanı Kaydı (Masa & Departman)
+        clickableHitboxes.push({
+          id: ag.id,
+          minX: bannerPt.x - dw/2 - 10,
+          maxX: bannerPt.x + dw/2 + 10,
+          minY: bannerPt.y - 16,
+          maxY: deskLabelPt.y + 14
+        });
+      }
+
+      // Gerçek Pixel-Voxel Minecraft Karakteri (Baş, Gövde, Sallanan Kollar, Yürüyen Bacaklar + Üstünde İsmi!)
+      function drawMinecraftCharacter(ag, timeSec, cx, cy, scale) {
+        const st = agentWalkStates[ag.id];
+        const isSelected = ag.id === selectedAgentId;
+
+        // Yürüyüş animasyon açısı
+        const swing = st.walking ? Math.sin(st.stepPhase) * 0.14 : Math.sin(timeSec * 3 + ag.gx) * 0.03;
+        const bobY = st.walking ? Math.abs(Math.sin(st.stepPhase)) * 0.08 : 0;
+
+        const px = st.x;
+        const pz = st.z;
+
+        // Karakter Yerdeki Gölgesi
+        const shadowPt = project3D(px, 0.03, pz, cx, cy, scale);
+        ctx.fillStyle = "rgba(0, 0, 0, 0.42)";
+        ctx.beginPath();
+        ctx.ellipse(shadowPt.x, shadowPt.y, 11 * zoomFactor, 5.5 * zoomFactor, 0, 0, Math.PI * 2);
+        ctx.fill();
+
+        // 1. Sol ve Sağ Bacaklar (Yürürken İleri-Geri Adım Atar)
+        drawVoxelBox(px - 0.09, 0.12 + bobY, pz + swing, 0.15, 0.30, 0.15, ag.pantsColor, shadeHex(ag.pantsColor, 0.75), "#090d16", cx, cy, scale);
+        drawVoxelBox(px + 0.09, 0.12 + bobY, pz - swing, 0.15, 0.30, 0.15, ag.pantsColor, shadeHex(ag.pantsColor, 0.75), "#090d16", cx, cy, scale);
+
+        // 2. Gövde (Departman Kıyafeti)
+        drawVoxelBox(px, 0.42 + bobY, pz, 0.34, 0.38, 0.20, ag.shirtColor, shadeHex(ag.shirtColor, 0.8), "#090d16", cx, cy, scale);
+
+        // 3. Sol ve Sağ Kollar (Yürürken veya Masada Çalışırken Sallanır)
+        const rightArmWave = st.waveTimer > 0 ? 0.24 : 0;
+        drawVoxelBox(px - 0.24, 0.44 + bobY, pz - swing, 0.13, 0.34, 0.14, ag.shirtColor, ag.skinColor, "#090d16", cx, cy, scale);
+        drawVoxelBox(px + 0.24, 0.44 + bobY + rightArmWave, pz + swing, 0.13, 0.34, 0.14, ag.shirtColor, ag.skinColor, "#090d16", cx, cy, scale);
+
+        // 4. Kafa Küpü (Voxel Head + Saç/Şapka Bloğu)
+        drawVoxelBox(px, 0.80 + bobY, pz, 0.32, 0.32, 0.32, ag.skinColor, shadeHex(ag.skinColor, 0.88), "#090d16", cx, cy, scale);
+        // Saç / Kask Üst Katmanı
+        drawVoxelBox(px, 1.06 + bobY, pz, 0.34, 0.10, 0.34, ag.hairColor, shadeHex(ag.hairColor, 0.8), "#090d16", cx, cy, scale);
+
+        // Yüzdeki Pixel Gözler
+        const facePt = project3D(px, 0.94 + bobY, pz + 0.16, cx, cy, scale);
+        ctx.fillStyle = "#090d16";
+        ctx.fillRect(facePt.x - 5, facePt.y - 2, 3, 3);
+        ctx.fillRect(facePt.x + 2, facePt.y - 2, 3, 3);
+
+        // Elinde Tuttuğu Pixel Eşya / Alet İkonu
+        const handPt = project3D(px + 0.30, 0.62 + bobY + rightArmWave, pz + swing + 0.1, cx, cy, scale);
+        ctx.font = "14px sans-serif";
+        ctx.textAlign = "center";
+        ctx.fillText(ag.icon, handPt.x, handPt.y);
+
+        // Çalışırken Çıkan Pixel Efekt Parçacığı (Nota, Zümrüt, Kalkan, Kalp)
+        const particleY = 1.28 + ((timeSec * 0.6 + Math.abs(ag.gx)) % 0.45);
+        const partPt = project3D(px + 0.22, particleY, pz, cx, cy, scale);
+        ctx.font = "700 12px monospace";
+        ctx.fillStyle = ag.color;
+        ctx.fillText(ag.particle, partPt.x, partPt.y);
+
+        // 5. KARAKTERİN TAM ÜSTÜNDE YAZAN MINECRAFT İSİM ETİKETİ (NAMETAG)
+        const namePt = project3D(px, 1.34 + bobY, pz, cx, cy, scale);
+        const nameText = `★ ${ag.charName} [${ag.roleTitle}]`;
+        ctx.font = "800 11px 'JetBrains Mono', monospace";
+        const nw = ctx.measureText(nameText).width + 16;
+
+        // Minecraft Yarı Saydam Siyah İsim Kutusu
+        ctx.fillStyle = isSelected ? "rgba(16, 185, 129, 0.95)" : "rgba(0, 0, 0, 0.82)";
+        ctx.strokeStyle = isSelected ? "#fde047" : "#ffffff";
+        ctx.lineWidth = isSelected ? 2 : 1;
+        ctx.beginPath();
+        ctx.roundRect(namePt.x - nw/2, namePt.y - 22, nw, 20, 4);
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.fillStyle = isSelected ? "#fde047" : "#ffffff";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillText(nameText, namePt.x, namePt.y - 12);
+
+        // Canlı Durum / Konuşma Balonu (Yürürken veya Seçiliyken)
+        if (st.walking || isSelected) {
+          const speechStr = st.walking ? st.bubbleText : `💬 "${ag.speech}"`;
+          ctx.font = "700 10px 'JetBrains Mono', monospace";
+          const sw = ctx.measureText(speechStr).width + 14;
+          ctx.fillStyle = "rgba(254, 240, 138, 0.95)";
+          ctx.strokeStyle = "#ca8a04";
+          ctx.lineWidth = 1.2;
+          ctx.beginPath();
+          ctx.roundRect(namePt.x - sw/2, namePt.y - 44, sw, 18, 4);
+          ctx.fill();
+          ctx.stroke();
+          ctx.fillStyle = "#090d16";
+          ctx.fillText(speechStr, namePt.x, namePt.y - 35);
+        }
+
+        // Karakter Tıklama Hitbox'ı
+        clickableHitboxes.push({
+          id: ag.id,
+          minX: namePt.x - nw/2 - 6,
+          maxX: namePt.x + nw/2 + 6,
+          minY: namePt.y - 44,
+          maxY: shadowPt.y + 8
+        });
+      }
+
+      // Karakterlerin Minecraft Yolu Üzerindeki Yürüyüş Fiziğini Günceller
+      function updateWalkingPhysics() {
+        let activeWalkerCount = 0;
+        AGENTS.forEach(ag => {
+          const st = agentWalkStates[ag.id];
+          if (st.waveTimer > 0) st.waveTimer--;
+
+          if (st.waypoints && st.waypoints.length > 0) {
+            const target = st.waypoints[0];
+            if (target.waitTicks && target.waitTicks > 0) {
+              const dx = target.x - st.x;
+              const dz = target.z - st.z;
+              if (Math.hypot(dx, dz) < 0.12) {
+                st.walking = false;
+                target.waitTicks--;
+                st.bubbleText = `🤝 ${ag.speech}`;
+                if (target.waitTicks <= 0) st.waypoints.shift();
+                return;
+              }
+            }
+
+            const dx = target.x - st.x;
+            const dz = target.z - st.z;
+            const dist = Math.hypot(dx, dz);
+            const speed = 0.055;
+
+            if (dist <= speed) {
+              st.x = target.x;
+              st.z = target.z;
+              if (!target.waitTicks || target.waitTicks <= 0) {
+                st.waypoints.shift();
+              }
+            } else {
+              st.x += (dx / dist) * speed;
+              st.z += (dz / dist) * speed;
+              st.stepPhase += 0.34;
+              st.walking = true;
+              activeWalkerCount++;
+            }
+          } else {
+            st.walking = false;
+            st.bubbleText = ag.speech;
+          }
+        });
+
+        const hudEl = document.getElementById("hudActiveWalker");
+        if (hudEl) {
+          const selAg = AGENTS.find(a => a.id === selectedAgentId) || AGENTS[0];
+          hudEl.textContent = `Seçili: ${selAg.charName} (${selAg.deptName}) • Yolda Yürüyen: ${activeWalkerCount} Ajan`;
+        }
+      }
+
+      // Ana Oyun Render Döngüsü
       function renderScene(ts) {
         const timeSec = ts * 0.001;
+        updateWalkingPhysics();
+
         const rect = canvas.getBoundingClientRect();
         if (canvas.width !== Math.floor(rect.width)) canvas.width = Math.floor(rect.width);
         const W = canvas.width, H = canvas.height;
 
-        ctx.fillStyle = "#0b1120";
+        // 1. Gökyüzü (Minecraft Overworld Gündüz Mavisi veya Gece Yıldızlı Gökyüzü)
+        const skyGrad = ctx.createLinearGradient(0, 0, 0, H);
+        if (isNightMode) {
+          skyGrad.addColorStop(0, "#050814");
+          skyGrad.addColorStop(0.55, "#0f172a");
+          skyGrad.addColorStop(1, "#090d16");
+        } else {
+          skyGrad.addColorStop(0, "#1e3a8a");
+          skyGrad.addColorStop(0.45, "#0284c7");
+          skyGrad.addColorStop(1, "#0b1528");
+        }
+        ctx.fillStyle = skyGrad;
         ctx.fillRect(0, 0, W, H);
 
-        if (autoRotate && !isDragging) cameraYaw += 0.0022;
-        const cx = W * 0.5, cy = H * 0.56, scale = Math.min(W, H) * 0.088;
+        // Pixel Güneş veya Ay + Pixel Bulutlar
+        ctx.fillStyle = isNightMode ? "#f8fafc" : "#fde047";
+        ctx.fillRect(W - 95, 28, 36, 36);
+        ctx.fillStyle = "rgba(255,255,255,0.18)";
+        const cloudX = (ts * 0.015) % (W + 160) - 80;
+        ctx.fillRect(cloudX, 34, 74, 16);
+        ctx.fillRect(cloudX + 16, 24, 44, 12);
+        ctx.fillRect((cloudX + 360) % (W + 120), 52, 86, 16);
 
-        for (let i = -5; i <= 5; i++) {
-          const p1 = project3D(i, 0, -5, cx, cy, scale), p2 = project3D(i, 0, 5, cx, cy, scale);
-          const q1 = project3D(-5, 0, i, cx, cy, scale), q2 = project3D(5, 0, i, cx, cy, scale);
-          ctx.strokeStyle = "rgba(148,163,184,0.12)";
-          ctx.lineWidth = 1;
+        if (autoRotate && !isDragging) cameraYaw += 0.002;
+        const cx = W * 0.5;
+        const cy = H * 0.56;
+        const scale = Math.min(W, H) * 0.072 * zoomFactor;
+
+        // 2. Minecraft Çimen Dünyası Tabanı (Grass Block Top + Dirt Side)
+        const worldCornersTop = [
+          project3D(-7.2, 0, -5.6, cx, cy, scale),
+          project3D(7.2, 0, -5.6, cx, cy, scale),
+          project3D(7.2, 0, 5.6, cx, cy, scale),
+          project3D(-7.2, 0, 5.6, cx, cy, scale)
+        ];
+        const worldCornersBot = [
+          project3D(-7.2, -0.45, -5.6, cx, cy, scale),
+          project3D(7.2, -0.45, -5.6, cx, cy, scale),
+          project3D(7.2, -0.45, 5.6, cx, cy, scale),
+          project3D(-7.2, -0.45, 5.6, cx, cy, scale)
+        ];
+        // Toprak Yan Yüzeyler (Dirt Block Sides)
+        drawPoly([worldCornersBot[1], worldCornersBot[2], worldCornersTop[2], worldCornersTop[1]], "#78350f", "#451a03", 1);
+        drawPoly([worldCornersBot[2], worldCornersBot[3], worldCornersTop[3], worldCornersTop[2]], "#5c2808", "#451a03", 1);
+        drawPoly([worldCornersBot[3], worldCornersBot[0], worldCornersTop[0], worldCornersTop[3]], "#78350f", "#451a03", 1);
+        // Çimen Üst Yüzey (Minecraft Grass Block Green)
+        drawPoly(worldCornersTop, isNightMode ? "#14532d" : "#15803d", "#166534", 1.5);
+
+        // Voxel Çimen Karo Izgarası (1x1 Blok Çizgileri)
+        ctx.strokeStyle = isNightMode ? "rgba(34, 197, 94, 0.14)" : "rgba(74, 222, 128, 0.22)";
+        ctx.lineWidth = 1;
+        for (let gx = -7; gx <= 7; gx++) {
+          const p1 = project3D(gx, 0.01, -5.5, cx, cy, scale);
+          const p2 = project3D(gx, 0.01, 5.5, cx, cy, scale);
           ctx.beginPath(); ctx.moveTo(p1.x, p1.y); ctx.lineTo(p2.x, p2.y); ctx.stroke();
+        }
+        for (let gz = -5; gz <= 5; gz++) {
+          const q1 = project3D(-7, 0.01, gz, cx, cy, scale);
+          const q2 = project3D(7, 0.01, gz, cx, cy, scale);
           ctx.beginPath(); ctx.moveTo(q1.x, q1.y); ctx.lineTo(q2.x, q2.y); ctx.stroke();
         }
 
-        LINKS.forEach(lnk => {
-          const aFrom = AGENTS.find(a => a.id === lnk.from), aTo = AGENTS.find(a => a.id === lnk.to);
-          if (!aFrom || !aTo) return;
-          const pStart = project3D(aFrom.gx, 0.08, aFrom.gz, cx, cy, scale);
-          const pEnd = project3D(aTo.gx, 0.08, aTo.gz, cx, cy, scale);
-          ctx.strokeStyle = hexToRgba(lnk.color, 0.45);
-          ctx.lineWidth = 2;
-          ctx.setLineDash([5, 5]);
-          ctx.beginPath(); ctx.moveTo(pStart.x, pStart.y); ctx.lineTo(pEnd.x, pEnd.y); ctx.stroke();
-          ctx.setLineDash([]);
+        // 3. KARAKTERLERİN YÜRÜDÜĞÜ MINECRAFT TAŞ & MEŞE YOLU (Cobblestone & Oak Border Path)
+        ROAD_SEGMENTS.forEach(seg => {
+          const minX = Math.min(seg.x1, seg.x2) - 0.38;
+          const maxX = Math.max(seg.x1, seg.x2) + 0.38;
+          const minZ = Math.min(seg.z1, seg.z2) - 0.38;
+          const maxZ = Math.max(seg.z1, seg.z2) + 0.38;
+
+          // Meşe Tahtası Bordür (Oak Plank Border)
+          const oakPts = [
+            project3D(minX - 0.08, 0.015, minZ - 0.08, cx, cy, scale),
+            project3D(maxX + 0.08, 0.015, minZ - 0.08, cx, cy, scale),
+            project3D(maxX + 0.08, 0.015, maxZ + 0.08, cx, cy, scale),
+            project3D(minX - 0.08, 0.015, maxZ + 0.08, cx, cy, scale)
+          ];
+          drawPoly(oakPts, "#92400e", "#78350f", 1);
+
+          // Kırıktaş Yürüyüş Yolu (Cobblestone Path)
+          const stonePts = [
+            project3D(minX, 0.025, minZ, cx, cy, scale),
+            project3D(maxX, 0.025, minZ, cx, cy, scale),
+            project3D(maxX, 0.025, maxZ, cx, cy, scale),
+            project3D(minX, 0.025, maxZ, cx, cy, scale)
+          ];
+          drawPoly(stonePts, "#64748b", "#475569", 1);
+
+          // Yolun ortasındaki sarı/altın Minecraft yön taşları
+          const steps = Math.max(2, Math.round(Math.hypot(seg.x2 - seg.x1, seg.z2 - seg.z1) * 1.6));
+          for (let s = 0; s <= steps; s++) {
+            const tx = seg.x1 + (seg.x2 - seg.x1) * (s / steps);
+            const tz = seg.z1 + (seg.z2 - seg.z1) * (s / steps);
+            const sp = [
+              project3D(tx - 0.09, 0.03, tz - 0.09, cx, cy, scale),
+              project3D(tx + 0.09, 0.03, tz - 0.09, cx, cy, scale),
+              project3D(tx + 0.09, 0.03, tz + 0.09, cx, cy, scale),
+              project3D(tx - 0.09, 0.03, tz + 0.09, cx, cy, scale)
+            ];
+            drawPoly(sp, "#94a3b8", "rgba(15,23,42,0.4)", 0.6);
+          }
         });
 
-        packets.forEach(pk => {
-          pk.t += pk.speed;
-          if (pk.t > 1) pk.t -= 1;
-          const aFrom = AGENTS.find(a => a.id === pk.from), aTo = AGENTS.find(a => a.id === pk.to);
-          if (!aFrom || !aTo) return;
-          const pt = project3D(
-            aFrom.gx + (aTo.gx - aFrom.gx) * pk.t,
-            0.18 + Math.sin(pk.t * Math.PI) * 0.45,
-            aFrom.gz + (aTo.gz - aFrom.gz) * pk.t,
-            cx, cy, scale
-          );
-          ctx.beginPath();
-          ctx.arc(pt.x, pt.y, 4.5, 0, Math.PI * 2);
-          ctx.fillStyle = pk.color;
-          ctx.fill();
-          ctx.strokeStyle = "#ffffff";
-          ctx.lineWidth = 1.2;
-          ctx.stroke();
+        // Yürüyüş Yolu Etiketi (Merkez Kavşakta Okunaklı)
+        const roadSignPt = project3D(-1.35, 0.06, 0.38, cx, cy, scale);
+        ctx.font = "700 9px 'JetBrains Mono', monospace";
+        ctx.fillStyle = "#fde047";
+        ctx.textAlign = "center";
+        ctx.fillText("🛤️ MINECRAFT AJAN YÜRÜYÜŞ YOLU", roadSignPt.x, roadSignPt.y);
+
+        // 4. Derinlik Sıralı (Z-Sort) Çizim: Ağaçlar, Lambalar, Departman Masaları ve Yürüyen Karakterler
+        clickableHitboxes = [];
+        const renderQueue = [];
+
+        MINECRAFT_TREES.forEach(tr => {
+          renderQueue.push({
+            depth: project3D(tr.gx, 0.5, tr.gz, cx, cy, scale).depth,
+            draw: () => drawMinecraftTree(tr.gx, tr.gz, cx, cy, scale)
+          });
         });
 
-        projectedBoxes = [];
-        const sortedAgents = [...AGENTS].sort((a, b) => {
-          return project3D(a.gx, a.h/2, a.gz, cx, cy, scale).depth - project3D(b.gx, b.h/2, b.gz, cx, cy, scale).depth;
+        REDSTONE_LAMPS.forEach(lp => {
+          renderQueue.push({
+            depth: project3D(lp.gx, 0.4, lp.gz, cx, cy, scale).depth,
+            draw: () => drawRedstoneLamp(lp.gx, lp.gz, timeSec, cx, cy, scale)
+          });
         });
-        sortedAgents.forEach(ag => drawExtrudedRoom(ag, cx, cy, scale, timeSec));
+
+        AGENTS.forEach(ag => {
+          renderQueue.push({
+            depth: project3D(ag.gx, 0.4, ag.gz, cx, cy, scale).depth,
+            draw: () => drawDepartmentStation(ag, timeSec, cx, cy, scale)
+          });
+
+          const st = agentWalkStates[ag.id];
+          renderQueue.push({
+            depth: project3D(st.x, 0.6, st.z, cx, cy, scale).depth + 0.05,
+            draw: () => drawMinecraftCharacter(ag, timeSec, cx, cy, scale)
+          });
+        });
+
+        renderQueue.sort((a, b) => a.depth - b.depth);
+        renderQueue.forEach(item => item.draw());
 
         requestAnimationFrame(renderScene);
       }
 
+      // Fare & Dokunmatik Kamera Kontrolleri
       canvas.addEventListener("pointerdown", e => {
         isDragging = true;
         lastMouseX = e.clientX;
@@ -909,36 +1682,72 @@
       window.addEventListener("pointerup", () => { isDragging = false; });
       window.addEventListener("pointermove", e => {
         if (!isDragging) return;
-        cameraYaw += (e.clientX - lastMouseX) * 0.008;
-        cameraPitch = Math.max(0.25, Math.min(1.15, cameraPitch + (e.clientY - lastMouseY) * 0.006));
+        cameraYaw += (e.clientX - lastMouseX) * 0.0075;
+        cameraPitch = Math.max(0.28, Math.min(1.22, cameraPitch + (e.clientY - lastMouseY) * 0.006));
         lastMouseX = e.clientX;
         lastMouseY = e.clientY;
       });
 
+      canvas.addEventListener("wheel", e => {
+        e.preventDefault();
+        zoomFactor = Math.max(0.65, Math.min(1.85, zoomFactor + (e.deltaY < 0 ? 0.08 : -0.08)));
+      }, { passive: false });
+
+      // Karakter veya Masaya Tıklama
       canvas.addEventListener("click", e => {
         const rect = canvas.getBoundingClientRect();
         const mx = e.clientX - rect.left, my = e.clientY - rect.top;
-        for (let i = projectedBoxes.length - 1; i >= 0; i--) {
-          const b = projectedBoxes[i];
+        for (let i = clickableHitboxes.length - 1; i >= 0; i--) {
+          const b = clickableHitboxes[i];
           if (mx >= b.minX && mx <= b.maxX && my >= b.minY && my <= b.maxY) {
             selectAgent(b.id);
-            pushConsoleLog(`[3D Kat Planı] '${b.id}' odası seçildi — canlı telemetri yüklendi.`);
+            const ag = AGENTS.find(a => a.id === b.id);
+            if (ag) {
+              pushConsoleLog(`<span class="text-emerald-400">[SEÇİLDİ]</span> ${ag.icon} <strong>${ag.charName}</strong> (${ag.deptName}) masası ve araçları inceleniyor.`);
+            }
             break;
           }
         }
       });
 
+      // Klavye Oyun Kontrolleri (1-0 Slot Seçimi ve WASD/Ok Tuşlarıyla Karakteri Yürütme)
+      window.addEventListener("keydown", e => {
+        if (document.activeElement && document.activeElement.tagName === "INPUT") return;
+        const k = e.key.toLowerCase();
+        if (k === "w" || e.key === "ArrowUp") { e.preventDefault(); nudgeSelectedAgent(0, -0.38); }
+        else if (k === "s" || e.key === "ArrowDown") { e.preventDefault(); nudgeSelectedAgent(0, 0.38); }
+        else if (k === "a" || e.key === "ArrowLeft") { e.preventDefault(); nudgeSelectedAgent(-0.38, 0); }
+        else if (k === "d" || e.key === "ArrowRight") { e.preventDefault(); nudgeSelectedAgent(0.38, 0); }
+        else {
+          const slotMatch = AGENTS.find(a => a.slotKey === e.key);
+          if (slotMatch) selectAgent(slotMatch.id);
+        }
+      });
+
+      // Üst Buton Aksiyonları
+      document.getElementById("btnParade").addEventListener("click", () => triggerAllAgentsParade());
+      document.getElementById("btnMeeting").addEventListener("click", () => triggerCentralPlazaMeeting());
+      document.getElementById("btnDayNight").addEventListener("click", () => {
+        isNightMode = !isNightMode;
+        document.getElementById("hudTimeBadge").textContent = isNightMode ? "🌙 GECE (REDSTONE AKTİF)" : "☀️ GÜNDÜZ";
+      });
       document.getElementById("btnRotateToggle").addEventListener("click", e => {
         autoRotate = !autoRotate;
-        e.target.textContent = `3D Otomatik Döndür: ${autoRotate ? "Açık" : "Kapalı"}`;
+        e.target.textContent = `🔄 Kamera Döndür: ${autoRotate ? "Açık" : "Kapalı"}`;
       });
       document.getElementById("btnResetCamera").addEventListener("click", () => {
-        cameraYaw = 0.62;
-        cameraPitch = 0.58;
+        cameraYaw = 0.52;
+        cameraPitch = 0.62;
+        zoomFactor = 1.05;
       });
-      document.getElementById("btnTriggerPulse").addEventListener("click", () => {
-        spawnPackets(true);
-        pushConsoleLog("[SENKRON TETİKLENDİ] Ajan 2 (Pinterest) -> Ajan 1 (Mağaza) -> Ajan 3 -> Ana Ajan veri akışı başlatıldı!");
+      document.getElementById("btnZoomIn").addEventListener("click", () => {
+        zoomFactor = Math.min(1.85, zoomFactor + 0.14);
+      });
+      document.getElementById("btnZoomOut").addEventListener("click", () => {
+        zoomFactor = Math.max(0.65, zoomFactor - 0.14);
+      });
+      document.getElementById("btnTopView").addEventListener("click", () => {
+        cameraPitch = cameraPitch > 0.95 ? 0.62 : 1.15;
       });
       document.getElementById("outfitSelector").addEventListener("change", e => {
         renderOutfitTable(e.target.value);
