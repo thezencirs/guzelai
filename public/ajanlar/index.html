@@ -1795,9 +1795,35 @@
       window.location.reload();
     });
 
-    if (localStorage.getItem(STORAGE_KEY) === "unlocked") {
-      unlockDashboard();
-    }
+    // Eski verilen linkleri (?v=25 vb.) durdur ve yalnızca v=30'u çalıştır
+    (function enforceSingleActiveLink() {
+      const params = new URLSearchParams(window.location.search);
+      const v = params.get("v");
+      if (v && v !== "30") {
+        document.body.innerHTML = `
+          <div class="min-h-screen flex items-center justify-center p-4 bg-[#070b12] text-center">
+            <div class="max-w-md w-full bg-[#111827] border-2 border-rose-500/40 rounded-2xl p-7 space-y-4 shadow-2xl">
+              <div class="text-3xl">⛔</div>
+              <h1 class="text-lg font-bold text-white">Önceki Bağlantı Durduruldu</h1>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                Bu eski bağlantı (<code>?v=${v}</code>) isteğiniz üzerine devre dışı bırakılmıştır. Ajanlarınızı izlemek için yalnızca güncel <strong>v3.0 Minecraft Ajan Şehri</strong> bağlantısı aktiftir.
+              </p>
+              <a href="https://guzelai.com/ajanlar?v=30" class="block w-full py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm transition">
+                🏙️ Aktif Ajan Şehrine Git (v3.0)
+              </a>
+            </div>
+          </div>
+        `;
+        return;
+      }
+      if (!v && window.location.protocol.startsWith("http")) {
+        window.location.replace(window.location.pathname + "?v=30");
+        return;
+      }
+      if (localStorage.getItem(STORAGE_KEY) === "unlocked") {
+        unlockDashboard();
+      }
+    })();
   </script>
 </body>
 </html>
