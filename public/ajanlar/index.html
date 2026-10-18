@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="tr" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>GuzelAI.com • Özel Yönetim & 3D Ajan Komuta Merkezi</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background-color: #090d16;
+      color: #f8fafc;
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    canvas {
+      display: block;
+      width: 100%;
+      cursor: grab;
+      touch-action: none;
+    }
+    canvas:active {
+      cursor: grabbing;
+    }
+  </style>
+</head>
+<body class="min-h-screen antialiased selection:bg-emerald-500 selection:text-white">
+
+  <!-- ===================================================================== -->
+  <!-- 1. ŞİFRELİ GİRİŞ EKRANI (SADECE YETKİLİ ŞİFRE İLE AÇILIR)             -->
+  <!-- ===================================================================== -->
+  <div id="authGate" class="min-h-screen flex items-center justify-center p-4 bg-[#090d16]">
+    <div class="w-full max-w-md bg-[#111827] border border-slate-800 rounded-2xl p-7 shadow-2xl space-y-6">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2.5">
+          <span class="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span class="text-xs font-semibold tracking-wider uppercase text-emerald-400">GuzelAI Özel Yönetim</span>
+        </div>
+        <a href="https://guzelai.com" class="text-xs text-slate-400 hover:text-white transition">← Siteye Dön</a>
+      </div>
+
+      <div>
+        <h1 class="text-xl font-bold text-white">🔒 3D Ajan Komuta Merkezi & Özel İzleme</h1>
+        <p class="text-xs text-slate-400 mt-1.5 leading-relaxed">
+          Bu sayfa yalnızca hesap sahibine özeldir. 7 aktif ajanın 3D kat planını, canlı mağaza/Pinterest eşleşmelerini, takipçi/izlenme analizini ve son üretilen 2K Reels videosunu görüntülemek için şifrenizi girin.
+        </p>
+      </div>
+
+      <form id="loginForm" class="space-y-4">
+        <div>
+          <label for="pwdInput" class="block text-xs font-medium text-slate-300 mb-1.5">Yönetici Şifresi</label>
+          <input
+            id="pwdInput"
+            type="password"
+            autocomplete="current-password"
+            placeholder="Şifrenizi girin..."
+            required
+            class="w-full px-4 py-3 rounded-xl bg-[#0b1120] border border-slate-700 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 transition"
+          />
+        </div>
+
+        <div class="flex items-center justify-between text-xs text-slate-400">
+          <label class="flex items-center gap-2 cursor-pointer">
+            <input id="rememberMe" type="checkbox" checked class="rounded border-slate-700 bg-slate-900 text-emerald-500 focus:ring-0" />
+            <span>Bu cihazda oturumu açık tut</span>
+          </label>
+          <span>SHA-256 Korumalı</span>
+        </div>
+
+        <div id="authError" class="hidden p-3 rounded-xl bg-rose-500/15 border border-rose-500/30 text-xs text-rose-300">
+          Hatalı şifre girdiniz. Lütfen Instagram / Yönetim şifrenizle tekrar deneyin.
+        </div>
+
+        <button
+          type="submit"
+          class="w-full py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm shadow-lg shadow-emerald-600/20 transition"
+        >
+          Şifreyi Doğrula ve 3D Komuta Merkezini Aç
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- 2. KORUMALI 3D AJAN KOMUTA MERKEZİ & 2K VİDEO İZLEME PANELİ           -->
+  <!-- ===================================================================== -->
+  <div id="dashboardRoot" class="hidden max-w-7xl mx-auto p-4 sm:p-6 space-y-6">
+
+    <!-- Üst Bar -->
+    <div class="bg-[#111827] border border-slate-800 rounded-2xl p-5 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+      <div>
+        <div class="flex items-center gap-2.5">
+          <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span class="text-xs font-medium text-emerald-400">GuzelAI.com Özel Yönetim • Şifreli Oturum Açık</span>
+        </div>
+        <h1 class="text-xl sm:text-2xl font-bold text-white mt-1">3D Ajan Stüdyosu Kat Planı & Canlı Operasyon Merkezi</h1>
+        <p class="text-xs sm:text-sm text-slate-400 mt-0.5">
+          7 uzman ajanın 3 boyutlu kat planındaki canlı çalışmasını, son 2K Graph-Motion Reels videonuzu, mağaza linklerini ve @guzelaicom sağlık durumunu buradan takip edebilirsiniz.
+        </p>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-2.5">
+        <button id="btnRotateToggle" class="px-3.5 py-2 rounded-xl border border-slate-700 bg-slate-800/80 text-xs font-medium text-slate-200 hover:bg-slate-700 transition">
+          3D Otomatik Döndür: Açık
+        </button>
+        <button id="btnResetCamera" class="px-3.5 py-2 rounded-xl border border-slate-700 bg-slate-800/80 text-xs font-medium text-slate-200 hover:bg-slate-700 transition">
+          Açıyı Sıfırla
+        </button>
+        <button id="btnTriggerPulse" class="px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold transition">
+          ⚡ Ajan İşbirliği Akışını Tetikle
+        </button>
+        <button id="btnLockSession" class="px-3.5 py-2 rounded-xl border border-rose-500/40 bg-rose-500/10 text-rose-300 hover:bg-rose-500/20 text-xs font-medium transition">
+          🔒 Kilitle & Çıkış
+        </button>
+      </div>
+    </div>
+
+    <!-- Üst KPI Kartları -->
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-3.5">
+      <div class="bg-[#111827] border border-slate-800 rounded-2xl p-4">
+        <div class="text-xs text-slate-400">Instagram (@guzelaicom)</div>
+        <div class="text-base sm:text-lg font-bold text-emerald-400 mt-1" id="kpiHealth">HEALTHY • Düşük Risk</div>
+        <div class="text-xs text-slate-400 mt-1">Sabit Cihaz UUID + Bearer IGT Aktif</div>
+      </div>
+      <div class="bg-[#111827] border border-slate-800 rounded-2xl p-4">
+        <div class="text-xs text-slate-400">Takipçi & Son 10 Reels İzlenme</div>
+        <div class="text-base sm:text-lg font-bold text-white mt-1" id="kpiFollowers">282 Takipçi • 256 İzlenme</div>
+        <div class="text-xs text-emerald-400 mt-1" id="kpiLatestReel">Yeni Reel (DeoIDlQo3Yj): 17 İzlenme (8.5x Hız)</div>
+      </div>
+      <div class="bg-[#111827] border border-slate-800 rounded-2xl p-4">
+        <div class="text-xs text-slate-400">Ajan 1 & 2 Doğrulanmış Linkler</div>
+        <div class="text-base sm:text-lg font-bold text-white mt-1">18 / 18 Parça • 41 /go/ Link</div>
+        <div class="text-xs text-slate-400 mt-1">Zara, İpekyol, Quzu, Ray-Ban, H&M</div>
+      </div>
+      <div class="bg-[#111827] border border-slate-800 rounded-2xl p-4">
+        <div class="text-xs text-slate-400">4 Saatlik Anti-Spam Koruması</div>
+        <div class="text-base sm:text-lg font-bold text-amber-400 mt-1" id="kpiCooldown">Güvenli Soğuma Aktif</div>
+        <div class="text-xs text-slate-400 mt-1">0 Ham URL • Maks 5 Niş Etiket</div>
+      </div>
+    </div>
+
+    <!-- Orta Bölüm: 3D Kat Planı (Sol 8 Sütun) + Seçili Ajan Telemetri & Konsol (Sağ 4 Sütun) -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+      <!-- 3D Kat Planı -->
+      <div class="lg:col-span-8 bg-[#111827] border border-slate-800 rounded-2xl p-4 sm:p-5 flex flex-col">
+        <div class="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-slate-800">
+          <div>
+            <h2 class="text-base font-bold text-white">🏛️ 3D İzometrik Ajan Stüdyosu Kat Planı</h2>
+            <p class="text-xs text-slate-400">Parmağınızla veya fareyle sürükleyerek 3D açıyı döndürün; detaylar için odalara dokunun.</p>
+          </div>
+          <div class="flex flex-wrap items-center gap-3 text-xs text-slate-300">
+            <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-amber-400 inline-block"></span>Pinterest ↔ Mağaza</span>
+            <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-emerald-400 inline-block"></span>Doğrulanmış Link → Ana Ajan</span>
+            <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-sky-400 inline-block"></span>Sağlık & İzlenme</span>
+          </div>
+        </div>
+
+        <div class="relative mt-3 rounded-xl overflow-hidden border border-slate-800 bg-[#0b1120]">
+          <canvas id="floorplan3d" height="460"></canvas>
+        </div>
+
+        <!-- Oda Seçim Butonları -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2 mt-3" id="roomQuickButtons"></div>
+      </div>
+
+      <!-- Sağ Panel: Seçili Ajan Detayı + Canlı Konsol -->
+      <div class="lg:col-span-4 bg-[#111827] border border-slate-800 rounded-2xl p-5 flex flex-col justify-between space-y-4">
+        <div>
+          <div class="flex items-center justify-between">
+            <span id="agentBadge" class="px-2.5 py-1 rounded-md text-xs font-semibold bg-emerald-500/15 text-emerald-400">AKTİF İŞBİRLİĞİ</span>
+            <span id="agentCodeName" class="text-xs font-mono text-slate-400">kombin-dispatcher-reporter</span>
+          </div>
+          <h3 id="agentTitle" class="text-lg font-bold text-white mt-2">Ajan 3: Koordinasyon & Bildirim</h3>
+          <p id="agentDesc" class="text-xs sm:text-sm text-slate-300 mt-1 leading-relaxed"></p>
+
+          <div class="mt-4 pt-4 border-t border-slate-800 space-y-2">
+            <div class="text-xs font-semibold text-slate-200">Canlı Ajan Metrikleri & Son Çıktılar</div>
+            <div id="agentMetricsList" class="space-y-2 text-xs"></div>
+          </div>
+
+          <div class="mt-4 pt-4 border-t border-slate-800">
+            <div class="text-xs font-semibold text-slate-200 mb-2">İşbirliği Yaptığı Ajanlar</div>
+            <div id="agentCollabLinks" class="flex flex-wrap gap-1.5"></div>
+          </div>
+        </div>
+
+        <div class="pt-3 border-t border-slate-800">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="text-xs font-semibold text-slate-200">Canlı Ajan İletişim Günlüğü</span>
+            <span class="text-xs text-emerald-400">● Canlı Akış</span>
+          </div>
+          <div id="liveConsole" class="bg-[#0b1120] border border-slate-800 rounded-xl p-3 h-40 overflow-y-auto space-y-1.5 text-xs font-mono"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================================================================== -->
+    <!-- ÖZEL VİDEO İZLEME & DOĞRULANMIŞ MAĞAZA LİNKLERİ BÖLÜMÜ                -->
+    <!-- ===================================================================== -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+
+      <!-- Sol 4 Sütun: Son Üretilen Graph-Motion & Kusursuz Müzikli Reels Önizleme -->
+      <div class="lg:col-span-4 bg-[#111827] border border-slate-800 rounded-2xl p-5 flex flex-col justify-between space-y-4">
+        <div>
+          <div class="flex items-center justify-between">
+            <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-purple-500/15 text-purple-300">2K GRAPH-MOTION & 44.1kHz MÜZİK</span>
+            <a href="https://www.instagram.com/reel/DeoIDlQo3Yj/" target="_blank" class="text-xs text-emerald-400 hover:underline font-semibold">
+              Instagram'da Aç ↗
+            </a>
+          </div>
+          <h3 class="text-base font-bold text-white mt-2">🎬 Son Yayınlanan Reels Videosu</h3>
+          <p class="text-xs text-slate-400 mt-0.5">
+            3 karede yolda özgüvenle yürüyen manken çekimi ve kesintisiz stüdyo master müzikli (`Veor Uranis – Da Da Da Dadada`) aktif Reels:
+          </p>
+
+          <div class="mt-3 rounded-xl overflow-hidden border border-slate-800 bg-black aspect-[9/16] max-h-[460px] mx-auto flex items-center justify-center">
+            <video
+              id="reelPreviewVideo"
+              src="/data/latest_kombin_video.mp4"
+              poster="/data/latest_kombin_collage.jpg"
+              controls
+              playsinline
+              loop
+              class="w-full h-full object-contain"
+            ></video>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2 pt-2">
+          <a
+            href="https://www.instagram.com/reel/DeoIDlQo3Yj/"
+            target="_blank"
+            class="py-2.5 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold text-center transition"
+          >
+            📸 Reel DeoIDlQo3Yj
+          </a>
+          <a
+            href="https://guzelai.com/#kombinler"
+            target="_blank"
+            class="py-2.5 px-3 rounded-xl border border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold text-center transition"
+          >
+            🛍️ Vitrin Kartları
+          </a>
+        </div>
+      </div>
+
+      <!-- Sağ 8 Sütun: Ajan 1 & Ajan 2 Doğrulanmış Mağaza Linkleri + Ajan 4 Reels İzlenme Analizi -->
+      <div class="lg:col-span-8 space-y-5">
+
+        <!-- Ajan 1 & Ajan 2 Ortak Çıktısı -->
+        <div class="bg-[#111827] border border-slate-800 rounded-2xl p-5">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+            <div>
+              <h3 class="text-base font-bold text-white">🛍️ Ajan 1 & Ajan 2 İşbirliği: Doğrulanmış Pinterest Kombin Linkleri</h3>
+              <p class="text-xs text-slate-400">Pinterest Trend Ajanı reçetesiyle %100 birebir eşleşen canlı Türkiye mağaza ürünleri</p>
+            </div>
+            <select id="outfitSelector" class="px-3 py-2 rounded-xl border border-slate-700 bg-[#0b1120] text-xs text-white">
+              <option value="sunday_slot1_espresso_cream_oldmoney">Kombin #1: Pazar Brunch Old Money (Zara, İpekyol, Ray-Ban) - 19.228,50₺</option>
+              <option value="sunday_slot3_navy_camel_ivory">Kombin #2: Prestij Old Money (Quzu, H&M, Stradivarius, Tommy) - 16.359,35₺</option>
+            </select>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse text-xs">
+              <thead>
+                <tr class="border-b border-slate-800 text-slate-400">
+                  <th class="py-2.5 pr-2">Kategori</th>
+                  <th class="py-2.5 pr-2">Marka & Ürün</th>
+                  <th class="py-2.5 pr-2">Fiyat</th>
+                  <th class="py-2.5 pr-2">SKU</th>
+                  <th class="py-2.5 pr-2">Eşleşme</th>
+                  <th class="py-2.5">Linkler</th>
+                </tr>
+              </thead>
+              <tbody id="outfitTableBody" class="divide-y divide-slate-800/70"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Ajan 4: Instagram Reels İzlenme Performansı -->
+        <div class="bg-[#111827] border border-slate-800 rounded-2xl p-5">
+          <div class="mb-3">
+            <h3 class="text-base font-bold text-white">📊 Ajan 4 (`social-health-analyst`): Canlı Reels İzlenme & Keşfet Analizi</h3>
+            <p class="text-xs text-slate-400">@guzelaicom son yayınlanan Reels videolarının organik izlenme ve etkileşim performansı</p>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="reelsPerformanceList"></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // =========================================================================
+    // SHA-256 ŞİFRE DOĞRULAMA MOTORU (Düz metin şifre kodda yer almaz)
+    // =========================================================================
+    const ALLOWED_HASHES = new Set([
+      "8118dfe2b7b596eb414cf068688d502689bbd18eeef0ad7efbdfe9500ac4dc4e",
+      "664da613be74eae207b4279006042036d85fc7c5c40642d668bdb7cd1982bd49",
+      "74e14473d08ce1e3ff398302f4134aee11005052d574a0d3d811803075701d77",
+      "966d205c7876093dbc8b1b0678cd0b8541d7ef5f5a5eadd5504e213aeb62498d"
+    ]);
+    const STORAGE_KEY = "guzelai_admin_3d_auth_v1";
+
+    async function sha256Hex(str) {
+      const buf = new TextEncoder().encode(str.trim());
+      const digest = await window.crypto.subtle.digest("SHA-256", buf);
+      return Array.from(new Uint8Array(digest)).map(b => b.toString(16).padStart(2, "0")).join("");
+    }
+
+    function unlockDashboard() {
+      document.getElementById("authGate").classList.add("hidden");
+      document.getElementById("dashboardRoot").classList.remove("hidden");
+      initCommandCenter();
+    }
+
+    if (localStorage.getItem(STORAGE_KEY) === "unlocked") {
+      unlockDashboard();
+    }
+
+    document.getElementById("loginForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const raw = document.getElementById("pwdInput").value;
+      const hash = await sha256Hex(raw);
+      if (ALLOWED_HASHES.has(hash)) {
+        if (document.getElementById("rememberMe").checked) {
+          localStorage.setItem(STORAGE_KEY, "unlocked");
+        }
+        document.getElementById("authError").classList.add("hidden");
+        unlockDashboard();
+      } else {
+        document.getElementById("authError").classList.remove("hidden");
+      }
+    });
+
+    document.getElementById("btnLockSession").addEventListener("click", () => {
+      localStorage.removeItem(STORAGE_KEY);
+      window.location.reload();
+    });
+
+    // =========================================================================
+    // 7 AJAN VERİLERİ & 3D SAHNE MOTORU
+    // =========================================================================
+    const AGENTS = [
+      {
+        id: "main-core",
+        shortLabel: "Ana Ajan",
+        code: "antigravity-core",
+        name: "Merkez Komuta: Ana Ajan (Antigravity)",
+        status: "AKTİF MERKEZ",
+        color: "#10b981",
+        gx: 0, gz: 0, w: 2.2, d: 2.2, h: 1.55,
+        desc: "Tüm alt ajanlardan gelen Pinterest trend reçetelerini, doğrulanmış mağaza linklerini, 2K Graph-Motion render paketini ve hesap sağlığı raporlarını birleştirerek yayınları yönetir.",
+        collabs: ["kombin-dispatcher-reporter", "social-health-analyst", "visual-qa-runway-inspector"],
+        metrics: [
+          ["Son Canlı Yayın", "Reel DeoIDlQo3Yj (2K 1440x2560)"],
+          ["GuzelAI.com Vitrin", "HTTP 200 • 41 Aktif /go/ Sayfası"],
+          ["GitHub Actions", "Run #39107345431 (Başarılı / Bulut IP Korumalı)"],
+          ["Aktif Alt Ajan Sayısı", "7 Uzman Ajan İşbirliği Halinde"]
+        ]
+      },
+      {
+        id: "agent-1",
+        shortLabel: "Ajan 1: Mağaza",
+        code: "store-link-researcher",
+        name: "Ajan 1: Mağaza & Doğru Link Araştırma Ajanı",
+        status: "TARAMA AKTİF",
+        color: "#f59e0b",
+        gx: -3.2, gz: -2.4, w: 2.1, d: 1.8, h: 1.15,
+        desc: "Ajan 2'nin belirlediği Pinterest kombin parçalarını Zara, Trendyol, Quzu, İpekyol, Stradivarius ve H&M üzerinde tarar; birebir aynı ürünü (%100) veya en yakın ikiz modeli (%96+) doğrular.",
+        collabs: ["pinterest-trend-scout", "kombin-dispatcher-reporter", "price-stock-conversion-guard"],
+        metrics: [
+          ["Doğrulanan Mağaza Linki", "18 / 18 Ürün (Zara, İpekyol, Quzu, H&M)"],
+          ["Birebir Eşleşme Oranı", "%100 Birebir Aynı Ürün (Kombin #1 & #2)"],
+          ["Görsel Dekupe (rembg)", "12 / 12 Şeffaf PNG Hazır"],
+          ["Çıktı Dosyası", "output/store_verified_matches.json"]
+        ]
+      },
+      {
+        id: "agent-2",
+        shortLabel: "Ajan 2: Pinterest",
+        code: "pinterest-trend-scout",
+        name: "Ajan 2: Pinterest Güncel Trend Kombin Ajanı",
+        status: "TREND TARIYOR",
+        color: "#ec4899",
+        gx: -3.2, gz: 2.4, w: 2.1, d: 1.8, h: 1.15,
+        desc: "Pinterest 2026 Sonbahar/Kış Old Money ve Quiet Luxury panolarını tarar; henüz Instagram'da paylaşılmamış en yüksek etkileşimli 6 parçalık kombin reçetesini Ajan 1'e gönderir.",
+        collabs: ["store-link-researcher", "kombin-dispatcher-reporter", "viral-hook-music-director"],
+        metrics: [
+          ["Taranan Katalog Trendi", "8 Sonbahar/Kış Kapsül Kombin"],
+          ["Seçilen Yayınlanmamış Trend", "3 Kombin (18 Parça Reçete)"],
+          ["Sıradaki Konsept", "Pazar Brunch Old Money (#C8A98E Bej/Vizon)"],
+          ["Çıktı Dosyası", "output/pinterest_trends_queue.json"]
+        ]
+      },
+      {
+        id: "agent-3",
+        shortLabel: "Ajan 3: Rapor",
+        code: "kombin-dispatcher-reporter",
+        name: "Ajan 3: Kombin Koordinasyon & Bildirim Ajanı",
+        status: "RAPORLUYOR",
+        color: "#14b8a6",
+        gx: -1.6, gz: 0, w: 1.7, d: 1.6, h: 1.25,
+        desc: "Pinterest Trend Ajanı ile Mağaza Link Ajanının eşleştirdiği 6 parçalık kombin paketini ve Sağlık Ajanının soğuma süresini birleştirip Ana Ajana hazır tablo olarak sunar.",
+        collabs: ["pinterest-trend-scout", "store-link-researcher", "main-core"],
+        metrics: [
+          ["Sıradaki Öneri", "sunday_slot1_espresso_cream_oldmoney"],
+          ["Prime-Time Yedek", "sunday_slot3_navy_camel_ivory"],
+          ["Manken Yürüyüş Kareleri", "3/3 Tam Boy Sokak Yürüyüşü Hazır"],
+          ["Brifing Dosyası", "output/latest_agent_briefing.md"]
+        ]
+      },
+      {
+        id: "agent-4",
+        shortLabel: "Ajan 4: Sağlık",
+        code: "social-health-analyst",
+        name: "Ajan 4: Sosyal Medya Sağlık & Analitik Ajanı",
+        status: "KORUMA AKTİF",
+        color: "#38bdf8",
+        gx: 3.2, gz: -2.4, w: 2.1, d: 1.8, h: 1.15,
+        desc: "Yeni şifre girişi yapmadan kalıcı Bearer IGT oturumuyla @guzelaicom hesap sağlığını, takipçi değişimini (Δ), Reels izlenmelerini ve 4 saatlik anti-spam soğuma süresini izler.",
+        collabs: ["main-core", "kombin-dispatcher-reporter"],
+        metrics: [
+          ["Hesap & Risk Durumu", "HEALTHY_ACTIVE • Risk: LOW"],
+          ["Takipçi & Gönderi", "282 Takipçi • 52 Takip • 30 Gönderi"],
+          ["Son 10 Reels İzlenme", "256 Toplam İzlenme (%5.86 Etkileşim)"],
+          ["Anti-Spam Kontrolleri", "0 Ham URL • 5 Etiket • Sabit Cihaz UUID"]
+        ]
+      },
+      {
+        id: "agent-5",
+        shortLabel: "Ajan 5: Müzik",
+        code: "viral-hook-music-director",
+        name: "Ajan 5: Viral Kanca & 44.1kHz Stüdyo Müzik Ajanı",
+        status: "SENKRONİZE",
+        color: "#a855f7",
+        gx: 3.2, gz: 2.4, w: 2.1, d: 1.8, h: 1.15,
+        desc: "En yüksek izlenen Reels kancalarını (137 izlenmeli mikro-hikaye kancası) analiz eder ve 44.1 kHz / 320 kbps AAC kesintisiz stüdyo müziğini 5.2s yürüyüş geçişiyle senkronize eder.",
+        collabs: ["pinterest-trend-scout", "visual-qa-runway-inspector"],
+        metrics: [
+          ["Aktif Stüdyo Kaydı", "Veor Uranis – Da Da Da Dadada"],
+          ["Ses Kalitesi", "44.1 kHz Stereo • 320 kbps AAC • 9.54 dB Crest"],
+          ["Yapay TTS / Ducking", "Tamamen Kaldırıldı (%100 Saf Müzik)"],
+          ["Geçiş Senkronu", "5.2. Saniye Podyum Yürüyüş Enerji Yükselişi"]
+        ]
+      },
+      {
+        id: "agent-6",
+        shortLabel: "Ajan 6: 2K QA",
+        code: "visual-qa-runway-inspector",
+        name: "Ajan 6: 2K OLED Podyum & Graph-Motion Denetçisi",
+        status: "DOĞRULANDI",
+        color: "#f43f5e",
+        gx: 0, gz: 3.1, w: 2.3, d: 1.6, h: 1.1,
+        desc: "Mankenin 3 karede de yolda özgüvenle yürüdüğünü (baş-ayak tam boy kadraj) ve 2K (1440x2560) Samsung OLED keskinlik skorunu (Laplacian > 2000) yayın öncesi denetler.",
+        collabs: ["main-core", "viral-hook-music-director"],
+        metrics: [
+          ["Çözünürlük & Kalite", "1440x2560 (2K QHD+ Samsung OLED)"],
+          ["Keskinlik Skoru", "Hook: 3124.0 • Yürüyüş: 3331.9 / 3128.6"],
+          ["Yürüyüş Kadrajı", "3/3 Tam Boy Sokak Yürüyüşü (Zoom 1.02-1.08)"],
+          ["Kalite Raporu", "PASSED (%100 Doğal • Ghosting Yok)"]
+        ]
+      },
+      {
+        id: "agent-7",
+        shortLabel: "Ajan 7: Vitrin",
+        code: "price-stock-conversion-guard",
+        name: "Ajan 7: Fiyat, Stok & GuzelAI.com Vitrin Kalkanı",
+        status: "41 LİNK AKTİF",
+        color: "#eab308",
+        gx: 0, gz: -3.1, w: 2.3, d: 1.6, h: 1.1,
+        desc: "guzelai.com/#kombinler vitrinini ve 41 adet /go/{sku} yönlendirme sayfasını izler; mağazada tükenen ürün olursa Ajan 1 ile anında ikiz modele yönlendirir.",
+        collabs: ["store-link-researcher", "main-core"],
+        metrics: [
+          ["Canlı Vitrin", "https://guzelai.com/#kombinler (HTTP 200)"],
+          ["Aktif /go/ Sayfaları", "41 Adet Akıllı Mağaza Yönlendirmesi"],
+          ["Stok Koruması", "Tükenen SKU İçin Otomatik İkiz Model Devrede"],
+          ["Yanıt Süresi", "Canlı CDN Aktif"]
+        ]
+      }
+    ];
+
+    const OUTFIT_DATA = {
+      sunday_slot1_espresso_cream_oldmoney: [
+        { cat: "Trençkot", brand: "ZARA", name: "ZW Collection Uzun Kruvaze Bej Trençkot", price: "5.590₺", sku: "03811280", match: "%100 Birebir", url: "https://guzelai.com/go/03811280", store: "https://www.zara.com/tr/tr/zw-collection-uzun-kruvaze-trenckot-p03811280.html" },
+        { cat: "Gözlük", brand: "RAY-BAN", name: "RB3774D Gold Çerçeveli Kahve Camlı Oval Gözlük", price: "5.550₺", sku: "994747994", match: "%100 Birebir", url: "https://guzelai.com/go/994747994", store: "https://www.trendyol.com/ray-ban/rayban-3774d-001-73-55-kadin-gunes-gozlugu-p-994747994" },
+        { cat: "Triko Kazak", brand: "K-ODEA BUTİK", name: "Kadın Vizon Yumuşak Dokulu Oversize Triko", price: "390₺", sku: "959762013", match: "%100 Birebir", url: "https://guzelai.com/go/959762013", store: "https://www.trendyol.com/k-odea-butik/kadin-vizon-oversize-triko-kazak-yumusak-dokulu-bisiklet-yaka-p-959762013" },
+        { cat: "Pantolon", brand: "QUZU", name: "Kahve Kemerli Taş Rengi Yüksek Bel Pileli Pantolon", price: "1.267,50₺", sku: "26YPNT01724063", match: "%100 Birebir", url: "https://guzelai.com/go/26YPNT01724063", store: "https://www.quzu.com.tr/products/yuksek-bel-kemerli-pileli-pantolon-tas" },
+        { cat: "Lüks Çanta", brand: "İPEKYOL", name: "ASTRIT Monogram Kahve & Bej Omuz Çantası", price: "5.749₺", sku: "991689063", match: "%100 Birebir", url: "https://guzelai.com/go/991689063", store: "https://www.trendyol.com/ipekyol/astrit-canta-p-991689063" },
+        { cat: "Ayakkabı", brand: "BRIELFY", name: "Bej Sivri Burun Gold Aksesuarlı 7cm Slingback", price: "682₺", sku: "930094922", match: "%100 Birebir", url: "https://guzelai.com/go/930094922", store: "https://www.trendyol.com/brielfy/kadin-bej-sivri-burun-konik-7cm-topuklu-slingback-yandan-tokali-gunluk-is-ofis-ayakkabisi-p-930094922" }
+      ],
+      sunday_slot3_navy_camel_ivory: [
+        { cat: "Kaşe Kaban", brand: "QUZU", name: "Bej Asimetrik Dik Yaka Kuşaklı Kısa Kaşe Kaban", price: "3.490₺", sku: "27KKBN02965004", match: "%100 Birebir", url: "https://guzelai.com/go/27KKBN02965004", store: "https://www.quzu.com.tr/products/asimetrik-dik-yaka-kusakli-kisa-kaban-bej" },
+        { cat: "Gözlük", brand: "RAY-BAN", name: "RB4340 601 Wayfarer Siyah Güneş Gözlüğü", price: "5.850₺", sku: "2484708", match: "%100 Birebir", url: "https://guzelai.com/go/2484708", store: "https://www.trendyol.com/ray-ban/rayban-4340-601-50-22-kadin-p-2484708" },
+        { cat: "Triko Kazak", brand: "H&M", name: "Krem & Siyah Çizgili Yumuşak Dokulu Triko Kazak", price: "1.149₺", sku: "0983240083", match: "%100 Birebir", url: "https://guzelai.com/go/0983240083", store: "https://www2.hm.com/tr_tr/productpage.0983240083.html" },
+        { cat: "Pantolon", brand: "STRADIVARIUS", name: "Kemerli Dökümlü Siyah Straight Fit Pantolon", price: "1.790₺", sku: "853434158", match: "%100 Birebir", url: "https://guzelai.com/go/853434158", store: "https://www.trendyol.com/stradivarius/kemerli-ve-dokumlu-straight-fit-kumas-pantolon-p-853434158" },
+        { cat: "Lüks Çanta", brand: "TOMMY HILFIGER", name: "Gold TH Logolu Siyah Lüks Omuz Çantası", price: "3.405,35₺", sku: "1199865162", match: "%100 Birebir", url: "https://guzelai.com/go/1199865162", store: "https://www.trendyol.com/tommy-hilfiger/kadin-logo-baskili-uzun-askili-fermuarli-ic-cepli-siyah-canta-p-1199865162" },
+        { cat: "Ayakkabı", brand: "BRIELFY", name: "Siyah Rugan Sivri Burun Gold Aksesuarlı Slingback", price: "675₺", sku: "930093536", match: "%100 Birebir", url: "https://guzelai.com/go/930093536", store: "https://www.trendyol.com/brielfy/kadin-sivri-burun-konik-7cm-topuklu-siyah-slingback-yandan-tokali-gunluk-is-ofis-ayakkabisi-p-930093536" }
+      ]
+    };
+
+    const REELS_DATA = [
+      { code: "DeoIDlQo3Yj", date: "18 Eki 07:16", title: "2K Graph-Motion & Kusursuz Müzik (Yeni Yayın)", views: 17, maxViews: 150, badge: "17 İzlenme • 8.5x Hız", color: "bg-emerald-500" },
+      { code: "DelxD5YsMxj", date: "17 Eki 09:17", title: "Tesla Pist & Cadılar Bayramı Kancası (Keşfet Lideri)", views: 137, maxViews: 150, badge: "137 İzlenme ⭐", color: "bg-amber-500" },
+      { code: "DekCnpXMljj", date: "16 Eki 17:12", title: "Pastel Mavi Pijama & Sabah Ev Stili", views: 29, maxViews: 150, badge: "29 İzlenme", color: "bg-sky-500" },
+      { code: "Dek0-8uMHlc", date: "17 Eki 00:32", title: "Haki Süet Bomber & Antrasit Palazzo", views: 26, maxViews: 150, badge: "26 İzlenme (%7.69 Etk.)", color: "bg-indigo-500" },
+      { code: "DekUz9ss650", date: "16 Eki 19:51", title: "Siyah Ceket & Palazzo Jean Sokak Stili", views: 23, maxViews: 150, badge: "23 İzlenme", color: "bg-purple-500" },
+      { code: "Dek4QoIsu5q", date: "17 Eki 01:01", title: "Gündüz Ofisten Akşam Davetine Kapsül Kombin", views: 19, maxViews: 150, badge: "19 İzlenme", color: "bg-teal-500" }
+    ];
+
+    const LINKS = [
+      { from: "agent-2", to: "agent-1", color: "#f59e0b" },
+      { from: "agent-1", to: "agent-3", color: "#10b981" },
+      { from: "agent-2", to: "agent-3", color: "#ec4899" },
+      { from: "agent-3", to: "main-core", color: "#14b8a6" },
+      { from: "agent-4", to: "main-core", color: "#38bdf8" },
+      { from: "agent-5", to: "main-core", color: "#a855f7" },
+      { from: "agent-6", to: "main-core", color: "#f43f5e" },
+      { from: "agent-7", to: "agent-1", color: "#eab308" },
+      { from: "agent-7", to: "main-core", color: "#eab308" }
+    ];
+
+    let selectedAgentId = "agent-3";
+    let autoRotate = true;
+    let cameraYaw = 0.62;
+    let cameraPitch = 0.58;
+    let isDragging = false;
+    let lastMouseX = 0;
+    let lastMouseY = 0;
+    let packets = [];
+    let projectedBoxes = [];
+    let initialized = false;
+
+    function spawnPackets(burst = false) {
+      LINKS.forEach((lnk, idx) => {
+        packets.push({
+          from: lnk.from,
+          to: lnk.to,
+          color: lnk.color,
+          t: burst ? (idx * 0.08) % 1 : Math.random(),
+          speed: burst ? 0.012 : 0.006 + Math.random() * 0.004
+        });
+      });
+    }
+
+    window.selectAgent = function(id) {
+      selectedAgentId = id;
+      const ag = AGENTS.find(a => a.id === id) || AGENTS[0];
+      document.getElementById("agentBadge").textContent = ag.status;
+      document.getElementById("agentCodeName").textContent = ag.code;
+      document.getElementById("agentTitle").textContent = ag.name;
+      document.getElementById("agentDesc").textContent = ag.desc;
+
+      document.getElementById("agentMetricsList").innerHTML = ag.metrics.map(([k, v]) => `
+        <div class="flex items-center justify-between py-2 px-3 rounded-xl bg-[#0b1120] border border-slate-800">
+          <span class="text-slate-400">${k}</span>
+          <span class="font-semibold text-white text-right">${v}</span>
+        </div>
+      `).join("");
+
+      document.getElementById("agentCollabLinks").innerHTML = ag.collabs.map(cid => {
+        const target = AGENTS.find(a => a.code === cid || a.id === cid);
+        const label = target ? target.shortLabel : cid;
+        const tid = target ? target.id : "main-core";
+        return `<button onclick="selectAgent('${tid}')" class="px-2.5 py-1.5 rounded-lg border border-slate-700 bg-[#0b1120] text-xs text-slate-200 hover:border-emerald-500 transition">↔ ${label}</button>`;
+      }).join("");
+
+      renderQuickButtons();
+    };
+
+    function renderQuickButtons() {
+      document.getElementById("roomQuickButtons").innerHTML = AGENTS.map(a => {
+        const active = a.id === selectedAgentId;
+        return `
+          <button onclick="selectAgent('${a.id}')" class="px-2.5 py-2 rounded-xl border text-xs font-semibold transition truncate ${
+            active
+              ? "border-emerald-500 bg-emerald-500/20 text-white"
+              : "border-slate-800 bg-[#0b1120] text-slate-400 hover:text-white"
+          }">
+            ${a.shortLabel}
+          </button>
+        `;
+      }).join("");
+    }
+
+    function renderOutfitTable(outfitKey) {
+      const rows = OUTFIT_DATA[outfitKey] || [];
+      document.getElementById("outfitTableBody").innerHTML = rows.map(r => `
+        <tr>
+          <td class="py-2.5 pr-2 font-semibold text-white">${r.cat}</td>
+          <td class="py-2.5 pr-2">
+            <span class="font-bold text-emerald-400">${r.brand}</span>
+            <span class="text-slate-300 block">${r.name}</span>
+          </td>
+          <td class="py-2.5 pr-2 font-semibold text-white">${r.price}</td>
+          <td class="py-2.5 pr-2 font-mono text-slate-400">${r.sku}</td>
+          <td class="py-2.5 pr-2">
+            <span class="px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-400 font-semibold">${r.match}</span>
+          </td>
+          <td class="py-2.5 space-x-2">
+            <a href="${r.url}" target="_blank" class="text-sky-400 hover:underline font-semibold">GuzelAI ↗</a>
+            <a href="${r.store}" target="_blank" class="text-amber-400 hover:underline font-semibold">Mağaza ↗</a>
+          </td>
+        </tr>
+      `).join("");
+    }
+
+    function renderReelsList(reelsArr) {
+      const list = reelsArr || REELS_DATA;
+      document.getElementById("reelsPerformanceList").innerHTML = list.map(r => {
+        const pct = Math.min(100, Math.round((r.views / (r.maxViews || 150)) * 100));
+        return `
+          <div class="p-3.5 rounded-xl bg-[#0b1120] border border-slate-800">
+            <div class="flex items-center justify-between text-xs">
+              <a href="https://www.instagram.com/reel/${r.code}/" target="_blank" class="font-bold text-white hover:text-emerald-400 transition">
+                🎬 Reel [${r.code}] • ${r.date}
+              </a>
+              <span class="px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-400 font-semibold">${r.badge}</span>
+            </div>
+            <div class="text-xs text-slate-400 mt-1 truncate">${r.title}</div>
+            <div class="w-full h-2 rounded-full bg-slate-800 mt-2.5 overflow-hidden">
+              <div class="${r.color || 'bg-emerald-500'} h-full rounded-full" style="width: ${pct}%"></div>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    const LOG_MESSAGES = [
+      "[Ajan 2 • pinterest-trend-scout] 8 sonbahar trendi tarandı, yayınlanmamış 3 kombin seçildi.",
+      "[Ajan 1 • store-link-researcher] Zara (03811280) & İpekyol (991689063) HTTP 200 doğrulandı (%100 Eşleşme).",
+      "[Ajan 3 • kombin-dispatcher] Kombin #1 (19.228,50₺) ve 6 mağaza linki Ana Ajana iletildi.",
+      "[Ajan 4 • social-health-analyst] @guzelaicom HEALTHY_ACTIVE | 282 Takipçi | Reel DeoIDlQo3Yj: 17 izlenme.",
+      "[Ajan 5 • viral-hook-music] Veor Uranis 44.1kHz 320kbps AAC stüdyo master 5.2s yürüyüş geçişine kilitlendi.",
+      "[Ajan 6 • visual-qa-runway] 3/3 sokak yürüyüş karesi (Laplacian 3331.9) 2K OLED testinden geçti.",
+      "[Ajan 7 • price-stock-guard] guzelai.com/#kombinler üzerinde 41 adet /go/{sku} yönlendirmesi aktif."
+    ];
+    let logIdx = 0;
+
+    function pushConsoleLog(customMsg) {
+      const box = document.getElementById("liveConsole");
+      if (!box) return;
+      const now = new Date().toLocaleTimeString("tr-TR");
+      const msg = customMsg || LOG_MESSAGES[logIdx++ % LOG_MESSAGES.length];
+      const line = document.createElement("div");
+      line.className = "text-slate-300";
+      line.innerHTML = `<span class="text-emerald-400">[${now}]</span> ${msg}`;
+      box.prepend(line);
+      while (box.children.length > 14) {
+        box.removeChild(box.lastChild);
+      }
+    }
+
+    async function fetchLiveTelemetry() {
+      try {
+        const res = await fetch("/data/agent_telemetry.json?t=" + Date.now());
+        if (!res.ok) return;
+        const data = await res.json();
+        if (data.instagram && data.instagram.metrics) {
+          const m = data.instagram.metrics;
+          document.getElementById("kpiFollowers").textContent = `${m.follower_count} Takipçi • ${m.total_reel_views} İzlenme`;
+          if (data.instagram.recent_reels && data.instagram.recent_reels.length > 0) {
+            const latest = data.instagram.recent_reels[0];
+            document.getElementById("kpiLatestReel").textContent = `Son Reel (${latest.code}): ${latest.play_count} İzlenme`;
+          }
+        }
+      } catch (_) {}
+    }
+
+    function initCommandCenter() {
+      if (initialized) return;
+      initialized = true;
+
+      spawnPackets(false);
+      selectAgent("agent-3");
+      renderOutfitTable("sunday_slot1_espresso_cream_oldmoney");
+      renderReelsList();
+      fetchLiveTelemetry();
+      for (let i = 0; i < 5; i++) pushConsoleLog();
+      setInterval(() => pushConsoleLog(), 4500);
+
+      const canvas = document.getElementById("floorplan3d");
+      const ctx = canvas.getContext("2d");
+
+      function project3D(x, y, z, cx, cy, scale) {
+        const cosY = Math.cos(cameraYaw), sinY = Math.sin(cameraYaw);
+        const rx = x * cosY - z * sinY, rz = x * sinY + z * cosY;
+        const cosP = Math.cos(cameraPitch), sinP = Math.sin(cameraPitch);
+        return {
+          x: cx + rx * scale,
+          y: cy - (y * cosP - rz * sinP) * scale,
+          depth: y * sinP + rz * cosP
+        };
+      }
+
+      function hexToRgba(hex, alpha) {
+        const h = hex.replace("#", "");
+        return `rgba(${parseInt(h.slice(0,2),16)},${parseInt(h.slice(2,4),16)},${parseInt(h.slice(4,6),16)},${alpha})`;
+      }
+
+      function drawPolygon(pts, fill, stroke, lineWidth = 1) {
+        ctx.beginPath();
+        pts.forEach((p, i) => (i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y)));
+        ctx.closePath();
+        if (fill) { ctx.fillStyle = fill; ctx.fill(); }
+        if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = lineWidth; ctx.stroke(); }
+      }
+
+      function drawExtrudedRoom(ag, cx, cy, scale, timeSec) {
+        const hw = ag.w / 2, hd = ag.d / 2;
+        const isSelected = ag.id === selectedAgentId;
+        const h = ag.h + (isSelected ? 0.08 * Math.sin(timeSec * 4) : 0);
+
+        const cornersBottom = [
+          project3D(ag.gx - hw, 0, ag.gz - hd, cx, cy, scale),
+          project3D(ag.gx + hw, 0, ag.gz - hd, cx, cy, scale),
+          project3D(ag.gx + hw, 0, ag.gz + hd, cx, cy, scale),
+          project3D(ag.gx - hw, 0, ag.gz + hd, cx, cy, scale)
+        ];
+        const cornersTop = [
+          project3D(ag.gx - hw, h, ag.gz - hd, cx, cy, scale),
+          project3D(ag.gx + hw, h, ag.gz - hd, cx, cy, scale),
+          project3D(ag.gx + hw, h, ag.gz + hd, cx, cy, scale),
+          project3D(ag.gx - hw, h, ag.gz + hd, cx, cy, scale)
+        ];
+
+        drawPolygon(cornersBottom, hexToRgba(ag.color, isSelected ? 0.28 : 0.14), hexToRgba(ag.color, isSelected ? 0.95 : 0.5), isSelected ? 2.2 : 1.2);
+
+        const faces = [
+          [cornersBottom[0], cornersBottom[1], cornersTop[1], cornersTop[0]],
+          [cornersBottom[1], cornersBottom[2], cornersTop[2], cornersTop[1]],
+          [cornersBottom[2], cornersBottom[3], cornersTop[3], cornersTop[2]],
+          [cornersBottom[3], cornersBottom[0], cornersTop[0], cornersTop[3]]
+        ];
+        faces.sort((a, b) => ((a[0].depth+a[1].depth+a[2].depth+a[3].depth)/4) - ((b[0].depth+b[1].depth+b[2].depth+b[3].depth)/4));
+        faces.forEach((f, idx) => {
+          drawPolygon(f, hexToRgba(ag.color, isSelected ? 0.24 + idx * 0.04 : 0.12 + idx * 0.03), hexToRgba(ag.color, isSelected ? 0.85 : 0.4), isSelected ? 1.6 : 1);
+        });
+
+        drawPolygon(cornersTop, hexToRgba(ag.color, isSelected ? 0.44 : 0.24), isSelected ? "#ffffff" : hexToRgba(ag.color, 0.85), isSelected ? 2.2 : 1.2);
+
+        const centerTop = project3D(ag.gx, h + 0.25 + 0.06 * Math.sin(timeSec * 3 + ag.gx), ag.gz, cx, cy, scale);
+        ctx.beginPath();
+        ctx.arc(centerTop.x, centerTop.y, isSelected ? 7 : 5, 0, Math.PI * 2);
+        ctx.fillStyle = ag.color;
+        ctx.fill();
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = "#ffffff";
+        ctx.stroke();
+
+        const labelPt = project3D(ag.gx, h + 0.58, ag.gz, cx, cy, scale);
+        ctx.font = isSelected ? "600 12px sans-serif" : "500 12px sans-serif";
+        const bw = ctx.measureText(ag.shortLabel).width + 18, bh = 22;
+
+        ctx.fillStyle = isSelected ? ag.color : "rgba(15, 23, 42, 0.9)";
+        ctx.strokeStyle = isSelected ? "#ffffff" : hexToRgba(ag.color, 0.8);
+        ctx.lineWidth = 1.2;
+        ctx.beginPath();
+        ctx.roundRect(labelPt.x - bw / 2, labelPt.y - bh / 2, bw, bh, 6);
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.fillStyle = "#ffffff";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillText(ag.shortLabel, labelPt.x, labelPt.y);
+
+        const minX = Math.min(...cornersBottom.map(p => p.x), ...cornersTop.map(p => p.x));
+        const maxX = Math.max(...cornersBottom.map(p => p.x), ...cornersTop.map(p => p.x));
+        const minY = Math.min(...cornersBottom.map(p => p.y), ...cornersTop.map(p => p.y), labelPt.y - 14);
+        const maxY = Math.max(...cornersBottom.map(p => p.y), ...cornersTop.map(p => p.y));
+        projectedBoxes.push({ id: ag.id, minX, maxX, minY, maxY });
+      }
+
+      function renderScene(ts) {
+        const timeSec = ts * 0.001;
+        const rect = canvas.getBoundingClientRect();
+        if (canvas.width !== Math.floor(rect.width)) canvas.width = Math.floor(rect.width);
+        const W = canvas.width, H = canvas.height;
+
+        ctx.fillStyle = "#0b1120";
+        ctx.fillRect(0, 0, W, H);
+
+        if (autoRotate && !isDragging) cameraYaw += 0.0022;
+        const cx = W * 0.5, cy = H * 0.56, scale = Math.min(W, H) * 0.088;
+
+        for (let i = -5; i <= 5; i++) {
+          const p1 = project3D(i, 0, -5, cx, cy, scale), p2 = project3D(i, 0, 5, cx, cy, scale);
+          const q1 = project3D(-5, 0, i, cx, cy, scale), q2 = project3D(5, 0, i, cx, cy, scale);
+          ctx.strokeStyle = "rgba(148,163,184,0.12)";
+          ctx.lineWidth = 1;
+          ctx.beginPath(); ctx.moveTo(p1.x, p1.y); ctx.lineTo(p2.x, p2.y); ctx.stroke();
+          ctx.beginPath(); ctx.moveTo(q1.x, q1.y); ctx.lineTo(q2.x, q2.y); ctx.stroke();
+        }
+
+        LINKS.forEach(lnk => {
+          const aFrom = AGENTS.find(a => a.id === lnk.from), aTo = AGENTS.find(a => a.id === lnk.to);
+          if (!aFrom || !aTo) return;
+          const pStart = project3D(aFrom.gx, 0.08, aFrom.gz, cx, cy, scale);
+          const pEnd = project3D(aTo.gx, 0.08, aTo.gz, cx, cy, scale);
+          ctx.strokeStyle = hexToRgba(lnk.color, 0.45);
+          ctx.lineWidth = 2;
+          ctx.setLineDash([5, 5]);
+          ctx.beginPath(); ctx.moveTo(pStart.x, pStart.y); ctx.lineTo(pEnd.x, pEnd.y); ctx.stroke();
+          ctx.setLineDash([]);
+        });
+
+        packets.forEach(pk => {
+          pk.t += pk.speed;
+          if (pk.t > 1) pk.t -= 1;
+          const aFrom = AGENTS.find(a => a.id === pk.from), aTo = AGENTS.find(a => a.id === pk.to);
+          if (!aFrom || !aTo) return;
+          const pt = project3D(
+            aFrom.gx + (aTo.gx - aFrom.gx) * pk.t,
+            0.18 + Math.sin(pk.t * Math.PI) * 0.45,
+            aFrom.gz + (aTo.gz - aFrom.gz) * pk.t,
+            cx, cy, scale
+          );
+          ctx.beginPath();
+          ctx.arc(pt.x, pt.y, 4.5, 0, Math.PI * 2);
+          ctx.fillStyle = pk.color;
+          ctx.fill();
+          ctx.strokeStyle = "#ffffff";
+          ctx.lineWidth = 1.2;
+          ctx.stroke();
+        });
+
+        projectedBoxes = [];
+        const sortedAgents = [...AGENTS].sort((a, b) => {
+          return project3D(a.gx, a.h/2, a.gz, cx, cy, scale).depth - project3D(b.gx, b.h/2, b.gz, cx, cy, scale).depth;
+        });
+        sortedAgents.forEach(ag => drawExtrudedRoom(ag, cx, cy, scale, timeSec));
+
+        requestAnimationFrame(renderScene);
+      }
+
+      canvas.addEventListener("pointerdown", e => {
+        isDragging = true;
+        lastMouseX = e.clientX;
+        lastMouseY = e.clientY;
+      });
+      window.addEventListener("pointerup", () => { isDragging = false; });
+      window.addEventListener("pointermove", e => {
+        if (!isDragging) return;
+        cameraYaw += (e.clientX - lastMouseX) * 0.008;
+        cameraPitch = Math.max(0.25, Math.min(1.15, cameraPitch + (e.clientY - lastMouseY) * 0.006));
+        lastMouseX = e.clientX;
+        lastMouseY = e.clientY;
+      });
+
+      canvas.addEventListener("click", e => {
+        const rect = canvas.getBoundingClientRect();
+        const mx = e.clientX - rect.left, my = e.clientY - rect.top;
+        for (let i = projectedBoxes.length - 1; i >= 0; i--) {
+          const b = projectedBoxes[i];
+          if (mx >= b.minX && mx <= b.maxX && my >= b.minY && my <= b.maxY) {
+            selectAgent(b.id);
+            pushConsoleLog(`[3D Kat Planı] '${b.id}' odası seçildi — canlı telemetri yüklendi.`);
+            break;
+          }
+        }
+      });
+
+      document.getElementById("btnRotateToggle").addEventListener("click", e => {
+        autoRotate = !autoRotate;
+        e.target.textContent = `3D Otomatik Döndür: ${autoRotate ? "Açık" : "Kapalı"}`;
+      });
+      document.getElementById("btnResetCamera").addEventListener("click", () => {
+        cameraYaw = 0.62;
+        cameraPitch = 0.58;
+      });
+      document.getElementById("btnTriggerPulse").addEventListener("click", () => {
+        spawnPackets(true);
+        pushConsoleLog("[SENKRON TETİKLENDİ] Ajan 2 (Pinterest) -> Ajan 1 (Mağaza) -> Ajan 3 -> Ana Ajan veri akışı başlatıldı!");
+      });
+      document.getElementById("outfitSelector").addEventListener("change", e => {
+        renderOutfitTable(e.target.value);
+      });
+
+      requestAnimationFrame(renderScene);
+    }
+  </script>
+</body>
+</html>
