@@ -109,6 +109,13 @@ export const GuzelAiFooter: React.FC<GuzelAiFooterProps> = ({
               </span>
               <span>{activeLangObj.nativeName} ({lang.toUpperCase()})</span>
             </button>
+            <a
+              href="/ajanlar"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 hover:bg-white/15 text-white/70 hover:text-white transition text-xs border border-white/10"
+              title="Şifreli 3D Ajan Komuta Merkezi"
+            >
+              <span>🔒 Özel Yönetim</span>
+            </a>
             <span className="text-[11px] text-white/40">
               GuzelAI Medya Şirketi &bull; Global AI Creative Studio
             </span>
