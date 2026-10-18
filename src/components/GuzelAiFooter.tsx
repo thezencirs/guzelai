@@ -110,9 +110,9 @@ export const GuzelAiFooter: React.FC<GuzelAiFooterProps> = ({
               <span>{activeLangObj.nativeName} ({lang.toUpperCase()})</span>
             </button>
             <a
-              href="/ajanlar"
+              href="/ajanlar?v=30"
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 hover:bg-white/15 text-white/70 hover:text-white transition text-xs border border-white/10"
-              title="Şifreli 3D Ajan Komuta Merkezi"
+              title="Şifreli Minecraft Ajan Şehri (v3.0)"
             >
               <span>🔒 Özel Yönetim</span>
             </a>
