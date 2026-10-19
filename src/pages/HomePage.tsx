@@ -8,6 +8,7 @@ import { ProjectsSection } from "../components/ProjectsSection";
 import { MagazineSection } from "../components/MagazineSection";
 import { GuzelAiFooter } from "../components/GuzelAiFooter";
 import { VerifiedKombinShowcase } from "../components/VerifiedKombinShowcase";
+import { PinterestAiModelPromptHub } from "../components/PinterestAiModelPromptHub";
 import {
   Film,
   Gamepad2,
@@ -72,6 +73,9 @@ export const HomePage: React.FC<HomePageProps> = ({
 
       {/* 1.5. Verified E-Commerce Kombin & Video Links Showcase (#kombinler) */}
       <VerifiedKombinShowcase />
+
+      {/* 1.6. Pinterest (@thezencirs/guzelaicom) AI Models, Reverse-Engineered Prompts, Live AI Builder & Web Design Showcase */}
+      <PinterestAiModelPromptHub />
 
       <section id="leyla" className="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-10 items-center">
         <img src="/influencers/leyla/reference.png" alt="Leyla, İstanbul kafesinde iki çayla; kurgusal AI karakter" className="w-full max-w-md rounded-3xl" loading="lazy" />

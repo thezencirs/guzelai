@@ -1,6 +1,7 @@
 import React from "react";
 import { TranslationSchema } from "../i18n/translations";
 import { CinematicWebSitesSection } from "../components/CinematicWebSitesSection";
+import { PinterestAiModelPromptHub } from "../components/PinterestAiModelPromptHub";
 import {
   ArrowLeft,
   Globe,
@@ -117,6 +118,10 @@ export const WebsitesPage: React.FC<WebsitesPageProps> = ({
           onOpenContactModal={onOpenContactModal}
           onOpenFullStudio={onOpenFullStudio}
         />
+
+        <div className="rounded-3xl overflow-hidden border border-[#171717]/10">
+          <PinterestAiModelPromptHub />
+        </div>
 
         {/* Cross Navigation Cards */}
         <div className="p-8 rounded-3xl bg-gradient-to-br from-[#121318] to-[#1E2029] text-white space-y-6 shadow-xl">

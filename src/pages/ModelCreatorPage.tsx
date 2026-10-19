@@ -1,6 +1,7 @@
 import React from "react";
 import { TranslationSchema } from "../i18n/translations";
 import { ModelCreatorStudio } from "../components/ModelCreatorStudio";
+import { PinterestAiModelPromptHub } from "../components/PinterestAiModelPromptHub";
 import { AIModel } from "../types";
 import {
   ArrowLeft,
@@ -115,6 +116,10 @@ export const ModelCreatorPage: React.FC<ModelCreatorPageProps> = ({
             onOpenFullStudio("dress_up");
           }}
         />
+
+        <div className="mt-10 rounded-3xl overflow-hidden border border-white/10">
+          <PinterestAiModelPromptHub />
+        </div>
 
         {/* Quick Navigation Footer Cards */}
         <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-4">
