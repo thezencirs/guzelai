@@ -2,25 +2,25 @@
   "site": "https://guzelai.com",
   "showcase_url": "https://guzelai.com/#kombinler",
   "whatsapp_channel": "https://whatsapp.com/channel/0029VbDetYc3mFYDwZSry016",
-  "updated_at": "19.10.2026 22:51",
+  "updated_at": "20.10.2026 10:07",
   "latest": {
-    "id": "kombin_20261019_225125",
-    "archetype_id": "halloween_party_couple_vampiric_noir",
+    "id": "kombin_20261020_100721",
+    "archetype_id": "erkek_slot1_oldmoney_kase_triko_chino",
     "collection_badge": "Doğrulanmış Örnek Kombin",
     "categories_included": [],
-    "title": "Cadılar Bayramı Parti Çift Kombini: Siyah Deri & Bordo Gece Şıklığı (%100 AI Çift) 🎃🥂🖤",
-    "viral_hook": "🛑 Cadılar Bayramı gecesi için Konsept Ajanımız KOR ve TikTok Viral Müzik Ajanımız EFE iş birliğiyle hazırlanan %100 AI Kadın & Erkek Çift Parti Kombini! Kadın için kemerli deri ceket, siyah tokalı parti elbisesi ve bordo Adidas Spezial; Erkek için siyah süet bomber, gece yarısı bordo katman ve antrasit pantolon! 💬 Bu Cadılar Bayramı Çift Kombininde sizce Kadın stili (1-3-5) mi yoksa Erkek stili (2-4-6) mı daha iddialı? Yorumlara yazın! 👇🎃🥂✨",
-    "published_at": "19.10.2026 22:51",
-    "total_price_str": "11.209,27₺",
-    "total_price_val": 11209.269999999999,
+    "title": "2027 Sonbahar/Kış Erkek Old Money Zarafeti: Camel Kaşe Kaban, Ekru Triko & Antrasit Chino (%100 AI Model) 🧥⌚✨",
+    "viral_hook": "🛑 2027 Sonbahar/Kış (AW27) Konsept Ajanımız KOR tarafından %100 Yapay Zeka (AI) Erkek Manken üzerinde kurgulanan 6 parçalık Old Money erkek kombini! Camel kruvaze kaşe kaban, ekru yarım balıkçı triko, antrasit chino pantolon ve Ray-Ban! 💬 Erkek kış kombinlerinde sizce klasik Camel Kaban (1) mı yoksa spor Siyah Bomber mı daha şık? Yorumlara yazın! 👇🧥🔥",
+    "published_at": "20.10.2026 10:07",
+    "total_price_str": "15.732,96₺",
+    "total_price_val": 15732.96,
     "collage_url": "/data/latest_kombin_collage.jpg",
     "video_url": "/data/latest_kombin_video.mp4",
     "website_showcase_url": "https://guzelai.com/#kombinler",
     "verification_summary": {
       "total_items": 6,
-      "verified_items": 5,
-      "all_verified": false,
-      "checked_at": "19.10.2026 22:51",
+      "verified_items": 6,
+      "all_verified": true,
+      "checked_at": "20.10.2026 10:07",
       "legal_notice": "⚖️ Yasal Uyarı: Reklam veya sponsorlu iş birliği içermez; tamamen kombin önerisi ve bilgilendirme amaçlıdır (zorunlu #reklam #işbirliğideğil)."
     },
     "platforms": {
@@ -35,153 +35,330 @@
     "items": [
       {
         "key": "outerwear",
-        "category": "Kadın Parti Deri Ceket",
+        "category": "Erkek Kaşe Kaban",
         "emoji": "🧥",
-        "brand": "STRADIVARIUS",
-        "name": "Kadın Oversize Siyah Kemer Detaylı Deri Parti Ceketi",
-        "full_name": "Stradivarius Kadın Siyah Kemer Detaylı Oversize Suni Deri Biker Parti Ceketi",
-        "price": "2.210₺",
-        "price_val": 2210.0,
-        "sku": "1186674687",
-        "color": "Gece Siyahı",
-        "store_url": "https://www.trendyol.com/stradivarius/suni-deri-gorunumlu-uzun-trenckot-p-1186674687",
-        "guzelai_url": "https://guzelai.com/go/1186674687",
-        "product_url": "https://www.trendyol.com/stradivarius/suni-deri-gorunumlu-uzun-trenckot-p-1186674687",
-        "image_url": "/pinterest-models/hw_couple1_step1.jpg",
+        "brand": "ALTINYILDIZ CLASSICS",
+        "name": "Erkek Camel Kruvaze Yaka Yün Karışımlı Kaşe Kaban",
+        "full_name": "Altınyıldız Classics Erkek Camel Standart Fit Kruvaze Yaka Kaşe Kaban",
+        "price": "2.999,99₺",
+        "price_val": 2999.99,
+        "sku": "854192011",
+        "color": "Camel / Devetüyü",
+        "store_url": "https://www.trendyol.com/erkek-kaban-x-g2-c55",
+        "guzelai_url": "https://guzelai.com/go/854192011",
+        "product_url": "https://www.trendyol.com/erkek-kaban-x-g2-c55",
+        "image_url": "/pinterest-models/men1_model_step1.jpg",
         "visual_card_url": "/data/item_card_outerwear.jpg",
         "verified": true,
         "http_status": 200,
         "store_name": "Trendyol",
         "store_domain": "trendyol.com",
         "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-        "checked_at": "2026-10-19 22:51:16"
+        "checked_at": "2026-10-20 10:07:15"
       },
       {
         "key": "cap",
-        "category": "Erkek Parti Bomber Ceket",
+        "category": "Gözlük & Saat",
         "emoji": "🕶️",
-        "brand": "JACK & JONES",
-        "name": "Erkek Siyah Süet / Deri Fermuarlı Parti Bomber Ceket",
-        "full_name": "Jack & Jones Erkek Siyah Süet Dokulu Fermuarlı Gece & Parti Bomber Ceket",
-        "price": "1.899,99₺",
-        "price_val": 1899.99,
-        "sku": "872341011",
-        "color": "Mat Siyah",
-        "store_url": "https://www.trendyol.com/erkek-deri-ceket-x-g2-c108",
-        "guzelai_url": "https://guzelai.com/go/872341011",
-        "product_url": "https://www.trendyol.com/erkek-deri-ceket-x-g2-c108",
-        "image_url": "/pinterest-models/hw_couple1_step1.jpg",
+        "brand": "RAY-BAN",
+        "name": "Ray-Ban Clubmaster Gold / Tortoise Unisex Güneş Gözlüğü",
+        "full_name": "Ray-Ban Clubmaster Klasik Gold & Kahve Güneş Gözlüğü",
+        "price": "5.550₺",
+        "price_val": 5550.0,
+        "sku": "994747994",
+        "color": "Tortoise / Gold",
+        "store_url": "https://www.trendyol.com/ray-ban/rayban-3774d-001-73-55-kadin-gunes-gozlugu-p-994747994",
+        "guzelai_url": "https://guzelai.com/go/994747994",
+        "product_url": "https://www.trendyol.com/ray-ban/rayban-3774d-001-73-55-kadin-gunes-gozlugu-p-994747994",
+        "image_url": "https://cdn.dsmcdn.com/ty1960/prod/QC_ENRICHMENT/20260919/21/dfab5dbe-bd87-37cd-883a-93780f424e3d/1_org_zoom.jpg",
         "visual_card_url": "/data/item_card_cap.jpg",
         "verified": true,
         "http_status": 200,
         "store_name": "Trendyol",
         "store_domain": "trendyol.com",
         "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-        "checked_at": "2026-10-19 22:51:17"
+        "checked_at": "2026-10-20 10:07:17"
       },
       {
         "key": "top",
-        "category": "Kadın Parti Elbisesi",
+        "category": "Erkek Triko Kazak",
         "emoji": "👚",
-        "brand": "QUZU",
-        "name": "Kadın Siyah Dik Yaka Gold Toka Detaylı Kuşaklı Parti Elbisesi",
-        "full_name": "Quzu Kadın Siyah Dik Yaka Kemer & Gold Toka Detaylı Gece/Parti Elbisesi",
-        "price": "849,99₺",
-        "price_val": 849.99,
-        "sku": "1066894904",
-        "color": "Siyah / Gold Toka",
-        "store_url": "https://www.trendyol.com/siyah-elbise-x-c56-s15",
-        "guzelai_url": "https://guzelai.com/go/1066894904",
-        "product_url": "https://www.trendyol.com/siyah-elbise-x-c56-s15",
-        "image_url": "/pinterest-models/hw_couple1_step1.jpg",
+        "brand": "AVVA",
+        "name": "Erkek Ekru Yarım Balıkçı Yaka Dokulu Triko Kazak",
+        "full_name": "AVVA Erkek Ekru Yarım Balıkçı Yaka Yumuşak Dokulu Triko Kazak",
+        "price": "899,99₺",
+        "price_val": 899.99,
+        "sku": "842109332",
+        "color": "Ekru / Krem",
+        "store_url": "https://www.trendyol.com/erkek-kazak-x-g2-c1092",
+        "guzelai_url": "https://guzelai.com/go/842109332",
+        "product_url": "https://www.trendyol.com/erkek-kazak-x-g2-c1092",
+        "image_url": "/pinterest-models/men1_model_step1.jpg",
         "visual_card_url": "/data/item_card_top.jpg",
         "verified": true,
         "http_status": 200,
         "store_name": "Trendyol",
         "store_domain": "trendyol.com",
         "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-        "checked_at": "2026-10-19 22:51:19"
+        "checked_at": "2026-10-20 10:07:18"
       },
       {
         "key": "bottom",
-        "category": "Erkek Bordo Triko & Pantolon",
+        "category": "Erkek Chino Pantolon",
         "emoji": "👖",
-        "brand": "MODASPARK & MAVI",
-        "name": "Erkek Gece Yarısı Bordo (Oxblood) Triko & Antrasit Parti Pantolonu",
-        "full_name": "Erkek Gece Yarısı Bordo Balıkçı Yaka Triko & Antrasit Kuplu Gece Pantolonu",
-        "price": "949,99₺",
-        "price_val": 949.99,
-        "sku": "872341014",
-        "color": "Gece Yarısı Bordo & Antrasit",
-        "store_url": "https://www.trendyol.com/erkek-pantolon-x-g2-c70",
-        "guzelai_url": "https://guzelai.com/go/872341014",
-        "product_url": "https://www.trendyol.com/erkek-pantolon-x-g2-c70",
-        "image_url": "/pinterest-models/hw_couple1_step1.jpg",
+        "brand": "KİĞILI",
+        "name": "Erkek Antrasit / Koyu Lacivert Pileli Slim Chino Pantolon",
+        "full_name": "Kiğılı Erkek Antrasit Pileli Rahat Kalıp Chino Kumaş Pantolon",
+        "price": "1.199,90₺",
+        "price_val": 1199.9,
+        "sku": "819304115",
+        "color": "Antrasit / Lacivert",
+        "store_url": "https://www.trendyol.com/erkek-chino-pantolon-x-g2-c103940",
+        "guzelai_url": "https://guzelai.com/go/819304115",
+        "product_url": "https://www.trendyol.com/erkek-chino-pantolon-x-g2-c103940",
+        "image_url": "/pinterest-models/men1_model_step1.jpg",
         "visual_card_url": "/data/item_card_bottom.jpg",
         "verified": true,
         "http_status": 200,
         "store_name": "Trendyol",
         "store_domain": "trendyol.com",
         "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-        "checked_at": "2026-10-19 22:51:20"
+        "checked_at": "2026-10-20 10:07:19"
       },
       {
         "key": "bag",
-        "category": "Kadın Parti Çantası & Gözlük",
+        "category": "Erkek Deri Çanta",
         "emoji": "👜",
-        "brand": "BAGMORI & VOGUE",
-        "name": "Siyah Gold Kemer Toka Aksesuarlı Deri Parti Omuz Çantası",
-        "full_name": "Bagmori Siyah Kemer Toka Aksesuarlı Deri Gece & Parti El/Omuz Çantası",
-        "price": "799,90₺",
-        "price_val": 799.9,
-        "sku": "8682166106158",
-        "color": "Siyah / Gold",
-        "store_url": "https://www.bagmori.com/products/siyah-aksesuarli-askili-mini-canta",
-        "guzelai_url": "https://guzelai.com/go/8682166106158",
-        "product_url": "https://www.bagmori.com/products/siyah-aksesuarli-askili-mini-canta",
-        "image_url": "/pinterest-models/hw_couple1_step1.jpg",
+        "brand": "TERGAN",
+        "name": "Erkek Koyu Kahve Deri Hafta Sonu & Evrak Çantası",
+        "full_name": "Tergan Erkek Koyu Kahve Deri Omuz Askılı Hafta Sonu & Evrak Çantası",
+        "price": "2.450₺",
+        "price_val": 2450.0,
+        "sku": "881203441",
+        "color": "Koyu Kahve",
+        "store_url": "https://www.trendyol.com/erkek-el-cantasi-x-g2-c101461",
+        "guzelai_url": "https://guzelai.com/go/881203441",
+        "product_url": "https://www.trendyol.com/erkek-el-cantasi-x-g2-c101461",
+        "image_url": "/pinterest-models/men1_model_step1.jpg",
         "visual_card_url": "/data/item_card_bag.jpg",
-        "verified": false,
-        "http_status": 404,
-        "store_name": "Bagmori",
-        "store_domain": "bagmori.com",
-        "verified_badge": "Doğrulanmış Bagmori + Görsel/Renk Onaylı",
-        "checked_at": "2026-10-19 22:51:21"
+        "verified": true,
+        "http_status": 200,
+        "store_name": "Trendyol",
+        "store_domain": "trendyol.com",
+        "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
+        "checked_at": "2026-10-20 10:07:20"
       },
       {
         "key": "shoes",
-        "category": "Çift Parti Sneaker (Kadın & Erkek)",
+        "category": "Erkek Deri Sneaker",
         "emoji": "👟",
-        "brand": "ADIDAS ORIGINALS",
-        "name": "Kadın Bordo Handball Spezial & Erkek Siyah/Beyaz Samba OG Sneaker",
-        "full_name": "Adidas Originals Kadın Bordo Handball Spezial & Erkek Siyah/Beyaz Samba Parti Sneaker",
-        "price": "4.499,40₺",
-        "price_val": 4499.4,
-        "sku": "994497307",
-        "color": "Bordo & Siyah/Beyaz",
-        "store_url": "https://www.trendyol.com/adidas/handball-spezial-kadin-bordo-ayakkabi-p-994497307",
-        "guzelai_url": "https://guzelai.com/go/994497307",
-        "product_url": "https://www.trendyol.com/adidas/handball-spezial-kadin-bordo-ayakkabi-p-994497307",
-        "image_url": "/pinterest-models/hw_couple1_step1.jpg",
+        "brand": "ADIDAS",
+        "name": "Beyaz / Kahve Detaylı Klasik Deri Court Sneaker",
+        "full_name": "adidas Grand Court Lifestyle Court Comfort Beyaz Spor Ayakkabı",
+        "price": "2.633,08₺",
+        "price_val": 2633.08,
+        "sku": "334642100",
+        "color": "Beyaz / Kahve",
+        "store_url": "https://www.trendyol.com/adidas/grand-court-cloudfoam-lifestyle-court-comfort-kadin-spor-ayakkabi-p-334642100",
+        "guzelai_url": "https://guzelai.com/go/334642100",
+        "product_url": "https://www.trendyol.com/adidas/grand-court-cloudfoam-lifestyle-court-comfort-kadin-spor-ayakkabi-p-334642100",
+        "image_url": "https://cdn.dsmcdn.com/ty1551/prod/QC/20240917/16/e35b8a25-4938-3ad5-92f5-ca5cff63c1d1/1_org_zoom.jpg",
         "visual_card_url": "/data/item_card_shoes.jpg",
         "verified": true,
         "http_status": 200,
         "store_name": "Trendyol",
         "store_domain": "trendyol.com",
         "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-        "checked_at": "2026-10-19 22:51:25"
+        "checked_at": "2026-10-20 10:07:21"
       }
     ]
   },
   "broadcasts": [
     {
-      "id": "kombin_20261019_225125",
-      "archetype_id": "halloween_party_couple_vampiric_noir",
+      "id": "kombin_20261020_100721",
+      "archetype_id": "erkek_slot1_oldmoney_kase_triko_chino",
       "collection_badge": "Doğrulanmış Örnek Kombin",
       "categories_included": [],
-      "title": "Cadılar Bayramı Parti Çift Kombini: Siyah Deri & Bordo Gece Şıklığı (%100 AI Çift) 🎃🥂🖤",
+      "title": "2027 Sonbahar/Kış Erkek Old Money Zarafeti: Camel Kaşe Kaban, Ekru Triko & Antrasit Chino (%100 AI Model) 🧥⌚✨",
+      "viral_hook": "🛑 2027 Sonbahar/Kış (AW27) Konsept Ajanımız KOR tarafından %100 Yapay Zeka (AI) Erkek Manken üzerinde kurgulanan 6 parçalık Old Money erkek kombini! Camel kruvaze kaşe kaban, ekru yarım balıkçı triko, antrasit chino pantolon ve Ray-Ban! 💬 Erkek kış kombinlerinde sizce klasik Camel Kaban (1) mı yoksa spor Siyah Bomber mı daha şık? Yorumlara yazın! 👇🧥🔥",
+      "published_at": "20.10.2026 10:07",
+      "total_price_str": "15.732,96₺",
+      "total_price_val": 15732.96,
+      "collage_url": "/data/latest_kombin_collage.jpg",
+      "video_url": "/data/latest_kombin_video.mp4",
+      "website_showcase_url": "https://guzelai.com/#kombinler",
+      "verification_summary": {
+        "total_items": 6,
+        "verified_items": 6,
+        "all_verified": true,
+        "checked_at": "20.10.2026 10:07",
+        "legal_notice": "⚖️ Yasal Uyarı: Reklam veya sponsorlu iş birliği içermez; tamamen kombin önerisi ve bilgilendirme amaçlıdır (zorunlu #reklam #işbirliğideğil)."
+      },
+      "platforms": {
+        "instagram_reels": "https://www.instagram.com/guzelaicom/",
+        "tiktok": "https://www.tiktok.com/@guzelaicom",
+        "youtube_shorts": "https://www.youtube.com/@guzelaicom/shorts",
+        "x_twitter": "https://x.com/guzelaicom",
+        "pinterest": "https://tr.pinterest.com/",
+        "threads": "https://www.threads.net/@guzelaicom",
+        "whatsapp_channel": "https://whatsapp.com/channel/0029VbDetYc3mFYDwZSry016"
+      },
+      "items": [
+        {
+          "key": "outerwear",
+          "category": "Erkek Kaşe Kaban",
+          "emoji": "🧥",
+          "brand": "ALTINYILDIZ CLASSICS",
+          "name": "Erkek Camel Kruvaze Yaka Yün Karışımlı Kaşe Kaban",
+          "full_name": "Altınyıldız Classics Erkek Camel Standart Fit Kruvaze Yaka Kaşe Kaban",
+          "price": "2.999,99₺",
+          "price_val": 2999.99,
+          "sku": "854192011",
+          "color": "Camel / Devetüyü",
+          "store_url": "https://www.trendyol.com/erkek-kaban-x-g2-c55",
+          "guzelai_url": "https://guzelai.com/go/854192011",
+          "product_url": "https://www.trendyol.com/erkek-kaban-x-g2-c55",
+          "image_url": "/pinterest-models/men1_model_step1.jpg",
+          "visual_card_url": "/data/item_card_outerwear.jpg",
+          "verified": true,
+          "http_status": 200,
+          "store_name": "Trendyol",
+          "store_domain": "trendyol.com",
+          "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
+          "checked_at": "2026-10-20 10:07:15"
+        },
+        {
+          "key": "cap",
+          "category": "Gözlük & Saat",
+          "emoji": "🕶️",
+          "brand": "RAY-BAN",
+          "name": "Ray-Ban Clubmaster Gold / Tortoise Unisex Güneş Gözlüğü",
+          "full_name": "Ray-Ban Clubmaster Klasik Gold & Kahve Güneş Gözlüğü",
+          "price": "5.550₺",
+          "price_val": 5550.0,
+          "sku": "994747994",
+          "color": "Tortoise / Gold",
+          "store_url": "https://www.trendyol.com/ray-ban/rayban-3774d-001-73-55-kadin-gunes-gozlugu-p-994747994",
+          "guzelai_url": "https://guzelai.com/go/994747994",
+          "product_url": "https://www.trendyol.com/ray-ban/rayban-3774d-001-73-55-kadin-gunes-gozlugu-p-994747994",
+          "image_url": "https://cdn.dsmcdn.com/ty1960/prod/QC_ENRICHMENT/20260919/21/dfab5dbe-bd87-37cd-883a-93780f424e3d/1_org_zoom.jpg",
+          "visual_card_url": "/data/item_card_cap.jpg",
+          "verified": true,
+          "http_status": 200,
+          "store_name": "Trendyol",
+          "store_domain": "trendyol.com",
+          "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
+          "checked_at": "2026-10-20 10:07:17"
+        },
+        {
+          "key": "top",
+          "category": "Erkek Triko Kazak",
+          "emoji": "👚",
+          "brand": "AVVA",
+          "name": "Erkek Ekru Yarım Balıkçı Yaka Dokulu Triko Kazak",
+          "full_name": "AVVA Erkek Ekru Yarım Balıkçı Yaka Yumuşak Dokulu Triko Kazak",
+          "price": "899,99₺",
+          "price_val": 899.99,
+          "sku": "842109332",
+          "color": "Ekru / Krem",
+          "store_url": "https://www.trendyol.com/erkek-kazak-x-g2-c1092",
+          "guzelai_url": "https://guzelai.com/go/842109332",
+          "product_url": "https://www.trendyol.com/erkek-kazak-x-g2-c1092",
+          "image_url": "/pinterest-models/men1_model_step1.jpg",
+          "visual_card_url": "/data/item_card_top.jpg",
+          "verified": true,
+          "http_status": 200,
+          "store_name": "Trendyol",
+          "store_domain": "trendyol.com",
+          "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
+          "checked_at": "2026-10-20 10:07:18"
+        },
+        {
+          "key": "bottom",
+          "category": "Erkek Chino Pantolon",
+          "emoji": "👖",
+          "brand": "KİĞILI",
+          "name": "Erkek Antrasit / Koyu Lacivert Pileli Slim Chino Pantolon",
+          "full_name": "Kiğılı Erkek Antrasit Pileli Rahat Kalıp Chino Kumaş Pantolon",
+          "price": "1.199,90₺",
+          "price_val": 1199.9,
+          "sku": "819304115",
+          "color": "Antrasit / Lacivert",
+          "store_url": "https://www.trendyol.com/erkek-chino-pantolon-x-g2-c103940",
+          "guzelai_url": "https://guzelai.com/go/819304115",
+          "product_url": "https://www.trendyol.com/erkek-chino-pantolon-x-g2-c103940",
+          "image_url": "/pinterest-models/men1_model_step1.jpg",
+          "visual_card_url": "/data/item_card_bottom.jpg",
+          "verified": true,
+          "http_status": 200,
+          "store_name": "Trendyol",
+          "store_domain": "trendyol.com",
+          "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
+          "checked_at": "2026-10-20 10:07:19"
+        },
+        {
+          "key": "bag",
+          "category": "Erkek Deri Çanta",
+          "emoji": "👜",
+          "brand": "TERGAN",
+          "name": "Erkek Koyu Kahve Deri Hafta Sonu & Evrak Çantası",
+          "full_name": "Tergan Erkek Koyu Kahve Deri Omuz Askılı Hafta Sonu & Evrak Çantası",
+          "price": "2.450₺",
+          "price_val": 2450.0,
+          "sku": "881203441",
+          "color": "Koyu Kahve",
+          "store_url": "https://www.trendyol.com/erkek-el-cantasi-x-g2-c101461",
+          "guzelai_url": "https://guzelai.com/go/881203441",
+          "product_url": "https://www.trendyol.com/erkek-el-cantasi-x-g2-c101461",
+          "image_url": "/pinterest-models/men1_model_step1.jpg",
+          "visual_card_url": "/data/item_card_bag.jpg",
+          "verified": true,
+          "http_status": 200,
+          "store_name": "Trendyol",
+          "store_domain": "trendyol.com",
+          "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
+          "checked_at": "2026-10-20 10:07:20"
+        },
+        {
+          "key": "shoes",
+          "category": "Erkek Deri Sneaker",
+          "emoji": "👟",
+          "brand": "ADIDAS",
+          "name": "Beyaz / Kahve Detaylı Klasik Deri Court Sneaker",
+          "full_name": "adidas Grand Court Lifestyle Court Comfort Beyaz Spor Ayakkabı",
+          "price": "2.633,08₺",
+          "price_val": 2633.08,
+          "sku": "334642100",
+          "color": "Beyaz / Kahve",
+          "store_url": "https://www.trendyol.com/adidas/grand-court-cloudfoam-lifestyle-court-comfort-kadin-spor-ayakkabi-p-334642100",
+          "guzelai_url": "https://guzelai.com/go/334642100",
+          "product_url": "https://www.trendyol.com/adidas/grand-court-cloudfoam-lifestyle-court-comfort-kadin-spor-ayakkabi-p-334642100",
+          "image_url": "https://cdn.dsmcdn.com/ty1551/prod/QC/20240917/16/e35b8a25-4938-3ad5-92f5-ca5cff63c1d1/1_org_zoom.jpg",
+          "visual_card_url": "/data/item_card_shoes.jpg",
+          "verified": true,
+          "http_status": 200,
+          "store_name": "Trendyol",
+          "store_domain": "trendyol.com",
+          "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
+          "checked_at": "2026-10-20 10:07:21"
+        }
+      ]
+    },
+    {
+      "id": "halloween_party_couple_vampiric_noir",
+      "archetype_id": "halloween_party_couple_vampiric_noir",
+      "collection_badge": "Cadılar Bayramı Parti Çift Kombini #1 (%100 AI Kadın & Erkek Çift) • Vampiric Noir Deri Ceket, Bordo & Siyah Gece Şıklığı",
+      "categories_included": [
+        "Kadın Parti Deri Ceket",
+        "Erkek Süet Bomber",
+        "Kadın Siyah Parti Elbisesi",
+        "Erkek Bordo Triko & Antrasit Pantolon",
+        "Gold Tokalı Gece Çantası",
+        "Çift Adidas Spezial & Samba"
+      ],
+      "title": "Cadılar Bayramı Parti Çift Kombini (Kadın & Erkek): Vampiric Noir Deri Ceket, Bordo & Siyah Gece Şıklığı (%100 AI Çift Model) 🎃🥂🖤",
       "viral_hook": "🛑 Cadılar Bayramı gecesi için Konsept Ajanımız KOR ve TikTok Viral Müzik Ajanımız EFE iş birliğiyle hazırlanan %100 AI Kadın & Erkek Çift Parti Kombini! Kadın için kemerli deri ceket, siyah tokalı parti elbisesi ve bordo Adidas Spezial; Erkek için siyah süet bomber, gece yarısı bordo katman ve antrasit pantolon! 💬 Bu Cadılar Bayramı Çift Kombininde sizce Kadın stili (1-3-5) mi yoksa Erkek stili (2-4-6) mı daha iddialı? Yorumlara yazın! 👇🎃🥂✨",
-      "published_at": "19.10.2026 22:51",
+      "published_at": "20.10.2026 10:07",
       "total_price_str": "11.209,27₺",
       "total_price_val": 11209.269999999999,
       "collage_url": "/data/latest_kombin_collage.jpg",
@@ -191,7 +368,7 @@
         "total_items": 6,
         "verified_items": 5,
         "all_verified": false,
-        "checked_at": "19.10.2026 22:51",
+        "checked_at": "20.10.2026 10:07",
         "legal_notice": "⚖️ Yasal Uyarı: Reklam veya sponsorlu iş birliği içermez; tamamen kombin önerisi ve bilgilendirme amaçlıdır (zorunlu #reklam #işbirliğideğil)."
       },
       "platforms": {
@@ -218,14 +395,14 @@
           "store_url": "https://www.trendyol.com/stradivarius/suni-deri-gorunumlu-uzun-trenckot-p-1186674687",
           "guzelai_url": "https://guzelai.com/go/1186674687",
           "product_url": "https://www.trendyol.com/stradivarius/suni-deri-gorunumlu-uzun-trenckot-p-1186674687",
-          "image_url": "/pinterest-models/hw_couple1_step1.jpg",
+          "image_url": "https://cdn.dsmcdn.com/ty1960/prod/QC_ENRICHMENT/20260919/12/b4c88b0a-5dc0-3762-893e-58592fd6f160/1_org_zoom.jpg",
           "visual_card_url": "/data/item_card_outerwear.jpg",
           "verified": true,
           "http_status": 200,
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:51:16"
+          "checked_at": "2026-10-20 10:07:22"
         },
         {
           "key": "cap",
@@ -241,14 +418,14 @@
           "store_url": "https://www.trendyol.com/erkek-deri-ceket-x-g2-c108",
           "guzelai_url": "https://guzelai.com/go/872341011",
           "product_url": "https://www.trendyol.com/erkek-deri-ceket-x-g2-c108",
-          "image_url": "/pinterest-models/hw_couple1_step1.jpg",
+          "image_url": "https://cdn.dsmcdn.com/ty1961/prod/QC_PREP/20260922/18/acd64b6c-109d-3fad-8aea-be32af929454/1_org_zoom.jpg",
           "visual_card_url": "/data/item_card_cap.jpg",
           "verified": true,
           "http_status": 200,
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:51:17"
+          "checked_at": "2026-10-20 10:07:24"
         },
         {
           "key": "top",
@@ -264,14 +441,14 @@
           "store_url": "https://www.trendyol.com/siyah-elbise-x-c56-s15",
           "guzelai_url": "https://guzelai.com/go/1066894904",
           "product_url": "https://www.trendyol.com/siyah-elbise-x-c56-s15",
-          "image_url": "/pinterest-models/hw_couple1_step1.jpg",
+          "image_url": "https://cdn.dsmcdn.com/ty1797/prod/QC_PREP/20251214/16/0c857699-7093-3e41-9661-f00e56b04082/1_org_zoom.jpg",
           "visual_card_url": "/data/item_card_top.jpg",
           "verified": true,
           "http_status": 200,
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:51:19"
+          "checked_at": "2026-10-20 10:07:26"
         },
         {
           "key": "bottom",
@@ -284,17 +461,17 @@
           "price_val": 949.99,
           "sku": "872341014",
           "color": "Gece Yarısı Bordo & Antrasit",
-          "store_url": "https://www.trendyol.com/erkek-pantolon-x-g2-c70",
+          "store_url": "https://www.trendyol.com/modaspark/bordo-bisiklet-yaka-oversize-kadin-triko-kazak-p-903567167",
           "guzelai_url": "https://guzelai.com/go/872341014",
-          "product_url": "https://www.trendyol.com/erkek-pantolon-x-g2-c70",
-          "image_url": "/pinterest-models/hw_couple1_step1.jpg",
+          "product_url": "https://www.trendyol.com/modaspark/bordo-bisiklet-yaka-oversize-kadin-triko-kazak-p-903567167",
+          "image_url": "https://cdn.dsmcdn.com/ty1751/prod/QC_PREP/20250911/14/c070a331-2085-351d-92be-d649d46ee888/1_org_zoom.jpg",
           "visual_card_url": "/data/item_card_bottom.jpg",
           "verified": true,
           "http_status": 200,
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:51:20"
+          "checked_at": "2026-10-20 10:07:27"
         },
         {
           "key": "bag",
@@ -310,14 +487,14 @@
           "store_url": "https://www.bagmori.com/products/siyah-aksesuarli-askili-mini-canta",
           "guzelai_url": "https://guzelai.com/go/8682166106158",
           "product_url": "https://www.bagmori.com/products/siyah-aksesuarli-askili-mini-canta",
-          "image_url": "/pinterest-models/hw_couple1_step1.jpg",
+          "image_url": "https://cdn.shopify.com/s/files/1/0023/2138/3537/files/8682166106134-1_ee980cd1-ef7a-4bd8-a949-e84b23b5b44f.jpg?v=1784880636",
           "visual_card_url": "/data/item_card_bag.jpg",
           "verified": false,
           "http_status": 404,
           "store_name": "Bagmori",
           "store_domain": "bagmori.com",
           "verified_badge": "Doğrulanmış Bagmori + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:51:21"
+          "checked_at": "2026-10-20 10:07:28"
         },
         {
           "key": "shoes",
@@ -333,14 +510,14 @@
           "store_url": "https://www.trendyol.com/adidas/handball-spezial-kadin-bordo-ayakkabi-p-994497307",
           "guzelai_url": "https://guzelai.com/go/994497307",
           "product_url": "https://www.trendyol.com/adidas/handball-spezial-kadin-bordo-ayakkabi-p-994497307",
-          "image_url": "/pinterest-models/hw_couple1_step1.jpg",
+          "image_url": "https://cdn.dsmcdn.com/ty1551/prod/QC/20240917/16/e35b8a25-4938-3ad5-92f5-ca5cff63c1d1/1_org_zoom.jpg",
           "visual_card_url": "/data/item_card_shoes.jpg",
           "verified": true,
           "http_status": 200,
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:51:25"
+          "checked_at": "2026-10-20 10:07:29"
         }
       ]
     },
@@ -358,7 +535,7 @@
       ],
       "title": "Cadılar Bayramı Rooftop Parti Çift Kombini: Gothic Old Money & Dark Glamour (%100 AI Çift Model) 🎃🍷✨",
       "viral_hook": "🛑 2027 Sonbahar/Kış & Cadılar Bayramı Rooftop Partisi için %100 AI Kadın ve Erkek Çift Manken üzerinde hazırlanan Gothic Old Money çift kombini! Kadın için peluş deri dış giyim, bordo üst ve antrasit palazzo; Erkek için siyah kaşe dış giyim, koyu katman ve kuplu pantolon! 💬 Sizce bu çift kombininde en çarpıcı parça hangisi (1-6)? Yorumlarda buluşalım! 👇🎃🍷✨",
-      "published_at": "19.10.2026 22:51",
+      "published_at": "20.10.2026 10:07",
       "total_price_str": "9.009,56₺",
       "total_price_val": 9009.560000000001,
       "collage_url": "/data/latest_kombin_collage.jpg",
@@ -368,7 +545,7 @@
         "total_items": 6,
         "verified_items": 6,
         "all_verified": true,
-        "checked_at": "19.10.2026 22:51",
+        "checked_at": "20.10.2026 10:07",
         "legal_notice": "⚖️ Yasal Uyarı: Reklam veya sponsorlu iş birliği içermez; tamamen kombin önerisi ve bilgilendirme amaçlıdır (zorunlu #reklam #işbirliğideğil)."
       },
       "platforms": {
@@ -402,7 +579,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:51:26"
+          "checked_at": "2026-10-20 10:07:30"
         },
         {
           "key": "cap",
@@ -425,7 +602,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:51:27"
+          "checked_at": "2026-10-20 10:07:38"
         },
         {
           "key": "top",
@@ -448,7 +625,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:51:28"
+          "checked_at": "2026-10-20 10:07:39"
         },
         {
           "key": "bottom",
@@ -471,7 +648,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:51:37"
+          "checked_at": "2026-10-20 10:07:40"
         },
         {
           "key": "bag",
@@ -494,7 +671,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:51:38"
+          "checked_at": "2026-10-20 10:07:41"
         },
         {
           "key": "shoes",
@@ -517,184 +694,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:51:40"
-        }
-      ]
-    },
-    {
-      "id": "erkek_slot1_oldmoney_kase_triko_chino",
-      "archetype_id": "erkek_slot1_oldmoney_kase_triko_chino",
-      "collection_badge": "Erkek Kombin #1 (3K:2E:1Ç Kotası) • Erkek Old Money: Camel Kaşe Kaban, Ekru Triko & Antrasit Chino",
-      "categories_included": [
-        "Erkek Kaşe Kaban",
-        "Ekru Triko Kazak",
-        "Antrasit Chino Pantolon",
-        "Ray-Ban Gözlük",
-        "Kronograf Saat",
-        "Deri Sneaker"
-      ],
-      "title": "Erkek Old Money Sonbahar Zarafeti: Camel Kaşe Kaban, Ekru Triko, Antrasit Chino & Ray-Ban 🧥⌚✨",
-      "viral_hook": "🛑 Camel kruvaze kaşe kaban, ekru balıkçı/yarım fermuarlı triko kazak, antrasit chino kumaş pantolon, Ray-Ban Wayfarer gözlük ve klasik saat uyumu! %100 AI sanal manken üzerinde guzelai.com'da doğrulanan 6 parçalık Erkek Old Money kombini! 👇🧥✨",
-      "published_at": "19.10.2026 22:51",
-      "total_price_str": "16.601,98₺",
-      "total_price_val": 16601.98,
-      "collage_url": "/data/latest_kombin_collage.jpg",
-      "video_url": "/data/latest_kombin_video.mp4",
-      "website_showcase_url": "https://guzelai.com/#kombinler",
-      "verification_summary": {
-        "total_items": 6,
-        "verified_items": 5,
-        "all_verified": false,
-        "checked_at": "19.10.2026 22:51",
-        "legal_notice": "⚖️ Yasal Uyarı: Reklam veya sponsorlu iş birliği içermez; tamamen kombin önerisi ve bilgilendirme amaçlıdır (zorunlu #reklam #işbirliğideğil)."
-      },
-      "platforms": {
-        "instagram_reels": "https://www.instagram.com/guzelaicom/",
-        "tiktok": "https://www.tiktok.com/@guzelaicom",
-        "youtube_shorts": "https://www.youtube.com/@guzelaicom/shorts",
-        "x_twitter": "https://x.com/guzelaicom",
-        "pinterest": "https://tr.pinterest.com/",
-        "threads": "https://www.threads.net/@guzelaicom",
-        "whatsapp_channel": "https://whatsapp.com/channel/0029VbDetYc3mFYDwZSry016"
-      },
-      "items": [
-        {
-          "key": "outerwear",
-          "category": "Erkek Kaşe Kaban",
-          "emoji": "🧥",
-          "brand": "ALTINYILDIZ CLASSICS / MUADİL",
-          "name": "Camel / Bej Kruvaze Kaşe Kaban",
-          "full_name": "Erkek Camel Kruvaze Yün Karışımlı Kaşe Kaban",
-          "price": "3.490₺",
-          "price_val": 3490.0,
-          "sku": "27KKBN02965004",
-          "color": "Camel / Bej",
-          "store_url": "https://www.trendyol.com/sr?q=erkek+camel+kase+kaban",
-          "guzelai_url": "https://guzelai.com/go/27KKBN02965004",
-          "product_url": "https://www.trendyol.com/sr?q=erkek+camel+kase+kaban",
-          "image_url": "https://cdn.shopify.com/s/files/1/0750/9285/3049/files/27KKBN02965_004.jpg?v=1786107512",
-          "visual_card_url": "/data/item_card_outerwear.jpg",
-          "verified": true,
-          "http_status": 200,
-          "store_name": "Trendyol",
-          "store_domain": "trendyol.com",
-          "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:51:40"
-        },
-        {
-          "key": "cap",
-          "category": "Ray-Ban Gözlük",
-          "emoji": "🕶️",
-          "brand": "RAY-BAN",
-          "name": "RB4340 601 Wayfarer Güneş Gözlüğü",
-          "full_name": "Ray-Ban RB4340 601 Wayfarer Unisex Güneş Gözlüğü",
-          "price": "5.850₺",
-          "price_val": 5850.0,
-          "sku": "2484708",
-          "color": "Siyah / Tortoise",
-          "store_url": "https://www.trendyol.com/ray-ban/gunes-gozlugu-rb434060150-p-2484708",
-          "guzelai_url": "https://guzelai.com/go/2484708",
-          "product_url": "https://www.trendyol.com/ray-ban/gunes-gozlugu-rb434060150-p-2484708",
-          "image_url": "https://cdn.dsmcdn.com/ty1535/prod/QC/20240911/23/33d8bc23-f265-3438-91dc-27b9bd508bc9/1_org_zoom.jpg",
-          "visual_card_url": "/data/item_card_cap.jpg",
-          "verified": true,
-          "http_status": 200,
-          "store_name": "Trendyol",
-          "store_domain": "trendyol.com",
-          "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:51:49"
-        },
-        {
-          "key": "top",
-          "category": "Erkek Triko Kazak",
-          "emoji": "👚",
-          "brand": "AVVA / TRENDYOL MAN",
-          "name": "Ekru / Krem Dokulu Triko Kazak",
-          "full_name": "Erkek Ekru Yumuşak Dokulu Balıkçı / Bisiklet Yaka Triko Kazak",
-          "price": "649,90₺",
-          "price_val": 649.9,
-          "sku": "963371271",
-          "color": "Ekru / Krem",
-          "store_url": "https://www.trendyol.com/sr?q=erkek+ekru+triko+kazak",
-          "guzelai_url": "https://guzelai.com/go/963371271",
-          "product_url": "https://www.trendyol.com/sr?q=erkek+ekru+triko+kazak",
-          "image_url": "https://cdn.dsmcdn.com/ty1956/prod/QC_ENRICHMENT/20260913/00/a333cf9f-e2a1-333a-95c1-410ec6a7c513/1_org_zoom.jpg",
-          "visual_card_url": "/data/item_card_top.jpg",
-          "verified": true,
-          "http_status": 200,
-          "store_name": "Trendyol",
-          "store_domain": "trendyol.com",
-          "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:51:50"
-        },
-        {
-          "key": "bottom",
-          "category": "Erkek Chino Pantolon",
-          "emoji": "👖",
-          "brand": "DOCKERS / ALTINYILDIZ",
-          "name": "Antrasit / Siyah Pileli Chino Kumaş Pantolon",
-          "full_name": "Erkek Antrasit / Koyu Lacivert Kemerli Chino Kumaş Pantolon",
-          "price": "1.790₺",
-          "price_val": 1790.0,
-          "sku": "853434158",
-          "color": "Antrasit / Siyah",
-          "store_url": "https://www.trendyol.com/sr?q=erkek+antrasit+chino+pantolon",
-          "guzelai_url": "https://guzelai.com/go/853434158",
-          "product_url": "https://www.trendyol.com/sr?q=erkek+antrasit+chino+pantolon",
-          "image_url": "https://cdn.dsmcdn.com/ty1785/prod/QC_PREP/20251104/05/036d2d37-9f25-3915-b0c5-1d8fcce4e4d6/1_org_zoom.jpg",
-          "visual_card_url": "/data/item_card_bottom.jpg",
-          "verified": true,
-          "http_status": 200,
-          "store_name": "Trendyol",
-          "store_domain": "trendyol.com",
-          "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:51:51"
-        },
-        {
-          "key": "bag",
-          "category": "Kol Saati & Çanta",
-          "emoji": "👜",
-          "brand": "CASIO",
-          "name": "Casio Klasik Deri Kordonlu Saat & Deri Evrak Çantası",
-          "full_name": "Casio Klasik Kahverengi Deri Kordonlu Analog Kol Saati",
-          "price": "2.189₺",
-          "price_val": 2189.0,
-          "sku": "910218636",
-          "color": "Kahve / Gold",
-          "store_url": "https://www.trendyol.com/casio/erkek-kol-saati-mtp-v002gl-7b2udf-p-910218636",
-          "guzelai_url": "https://guzelai.com/go/910218636",
-          "product_url": "https://www.trendyol.com/casio/erkek-kol-saati-mtp-v002gl-7b2udf-p-910218636",
-          "image_url": "https://cdn.dsmcdn.com/ty1632/prod/QC/20250204/21/d2d1d71e-34f4-3192-b0bf-7c2bc12a5713/1_org_zoom.jpg",
-          "visual_card_url": "/data/item_card_bag.jpg",
-          "verified": false,
-          "http_status": 404,
-          "store_name": "Trendyol",
-          "store_domain": "trendyol.com",
-          "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:51:52"
-        },
-        {
-          "key": "shoes",
-          "category": "Erkek Deri Sneaker",
-          "emoji": "👟",
-          "brand": "ADIDAS",
-          "name": "Adidas Grand Court Cloudfoam Beyaz Deri Sneaker",
-          "full_name": "adidas Grand Court Cloudfoam Lifestyle Court Comfort Beyaz Sneaker",
-          "price": "2.633,08₺",
-          "price_val": 2633.08,
-          "sku": "334642100",
-          "color": "Beyaz / Kahve",
-          "store_url": "https://www.trendyol.com/adidas/grand-court-cloudfoam-lifestyle-court-comfort-kadin-spor-ayakkabi-p-334642100",
-          "guzelai_url": "https://guzelai.com/go/334642100",
-          "product_url": "https://www.trendyol.com/adidas/grand-court-cloudfoam-lifestyle-court-comfort-kadin-spor-ayakkabi-p-334642100",
-          "image_url": "https://cdn.dsmcdn.com/ty1551/prod/QC/20240917/16/e35b8a25-4938-3ad5-92f5-ca5cff63c1d1/1_org_zoom.jpg",
-          "visual_card_url": "/data/item_card_shoes.jpg",
-          "verified": true,
-          "http_status": 200,
-          "store_name": "Trendyol",
-          "store_domain": "trendyol.com",
-          "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:51:53"
+          "checked_at": "2026-10-20 10:07:42"
         }
       ]
     },
@@ -712,7 +712,7 @@
       ],
       "title": "2027 Sonbahar/Kış & Cadılar Bayramı Noir Erkek Kombini: Siyah Süet Bomber, Antrasit Straight Jean & Adidas Samba 🎃🖤🔥",
       "viral_hook": "🛑 2027 Sonbahar/Kış & Cadılar Bayramı Konsept Ajanımız KOR tarafından kurgulanan siyah süet bomber ceket, antrasit straight-fit jean pantolon, siyah çapraz deri çanta ve Adidas Samba OG uyumu! %100 AI sanal manken üzerinde guzelai.com'da doğrulanan 6 parçalık Erkek Noir Streetwear kombini! 💬 Favoriniz Siyah Bomber (1) mi yoksa Adidas Samba (6) mı? 👇🎃🖤🔥",
-      "published_at": "19.10.2026 22:52",
+      "published_at": "20.10.2026 10:07",
       "total_price_str": "12.336,31₺",
       "total_price_val": 12336.31,
       "collage_url": "/data/latest_kombin_collage.jpg",
@@ -722,7 +722,7 @@
         "total_items": 6,
         "verified_items": 6,
         "all_verified": true,
-        "checked_at": "19.10.2026 22:52",
+        "checked_at": "20.10.2026 10:07",
         "legal_notice": "⚖️ Yasal Uyarı: Reklam veya sponsorlu iş birliği içermez; tamamen kombin önerisi ve bilgilendirme amaçlıdır (zorunlu #reklam #işbirliğideğil)."
       },
       "platforms": {
@@ -756,7 +756,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:51:53"
+          "checked_at": "2026-10-20 10:07:50"
         },
         {
           "key": "cap",
@@ -779,7 +779,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:52:02"
+          "checked_at": "2026-10-20 10:07:51"
         },
         {
           "key": "top",
@@ -802,7 +802,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:52:03"
+          "checked_at": "2026-10-20 10:07:52"
         },
         {
           "key": "bottom",
@@ -825,7 +825,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:52:04"
+          "checked_at": "2026-10-20 10:07:53"
         },
         {
           "key": "bag",
@@ -848,7 +848,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:52:05"
+          "checked_at": "2026-10-20 10:07:54"
         },
         {
           "key": "shoes",
@@ -871,7 +871,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:52:06"
+          "checked_at": "2026-10-20 10:07:55"
         }
       ]
     },
@@ -889,7 +889,7 @@
       ],
       "title": "Çocuk Sonbahar Kolej Stili: Peluş Kolej Ceket, Pamuklu Sweatshirt, Rahat Jean & Sneaker 🧸🍂✨",
       "viral_hook": "🛑 İçi yumuşacık peluş kolej ceket, %100 pamuklu krem sweatshirt, rahat hareket sağlayan mavi jean pantolon ve ortopedik tabanlı sneaker uyumu! %100 AI sanal çocuk modeli üzerinde guzelai.com'da doğrulanan 6 parçalık Çocuk Sonbahar kombini! 👇🧸✨",
-      "published_at": "19.10.2026 22:52",
+      "published_at": "20.10.2026 10:08",
       "total_price_str": "4.296,27₺",
       "total_price_val": 4296.27,
       "collage_url": "/data/latest_kombin_collage.jpg",
@@ -899,7 +899,7 @@
         "total_items": 6,
         "verified_items": 6,
         "all_verified": true,
-        "checked_at": "19.10.2026 22:52",
+        "checked_at": "20.10.2026 10:08",
         "legal_notice": "⚖️ Yasal Uyarı: Reklam veya sponsorlu iş birliği içermez; tamamen kombin önerisi ve bilgilendirme amaçlıdır (zorunlu #reklam #işbirliğideğil)."
       },
       "platforms": {
@@ -933,7 +933,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:52:14"
+          "checked_at": "2026-10-20 10:08:02"
         },
         {
           "key": "cap",
@@ -956,7 +956,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:52:14"
+          "checked_at": "2026-10-20 10:08:03"
         },
         {
           "key": "top",
@@ -979,7 +979,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:52:15"
+          "checked_at": "2026-10-20 10:08:04"
         },
         {
           "key": "bottom",
@@ -1002,7 +1002,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:52:16"
+          "checked_at": "2026-10-20 10:08:04"
         },
         {
           "key": "bag",
@@ -1025,7 +1025,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:52:17"
+          "checked_at": "2026-10-20 10:08:05"
         },
         {
           "key": "shoes",
@@ -1048,7 +1048,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:52:26"
+          "checked_at": "2026-10-20 10:08:06"
         }
       ]
     },
@@ -1066,7 +1066,7 @@
       ],
       "title": "Pazar Brunch & Boğaz Yürüyüşü Old Money Zarafeti: Zara Trençkot, İpekyol Monogram Çanta & Ray-Ban 🤍☕🍂",
       "viral_hook": "🛑 Zara ZW Collection uzun kruvaze bej trençkot, vizon yumuşak dokulu triko kazak, Quzu taş rengi pileli bol paça pantolon, İpekyol Monogram lüks çanta ve Ray-Ban gold oval gözlük uyumu! Önce guzelai.com'da doğrulanan 6 parçalık Pazar Brunch Old Money kombini! 👇🤍✨",
-      "published_at": "19.10.2026 22:52",
+      "published_at": "20.10.2026 10:08",
       "total_price_str": "19.228,50₺",
       "total_price_val": 19228.5,
       "collage_url": "/data/latest_kombin_collage.jpg",
@@ -1076,7 +1076,7 @@
         "total_items": 6,
         "verified_items": 6,
         "all_verified": true,
-        "checked_at": "19.10.2026 22:52",
+        "checked_at": "20.10.2026 10:08",
         "legal_notice": "⚖️ Yasal Uyarı: Reklam veya sponsorlu iş birliği içermez; tamamen kombin önerisi ve bilgilendirme amaçlıdır (zorunlu #reklam #işbirliğideğil)."
       },
       "platforms": {
@@ -1110,7 +1110,7 @@
           "store_name": "Zara",
           "store_domain": "zara.com",
           "verified_badge": "Doğrulanmış Zara + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:52:26"
+          "checked_at": "2026-10-20 10:08:07"
         },
         {
           "key": "cap",
@@ -1133,7 +1133,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:52:28"
+          "checked_at": "2026-10-20 10:08:08"
         },
         {
           "key": "top",
@@ -1156,7 +1156,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:52:36"
+          "checked_at": "2026-10-20 10:08:09"
         },
         {
           "key": "bottom",
@@ -1179,7 +1179,7 @@
           "store_name": "Quzu",
           "store_domain": "quzu.com.tr",
           "verified_badge": "Doğrulanmış Quzu + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:52:37"
+          "checked_at": "2026-10-20 10:08:10"
         },
         {
           "key": "bag",
@@ -1202,7 +1202,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:52:38"
+          "checked_at": "2026-10-20 10:08:11"
         },
         {
           "key": "shoes",
@@ -1225,7 +1225,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:52:40"
+          "checked_at": "2026-10-20 10:08:12"
         }
       ]
     },
@@ -1243,7 +1243,7 @@
       ],
       "title": "Nişantaşı Galeri & Akşamüstü Kahve Quiet Luxury: Stradivarius Süet Ceket, Calvin Klein Çanta & Casio Gold Saat 🫒🤍✨",
       "viral_hook": "🛑 Stradivarius (Inditex) haki oversize süet ceket, U.S. Polo Assn. beyaz poplin gömlek, Quzu kahverengi pileli palazzo pantolon, Calvin Klein deri omuz çantası ve klasik Casio Gold & Kahve deri kordonlu saat uyumu! Önce guzelai.com'da doğrulanan 6 parçalık Quiet Luxury kombini! 👇🫒✨",
-      "published_at": "19.10.2026 22:53",
+      "published_at": "20.10.2026 10:08",
       "total_price_str": "12.314,73₺",
       "total_price_val": 12314.730000000001,
       "collage_url": "/data/latest_kombin_collage.jpg",
@@ -1253,7 +1253,7 @@
         "total_items": 6,
         "verified_items": 6,
         "all_verified": true,
-        "checked_at": "19.10.2026 22:53",
+        "checked_at": "20.10.2026 10:08",
         "legal_notice": "⚖️ Yasal Uyarı: Reklam veya sponsorlu iş birliği içermez; tamamen kombin önerisi ve bilgilendirme amaçlıdır (zorunlu #reklam #işbirliğideğil)."
       },
       "platforms": {
@@ -1287,7 +1287,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:52:48"
+          "checked_at": "2026-10-20 10:08:13"
         },
         {
           "key": "cap",
@@ -1310,7 +1310,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:52:49"
+          "checked_at": "2026-10-20 10:08:14"
         },
         {
           "key": "top",
@@ -1333,7 +1333,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:52:50"
+          "checked_at": "2026-10-20 10:08:15"
         },
         {
           "key": "bottom",
@@ -1356,7 +1356,7 @@
           "store_name": "Quzu",
           "store_domain": "quzu.com.tr",
           "verified_badge": "Doğrulanmış Quzu + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:52:51"
+          "checked_at": "2026-10-20 10:08:16"
         },
         {
           "key": "bag",
@@ -1379,7 +1379,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:52:54"
+          "checked_at": "2026-10-20 10:08:17"
         },
         {
           "key": "shoes",
@@ -1402,7 +1402,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:53:06"
+          "checked_at": "2026-10-20 10:08:25"
         }
       ]
     },
@@ -1420,7 +1420,7 @@
       ],
       "title": "Yeni Haftaya Hazırlık Prestij Old Money: H&M Çizgili Triko, Stradivarius Pantolon, Tommy Hilfiger & Ray-Ban 🖤🤍✨",
       "viral_hook": "🛑 Quzu bej asimetrik kuşaklı kaşe kaban, H&M krem-siyah çizgili yumuşak triko kazak, Stradivarius (Inditex) kemerli siyah kumaş pantolon, Tommy Hilfiger lüks siyah omuz çantası ve Ray-Ban Wayfarer uyumu! Önce guzelai.com'da doğrulanan 6 parçalık Prestij Old Money kombini! 👇🖤✨",
-      "published_at": "19.10.2026 22:53",
+      "published_at": "20.10.2026 10:08",
       "total_price_str": "16.359,35₺",
       "total_price_val": 16359.35,
       "collage_url": "/data/latest_kombin_collage.jpg",
@@ -1430,7 +1430,7 @@
         "total_items": 6,
         "verified_items": 6,
         "all_verified": true,
-        "checked_at": "19.10.2026 22:53",
+        "checked_at": "20.10.2026 10:08",
         "legal_notice": "⚖️ Yasal Uyarı: Reklam veya sponsorlu iş birliği içermez; tamamen kombin önerisi ve bilgilendirme amaçlıdır (zorunlu #reklam #işbirliğideğil)."
       },
       "platforms": {
@@ -1464,7 +1464,7 @@
           "store_name": "Quzu",
           "store_domain": "quzu.com.tr",
           "verified_badge": "Doğrulanmış Quzu + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:53:07"
+          "checked_at": "2026-10-20 10:08:27"
         },
         {
           "key": "cap",
@@ -1487,7 +1487,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:53:09"
+          "checked_at": "2026-10-20 10:08:28"
         },
         {
           "key": "top",
@@ -1510,7 +1510,7 @@
           "store_name": "H&M",
           "store_domain": "www2.hm.com",
           "verified_badge": "Doğrulanmış H&M + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:53:10"
+          "checked_at": "2026-10-20 10:08:28"
         },
         {
           "key": "bottom",
@@ -1533,7 +1533,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:53:11"
+          "checked_at": "2026-10-20 10:08:29"
         },
         {
           "key": "bag",
@@ -1556,7 +1556,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:53:12"
+          "checked_at": "2026-10-20 10:08:30"
         },
         {
           "key": "shoes",
@@ -1579,7 +1579,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:53:13"
+          "checked_at": "2026-10-20 10:08:32"
         }
       ]
     },
@@ -1597,7 +1597,7 @@
       ],
       "title": "Pinterest'te En Çok Kaydedilen Old Money Sonbahar Renk Kurgusu: Camel, Buz Mavisi & Ekru Zarafeti 🤍🍂✨",
       "viral_hook": "🛑 Camel kruvaze kuşaklı trençkot, buz mavisi çizgili gömlek, taba kemerli ekru pileli bol paça pantolon ve kahve gold tokalı çanta & slingback topuklu uyumu! Önce guzelai.com'da doğrulanan 6 parçalık Old Money sonbahar kombini! 👇🤍✨",
-      "published_at": "19.10.2026 22:53",
+      "published_at": "20.10.2026 10:08",
       "total_price_str": "5.519,09₺",
       "total_price_val": 5519.089999999999,
       "collage_url": "/data/latest_kombin_collage.jpg",
@@ -1607,7 +1607,7 @@
         "total_items": 6,
         "verified_items": 6,
         "all_verified": true,
-        "checked_at": "19.10.2026 22:53",
+        "checked_at": "20.10.2026 10:08",
         "legal_notice": "⚖️ Yasal Uyarı: Reklam veya sponsorlu iş birliği içermez; tamamen kombin önerisi ve bilgilendirme amaçlıdır (zorunlu #reklam #işbirliğideğil)."
       },
       "platforms": {
@@ -1641,7 +1641,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:53:21"
+          "checked_at": "2026-10-20 10:08:33"
         },
         {
           "key": "cap",
@@ -1664,7 +1664,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:53:22"
+          "checked_at": "2026-10-20 10:08:34"
         },
         {
           "key": "top",
@@ -1687,7 +1687,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:53:23"
+          "checked_at": "2026-10-20 10:08:35"
         },
         {
           "key": "bottom",
@@ -1710,7 +1710,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:53:24"
+          "checked_at": "2026-10-20 10:08:36"
         },
         {
           "key": "bag",
@@ -1733,7 +1733,7 @@
           "store_name": "Bagmori",
           "store_domain": "bagmori.com",
           "verified_badge": "Doğrulanmış Bagmori + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:53:25"
+          "checked_at": "2026-10-20 10:08:37"
         },
         {
           "key": "shoes",
@@ -1756,7 +1756,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:53:26"
+          "checked_at": "2026-10-20 10:08:38"
         }
       ]
     },
@@ -1774,7 +1774,7 @@
       ],
       "title": "2027 Sonbahar/Kış & Cadılar Bayramı Dark Glamour: Gece Yarısı Bordo Triko, İçi Peluş Deri Mont & Antrasit Palazzo 🎃🍷✨",
       "viral_hook": "🛑 2027 Sonbahar/Kış & Cadılar Bayramı Konsept Ajanımız KOR tarafından kurgulanan Dark Glamour kapsül kombin! İçi peluş kemerli deri mont, gece yarısı bordo triko kazak, yüksek bel kemerli antrasit palazzo pantolon ve bordo Adidas Handball Spezial uyumu! 💬 Favori parçanız 1 (Peluş Deri Mont) mu yoksa 6 (Bordo Adidas Spezial) mı? 👇🎃🍷✨",
-      "published_at": "19.10.2026 22:53",
+      "published_at": "20.10.2026 10:08",
       "total_price_str": "9.946,35₺",
       "total_price_val": 9946.349999999999,
       "collage_url": "/data/latest_kombin_collage.jpg",
@@ -1784,7 +1784,7 @@
         "total_items": 6,
         "verified_items": 5,
         "all_verified": false,
-        "checked_at": "19.10.2026 22:53",
+        "checked_at": "20.10.2026 10:08",
         "legal_notice": "⚖️ Yasal Uyarı: Reklam veya sponsorlu iş birliği içermez; tamamen kombin önerisi ve bilgilendirme amaçlıdır (zorunlu #reklam #işbirliğideğil)."
       },
       "platforms": {
@@ -1818,7 +1818,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:53:34"
+          "checked_at": "2026-10-20 10:08:39"
         },
         {
           "key": "cap",
@@ -1841,7 +1841,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:53:35"
+          "checked_at": "2026-10-20 10:08:40"
         },
         {
           "key": "top",
@@ -1864,7 +1864,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:53:41"
+          "checked_at": "2026-10-20 10:08:48"
         },
         {
           "key": "bottom",
@@ -1887,7 +1887,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:53:48"
+          "checked_at": "2026-10-20 10:08:49"
         },
         {
           "key": "bag",
@@ -1910,7 +1910,7 @@
           "store_name": "Bagmori",
           "store_domain": "bagmori.com",
           "verified_badge": "Doğrulanmış Bagmori + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:53:49"
+          "checked_at": "2026-10-20 10:08:50"
         },
         {
           "key": "shoes",
@@ -1933,7 +1933,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:53:59"
+          "checked_at": "2026-10-20 10:08:51"
         }
       ]
     },
@@ -1951,7 +1951,7 @@
       ],
       "title": "Mavi Çizgili Gömlek, Siyah Kaşe Mont ve Pileli Palazzo ile Ofisten Sokağa Old Money Stil 👔✨",
       "viral_hook": "🛑 Gömlek, kaşe mont ve yüksek bel palazzo pantolon üçlüsünün en kusursuz hali! guzelai.com vitrininde tüm görselleri ve mağaza stokları doğrulanmış 6 kadın parçası! 👇🔥",
-      "published_at": "19.10.2026 22:54",
+      "published_at": "20.10.2026 10:08",
       "total_price_str": "5.047,92₺",
       "total_price_val": 5047.92,
       "collage_url": "/data/latest_kombin_collage.jpg",
@@ -1961,7 +1961,7 @@
         "total_items": 6,
         "verified_items": 6,
         "all_verified": true,
-        "checked_at": "19.10.2026 22:54",
+        "checked_at": "20.10.2026 10:08",
         "legal_notice": "⚖️ Yasal Uyarı: Reklam veya sponsorlu iş birliği içermez; tamamen kombin önerisi ve bilgilendirme amaçlıdır (zorunlu #reklam #işbirliğideğil)."
       },
       "platforms": {
@@ -1995,7 +1995,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:54:08"
+          "checked_at": "2026-10-20 10:08:52"
         },
         {
           "key": "cap",
@@ -2018,7 +2018,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:54:09"
+          "checked_at": "2026-10-20 10:08:53"
         },
         {
           "key": "top",
@@ -2041,7 +2041,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:54:10"
+          "checked_at": "2026-10-20 10:08:54"
         },
         {
           "key": "bottom",
@@ -2064,7 +2064,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:54:11"
+          "checked_at": "2026-10-20 10:08:55"
         },
         {
           "key": "bag",
@@ -2087,7 +2087,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:54:12"
+          "checked_at": "2026-10-20 10:08:56"
         },
         {
           "key": "shoes",
@@ -2110,7 +2110,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:54:13"
+          "checked_at": "2026-10-20 10:08:57"
         }
       ]
     },
@@ -2127,7 +2127,7 @@
       ],
       "title": "Tek Parça Siyah Tokalı Elbise & Oversize Deri Ceketle Zahmetsiz Gece/Gündüz Şıklığı 🖤✨",
       "viral_hook": "🛑 'Elbiseyle hem gündüz hem gece nasıl çıkılır?' diyenlere guzelai.com'da önceden doğrulanmış toka detaylı siyah elbise, oversize deri ceket ve aksesuar kombinimiz! 👇✨",
-      "published_at": "19.10.2026 22:54",
+      "published_at": "20.10.2026 10:09",
       "total_price_str": "7.695,50₺",
       "total_price_val": 7695.5,
       "collage_url": "/data/latest_kombin_collage.jpg",
@@ -2137,7 +2137,7 @@
         "total_items": 6,
         "verified_items": 6,
         "all_verified": true,
-        "checked_at": "19.10.2026 22:54",
+        "checked_at": "20.10.2026 10:09",
         "legal_notice": "⚖️ Yasal Uyarı: Reklam veya sponsorlu iş birliği içermez; tamamen kombin önerisi ve bilgilendirme amaçlıdır (zorunlu #reklam #işbirliğideğil)."
       },
       "platforms": {
@@ -2171,7 +2171,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:54:14"
+          "checked_at": "2026-10-20 10:08:59"
         },
         {
           "key": "cap",
@@ -2194,7 +2194,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:54:16"
+          "checked_at": "2026-10-20 10:09:00"
         },
         {
           "key": "top",
@@ -2217,7 +2217,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:54:17"
+          "checked_at": "2026-10-20 10:09:00"
         },
         {
           "key": "bottom",
@@ -2240,7 +2240,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:54:17"
+          "checked_at": "2026-10-20 10:09:01"
         },
         {
           "key": "bag",
@@ -2263,7 +2263,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:54:18"
+          "checked_at": "2026-10-20 10:09:02"
         },
         {
           "key": "shoes",
@@ -2286,7 +2286,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:54:19"
+          "checked_at": "2026-10-20 10:09:03"
         }
       ]
     },
@@ -2304,7 +2304,7 @@
       ],
       "title": "Tesla'nın dik pistinden bile düşmeden indiren o Cadılar Bayramı kombini 🎃🔥✨",
       "viral_hook": "🛑 Kahvelerin ve pizzaların bile uçmadan indiği o meşhur dik pistte Cadılar Bayramı şovumuz! Siyah oversize deri ceket, bordo triko kazak ve antrasit palazzo pantolonla 6 kadın parçası! 👇🎃🔥",
-      "published_at": "19.10.2026 22:54",
+      "published_at": "20.10.2026 10:09",
       "total_price_str": "7.836,55₺",
       "total_price_val": 7836.55,
       "collage_url": "/data/latest_kombin_collage.jpg",
@@ -2314,7 +2314,7 @@
         "total_items": 6,
         "verified_items": 6,
         "all_verified": true,
-        "checked_at": "19.10.2026 22:54",
+        "checked_at": "20.10.2026 10:09",
         "legal_notice": "⚖️ Yasal Uyarı: Reklam veya sponsorlu iş birliği içermez; tamamen kombin önerisi ve bilgilendirme amaçlıdır (zorunlu #reklam #işbirliğideğil)."
       },
       "platforms": {
@@ -2348,7 +2348,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:54:20"
+          "checked_at": "2026-10-20 10:09:11"
         },
         {
           "key": "cap",
@@ -2371,7 +2371,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:54:22"
+          "checked_at": "2026-10-20 10:09:12"
         },
         {
           "key": "top",
@@ -2394,7 +2394,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:54:23"
+          "checked_at": "2026-10-20 10:09:13"
         },
         {
           "key": "bottom",
@@ -2417,7 +2417,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:54:23"
+          "checked_at": "2026-10-20 10:09:14"
         },
         {
           "key": "bag",
@@ -2440,7 +2440,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:54:25"
+          "checked_at": "2026-10-20 10:09:14"
         },
         {
           "key": "shoes",
@@ -2463,7 +2463,7 @@
           "store_name": "Trendyol",
           "store_domain": "trendyol.com",
           "verified_badge": "Doğrulanmış Trendyol + Görsel/Renk Onaylı",
-          "checked_at": "2026-10-19 22:54:26"
+          "checked_at": "2026-10-20 10:09:23"
         }
       ]
     }
