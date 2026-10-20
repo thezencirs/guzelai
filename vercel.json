@@ -1,6 +1,12 @@
 {
   "framework": "vite",
   "cleanUrls": true,
+  "crons": [
+    {
+      "path": "/api/cron/primetime",
+      "schedule": "15 7 * * *"
+    }
+  ],
   "headers": [
     {
       "source": "/ajanlar(.*)",
