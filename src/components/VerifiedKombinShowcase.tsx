@@ -56,6 +56,20 @@ export interface KombinBroadcastEntry {
   video_url?: string;
   telegram_bot_url?: string;
   telegram_copy_text?: string;
+  viral_screenplay?: {
+    is_viral_flight?: boolean;
+    mode_label?: string;
+    scenario_id?: string;
+    scenario_name?: string;
+    screenwriter_agent?: string;
+    evolution_agent?: string;
+    generation?: number;
+    predicted_viral_score?: number;
+    cover_kicker?: string;
+    cover_headline?: string;
+    caption_story_script?: string;
+    comment_explosion_prompt?: string;
+  };
   website_showcase_url: string;
   verification_summary: {
     total_items: number;
@@ -224,6 +238,36 @@ export const VerifiedKombinShowcase: React.FC = () => {
               <p className="text-xs sm:text-sm text-white/85 leading-relaxed">
                 {current.viral_hook}
               </p>
+              {current.viral_screenplay?.scenario_name && (
+                <div
+                  className={`mt-3 p-3.5 rounded-2xl border ${
+                    current.viral_screenplay.is_viral_flight
+                      ? "bg-gradient-to-r from-[#5a0b1c]/90 via-[#380814]/90 to-[#1f1206]/90 border-amber-400/50"
+                      : "bg-white/5 border-white/15"
+                  }`}
+                >
+                  <div className="flex flex-wrap items-center gap-2 text-[11px] font-black uppercase tracking-wider text-amber-300">
+                    <Film className="w-3.5 h-3.5 text-amber-400" />
+                    <span>
+                      {current.viral_screenplay.is_viral_flight
+                        ? "🚀 VİRAL UÇUŞ BÖLÜMÜ"
+                        : "🎬 MİNİ-FİLM SENARYOSU"}{" "}
+                      • {current.viral_screenplay.scenario_name}
+                    </span>
+                    {current.viral_screenplay.generation && (
+                      <span className="px-2 py-0.5 rounded-full bg-amber-400/20 text-amber-200 font-mono text-[10px]">
+                        EVREN Gen #{current.viral_screenplay.generation} • Skor:{" "}
+                        {current.viral_screenplay.predicted_viral_score || 98}/100
+                      </span>
+                    )}
+                  </div>
+                  {current.viral_screenplay.caption_story_script && (
+                    <p className="mt-1.5 text-xs text-white/90 whitespace-pre-line leading-relaxed">
+                      {current.viral_screenplay.caption_story_script}
+                    </p>
+                  )}
+                </div>
+              )}
             </div>
 
             {/* Direct Telegram Bot (@guzelaibot) & Copy Actions */}
