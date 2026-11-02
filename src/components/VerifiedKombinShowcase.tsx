@@ -224,13 +224,21 @@ export const VerifiedKombinShowcase: React.FC = () => {
         <div className="bg-[#171717] text-white px-6 sm:px-10 py-8 border-b border-white/10">
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
             <div className="space-y-2.5 max-w-3xl">
-              <div className="inline-flex flex-wrap items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-500/15 border border-emerald-400/30 text-emerald-300 text-xs font-extrabold tracking-wider uppercase">
-                <ShieldCheck className="w-4 h-4 text-emerald-400" />
-                <span>
-                  1:1 AI Manken & Kombin Vitrini ({current.segment_label || "👩 Kadın Kombini"}) •{" "}
-                  {current.verification_summary.verified_items}/
-                  {current.verification_summary.total_items} Parça Birebir Eşleşti
-                </span>
+              <div className="flex flex-wrap items-center gap-2">
+                <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-amber-400/15 border border-amber-300/40 text-amber-200 text-[11px] font-black tracking-wider uppercase">
+                  <Sparkles className="w-3.5 h-3.5 text-amber-300" />
+                  <span>
+                    🏛️ GÜZELAI HOLDİNG (36 UZMAN AJAN • MANKEN, MODA, REKLAM & MEDYA AJANSI) • 2K SİNEMA REELS
+                  </span>
+                </div>
+                <div className="inline-flex flex-wrap items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-500/15 border border-emerald-400/30 text-emerald-300 text-xs font-extrabold tracking-wider uppercase">
+                  <ShieldCheck className="w-4 h-4 text-emerald-400" />
+                  <span>
+                    1:1 AI Manken & Kombin Vitrini ({current.segment_label || "👩 Kadın Kombini"}) •{" "}
+                    {current.verification_summary.verified_items}/
+                    {current.verification_summary.total_items} Parça Birebir Eşleşti
+                  </span>
+                </div>
               </div>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight text-white">
                 {current.title}
