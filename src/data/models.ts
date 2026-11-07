@@ -1,4 +1,5 @@
 import { AIModel, ProductPreset, TextureOption, WardrobeOption, AccessoryItem } from "../types";
+import { CONTINENTAL_MODELS } from "./continentalModels";
 
 export const AI_MODELS: AIModel[] = [
 {
@@ -663,6 +664,37 @@ export const AI_MODELS: AIModel[] = [
     },
   },
 ];
+
+AI_MODELS.push(...CONTINENTAL_MODELS.map((entry): AIModel => ({
+  id: `continent-${entry.id}`,
+  name: entry.name,
+  title: entry.role,
+  avatar: entry.image,
+  fullBodyImage: entry.image,
+  style: "editorial",
+  nationalityVibe: entry.location,
+  height: "Belirtilmedi",
+  skinType: "Görsel referansındaki doğal cilt dokusu",
+  hairDefault: "Görsel referansına göre",
+  bio: `${entry.story} ${entry.culturalNoteTR} Kurgusal yetişkin AI karakteridir.`,
+  tags: entry.tags,
+  beautyRoutine: {
+    morningSteps: [],
+    nightSteps: [],
+    signatureSecret: "Kurgusal karakter; kişisel bakım deneyimi iddia edilmez.",
+    skincareFavorite: "Belirtilmedi",
+    makeupLook: "Görsel referansına göre",
+    fragranceNotes: "Belirtilmedi",
+    dietWaterTip: "Sağlık veya beslenme önerisi sunmaz.",
+  },
+  voiceSampleText: `Merhaba, ben ${entry.name}. ${entry.location} için tasarlanmış kurgusal bir karakterim.`,
+  commercialNiches: [],
+  stats: { campaignsCount: 0, engagementRate: "Ölçülmedi", popularity: 0 },
+  isBrandCollabReady: false,
+  badge: `${entry.continent.toUpperCase()} · KURGUSAL MODEL`,
+  galleryImages: [entry.image],
+  exactPromptSnippet: entry.prompt,
+})));
 
 export const PRODUCT_PRESETS: ProductPreset[] = [
   {

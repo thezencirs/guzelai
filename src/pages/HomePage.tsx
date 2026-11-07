@@ -1,6 +1,7 @@
 import React from "react";
 import { TranslationSchema } from "../i18n/translations";
 import { GuzelAiEarthHero } from "../components/GuzelAiEarthHero";
+import { ContinentalModelCollection } from "../components/ContinentalModelCollection";
 import { ServicesSection } from "../components/ServicesSection";
 import { InteractiveAdFormatsSection } from "../components/InteractiveAdFormatsSection";
 import { AiStudioSection } from "../components/AiStudioSection";
@@ -71,6 +72,8 @@ export const HomePage: React.FC<HomePageProps> = ({
         onScrollToStudio={() => scrollTo("ai-studio-section")}
         onScrollToWebsites={onNavigateWebsites}
       />
+
+      <ContinentalModelCollection />
 
       {/* 1.5. Verified E-Commerce Kombin & Video Links Showcase (#kombinler) */}
       <VerifiedKombinShowcase />

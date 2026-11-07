@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState, useCallback } from "react";
 import * as THREE from "three";
 import { TranslationSchema } from "../i18n/translations";
 import { AI_MODELS } from "../data/models";
+import { CONTINENTAL_MODELS } from "../data/continentalModels";
 import { AIModel } from "../types";
 import {
   Sparkles,
@@ -55,114 +56,22 @@ interface WorldLocationHub {
   soundtrackLabel: string;
 }
 
-// Top-level static definition to prevent context thrashing on every re-render
-const WORLD_HUBS: WorldLocationHub[] = [
-  {
-    id: "hub-monaco",
-    cityName: "MONACO & RIVIERA",
-    country: "Akdeniz Sahili",
-    lat: 43.7384,
-    lon: 7.4246,
-    categoryTitle: "SÜPER OTOMOBİL & GLAMOUR MARKA İŞBİRLİKLERİ",
-    categoryBadge: "🏎️ Supercar & Glamour UGC",
-    colorHex: "#FB5D2E", // GuzelAI Orange
-    model: AI_MODELS.find((m) => m.id === "valentina-cruz") || AI_MODELS[0],
-    highlightTag: "Ferrari 360 Spider & Günbatımı Kırmızı Mini Elbise",
-    signatureLook: "Kırmızı Mini Elbise, Kırmızı Saç Kurdelesi & Şampanya Convertible",
-    roasMetric: "AI MODA KONSEPTİ",
-    soundtrackLabel: "Riviera Sunset Chill & Deep Bass (120 BPM)",
-  },
-  {
-    id: "hub-paris",
-    cityName: "PARİS & LONDRA",
-    country: "Avrupa",
-    lat: 48.8566,
-    lon: 2.3522,
-    categoryTitle: "HAUTE COUTURE & LÜKS MODA",
-    categoryBadge: "👗 Moda & Virtual Try-On",
-    colorHex: "#E65A7F", // GuzelAI Pink (8%)
-    model: AI_MODELS.find((m) => m.id === "scarlett-vance") || AI_MODELS[0],
-    highlightTag: "Podyum Işığı & 6 Açılı Katalog Çekimi",
-    signatureLook: "Kahve Nappa Deri Büstiyer & Rugan Platform Çizme",
-    roasMetric: "AI MODA KONSEPTİ",
-    soundtrackLabel: "Luxury Lounge Deep House (124 BPM)",
-  },
-  {
-    id: "hub-tokyo",
-    cityName: "TOKYO & SEUL",
-    country: "Doğu Asya",
-    lat: 35.6762,
-    lon: 139.6503,
-    categoryTitle: "K-BEAUTY & CAM TEN KOZMETİK",
-    categoryBadge: "💄 Kozmetik & Glow",
-    colorHex: "#44BDBD", // GuzelAI Turquoise (3%)
-    model: AI_MODELS.find((m) => m.id === "yuki-bloom") || AI_MODELS[1],
-    highlightTag: "Ultra Makro Cam Ten & Pirinç Özlü Serum",
-    signatureLook: "Kore Porselen Işıltısı & Sakura Pembe Saç",
-    roasMetric: "AI MODA KONSEPTİ",
-    soundtrackLabel: "Neo-Tokyo Cyber Synth & Ambient Chime",
-  },
-  {
-    id: "hub-newyork",
-    cityName: "NEW YORK & BROOKLYN",
-    country: "Kuzey Amerika",
-    lat: 40.7128,
-    lon: -74.006,
-    categoryTitle: "STREETWEAR & SNEAKER DROP",
-    categoryBadge: "👟 Sneaker & Spor",
-    colorHex: "#FB5D2E", // GuzelAI Orange (4%)
-    model: AI_MODELS.find((m) => m.id === "mateo-silva") || AI_MODELS[3] || AI_MODELS[0],
-    highlightTag: "Gökdelen Gün Batımı & Düşük Açı Dinamik Takip",
-    signatureLook: "AeroSprint Neon Runner & Oversize Kapüşonlu",
-    roasMetric: "AI MODA KONSEPTİ",
-    soundtrackLabel: "High-Energy Synthwave Pulse",
-  },
-  {
-    id: "hub-milan",
-    cityName: "MİLANO & ROMA",
-    country: "Güney Avrupa",
-    lat: 45.4642,
-    lon: 9.19,
-    categoryTitle: "LÜKS MÜCEVHER & ELMAS ZARAFETİ",
-    categoryBadge: "💎 Lüks Mücevher",
-    colorHex: "#FBC056", // GuzelAI Yellow (2%)
-    model: AI_MODELS.find((m) => m.id === "elena-rostova") || AI_MODELS[2] || AI_MODELS[0],
-    highlightTag: "360° Gerdanlık Yavaş Dönüşü & Kadife Işık",
-    signatureLook: "Zümrüt Damla Kolye & Siyah Saten Elbise",
-    roasMetric: "AI MODA KONSEPTİ",
-    soundtrackLabel: "Neo-Classical Piano & Velvet Strings",
-  },
-  {
-    id: "hub-istanbul",
-    cityName: "İSTANBUL & BOĞAZİÇİ",
-    country: "Avrasya",
-    lat: 41.0082,
-    lon: 28.9784,
-    categoryTitle: "EDİTORYAL AKDENİZ & PARFÜM SİGNATURE",
-    categoryBadge: "🌸 İmza İksir & Glow",
-    colorHex: "#B8A1CF", // GuzelAI Lavender (2%)
-    model: AI_MODELS.find((m) => m.id === "aura-kaya") || AI_MODELS[0],
-    highlightTag: "Boğaz Rüzgarı & Beyaz Amber Koku Görseli",
-    signatureLook: "İpek Şifon Elbise & Altın Detaylı Küpeler",
-    roasMetric: "AI MODA KONSEPTİ",
-    soundtrackLabel: "Mediterranean Sunset Chill & Silk Strings",
-  },
-  {
-    id: "hub-losangeles",
-    cityName: "LOS ANGELES & MİAMİ",
-    country: "Pasifik Kıyısı",
-    lat: 34.0522,
-    lon: -118.2437,
-    categoryTitle: "UGC, VİRAL REELS & PODCAST VİDEO",
-    categoryBadge: "🎙️ UGC & TikTok Viral",
-    colorHex: "#41631E", // GuzelAI Green (1%)
-    model: AI_MODELS.find((m) => m.id === "chloe-bennett") || AI_MODELS[4] || AI_MODELS[0],
-    highlightTag: "Doğal El Kamerası & 15s Dönüşüm Kurgusu",
-    signatureLook: "California Sunset Athleisure & Podcast Mic",
-    roasMetric: "AI MODA KONSEPTİ",
-    soundtrackLabel: "Lo-Fi Coffee Shop Acoustic Beat",
-  },
-];
+// Seven real geographic points, each linked to its fictional adult model.
+const WORLD_HUBS: WorldLocationHub[] = CONTINENTAL_MODELS.map((entry) => ({
+  id: `hub-${entry.id}`,
+  cityName: entry.location.toLocaleUpperCase("tr-TR"),
+  country: entry.continent,
+  lat: entry.lat,
+  lon: entry.lon,
+  categoryTitle: `${entry.continent.toLocaleUpperCase("tr-TR")} · ${entry.role.toLocaleUpperCase("tr-TR")}`,
+  categoryBadge: `🌍 ${entry.continent} · Model Atlası`,
+  colorHex: entry.colorHex,
+  model: AI_MODELS.find((model) => model.id === `continent-${entry.id}`) || AI_MODELS[0],
+  highlightTag: entry.story,
+  signatureLook: entry.tags.slice(0, 2).join(" · "),
+  roasMetric: "KURGUSAL AI MODEL",
+  soundtrackLabel: entry.tags[2] || entry.location,
+}));
 
 // Helper: Spherical coordinate mapping for 3D Earth
 const latLonToVector3 = (lat: number, lon: number, radius: number): THREE.Vector3 => {
@@ -866,7 +775,7 @@ export const GuzelAiEarthHero: React.FC<GuzelAiEarthHeroProps> = ({
               className="w-2.5 h-2.5 rounded-full animate-pulse shadow-md"
               style={{ backgroundColor: currentHub.colorHex }}
             />
-            <span className="uppercase tracking-wider">CANLI DÜNYA: {currentHub.cityName}</span>
+            <span className="uppercase tracking-wider">DÜNYA ATLASI: {currentHub.cityName}</span>
           </div>
 
           <div className="hidden sm:flex items-center gap-2 px-3 py-1 rounded-full bg-black/40 backdrop-blur text-[11px] font-mono font-semibold text-white/75 border border-white/10">
@@ -943,18 +852,18 @@ export const GuzelAiEarthHero: React.FC<GuzelAiEarthHeroProps> = ({
             </h1>
 
             <p className="text-xs sm:text-sm text-white/85 max-w-lg leading-relaxed drop-shadow-md">
-              <strong className="text-white font-bold">{currentHub.cityName}</strong> &bull; {currentHub.highlightTag}. Mouse tekerleğini çevirerek dünyayı döndürün, mankenlerin kategorilerini ve reklam stillerini canlı keşfedin.
+              <strong className="text-white font-bold">{currentHub.cityName}</strong> &bull; {currentHub.highlightTag}
             </p>
 
             {/* Quick Actions */}
             <div className="flex flex-wrap items-center gap-3 pt-2">
               <button
-                onClick={() => onOpenStudio("photoshoot_wizard", currentHub.model)}
+                onClick={() => document.getElementById(`model-${currentHub.id.replace("hub-", "")}`)?.scrollIntoView({ behavior: "smooth" })}
                 className="px-6 py-3 rounded-full font-extrabold text-xs sm:text-sm text-white transition shadow-xl flex items-center gap-2"
                 style={{ backgroundColor: currentHub.colorHex }}
               >
                 <Sparkles className="w-4 h-4" />
-                <span>Bu Mankenle Reklam Çek</span>
+                <span>Modeli ve Promptu Gör</span>
               </button>
 
               <button
@@ -1020,17 +929,17 @@ export const GuzelAiEarthHero: React.FC<GuzelAiEarthHeroProps> = ({
                       </span>
                     </div>
                     <div className="text-xs text-[#44BDBD] font-semibold">
-                      {currentHub.cityName} Marka Yüzü
+                      {currentHub.cityName} · {currentHub.country}
                     </div>
                   </div>
                 </div>
 
                 <div className="text-right">
                   <div className="text-[10px] text-white/50 uppercase font-bold tracking-wider">
-                    GÜZELLİK İMZASI
+                    MODEL KONSEPTİ
                   </div>
                   <div className="text-xs font-bold text-[#FBC056]">
-                    {currentHub.model.skinType || "Glass Skin Glow"}
+                    {currentHub.model.title}
                   </div>
                 </div>
               </div>
@@ -1044,7 +953,7 @@ export const GuzelAiEarthHero: React.FC<GuzelAiEarthHeroProps> = ({
                   </span>
                 </div>
                 <div className="flex items-center justify-between text-[11px]">
-                  <span className="text-white/60">Müzik / Ritim:</span>
+                  <span className="text-white/60">Sahne detayı:</span>
                   <span className="text-[#44BDBD] font-semibold truncate max-w-[200px]">
                     {currentHub.soundtrackLabel}
                   </span>
