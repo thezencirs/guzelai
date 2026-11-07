@@ -53,14 +53,14 @@ export const ModelCreatorPage: React.FC<ModelCreatorPageProps> = ({
               <span className="text-xs font-mono text-white/50">Sayfa /</span>
               <h1 className="text-sm font-black text-white tracking-tight flex items-center gap-1.5">
                 <Gamepad2 className="w-4 h-4 text-amber-400" />
-                <span>Model Üret (AI & Metaverse Influencer Stüdyosu)</span>
+                <span>Model Üret (AI Görsel Stüdyosu)</span>
               </h1>
             </div>
           </div>
 
           <div className="flex items-center gap-2">
             <span className="text-[10px] font-mono px-2.5 py-1 rounded-full bg-gradient-to-r from-[#E65A7F]/30 to-[#44BDBD]/30 text-amber-200 border border-white/15 font-black">
-              UNREAL ENGINE 5 & UNITY RIG READY
+              PORTRE + TAM BOY GÖRSEL
             </span>
             <button
               onClick={onNavigateClips}
@@ -79,20 +79,19 @@ export const ModelCreatorPage: React.FC<ModelCreatorPageProps> = ({
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-[#E65A7F]/20 to-[#44BDBD]/20 border border-white/20 text-amber-300 text-xs font-extrabold tracking-wider uppercase mb-3">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>3D Karakter Laboratuvarı</span>
+              <span>AI Model Görsel Stüdyosu</span>
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-black tracking-tight text-white">
-              Yapay Zeka Manken & Metaverse Karakteri Üret
+              Yapay Zeka Manken Görselleri Üret
             </h2>
             <p className="text-sm sm:text-base text-white/70 mt-2 font-medium">
-              Yüz hatlarından etnik kökene, mimik blendshape'lerinden Unreal Engine ve Unity
-              kemik sistemine kadar sıfırdan marka elçisi oluşturun.
+              Yüz hatlarını ve stilini belirleyin; aynı karakter için portre ve tam boy görseller oluşturun.
             </p>
           </div>
 
           {/* Supported Engines Badges */}
           <div className="flex flex-wrap items-center gap-2">
-            {["Unreal Engine 5", "Unity Humanoid", "Roblox VRM", ".GLB / .FBX 4K"].map((engine) => (
+            {["Gemini Image", "Portre", "Tam Boy", "Stüdyo Referansı"].map((engine) => (
               <div
                 key={engine}
                 className="px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-[11px] font-mono font-bold text-white/80"
@@ -167,7 +166,7 @@ export const ModelCreatorPage: React.FC<ModelCreatorPageProps> = ({
               Hesabım & Kredilerim
             </h4>
             <p className="text-xs text-white/60 mt-1">
-              Ürettiğin karakterleri ve modelleri kalıcı olarak profilinde sakla.
+              AI bağlantını yönet ve yeni model görsellerini stüdyoda kullan.
             </p>
           </div>
         </div>

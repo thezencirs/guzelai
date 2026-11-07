@@ -3,10 +3,12 @@ import path from "path";
 import dotenv from "dotenv";
 import { GoogleGenAI } from "@google/genai";
 import { createServer as createViteServer } from "vite";
+import generateModelHandler from "./api/images/generate-model.js";
+import aiKeyHandler from "./api/settings/ai-key.js";
 
 dotenv.config();
 
-const PORT = 3000;
+const PORT = Number(process.env.PORT) || 3000;
 
 function getGeminiClient(): GoogleGenAI | null {
   const apiKey = process.env.GEMINI_API_KEY;
@@ -29,6 +31,9 @@ async function startServer() {
   app.get("/api/health", (req, res) => {
     res.json({ status: "ok", service: "guzelai-server" });
   });
+
+  app.all("/api/images/generate-model", generateModelHandler);
+  app.all("/api/settings/ai-key", aiKeyHandler);
 
   // 1. Beauty Advice & Skincare Routine endpoint
   app.post("/api/gemini/beauty-advice", async (req, res) => {

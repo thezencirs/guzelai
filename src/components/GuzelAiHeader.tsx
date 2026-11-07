@@ -148,7 +148,7 @@ export const GuzelAiHeader: React.FC<GuzelAiHeaderProps> = ({
                   : "bg-gradient-to-r from-[#E65A7F] to-[#44BDBD] text-white"
               }`}
             >
-              OYUN / 3D
+              AI GÖRSEL
             </span>
           </button>
 
@@ -343,7 +343,7 @@ export const GuzelAiHeader: React.FC<GuzelAiHeaderProps> = ({
                 <span className="font-bold">Model Üret Sayfası</span>
               </div>
               <span className="text-[10px] px-2 py-0.5 rounded-full bg-gradient-to-r from-[#E65A7F] to-[#44BDBD] text-white font-extrabold">
-                OYUN / 3D
+                AI GÖRSEL
               </span>
             </button>
             <button

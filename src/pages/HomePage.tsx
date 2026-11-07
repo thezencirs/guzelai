@@ -152,14 +152,14 @@ export const HomePage: React.FC<HomePageProps> = ({
                     <Gamepad2 className="w-5 h-5" />
                   </div>
                   <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-gradient-to-r from-[#E65A7F] to-[#44BDBD] text-white font-extrabold">
-                    OYUN / 3D
+                    AI GÖRSEL
                   </span>
                 </div>
                 <h3 className="text-base font-black text-[#171717] mt-3 group-hover:text-amber-500 transition">
                   Model Üret Sayfası
                 </h3>
                 <p className="text-xs text-[#171717]/65 mt-1 leading-relaxed">
-                  Sıfırdan sanal influencer üretimi, Unreal Engine 5 & Unity kemik rig desteği ve 3D indirme.
+                  Kurgusal influencer için portre ve tam boy referans görselleri oluşturun.
                 </p>
               </div>
               <div className="flex items-center gap-1.5 text-xs font-bold text-amber-600 mt-4 pt-3 border-t border-[#171717]/5">

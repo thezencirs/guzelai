@@ -4,8 +4,6 @@ import {
   Gamepad2,
   Box,
   Download,
-  Copy,
-  Check,
   Zap,
   Sliders,
   RotateCcw,
@@ -146,13 +144,16 @@ export const ModelCreatorStudio: React.FC<ModelCreatorStudioProps> = ({
   // Viewport simulator states
   const [previewPose, setPreviewPose] = useState<"catwalk" | "selfie" | "tpose" | "portrait">("catwalk");
   const [previewEnvironment, setPreviewEnvironment] = useState<"studio" | "monaco" | "tokyo" | "paris">("paris");
-  const [isCopiedApi, setIsCopiedApi] = useState<boolean>(false);
   const [isDeploying, setIsDeploying] = useState<boolean>(false);
+  const [generationError, setGenerationError] = useState<string | null>(null);
   const [deployedSuccess, setDeployedSuccess] = useState<boolean>(false);
   const [createdModel, setCreatedModel] = useState<AIModel | null>(null);
 
   // Apply Preset
   const handleApplyPreset = (preset: CharacterPreset) => {
+    setCreatedModel(null);
+    setDeployedSuccess(false);
+    setGenerationError(null);
     setSelectedPresetId(preset.id);
     setCharName(preset.name);
     setCharHandle(preset.handle);
@@ -168,6 +169,9 @@ export const ModelCreatorStudio: React.FC<ModelCreatorStudioProps> = ({
 
   // Get current preview image
   const getCurrentPreviewImage = () => {
+    if (createdModel) {
+      return previewPose === "portrait" ? createdModel.avatar : createdModel.fullBodyImage;
+    }
     const matchedPreset = PRESET_INFLUENCERS.find((p) => p.id === selectedPresetId);
     if (previewPose === "portrait") {
       return matchedPreset?.avatar || PRESET_INFLUENCERS[0].avatar;
@@ -175,27 +179,11 @@ export const ModelCreatorStudio: React.FC<ModelCreatorStudioProps> = ({
     return matchedPreset?.fullBody || PRESET_INFLUENCERS[0].fullBody;
   };
 
-  // Copy API endpoint for Game Engines (Unreal / Unity)
-  const handleCopyApiCode = () => {
-    const slug = charName.toLowerCase().replace(/[^a-z0-9]/g, "-");
-    const codeSnippet = `// GuzelAI Metaverse & Unreal Engine 5 Character API
-const characterUrl = "https://api.guzelai.art/v1/metaverse/characters/${slug}.glb";
-const config = {
-  riggedMesh: true,
-  format: "GLB / FBX (Metahuman compatible)",
-  blendshapes: "ARKit 52 Face Morph Targets",
-  clothingTexture4K: true
-};
-// Unreal Engine Metahuman LiveLink / Unity URP humanoid import ready`;
-    navigator.clipboard.writeText(codeSnippet);
-    setIsCopiedApi(true);
-    setTimeout(() => setIsCopiedApi(false), 2000);
-  };
-
   // Generate a real synthetic character with Gemini Image, then lock it into the live roster.
   const handleDeployToLife = async () => {
     setIsDeploying(true);
     setDeployedSuccess(false);
+    setGenerationError(null);
     try {
       const response = await fetch("/api/images/generate-model", {
         method: "POST",
@@ -214,15 +202,19 @@ const config = {
           voiceTone,
         }),
       });
-      const data = await response.json();
+      const contentType = response.headers.get("content-type") || "";
+      const data = contentType.includes("application/json") ? await response.json() : null;
       if (!response.ok) {
-        throw new Error(data.error || "Model üretimi başarısız.");
+        throw new Error(data?.error || "Model üretim servisine ulaşılamadı. AI bağlantısını kontrol edip tekrar deneyin.");
+      }
+      if (!data?.masterPortrait || !data?.fullBody) {
+        throw new Error("Model üretim servisinden görsel alınamadı. Tekrar deneyin.");
       }
 
       const newModel: AIModel = {
         id: `created-${Date.now()}`,
         name: charName,
-        title: `${archetype} & Character Lock AI Influencer`,
+        title: `${archetype} & AI Influencer`,
         avatar: data.masterPortrait,
         fullBodyImage: data.fullBody,
         style: "realistic",
@@ -230,8 +222,8 @@ const config = {
         height: bodyType.includes("1.80m") ? "1.80m" : "1.76m",
         skinType: skinTone,
         hairDefault: hairStyle,
-        bio: `${charHandle} • Gemini Image ile üretilmiş ve iki ana referansla Character Lock uygulanmış sentetik AI influencer. ${ethnicityVibe}. Aynı karakter sonraki fotoğraf ve Veo reklamlarında referans olarak kullanılmaya hazır.`,
-        tags: [archetype, "CHARACTER LOCK", data.engine || "Gemini Image", "9:16 Viral", "Commercial"],
+        bio: `${charHandle} • Gemini Image ile üretilmiş sentetik AI influencer. ${ethnicityVibe}. Portre ve tam boy görselleri sonraki taslaklarda referans olarak kullanılabilir; kimlik tutarlılığı yeni üretimlerde ayrıca kontrol edilmelidir.`,
+        tags: [archetype, "İKİ REFERANS GÖRSEL", data.engine || "Gemini Image", "Commercial"],
         beautyRoutine: {
           morningSteps: ["Buzlu masaj silindiri", "Hyalüronik asit serum", "Glow nemlendirici"],
           nightSteps: ["Çift aşamalı temizleme", "Retinol bakım", "İpek yastık kılıfı"],
@@ -241,14 +233,14 @@ const config = {
           fragranceNotes: "Marka kitine göre dinamik",
           dietWaterTip: "Sentetik karakter profili",
         },
-        voiceSampleText: `Merhaba! Ben ${charName}. GüzelAI Character Lock ile aynı kimliğimi koruyarak kampanyalarda ve 9:16 reklamlarda yer alıyorum.`,
+        voiceSampleText: `Merhaba! Ben ${charName}. GüzelAI için hazırlanmış kurgusal bir karakterim.`,
         commercialNiches: ["Lüks Moda", "Kozmetik", "E-ticaret", "Otomotiv", "Sosyal Medya"],
         stats: {
           campaignsCount: 0,
           engagementRate: "Ölçülmedi",
           popularity: 0,
         },
-        badge: "CHARACTER LOCK • AI GENERATED",
+        badge: "AI GENERATED • REFERENCE IMAGES",
         isBrandCollabReady: true,
         isPremium: true,
       };
@@ -256,11 +248,8 @@ const config = {
       setCreatedModel(newModel);
       setDeployedSuccess(true);
       onDeployModelToRoster(newModel);
-    } catch (error: any) {
-      alert(
-        error?.message ||
-          "Model üretilemedi. Profil > AI Bağlantısı bölümünden Gemini Image erişimini test edin."
-      );
+    } catch (error: unknown) {
+      setGenerationError(error instanceof Error ? error.message : "Model üretilemedi. Profil > AI Bağlantısı bölümünü kontrol edin.");
     } finally {
       setIsDeploying(false);
     }
@@ -283,18 +272,18 @@ const config = {
               <Gamepad2 className="w-4 h-4 text-[#E65A7F]" />
               <span>GUZELAI MODEL & INFLUENCER CREATOR STUDIO</span>
               <span className="text-white/40">&bull;</span>
-              <span className="text-white/90">METAVERSE & GAMING ENGINE READY</span>
+              <span className="text-white/90">GÖRSEL KİMLİK STÜDYOSU</span>
             </div>
 
             <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
               Kendi AI Influencer'ını Yarat;{" "}
               <span className="bg-gradient-to-r from-white via-white/90 to-[#E65A7F] bg-clip-text text-transparent">
-                Metaverse ve Oyunlar Buradan Karakter Çeksin.
+                Portre ve Tam Boy Görsellerini Oluştur.
               </span>
             </h1>
 
             <p className="text-xs sm:text-base text-white/75 leading-relaxed">
-              Yüz hatlarından ten ışıltısına, ses tonundan podyum yürüyüşüne kadar kişiselleştirin. Tek tıkla <strong>9:16 viral kliplerde oynatın</strong> veya <strong>Unreal Engine 5 / Unity / Roblox</strong> için 3D Rigged karakter olarak çekin!
+              Yüz hatlarını, saçını, ten tonunu ve stilini belirleyin. Gemini ile aynı karakter için portre ve tam boy referans görselleri üretin; ardından stüdyoda kullanın.
             </p>
           </div>
 
@@ -313,12 +302,18 @@ const config = {
               ) : (
                 <>
                   <Zap className="w-4 h-4 fill-amber-300 text-amber-300" />
-                  <span>Gemini ile Modeli Üret, Kilitle & Stüdyoya Aktar</span>
+                  <span>Gemini ile Modeli Üret & Stüdyoya Aktar</span>
                 </>
               )}
             </button>
           </div>
         </div>
+
+        {generationError && (
+          <div role="alert" className="rounded-2xl border border-rose-400/40 bg-rose-500/10 px-5 py-4 text-sm text-rose-100">
+            {generationError}
+          </div>
+        )}
 
         {/* ========================================================================= */}
         {/* PRESET INFLUENCER PICKER ROW                                              */}
@@ -397,7 +392,7 @@ const config = {
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-white/70 font-semibold block">Instagram / Metaverse Handle:</label>
+                  <label className="text-white/70 font-semibold block">Sosyal medya kullanıcı adı:</label>
                   <input
                     type="text"
                     value={charHandle}
@@ -555,26 +550,20 @@ const config = {
                 <div className="sm:col-span-2 space-y-1.5">
                   <label className="text-white/70 font-semibold block flex items-center justify-between">
                     <span>Ses Karakteri & Konuşma Aksanı:</span>
-                    <span className="text-[10px] text-emerald-400 font-mono">Doğal TTS Entegre</span>
+                    <span className="text-[10px] text-white/50 font-mono">Ses stili taslağı</span>
                   </label>
                   <div className="p-3 rounded-xl bg-black/50 border border-white/15 flex items-center justify-between">
                     <div className="flex items-center gap-2 text-white">
                       <Volume2 className="w-4 h-4 text-[#E65A7F]" />
                       <span className="font-medium">{voiceTone}</span>
                     </div>
-                    <button
-                      onClick={() => alert(`"${charName}" ses örneği çalınıyor: "Merhaba, ben ${charName}. GuzelAI ile hem podyumda hem de metaverse oyunlarındayım."`)}
-                      className="px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold text-[11px] transition"
-                    >
-                      Ses Dinle
-                    </button>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* RIGHT: Live 3D / AI Viewport + Metaverse Export Engine (5 cols) */}
+          {/* RIGHT: Character image preview and generated assets */}
           <div className="lg:col-span-5 space-y-6">
             {/* Viewport Frame */}
             <div className="w-full rounded-3xl bg-[#121620] border border-white/20 shadow-2xl overflow-hidden relative flex flex-col">
@@ -582,7 +571,7 @@ const config = {
               <div className="bg-[#1A1F2C] border-b border-white/10 px-4 py-2.5 flex items-center justify-between text-xs select-none">
                 <div className="flex items-center gap-2">
                   <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
-                  <span className="font-mono text-[11px] font-bold text-white">SIMULATED 3D RIG VIEW</span>
+                  <span className="font-mono text-[11px] font-bold text-white">{createdModel ? "ÜRETİLEN GÖRSELLER" : "ÖRNEK GÖRSEL ÖNİZLEMESİ"}</span>
                 </div>
 
                 <div className="flex items-center gap-1.5">
@@ -608,7 +597,7 @@ const config = {
                       previewPose === "tpose" ? "bg-[#44BDBD] text-white" : "text-white/60 hover:text-white"
                     }`}
                   >
-                    3D Rig
+                    Tam Boy
                   </button>
                 </div>
               </div>
@@ -629,7 +618,7 @@ const config = {
                     </div>
 
                     <div className="px-2.5 py-1 rounded-full bg-black/60 backdrop-blur border border-white/20 text-[10px] font-mono text-emerald-400 font-bold flex items-center gap-1">
-                      <CheckCircle2 className="w-3 h-3" /> Metahuman Ready
+                      <CheckCircle2 className="w-3 h-3" /> {createdModel ? "AI üretimi" : "Örnek karakter"}
                     </div>
                   </div>
 
@@ -662,66 +651,34 @@ const config = {
             </div>
 
             {/* ========================================================================= */}
-            {/* METAVERSE & GAMING EXPORT ENGINE (Unreal Engine, Unity, Roblox)            */}
+            {/* Generated 2D reference assets */}
             {/* ========================================================================= */}
             <div className="p-6 rounded-3xl bg-gradient-to-br from-[#121620] via-black to-[#0c1017] border border-[#44BDBD]/40 backdrop-blur-xl space-y-4 shadow-2xl">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2 text-[#44BDBD] font-mono text-xs font-bold uppercase tracking-wider">
                   <Gamepad2 className="w-4 h-4" />
-                  <span>METAVERSE & OYUN ENTEGRASYON KARTI</span>
+                  <span>MODEL GÖRSEL DOSYALARI</span>
                 </div>
                 <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#44BDBD]/20 text-[#44BDBD] font-mono border border-[#44BDBD]/30">
-                  v1.8 Unreal/Unity
+                  PNG / JPEG
                 </span>
               </div>
 
               <p className="text-xs text-white/80 leading-relaxed">
-                Bu karakteri oyun motorunuza (Unreal Engine 5 Metahuman, Unity URP veya Roblox) doğrudan 3D Rigged model olarak bağlayın:
+                Üretim tamamlandığında portre ve tam boy görselleri indirebilirsiniz. 3D model, rig ve oyun motoru aktarımı henüz sunulmuyor.
               </p>
 
-              {/* Formats Grid */}
-              <div className="grid grid-cols-3 gap-2 text-center text-xs">
-                <div className="p-2.5 rounded-xl bg-white/5 border border-white/10 space-y-0.5">
-                  <div className="font-mono font-bold text-white">.GLB / .USDZ</div>
-                  <div className="text-[9px] text-white/50">WebGL & Metaverse</div>
+              {createdModel ? (
+                <div className="grid grid-cols-2 gap-2">
+                  {(["avatar", "fullBodyImage"] as const).map((key) => (
+                    <a key={key} href={createdModel[key]} download={`${createdModel.name.replace(/\s+/g, "-")}-${key}.png`}
+                      className="py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs transition border border-white/15 flex items-center justify-center gap-2">
+                      <Download className="w-3.5 h-3.5 text-[#44BDBD]" />
+                      {key === "avatar" ? "Portreyi indir" : "Tam boy görseli indir"}
+                    </a>
+                  ))}
                 </div>
-                <div className="p-2.5 rounded-xl bg-white/5 border border-white/10 space-y-0.5">
-                  <div className="font-mono font-bold text-[#44BDBD]">.FBX Rigged</div>
-                  <div className="text-[9px] text-white/50">Unreal & Unity Humanoid</div>
-                </div>
-                <div className="p-2.5 rounded-xl bg-white/5 border border-white/10 space-y-0.5">
-                  <div className="font-mono font-bold text-amber-300">52 ARKit</div>
-                  <div className="text-[9px] text-white/50">Mimik & VTuber Yüz</div>
-                </div>
-              </div>
-
-              {/* API Endpoint Copy Box */}
-              <div className="p-3 rounded-xl bg-black/80 border border-white/10 space-y-1.5">
-                <div className="flex items-center justify-between text-[11px] font-mono text-white/60">
-                  <span>Oyun & API Çekim Endpoint'i:</span>
-                  <button
-                    onClick={handleCopyApiCode}
-                    className="text-[#44BDBD] hover:text-white flex items-center gap-1 font-bold"
-                  >
-                    {isCopiedApi ? <Check className="w-3 h-3 text-emerald-400" /> : <Copy className="w-3 h-3" />}
-                    <span>{isCopiedApi ? "Kopyalandı!" : "Kodu Kopyala"}</span>
-                  </button>
-                </div>
-                <div className="text-[10px] font-mono text-emerald-400 truncate select-all">
-                  GET https://api.guzelai.art/v1/metaverse/characters/{charName.toLowerCase().replace(/[^a-z0-9]/g, "-")}.glb
-                </div>
-              </div>
-
-              {/* Download Mesh Package Button */}
-              <button
-                onClick={() => {
-                  alert(`"${charName}" 3D Rigged Karakter Paketi (.GLB + 4K PBR Kaplamalar + ARKit 52 Blendshapes) indiriliyor.`);
-                }}
-                className="w-full py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs transition border border-white/15 flex items-center justify-center gap-2"
-              >
-                <Download className="w-3.5 h-3.5 text-[#44BDBD]" />
-                <span>3D Karakter Paketini İndir (.GLB / .FBX)</span>
-              </button>
+              ) : <p className="text-xs text-white/50">Görseller, model üretimi başarıyla tamamlandıktan sonra burada görünür.</p>}
             </div>
           </div>
         </div>

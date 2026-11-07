@@ -90,11 +90,9 @@ export default async function handler(req, res) {
       identityPrompt,
       masterPortrait: `data:${portrait.mimeType};base64,${portrait.data}`,
       fullBody: `data:${fullBody.mimeType};base64,${fullBody.data}`,
-      characterLock: {
-        enabled: true,
-        references: 2,
-        instruction:
-          "Yeni çekimlerde masterPortrait ve fullBody görsellerini referans olarak kullanın.",
+      referenceImages: {
+        count: 2,
+        instruction: "Yeni çekimlerde portre ve tam boy görselleri referans olarak kullanın; kimlik tutarlılığını kontrol edin.",
       },
     });
   } catch (error) {

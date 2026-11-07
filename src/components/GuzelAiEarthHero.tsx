@@ -174,6 +174,8 @@ const latLonToVector3 = (lat: number, lon: number, radius: number): THREE.Vector
   return new THREE.Vector3(x, y, z);
 };
 
+const INITIAL_GLOBE_ROTATION = -(WORLD_HUBS[0].lon * Math.PI / 180) - Math.PI / 2;
+
 export const GuzelAiEarthHero: React.FC<GuzelAiEarthHeroProps> = ({
   t,
   onOpenContactModal,
@@ -190,7 +192,6 @@ export const GuzelAiEarthHero: React.FC<GuzelAiEarthHeroProps> = ({
   const currentHub = WORLD_HUBS[activeIndex] || WORLD_HUBS[0];
 
   const [spinSpeedMultiplier, setSpinSpeedMultiplier] = useState<number>(1.0);
-  const [isAutoSpinning, setIsAutoSpinning] = useState<boolean>(true);
   const [ambientSound, setAmbientSound] = useState<boolean>(false);
   const [showIllustratorOverlay, setShowIllustratorOverlay] = useState<boolean>(true);
 
@@ -198,9 +199,9 @@ export const GuzelAiEarthHero: React.FC<GuzelAiEarthHeroProps> = ({
   const activeIndexRef = useRef<number>(0);
   activeIndexRef.current = activeIndex;
 
-  const targetRotationYRef = useRef<number>(0);
-  const currentRotationYRef = useRef<number>(0);
-  const spinVelocityRef = useRef<number>(0.003);
+  const targetRotationYRef = useRef<number>(INITIAL_GLOBE_ROTATION);
+  const currentRotationYRef = useRef<number>(INITIAL_GLOBE_ROTATION);
+  const spinVelocityRef = useRef<number>(0.0014);
 
   // Audio Synth for ambient sound toggle
   const audioCtxRef = useRef<AudioContext | null>(null);
@@ -276,7 +277,7 @@ export const GuzelAiEarthHero: React.FC<GuzelAiEarthHeroProps> = ({
       // Scene & Camera setup
       const scene = new THREE.Scene();
       const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
-      camera.position.set(0, 0.35, 4.3);
+      camera.position.set(width < 700 ? 0 : -0.65, 0.25, width < 700 ? 5.3 : 4.5);
 
       renderer = new THREE.WebGLRenderer({
         canvas,
@@ -286,6 +287,9 @@ export const GuzelAiEarthHero: React.FC<GuzelAiEarthHeroProps> = ({
       });
       renderer.setSize(width, height);
       renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+      renderer.outputColorSpace = THREE.SRGBColorSpace;
+      renderer.toneMapping = THREE.ACESFilmicToneMapping;
+      renderer.toneMappingExposure = 1.25;
 
       const globeGroup = new THREE.Group();
       scene.add(globeGroup);
@@ -294,321 +298,18 @@ export const GuzelAiEarthHero: React.FC<GuzelAiEarthHeroProps> = ({
       globeGroup.rotation.x = 0.35;
 
 
-    // =========================================================================
-    // 1. PROCEDURAL REALISTIC EARTH SURFACE (TEXTURE CANVAS 2048 x 1024)
-    // =========================================================================
-    const textureCanvas = document.createElement("canvas");
-    textureCanvas.width = 2048;
-    textureCanvas.height = 1024;
-    const ctx = textureCanvas.getContext("2d");
-
-    if (ctx) {
-      // (a) Deep Ocean Layer with Realistic Depth Gradient
-      const oceanGrad = ctx.createLinearGradient(0, 0, 0, 1024);
-      oceanGrad.addColorStop(0, "#061324"); // Arctic/Antarctic deep dark
-      oceanGrad.addColorStop(0.25, "#0b203d");
-      oceanGrad.addColorStop(0.5, "#0f284e"); // Equatorial rich ocean blue
-      oceanGrad.addColorStop(0.75, "#0b203d");
-      oceanGrad.addColorStop(1, "#061324");
-      ctx.fillStyle = oceanGrad;
-      ctx.fillRect(0, 0, 2048, 1024);
-
-      // (b) Subtle Bathymetric Oceanic Ridges & Coordinate Graticule
-      ctx.strokeStyle = "rgba(68, 189, 189, 0.07)";
-      ctx.lineWidth = 1;
-      for (let x = 0; x <= 2048; x += 128) {
-        ctx.beginPath();
-        ctx.moveTo(x, 0);
-        ctx.lineTo(x, 1024);
-        ctx.stroke();
-      }
-      for (let y = 0; y <= 1024; y += 128) {
-        ctx.beginPath();
-        ctx.moveTo(0, y);
-        ctx.lineTo(2048, y);
-        ctx.stroke();
-      }
-
-      // Equator Line (faint gold)
-      ctx.strokeStyle = "rgba(251, 192, 86, 0.18)";
-      ctx.lineWidth = 1.2;
-      ctx.beginPath();
-      ctx.moveTo(0, 512);
-      ctx.lineTo(2048, 512);
-      ctx.stroke();
-
-      // (c) Realistic Continents & Landmass Topography
-      // Helper function to paint landmass with shallow turquoise coastal shelf
-      const drawLandmass = (
-        pathFn: () => void,
-        baseColor: string,
-        shelfColor: string = "rgba(26, 107, 130, 0.45)"
-      ) => {
-        // Coastal continental shelf halo
-        ctx.save();
-        ctx.strokeStyle = shelfColor;
-        ctx.lineWidth = 10;
-        ctx.lineJoin = "round";
-        ctx.beginPath();
-        pathFn();
-        ctx.stroke();
-
-        // Main landmass fill
-        ctx.fillStyle = baseColor;
-        ctx.fill();
-        ctx.restore();
-      };
-
-      // --- NORTH AMERICA (Alaska, Canada, USA, Mexico, Baja) ---
-      drawLandmass(() => {
-        ctx.moveTo(280, 210); // Alaska
-        ctx.bezierCurveTo(340, 180, 480, 190, 580, 220); // Canada / Hudson
-        ctx.bezierCurveTo(650, 240, 680, 290, 640, 360); // East Coast / US
-        ctx.bezierCurveTo(630, 400, 600, 430, 580, 450); // Florida peninsula
-        ctx.bezierCurveTo(540, 460, 510, 430, 480, 460); // Gulf of Mexico
-        ctx.bezierCurveTo(460, 480, 420, 540, 450, 570); // Central America
-        ctx.bezierCurveTo(390, 520, 380, 440, 390, 380); // Mexico West / Baja
-        ctx.bezierCurveTo(350, 340, 340, 270, 280, 210); // West Coast / Pacific
-        ctx.closePath();
-      }, "#1a3d24"); // lush forest green
-
-      // North America Desert / Great Plains gradient
-      const naDesert = ctx.createRadialGradient(470, 380, 20, 470, 380, 90);
-      naDesert.addColorStop(0, "#8c6f3e"); // Arizona / Nevada / Mojave
-      naDesert.addColorStop(1, "transparent");
-      ctx.fillStyle = naDesert;
-      ctx.beginPath();
-      ctx.ellipse(470, 380, 90, 60, 0, 0, Math.PI * 2);
-      ctx.fill();
-
-      // --- SOUTH AMERICA (Amazon Basin, Andes, Patagonia, Brazil horn) ---
-      drawLandmass(() => {
-        ctx.moveTo(490, 560); // Colombia / Panama connection
-        ctx.bezierCurveTo(550, 540, 660, 550, 720, 600); // Venezuela / Guyana
-        ctx.bezierCurveTo(770, 640, 780, 710, 750, 770); // Brazil bulge
-        ctx.bezierCurveTo(710, 840, 660, 920, 610, 960); // Argentina / Patagonia
-        ctx.bezierCurveTo(580, 950, 570, 860, 570, 780); // Chile / Andes
-        ctx.bezierCurveTo(540, 700, 510, 620, 490, 560); // Peru / Ecuador
-        ctx.closePath();
-      }, "#13381e"); // Amazonian deep jungle
-
-      // Andes Mountain Snowline
-      ctx.strokeStyle = "rgba(230, 240, 245, 0.4)";
-      ctx.lineWidth = 3;
-      ctx.beginPath();
-      ctx.moveTo(560, 640);
-      ctx.lineTo(580, 780);
-      ctx.lineTo(605, 920);
-      ctx.stroke();
-
-      // --- EUROPE & SCANDINAVIA ---
-      drawLandmass(() => {
-        ctx.moveTo(960, 280); // Spain / Portugal
-        ctx.bezierCurveTo(980, 230, 1020, 210, 1040, 230); // France
-        ctx.bezierCurveTo(1060, 200, 1080, 150, 1100, 140); // Scandinavia West
-        ctx.bezierCurveTo(1130, 140, 1150, 190, 1120, 220); // Baltic / Scandinavia East
-        ctx.bezierCurveTo(1140, 240, 1200, 230, 1250, 250); // East Europe / Urals boundary
-        ctx.bezierCurveTo(1240, 310, 1200, 350, 1160, 350); // Black Sea / Balkans
-        ctx.bezierCurveTo(1120, 370, 1080, 370, 1060, 340); // Italy boot & Adriatic
-        ctx.bezierCurveTo(1020, 330, 970, 320, 960, 280); // Mediterranean coast
-        ctx.closePath();
-      }, "#1e4428");
-
-      // British Isles (UK & Ireland)
-      ctx.fillStyle = "#1e4428";
-      ctx.beginPath();
-      ctx.ellipse(1015, 220, 18, 28, -0.3, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.beginPath();
-      ctx.ellipse(985, 230, 12, 16, 0.2, 0, Math.PI * 2);
-      ctx.fill();
-
-      // --- AFRICA (Sahara, Congo Basin, South Africa, Horn of Africa, Madagascar) ---
-      drawLandmass(() => {
-        ctx.moveTo(960, 360); // Morocco / Gibraltar
-        ctx.bezierCurveTo(1040, 350, 1140, 360, 1180, 390); // Egypt / Nile Delta
-        ctx.bezierCurveTo(1230, 440, 1280, 520, 1240, 560); // Horn of Africa (Somalia)
-        ctx.bezierCurveTo(1220, 650, 1200, 760, 1140, 830); // East Africa / South Africa
-        ctx.bezierCurveTo(1100, 850, 1060, 830, 1050, 780); // Cape of Good Hope
-        ctx.bezierCurveTo(1030, 680, 1010, 600, 970, 580); // Gulf of Guinea
-        ctx.bezierCurveTo(900, 560, 890, 480, 910, 430); // West Africa bulge
-        ctx.bezierCurveTo(930, 390, 940, 370, 960, 360);
-        ctx.closePath();
-      }, "#1c3f25");
-
-      // Sahara & Sahel Desert Belt (Warm ochre & gold tone)
-      const saharaGrad = ctx.createLinearGradient(920, 370, 1180, 480);
-      saharaGrad.addColorStop(0, "#a4824d"); // Rich gold sand
-      saharaGrad.addColorStop(0.5, "#93713f");
-      saharaGrad.addColorStop(1, "#836133");
-      ctx.fillStyle = saharaGrad;
-      ctx.beginPath();
-      ctx.ellipse(1050, 430, 140, 65, 0.05, 0, Math.PI * 2);
-      ctx.fill();
-
-      // Madagascar island
-      ctx.fillStyle = "#1e4428";
-      ctx.beginPath();
-      ctx.ellipse(1260, 740, 16, 42, 0.35, 0, Math.PI * 2);
-      ctx.fill();
-
-      // --- ASIA (Arabian Peninsula, India, Indochina, China, Siberia) ---
-      drawLandmass(() => {
-        ctx.moveTo(1190, 390); // Suez / Sinai
-        ctx.bezierCurveTo(1220, 410, 1260, 440, 1270, 490); // Arabian Peninsula
-        ctx.bezierCurveTo(1300, 480, 1340, 430, 1370, 450); // Persian Gulf
-        ctx.bezierCurveTo(1390, 510, 1440, 610, 1460, 640); // India triangle
-        ctx.bezierCurveTo(1480, 580, 1530, 540, 1560, 570); // Bay of Bengal & Indochina
-        ctx.bezierCurveTo(1600, 590, 1640, 540, 1660, 490); // China South Coast
-        ctx.bezierCurveTo(1680, 420, 1720, 370, 1700, 320); // East China / Korea
-        ctx.bezierCurveTo(1740, 240, 1790, 180, 1840, 170); // Siberia Kamchatka
-        ctx.bezierCurveTo(1700, 150, 1500, 160, 1350, 190); // Siberia interior
-        ctx.bezierCurveTo(1260, 220, 1220, 290, 1190, 390); // Ural / Caspian
-        ctx.closePath();
-      }, "#183e23");
-
-      // Arabian Desert
-      ctx.fillStyle = "#9f7d49";
-      ctx.beginPath();
-      ctx.ellipse(1240, 445, 45, 55, 0.4, 0, Math.PI * 2);
-      ctx.fill();
-
-      // Gobi Desert
-      ctx.fillStyle = "#8a6d3f";
-      ctx.beginPath();
-      ctx.ellipse(1540, 330, 85, 35, 0, 0, Math.PI * 2);
-      ctx.fill();
-
-      // Himalayan Mountain Snow Ridge
-      ctx.strokeStyle = "rgba(240, 248, 255, 0.7)";
-      ctx.lineWidth = 4;
-      ctx.beginPath();
-      ctx.moveTo(1420, 400);
-      ctx.lineTo(1490, 420);
-      ctx.lineTo(1540, 440);
-      ctx.stroke();
-
-      // Japanese Archipelago (Honshu, Hokkaido, Kyushu)
-      ctx.fillStyle = "#224d2c";
-      ctx.beginPath();
-      ctx.ellipse(1740, 330, 14, 48, 0.6, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.beginPath();
-      ctx.ellipse(1765, 280, 18, 16, 0, 0, Math.PI * 2); // Hokkaido
-      ctx.fill();
-
-      // --- AUSTRALIA & INDONESIA ---
-      drawLandmass(() => {
-        ctx.moveTo(1630, 710); // NW Australia
-        ctx.bezierCurveTo(1690, 680, 1750, 710, 1780, 740); // Cape York
-        ctx.bezierCurveTo(1800, 790, 1810, 850, 1770, 890); // East Coast / Sydney
-        ctx.bezierCurveTo(1720, 910, 1650, 890, 1610, 860); // Great Australian Bight
-        ctx.bezierCurveTo(1580, 820, 1590, 750, 1630, 710); // West Australia
-        ctx.closePath();
-      }, "#284a26");
-
-      // Australian Outback Red Center
-      ctx.fillStyle = "#985c32";
-      ctx.beginPath();
-      ctx.ellipse(1695, 795, 65, 45, 0, 0, Math.PI * 2);
-      ctx.fill();
-
-      // New Zealand
-      ctx.fillStyle = "#204629";
-      ctx.beginPath();
-      ctx.ellipse(1860, 890, 10, 35, 0.4, 0, Math.PI * 2);
-      ctx.fill();
-
-      // Indonesia & Philippines Island Arc
-      ctx.fillStyle = "#1e4428";
-      [
-        { x: 1540, y: 620, rx: 25, ry: 7, r: -0.3 }, // Sumatra
-        { x: 1590, y: 645, rx: 28, ry: 8, r: 0.1 },  // Java
-        { x: 1610, y: 590, rx: 22, ry: 20, r: 0 },   // Borneo
-        { x: 1670, y: 550, rx: 12, ry: 24, r: 0.3 }, // Philippines
-      ].forEach((isl) => {
-        ctx.beginPath();
-        ctx.ellipse(isl.x, isl.y, isl.rx, isl.ry, isl.r, 0, Math.PI * 2);
-        ctx.fill();
-      });
-
-      // --- POLAR ICE CAPS (Greenland, Arctic, Antarctica) ---
-      // Greenland
-      ctx.fillStyle = "#dcecf4";
-      ctx.beginPath();
-      ctx.ellipse(780, 120, 48, 75, -0.2, 0, Math.PI * 2);
-      ctx.fill();
-
-      // Arctic Sea Ice
-      const arcticGrad = ctx.createLinearGradient(0, 0, 0, 90);
-      arcticGrad.addColorStop(0, "rgba(225, 240, 250, 0.85)");
-      arcticGrad.addColorStop(1, "transparent");
-      ctx.fillStyle = arcticGrad;
-      ctx.fillRect(0, 0, 2048, 90);
-
-      // Antarctica
-      const antarcticGrad = ctx.createLinearGradient(0, 940, 0, 1024);
-      antarcticGrad.addColorStop(0, "transparent");
-      antarcticGrad.addColorStop(1, "rgba(225, 240, 250, 0.95)");
-      ctx.fillStyle = antarcticGrad;
-      ctx.fillRect(0, 940, 2048, 84);
-
-      // --- (d) NIGHT CITY LIGHT MATRICES (Realistic amber & golden clusters) ---
-      const nightCityClusters = [
-        // Europe Megalopolis (London, Paris, Benelux, Milan)
-        { x: 1020, y: 240, count: 28, c: "#ffd175", r: 28 },
-        { x: 1040, y: 265, count: 32, c: "#ffe082", r: 35 },
-        { x: 1080, y: 310, count: 22, c: "#ffca28", r: 24 },
-        // Istanbul & Bosphorus Corridor
-        { x: 1155, y: 325, count: 24, c: "#ffb74d", r: 20 },
-        // US Northeast Corridor (Boston, NYC, Philly, DC)
-        { x: 620, y: 330, count: 38, c: "#ffe082", r: 40 },
-        // US West Coast (LA, SF, Seattle)
-        { x: 415, y: 375, count: 26, c: "#ffd54f", r: 30 },
-        // Tokyo & Osaka Megalopolis (Very bright)
-        { x: 1740, y: 335, count: 42, c: "#fff59d", r: 32 },
-        // Seoul / Incheon
-        { x: 1690, y: 325, count: 25, c: "#fff176", r: 20 },
-        // East China / Shanghai / Pearl River
-        { x: 1640, y: 400, count: 35, c: "#ffd54f", r: 35 },
-        { x: 1610, y: 460, count: 28, c: "#ffb74d", r: 30 },
-        // India (Mumbai, Delhi)
-        { x: 1430, y: 460, count: 30, c: "#ffca28", r: 35 },
-        // Nile River Ribbon
-        { x: 1135, y: 390, count: 18, c: "#ffb300", r: 16 },
-        // Monaco & Riviera Coastline
-        { x: 1060, y: 295, count: 18, c: "#ff8a65", r: 18 },
-      ];
-
-      nightCityClusters.forEach((cluster) => {
-        for (let i = 0; i < cluster.count; i++) {
-          const offsetX = (Math.random() - 0.5) * cluster.r * 2;
-          const offsetY = (Math.random() - 0.5) * cluster.r * 1.5;
-          const dotX = cluster.x + offsetX;
-          const dotY = cluster.y + offsetY;
-          const size = 1 + Math.random() * 2.4;
-
-          ctx.fillStyle = cluster.c;
-          ctx.beginPath();
-          ctx.arc(dotX, dotY, size, 0, Math.PI * 2);
-          ctx.fill();
-        }
-      });
-    }
-
-    const earthTexture = new THREE.CanvasTexture(textureCanvas);
-    earthTexture.wrapS = THREE.RepeatWrapping;
-    earthTexture.wrapT = THREE.ClampToEdgeWrapping;
+    // NASA/GSFC Blue Marble, Reto Stöckli: https://svs.gsfc.nasa.gov/2915/
+    const earthTexture = new THREE.TextureLoader().load("/assets/earth-blue-marble.png");
+    earthTexture.colorSpace = THREE.SRGBColorSpace;
+    earthTexture.anisotropy = Math.min(renderer.capabilities.getMaxAnisotropy(), 8);
 
     // 2. Earth Sphere Mesh
     const earthRadius = 1.35;
     const earthGeo = new THREE.SphereGeometry(earthRadius, 64, 64);
     const earthMat = new THREE.MeshStandardMaterial({
       map: earthTexture,
-      roughness: 0.38, // Realistic ocean specular glint
-      metalness: 0.12,
-      emissive: new THREE.Color("#07152b"),
-      emissiveIntensity: 0.3,
+      roughness: 0.88,
+      metalness: 0,
     });
     const earthMesh = new THREE.Mesh(earthGeo, earthMat);
     globeGroup.add(earthMesh);
@@ -684,7 +385,7 @@ export const GuzelAiEarthHero: React.FC<GuzelAiEarthHeroProps> = ({
     const cloudMat = new THREE.MeshStandardMaterial({
       map: cloudTexture,
       transparent: true,
-      opacity: 0.78,
+      opacity: 0.24,
       blending: THREE.NormalBlending,
       roughness: 0.9,
     });
@@ -706,11 +407,9 @@ export const GuzelAiEarthHero: React.FC<GuzelAiEarthHeroProps> = ({
       fragmentShader: `
         varying vec3 vNormal;
         void main() {
-          float intensity = pow(0.62 - dot(vNormal, vec3(0.0, 0.0, 1.0)), 2.4);
-          vec3 cyanGlow = vec3(0.27, 0.74, 0.74);
-          vec3 pinkGlow = vec3(0.9, 0.35, 0.5);
-          vec3 glowColor = mix(cyanGlow, pinkGlow, clamp(vNormal.y * 0.5 + 0.5, 0.0, 1.0));
-          gl_FragColor = vec4(glowColor, 1.0) * intensity * 1.6;
+          float intensity = pow(max(0.0, 0.68 - dot(vNormal, vec3(0.0, 0.0, 1.0))), 2.7);
+          vec3 glowColor = mix(vec3(0.08, 0.28, 0.52), vec3(0.38, 0.67, 0.88), clamp(vNormal.y * 0.5 + 0.5, 0.0, 1.0));
+          gl_FragColor = vec4(glowColor, intensity * 0.85);
         }
       `,
       blending: THREE.AdditiveBlending,
@@ -723,24 +422,24 @@ export const GuzelAiEarthHero: React.FC<GuzelAiEarthHeroProps> = ({
     // =========================================================================
     // 5. ORBITAL RUNWAY RINGS & SATELLITE BEACONS
     // =========================================================================
-    const ringGeo1 = new THREE.RingGeometry(earthRadius * 1.38, earthRadius * 1.395, 96);
+    const ringGeo1 = new THREE.RingGeometry(earthRadius * 1.38, earthRadius * 1.382, 128);
     const ringMat1 = new THREE.MeshBasicMaterial({
-      color: new THREE.Color("#E65A7F"),
+      color: new THREE.Color("#8ec9e8"),
       side: THREE.DoubleSide,
       transparent: true,
-      opacity: 0.45,
+      opacity: 0.16,
     });
     const orbitRing1 = new THREE.Mesh(ringGeo1, ringMat1);
     orbitRing1.rotation.x = Math.PI * 0.42;
     orbitRing1.rotation.y = 0.35;
     scene.add(orbitRing1);
 
-    const ringGeo2 = new THREE.RingGeometry(earthRadius * 1.54, earthRadius * 1.552, 96);
+    const ringGeo2 = new THREE.RingGeometry(earthRadius * 1.54, earthRadius * 1.542, 128);
     const ringMat2 = new THREE.MeshBasicMaterial({
-      color: new THREE.Color("#44BDBD"),
+      color: new THREE.Color("#b7d9ee"),
       side: THREE.DoubleSide,
       transparent: true,
-      opacity: 0.35,
+      opacity: 0.1,
     });
     const orbitRing2 = new THREE.Mesh(ringGeo2, ringMat2);
     orbitRing2.rotation.x = -Math.PI * 0.35;
@@ -756,16 +455,16 @@ export const GuzelAiEarthHero: React.FC<GuzelAiEarthHeroProps> = ({
     // =========================================================================
     // 6. STAR PARTICLE CLOUD
     // =========================================================================
-    const starCount = 500;
+    const starCount = 360;
     const starGeo = new THREE.BufferGeometry();
     const starPositions = new Float32Array(starCount * 3);
     const starColors = new Float32Array(starCount * 3);
 
     const colorPalette = [
-      new THREE.Color("#E65A7F"),
-      new THREE.Color("#44BDBD"),
-      new THREE.Color("#FBC056"),
-      new THREE.Color("#FAF8F5"),
+      new THREE.Color("#8baec7"),
+      new THREE.Color("#c2d6e4"),
+      new THREE.Color("#eef6fb"),
+      new THREE.Color("#ffffff"),
     ];
 
     for (let i = 0; i < starCount; i++) {
@@ -788,10 +487,10 @@ export const GuzelAiEarthHero: React.FC<GuzelAiEarthHeroProps> = ({
     starGeo.setAttribute("color", new THREE.BufferAttribute(starColors, 3));
 
     const starMat = new THREE.PointsMaterial({
-      size: 0.038,
+      size: 0.019,
       vertexColors: true,
       transparent: true,
-      opacity: 0.75,
+      opacity: 0.5,
     });
     const starPoints = new THREE.Points(starGeo, starMat);
     scene.add(starPoints);
@@ -813,7 +512,7 @@ export const GuzelAiEarthHero: React.FC<GuzelAiEarthHeroProps> = ({
       markerGroup.lookAt(pos.clone().multiplyScalar(2));
 
       // Central beacon sphere
-      const beaconGeo = new THREE.SphereGeometry(0.04, 16, 16);
+      const beaconGeo = new THREE.SphereGeometry(0.022, 16, 16);
       const beaconMat = new THREE.MeshBasicMaterial({
         color: new THREE.Color(hub.colorHex),
       });
@@ -821,12 +520,12 @@ export const GuzelAiEarthHero: React.FC<GuzelAiEarthHeroProps> = ({
       markerGroup.add(beaconMesh);
 
       // Pulsing outer ripple ring
-      const pulseGeo = new THREE.RingGeometry(0.045, 0.075, 32);
+      const pulseGeo = new THREE.RingGeometry(0.03, 0.052, 32);
       const pulseMat = new THREE.MeshBasicMaterial({
         color: new THREE.Color(hub.colorHex),
         side: THREE.DoubleSide,
         transparent: true,
-        opacity: 0.85,
+        opacity: 0.48,
       });
       const pulseRing = new THREE.Mesh(pulseGeo, pulseMat);
       markerGroup.add(pulseRing);
@@ -868,13 +567,13 @@ export const GuzelAiEarthHero: React.FC<GuzelAiEarthHeroProps> = ({
       const arcMat = new THREE.LineBasicMaterial({
         color: new THREE.Color(hubA.colorHex),
         transparent: true,
-        opacity: 0.38,
+        opacity: 0.2,
       });
       const arcLine = new THREE.Line(arcGeo, arcMat);
       globeGroup.add(arcLine);
 
       // Animated glowing data pulse along the trajectory
-      const pulsePointGeo = new THREE.SphereGeometry(0.022, 8, 8);
+      const pulsePointGeo = new THREE.SphereGeometry(0.012, 8, 8);
       const pulsePointMat = new THREE.MeshBasicMaterial({
         color: new THREE.Color(hubA.colorHex),
       });
@@ -892,18 +591,18 @@ export const GuzelAiEarthHero: React.FC<GuzelAiEarthHeroProps> = ({
     // =========================================================================
     // 9. LIGHTING SETUP (Cinematic Fashion Studio Optics)
     // =========================================================================
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.85);
+    const ambientLight = new THREE.AmbientLight(0x91b0ca, 0.28);
     scene.add(ambientLight);
 
-    const dirLight1 = new THREE.DirectionalLight(0xffffff, 1.5);
-    dirLight1.position.set(5, 3.5, 5);
+    const dirLight1 = new THREE.DirectionalLight(0xfff2dc, 2.8);
+    dirLight1.position.set(5, 2.5, 4);
     scene.add(dirLight1);
 
-    const dirLight2 = new THREE.DirectionalLight(0xe65a7f, 1.2); // Pink backlight
+    const dirLight2 = new THREE.DirectionalLight(0x789bc1, 0.5);
     dirLight2.position.set(-5, -2, -3);
     scene.add(dirLight2);
 
-    const dirLight3 = new THREE.DirectionalLight(0x44bdbd, 0.95); // Turquoise key light
+    const dirLight3 = new THREE.DirectionalLight(0x376384, 0.3);
     dirLight3.position.set(2, -4, 3);
     scene.add(dirLight3);
 
@@ -946,7 +645,7 @@ export const GuzelAiEarthHero: React.FC<GuzelAiEarthHeroProps> = ({
       const delta = e.deltaY;
       const addedSpeed = Math.abs(delta) * 0.00015;
       spinVelocityRef.current = Math.min(0.045, spinVelocityRef.current + addedSpeed);
-      setSpinSpeedMultiplier(Number((spinVelocityRef.current / 0.003).toFixed(1)));
+      setSpinSpeedMultiplier(Number((spinVelocityRef.current / 0.0014).toFixed(1)));
 
       wheelAccumulator += delta;
 
@@ -967,7 +666,7 @@ export const GuzelAiEarthHero: React.FC<GuzelAiEarthHeroProps> = ({
 
       if (wheelTimeout) clearTimeout(wheelTimeout);
       wheelTimeout = setTimeout(() => {
-        spinVelocityRef.current = 0.003;
+        spinVelocityRef.current = 0.0014;
         setSpinSpeedMultiplier(1.0);
       }, 400);
     };
@@ -981,6 +680,8 @@ export const GuzelAiEarthHero: React.FC<GuzelAiEarthHeroProps> = ({
     const handleResize = () => {
       if (!container || !renderer || !camera) return;
       camera.aspect = container.clientWidth / container.clientHeight;
+      camera.position.x = container.clientWidth < 700 ? 0 : -0.65;
+      camera.position.z = container.clientWidth < 700 ? 5.3 : 4.5;
       camera.updateProjectionMatrix();
       renderer.setSize(container.clientWidth, container.clientHeight);
     };
@@ -1007,14 +708,14 @@ export const GuzelAiEarthHero: React.FC<GuzelAiEarthHeroProps> = ({
       }
 
       // Independent dynamic cloud layer drift for realistic 3D parallax!
-      cloudMesh.rotation.y += 0.0014;
+      cloudMesh.rotation.y += 0.00035;
 
       // Pulse hotspot markers
       hotspotMarkers.forEach((marker, idx) => {
         const pulse = 1 + Math.sin(elapsedTime * 4.5 + idx) * 0.4;
         marker.pulseRing.scale.set(pulse, pulse, 1);
         if (marker.pulseRing.material instanceof THREE.MeshBasicMaterial) {
-          marker.pulseRing.material.opacity = 0.35 + Math.sin(elapsedTime * 4.5 + idx) * 0.45;
+          marker.pulseRing.material.opacity = 0.2 + Math.sin(elapsedTime * 4.5 + idx) * 0.14;
         }
       });
 
@@ -1102,7 +803,7 @@ export const GuzelAiEarthHero: React.FC<GuzelAiEarthHeroProps> = ({
         <div className="flex items-center gap-3 text-[11px] sm:text-xs md:text-sm font-extrabold uppercase tracking-[0.4em] text-[#44BDBD] drop-shadow-lg mb-2 opacity-90">
           <span>ATELIER CRÉATIF</span>
           <span className="text-white/40">&bull;</span>
-          <span>HAUTE AI REALISTIC EARTH</span>
+          <span>BLUE MARBLE EARTH</span>
           <span className="text-white/40">&bull;</span>
           <span>{currentHub.roasMetric}</span>
         </div>
@@ -1120,6 +821,7 @@ export const GuzelAiEarthHero: React.FC<GuzelAiEarthHeroProps> = ({
       >
         <canvas ref={canvasRef} className="w-full h-full block touch-none" />
       </div>
+      <div className="absolute inset-0 z-10 pointer-events-none bg-gradient-to-b from-[#06101d]/80 via-[#06101d]/35 to-transparent sm:hidden" />
 
       {/* ========================================================================= */}
       {/* 3. ATELIER ILLUSTRATOR HUD OVERLAY (Left & Right Flanks)                   */}
@@ -1236,7 +938,7 @@ export const GuzelAiEarthHero: React.FC<GuzelAiEarthHeroProps> = ({
               <span style={{ color: currentHub.colorHex }}>{currentHub.categoryBadge}</span>
             </div>
 
-            <h1 className="text-3xl sm:text-5xl md:text-6xl font-black text-white tracking-tight leading-[1.08] drop-shadow-2xl font-['Plus_Jakarta_Sans',sans-serif]">
+            <h1 className="max-w-xl text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-[1.08] drop-shadow-2xl font-['Plus_Jakarta_Sans',sans-serif]">
               {currentHub.categoryTitle}
             </h1>
 
@@ -1265,7 +967,7 @@ export const GuzelAiEarthHero: React.FC<GuzelAiEarthHeroProps> = ({
 
               <button
                 onClick={() => onOpenStudio("cinematic_websites")}
-                className="px-4 py-3 rounded-full bg-black/60 hover:bg-black/80 backdrop-blur text-white text-xs sm:text-sm font-extrabold tracking-tight border border-white/20 transition flex items-center gap-1.5"
+                className="hidden sm:flex px-4 py-3 rounded-full bg-black/60 hover:bg-black/80 backdrop-blur text-white text-xs sm:text-sm font-extrabold tracking-tight border border-white/20 transition items-center gap-1.5"
               >
                 <span>🌐 Tasarım Web Siteleri</span>
                 <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-[#44BDBD]/20 text-[#44BDBD] font-mono">DIRECTOR</span>
@@ -1276,12 +978,12 @@ export const GuzelAiEarthHero: React.FC<GuzelAiEarthHeroProps> = ({
                 className="px-4 py-3 rounded-full bg-gradient-to-r from-[#E65A7F]/90 to-[#44BDBD]/90 hover:from-[#E65A7F] hover:to-[#44BDBD] text-white text-xs sm:text-sm font-black tracking-tight transition shadow-lg shadow-[#E65A7F]/20 flex items-center gap-1.5 border border-white/20"
               >
                 <span>⚡ Model Üret</span>
-                <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-black/40 text-amber-300 font-mono">OYUN & 3D</span>
+                <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-black/40 text-amber-300 font-mono">PORTRE + TAM BOY</span>
               </button>
 
               <button
                 onClick={onScrollToServices}
-                className="px-4 py-3 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur text-white text-xs sm:text-sm font-bold tracking-tight border border-white/20 transition flex items-center gap-1.5"
+                className="hidden sm:flex px-4 py-3 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur text-white text-xs sm:text-sm font-bold tracking-tight border border-white/20 transition items-center gap-1.5"
               >
                 <span>Ajans Hizmetleri</span>
                 <ChevronRight className="w-3.5 h-3.5" />
@@ -1290,7 +992,7 @@ export const GuzelAiEarthHero: React.FC<GuzelAiEarthHeroProps> = ({
           </div>
 
           {/* Right: Floating Interactive AI Model Profile Card (6 cols) */}
-          <div className="lg:col-span-6 flex justify-start lg:justify-end pointer-events-auto">
+          <div className="lg:col-span-6 hidden sm:flex justify-start lg:justify-end pointer-events-auto">
             <div className="w-full max-w-md bg-black/70 backdrop-blur-xl rounded-3xl p-5 sm:p-6 border border-white/20 shadow-2xl space-y-4 transform transition-all duration-500 hover:border-white/40">
               {/* Header inside Card */}
               <div className="flex items-center justify-between">
@@ -1424,6 +1126,7 @@ export const GuzelAiEarthHero: React.FC<GuzelAiEarthHeroProps> = ({
               <span className="w-2 h-2 rounded-full bg-[#44BDBD]" />
               <span>Döndürmek için sürükleyin / Fare tekerleği</span>
             </span>
+            <span className="hidden lg:inline text-white/45">Dünya dokusu: NASA/GSFC Blue Marble · Reto Stöckli</span>
           </div>
         </div>
       </div>
