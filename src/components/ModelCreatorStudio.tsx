@@ -245,8 +245,8 @@ const config = {
         commercialNiches: ["Lüks Moda", "Kozmetik", "E-ticaret", "Otomotiv", "Sosyal Medya"],
         stats: {
           campaignsCount: 0,
-          engagementRate: "%0",
-          popularity: 80,
+          engagementRate: "Ölçülmedi",
+          popularity: 0,
         },
         badge: "CHARACTER LOCK • AI GENERATED",
         isBrandCollabReady: true,

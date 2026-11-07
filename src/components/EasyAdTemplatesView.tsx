@@ -73,7 +73,7 @@ export const EasyAdTemplatesView: React.FC<EasyAdTemplatesViewProps> = ({
           className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-950/60 text-emerald-300 border border-emerald-800/80 text-xs font-semibold hover:bg-emerald-900/40 transition self-start sm:self-auto"
         >
           <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-          <span>%100 Telifsiz Ticari Güvence</span>
+          <span>Ticari kullanım koşullarını kontrol edin</span>
         </button>
       </header>
 
@@ -107,7 +107,7 @@ export const EasyAdTemplatesView: React.FC<EasyAdTemplatesViewProps> = ({
                   <CheckCircle2 className="w-3.5 h-3.5 text-purple-400" /> Robotic Camera Video
                 </span>
                 <span className="flex items-center gap-1 bg-black/40 px-2.5 py-1 rounded-lg border border-white/10">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-amber-400" /> Sıfır Telif Riski
+                  <CheckCircle2 className="w-3.5 h-3.5 text-amber-400" /> Hakları Kontrol Edin
                 </span>
               </div>
             </div>

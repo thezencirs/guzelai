@@ -180,11 +180,11 @@ export const AiStudioSection: React.FC<AiStudioSectionProps> = ({
                 />
                 <div className="absolute top-2 left-2 flex flex-col gap-1 items-start">
                   <span className="px-2.5 py-1 rounded-md bg-black/70 backdrop-blur text-[10px] font-bold text-[#44BDBD] border border-white/10">
-                    100% Sentetik AI
+                    AI karakter konsepti
                   </span>
                   {activeModel.isBrandCollabReady && (
                     <span className="px-2 py-0.5 rounded-md bg-gradient-to-r from-rose-500 to-amber-500 text-[9px] font-extrabold text-white shadow">
-                      ★ MARKA İŞBİRLİĞİ
+                      ★ MARKA KONSEPTİ
                     </span>
                   )}
                 </div>
@@ -193,7 +193,7 @@ export const AiStudioSection: React.FC<AiStudioSectionProps> = ({
                     <span>{activeModel.name}</span>
                     {activeModel.stats && (
                       <span className="text-[10px] text-amber-400 font-medium">
-                        {activeModel.stats.engagementRate} Etkileşim
+                        Etkileşim ölçülmedi
                       </span>
                     )}
                   </div>

@@ -15,7 +15,11 @@ interface MagazineSectionProps {
 
 export const MagazineSection: React.FC<MagazineSectionProps> = ({ t, onOpenStudio }) => {
   const [activeCategory, setActiveCategory] = useState<string>("all");
-  const [selectedPost, setSelectedPost] = useState<any | null>(null);
+  const articlePaths = [
+    "/dergi/sentetik-manken-uretim-rehberi/",
+    "/dergi/organik-3d-tasarim-rehberi/",
+    "/dergi/15-saniyelik-reels-planlama/",
+  ];
 
   const filteredPosts = t.blog.posts.filter((post) => {
     if (activeCategory === "all") return true;
@@ -78,9 +82,9 @@ export const MagazineSection: React.FC<MagazineSectionProps> = ({ t, onOpenStudi
         {/* Editorial Magazine Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {filteredPosts.map((post, idx) => (
-            <article
+            <a
               key={idx}
-              onClick={() => setSelectedPost(post)}
+              href={articlePaths[t.blog.posts.indexOf(post)]}
               className="bg-white rounded-3xl p-6 border border-[#171717]/8 hover:border-[#171717]/20 transition-all duration-300 shadow-xs hover:shadow-xl hover:shadow-black/4 flex flex-col justify-between group cursor-pointer"
             >
               <div className="space-y-4">
@@ -124,54 +128,10 @@ export const MagazineSection: React.FC<MagazineSectionProps> = ({ t, onOpenStudi
                 <span className="group-hover:text-[#E65A7F] transition">{t.blog.readMore}</span>
                 <ArrowUpRight className="w-4 h-4 text-[#171717]/60 group-hover:text-[#E65A7F] transition" />
               </div>
-            </article>
+            </a>
           ))}
         </div>
 
-        {/* Post Modal / Reader */}
-        {selectedPost && (
-          <div
-            className="fixed inset-0 z-50 bg-[#171717]/70 backdrop-blur-sm flex items-center justify-center p-4"
-            onClick={() => setSelectedPost(null)}
-          >
-            <div
-              className="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl border border-[#171717]/10 space-y-6"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="flex items-center justify-between">
-                <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#FAF8F5] text-[#171717] border border-[#171717]/10">
-                  {selectedPost.category}
-                </span>
-                <button
-                  onClick={() => setSelectedPost(null)}
-                  className="text-xs font-bold text-[#171717]/60 hover:text-[#171717]"
-                >
-                  Kapat &times;
-                </button>
-              </div>
-
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-[#171717] tracking-tight">
-                {selectedPost.title}
-              </h3>
-
-              <div className="text-xs text-[#171717]/50 font-semibold">
-                {selectedPost.date} &bull; {selectedPost.readMinutes} okuma
-              </div>
-
-              <div className="aspect-[16/9] rounded-2xl overflow-hidden">
-                <img src={selectedPost.image} alt={selectedPost.title} className="w-full h-full object-cover" />
-              </div>
-
-              <p className="text-base text-[#171717]/80 leading-relaxed">
-                {selectedPost.excerpt}
-              </p>
-
-              <div className="p-4 rounded-2xl bg-[#FAF8F5] border border-[#171717]/8 text-xs text-[#171717]/70 leading-relaxed">
-                GuzelAI Medya editoryal ekibi olarak reklam ve yaratıcı teknoloji alanındaki son gelişmeleri bültenimizde ve dijital dergimizde paylaşıyoruz.
-              </div>
-            </div>
-          </div>
-        )}
       </div>
     </section>
   );

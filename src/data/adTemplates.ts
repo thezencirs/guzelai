@@ -47,7 +47,7 @@ export const AD_TEMPLATES: AdTemplateItem[] = [
     commercialBenefits: [
       "Tek tıkla 6 farklı açıda katalog çıktısı (Front, Left, Low Angle, Face Close-up, Three-Quarter, Low Angle Full Body)",
       "Robotic Camera hazır geçiş videosu (1080p / 4K)",
-      "%100 Telifsiz sentetik manken, sıfır model release riski",
+      "Sentetik manken ve kullanılan kaynaklar için hak kontrolü",
       "Amazon, Trendyol ve Shopify lookbook formatlarına %100 uyumlu",
     ],
     idealFor: ["Moda Markaları", "E-Ticaret Satıcıları", "Deri Giyim Üreticileri", "Instagram Reels Reklamları"],

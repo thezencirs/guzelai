@@ -97,8 +97,8 @@ const FALLBACK_ENTRY: KombinBroadcastEntry = {
   segment_label: "👩 Kadın Kombini (%100 AI Manken)",
   title: "2027 Sonbahar/Kış Dark Glamour: Gece Yarısı Bordo Dik Yaka Triko, İçi Peluş Deri Mont & Antrasit Palazzo (%100 AI Model) 🎃🍷✨",
   viral_hook:
-    "🛑 %100 AI Kadın Manken ile 1:1 birebir uyumlu 6 parçalık Dark Glamour kapsül kombin! İçi peluş kemerli deri mont, gece yarısı bordo dik yaka triko kazak, yüksek bel antrasit palazzo pantolon ve bordo Adidas Handball Spezial!",
-  published_at: "27.10.2026 • 1:1 Doğrulanmış Vitrin",
+    "AI kadın manken ile hazırlanmış Dark Glamour stil önerisi. Parçaların birebir eşleşmesi doğrulanmamıştır.",
+  published_at: "27.10.2026 • Arşiv stil önerisi",
   total_price_str: "9.896,35₺",
   model_photo_url: "/pinterest-models/hw27_women_step1.jpg",
   collage_url: "/data/latest_kombin_collage.jpg",
@@ -108,14 +108,14 @@ const FALLBACK_ENTRY: KombinBroadcastEntry = {
   website_showcase_url: "https://guzelai.com/#kombinler",
   verification_summary: {
     total_items: 6,
-    verified_items: 6,
-    all_verified: true,
+    verified_items: 0,
+    all_verified: false,
     checked_at: "27.10.2026",
     legal_notice:
       "⚖️ Yasal Uyarı: Reklam veya sponsorlu iş birliği içermez; tamamen kombin önerisi ve bilgilendirme amaçlıdır (zorunlu #reklam #işbirliğideğil).",
   },
   platforms: {
-    instagram_reels: "https://www.instagram.com/guzelaicom/",
+    instagram_reels: "",
     tiktok: "https://www.tiktok.com/@guzelaicom",
     youtube_shorts: "https://www.youtube.com/@guzelaicom/shorts",
     x_twitter: "https://x.com/guzelaicom",
@@ -138,6 +138,7 @@ const SEGMENT_FILTERS = [
 export const VerifiedKombinShowcase: React.FC = () => {
   const [broadcasts, setBroadcasts] = useState<KombinBroadcastEntry[]>([FALLBACK_ENTRY]);
   const [selectedSegment, setSelectedSegment] = useState<string>("all");
+  const [showAllBroadcasts, setShowAllBroadcasts] = useState(false);
   const [activeIdx, setActiveIdx] = useState<number>(0);
   const [mediaTab, setMediaTab] = useState<"video" | "model" | "collage">("model");
   const [copiedSku, setCopiedSku] = useState<string | null>(null);
@@ -172,6 +173,8 @@ export const VerifiedKombinShowcase: React.FC = () => {
 
   const safeList = filteredBroadcasts.length > 0 ? filteredBroadcasts : broadcasts;
   const current = safeList[activeIdx] || safeList[0] || FALLBACK_ENTRY;
+  // The feed reuses a single "latest" media file for older entries. Do not attach it to them.
+  const matchedVideoUrl = current.id === broadcasts[0]?.id ? current.video_url : undefined;
 
   const handleCopySku = (sku: string) => {
     try {
@@ -184,22 +187,19 @@ export const VerifiedKombinShowcase: React.FC = () => {
   };
 
   const buildTelegramText = (entry: KombinBroadcastEntry) => {
-    if (entry.telegram_copy_text) return entry.telegram_copy_text;
     const lines = [
       `✨ ${entry.title}`,
       "",
-      entry.viral_hook || "🛑 %100 AI Manken ile 1:1 birebir uyumlu 6 parçalık kombin ve mağaza linkleri:",
+      "AI manken için hazırlanmış stil önerisi. Ürünlerin birebir eşleştiği doğrulanmamıştır.",
       "",
       ...entry.items.map(
         (it, idx) =>
-          `${idx + 1}️⃣ ${it.emoji} ${it.category}: ${it.brand} – ${it.name} (${it.price} | Kod: ${it.sku}) 👉 ${
-            it.guzelai_url || `https://guzelai.com/go/${it.sku}`
-          }`
+          `${idx + 1}️⃣ ${it.emoji} ${it.category}: ${it.brand} – ${it.name} (arşiv fiyatı: ${it.price}) 👉 ${it.product_url}`
       ),
       "",
-      `💰 Toplam 6 Parça Kombin Bütçesi: ${entry.total_price_str}`,
+      `💰 Arşivdeki tahmini toplam: ${entry.total_price_str}. Güncel fiyat için mağazayı kontrol edin.`,
       `🌐 Görselli Kombin Vitrini: https://guzelai.com/#kombinler`,
-      entry.verification_summary?.legal_notice || "",
+      "Ürün ve fiyat bilgilerini mağazada kontrol edin. Kombin görseli bir stil yorumudur; ürünün birebir görseli değildir.",
     ];
     return lines.join("\n");
   };
@@ -228,15 +228,14 @@ export const VerifiedKombinShowcase: React.FC = () => {
                 <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-amber-400/15 border border-amber-300/40 text-amber-200 text-[11px] font-black tracking-wider uppercase">
                   <Sparkles className="w-3.5 h-3.5 text-amber-300" />
                   <span>
-                    🏛️ GÜZELAI HOLDİNG (36 UZMAN AJAN • MANKEN, MODA, REKLAM & MEDYA AJANSI) • 2K SİNEMA REELS
+                    GUZELAI • AI MODA VE KOMBİN KONSEPTLERİ
                   </span>
                 </div>
                 <div className="inline-flex flex-wrap items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-500/15 border border-emerald-400/30 text-emerald-300 text-xs font-extrabold tracking-wider uppercase">
                   <ShieldCheck className="w-4 h-4 text-emerald-400" />
                   <span>
-                    1:1 AI Manken & Kombin Vitrini ({current.segment_label || "👩 Kadın Kombini"}) •{" "}
-                    {current.verification_summary.verified_items}/
-                    {current.verification_summary.total_items} Parça Birebir Eşleşti
+                    AI Manken & Kombin Vitrini ({current.segment_label || "👩 Kadın Kombini"}) •{" "}
+                    {current.items.length} ürün bağlantısı · kayıt tarihi {current.verification_summary.checked_at}
                   </span>
                 </div>
               </div>
@@ -244,7 +243,7 @@ export const VerifiedKombinShowcase: React.FC = () => {
                 {current.title}
               </h2>
               <p className="text-xs sm:text-sm text-white/85 leading-relaxed">
-                {current.viral_hook}
+                Kurgusal AI mankenle hazırlanmış stil önerisi. Ürünlerin görselle birebir eşleşmesi doğrulanmamıştır; bağlantılar mağaza aramasına yönlendirebilir.
               </p>
               {current.viral_screenplay?.scenario_name && (
                 <div
@@ -264,8 +263,7 @@ export const VerifiedKombinShowcase: React.FC = () => {
                     </span>
                     {current.viral_screenplay.generation && (
                       <span className="px-2 py-0.5 rounded-full bg-amber-400/20 text-amber-200 font-mono text-[10px]">
-                        EVREN Gen #{current.viral_screenplay.generation} • Skor:{" "}
-                        {current.viral_screenplay.predicted_viral_score || 98}/100
+                        Senaryo taslağı #{current.viral_screenplay.generation}
                       </span>
                     )}
                   </div>
@@ -321,6 +319,7 @@ export const VerifiedKombinShowcase: React.FC = () => {
                   onClick={() => {
                     setSelectedSegment(seg.id);
                     setActiveIdx(0);
+                    setShowAllBroadcasts(false);
                   }}
                   className={`px-3.5 py-1.5 rounded-full text-xs font-extrabold transition ${
                     selectedSegment === seg.id
@@ -336,7 +335,7 @@ export const VerifiedKombinShowcase: React.FC = () => {
             {/* Horizontal Outfit Selector Cards */}
             {safeList.length > 1 && (
               <div className="flex items-center gap-2.5 overflow-x-auto pb-2">
-                {safeList.map((b, i) => (
+                {(showAllBroadcasts ? safeList : safeList.slice(0, 8)).map((b, i) => (
                   <button
                     key={b.id}
                     onClick={() => setActiveIdx(i)}
@@ -359,7 +358,7 @@ export const VerifiedKombinShowcase: React.FC = () => {
                           i === activeIdx ? "text-[#E65A7F]" : "text-emerald-300"
                         }`}
                       >
-                        {b.segment_label || "1:1 Kombin"}
+                        {b.segment_label || "Stil önerisi"}
                       </div>
                       <div className="text-xs font-bold truncate">{b.title}</div>
                       <div
@@ -367,12 +366,20 @@ export const VerifiedKombinShowcase: React.FC = () => {
                           i === activeIdx ? "text-[#171717]/70" : "text-white/60"
                         }`}
                       >
-                        {b.total_price_str}
+                        Arşiv fiyatı: {b.total_price_str}
                       </div>
                     </div>
                   </button>
                 ))}
               </div>
+            )}
+            {safeList.length > 8 && (
+              <button
+                onClick={() => { setShowAllBroadcasts(!showAllBroadcasts); setActiveIdx(0); }}
+                className="text-xs font-bold text-white underline underline-offset-4 hover:text-[#E65A7F]"
+              >
+                {showAllBroadcasts ? "Arşivi daralt" : `Tüm ${safeList.length} kombin fikrini göster`}
+              </button>
             )}
           </div>
         </div>
@@ -392,10 +399,11 @@ export const VerifiedKombinShowcase: React.FC = () => {
                 }`}
               >
                 <UserCheck className="w-3.5 h-3.5" />
-                <span>1:1 AI Manken</span>
+                <span>AI Manken</span>
               </button>
               <button
                 onClick={() => setMediaTab("video")}
+                disabled={!matchedVideoUrl}
                 className={`flex-1 py-2 px-3 rounded-xl text-xs font-extrabold flex items-center justify-center gap-1.5 transition ${
                   mediaTab === "video"
                     ? "bg-[#E65A7F] text-white"
@@ -403,7 +411,7 @@ export const VerifiedKombinShowcase: React.FC = () => {
                 }`}
               >
                 <Film className="w-3.5 h-3.5" />
-                <span>2K Reels Video</span>
+                <span>{matchedVideoUrl ? "Kombin Videosu" : "Video eşleşmedi"}</span>
               </button>
               <button
                 onClick={() => setMediaTab("collage")}
@@ -414,14 +422,14 @@ export const VerifiedKombinShowcase: React.FC = () => {
                 }`}
               >
                 <ImageIcon className="w-3.5 h-3.5" />
-                <span>Pinterest Kolaj</span>
+                <span>{current.pinterest_collage_url ? "Kolaj" : "Görsel"}</span>
               </button>
             </div>
 
             <div className="rounded-3xl overflow-hidden border border-[#171717]/10 bg-black shadow-md relative group">
-              {mediaTab === "video" ? (
+              {mediaTab === "video" && matchedVideoUrl ? (
                 <video
-                  src={current.video_url || "/data/latest_kombin_video.mp4"}
+                  src={matchedVideoUrl}
                   poster={current.model_photo_url || current.collage_url}
                   autoPlay
                   muted
@@ -430,40 +438,44 @@ export const VerifiedKombinShowcase: React.FC = () => {
                   controls
                   className="w-full aspect-[9/16] object-cover"
                 />
-              ) : mediaTab === "collage" ? (
+              ) : mediaTab === "collage" && current.id === broadcasts[0]?.id ? (
                 <img
-                  src={current.pinterest_collage_url || current.collage_url}
+                  src={current.pinterest_collage_url || current.collage_url || current.model_photo_url}
                   alt={current.title}
                   className="w-full aspect-[9/16] object-cover bg-[#F7F4EF]"
                 />
-              ) : (
+              ) : current.model_photo_url || current.collage_url ? (
                 <img
                   src={current.model_photo_url || current.collage_url}
                   alt={current.title}
                   className="w-full aspect-[9/16] object-cover bg-neutral-900"
                 />
+              ) : (
+                <div className="w-full aspect-[9/16] flex items-center justify-center bg-neutral-900 text-white/70 text-sm text-center p-8">
+                  Bu arşiv kombininin görsel dosyası bulunmuyor.
+                </div>
               )}
 
               <div className="p-5 bg-[#171717] text-white space-y-2.5">
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#E65A7F] text-white text-[11px] font-black">
                     <Sparkles className="w-3 h-3" />
-                    <span>TOPLAM 6 PARÇA: {current.total_price_str}</span>
+                    <span>ARŞİV TAHMİNİ: {current.total_price_str}</span>
                   </span>
                   <span className="text-[11px] font-mono text-emerald-300 font-bold">
-                    {current.segment_label || "1:1 Doğrulanmış Manken"}
+                  {current.segment_label || "AI manken stil önerisi"}
                   </span>
                 </div>
                 <h3 className="text-base sm:text-lg font-black leading-tight">{current.title}</h3>
                 <div className="grid grid-cols-2 gap-2 pt-2">
-                  <a
-                    href={current.video_url || "/data/latest_kombin_video.mp4"}
+                  {matchedVideoUrl ? <a
+                    href={matchedVideoUrl}
                     download
                     className="py-2.5 px-3 rounded-xl bg-white text-[#171717] font-black text-xs flex items-center justify-center gap-1.5 hover:bg-neutral-100 transition"
                   >
                     <Download className="w-3.5 h-3.5" />
-                    <span>2K Video İndir</span>
-                  </a>
+                    <span>Video İndir</span>
+                  </a> : <span className="py-2.5 px-3 rounded-xl bg-neutral-700 text-white/70 font-bold text-xs text-center">Bu kombin için video eşleşmedi</span>}
                   <a
                     href={current.telegram_bot_url || "https://t.me/guzelaibot"}
                     target="_blank"
@@ -512,14 +524,14 @@ export const VerifiedKombinShowcase: React.FC = () => {
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-[#171717]/10">
               <div>
                 <span className="text-[11px] font-mono uppercase tracking-widest text-[#E65A7F] font-black">
-                  SARP (Ajan 18) 1:1 Görsel & Üst Giyim Eşleşme Kilidi Aktif
+                  Kombin parçaları için mağaza kategorileri
                 </span>
                 <h3 className="text-xl sm:text-2xl font-black text-[#171717]">
-                  Mankenin Üzerindeki 6 Parçanın 1:1 Dekupe Görselleri & Mağaza Linkleri
+                  Stil önerisindeki parçalar ve mağaza arama bağlantıları
                 </h3>
               </div>
               <span className="text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-3 py-1.5 rounded-full w-fit">
-                ✓ %100 Birebir Manken-Kıyafet Uyumu
+                Ürün görselleri ve fiyatlar son kontrolden sonra değişmiş olabilir
               </span>
             </div>
 
@@ -531,19 +543,20 @@ export const VerifiedKombinShowcase: React.FC = () => {
                 >
                   <div>
                     {/* 1:1 Studio Cutout Image Header */}
-                    <div className="relative h-60 bg-white overflow-hidden border-b border-neutral-100">
-                      <img
+                    <div className="relative h-60 bg-white overflow-hidden border-b border-neutral-100 flex items-center justify-center">
+                      <div className="text-center text-neutral-500 p-6">
+                        <span className="block text-4xl mb-3">{item.emoji}</span>
+                        <span className="text-xs font-semibold">Ürün görseli arşivde yok</span>
+                      </div>
+                      {(item.cutout_url || item.image_url) && <img
                         src={item.cutout_url || item.image_url}
                         alt={item.full_name}
-                        className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-300 bg-white"
+                        className="absolute inset-0 w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-300 bg-white"
                         loading="lazy"
                         onError={(e) => {
-                          const fallback = item.image_url || `/data/item_card_${item.key}.jpg`;
-                          if ((e.currentTarget as HTMLImageElement).src !== fallback) {
-                            (e.currentTarget as HTMLImageElement).src = fallback;
-                          }
+                          e.currentTarget.style.display = "none";
                         }}
-                      />
+                      />}
                       {/* Top Left Slot Number + Category Pill */}
                       <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-[#171717] text-white text-xs font-extrabold flex items-center gap-1.5 shadow">
                         <span>#{item.slot_number || idx + 1}</span>
@@ -552,13 +565,13 @@ export const VerifiedKombinShowcase: React.FC = () => {
                       </div>
                       {/* Top Right Price Tag */}
                       <div className="absolute top-3 right-3 px-3 py-1 rounded-full bg-[#E65A7F] text-white text-xs font-black shadow-md">
-                        {item.price}
+                        Arşiv: {item.price}
                       </div>
                       {/* Bottom Verified 1:1 Badge */}
                       <div className="absolute bottom-2.5 left-3 right-3 flex items-center justify-between px-3 py-1 rounded-lg bg-emerald-950/90 backdrop-blur-md text-emerald-300 text-[11px] font-bold">
                         <span className="flex items-center gap-1">
                           <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                          <span>1:1 Manken Uyumlu • {item.store_name}</span>
+                          <span>Ürün kaydı • {item.store_name}</span>
                         </span>
                         <span className="font-mono text-[10px] text-emerald-200">
                           Kod: {item.sku}
@@ -599,13 +612,13 @@ export const VerifiedKombinShowcase: React.FC = () => {
                   {/* Direct Verified Store Link Button */}
                   <div className="px-4 pb-4 pt-1">
                     <a
-                      href={item.guzelai_url || item.product_url}
+                      href={item.product_url}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="w-full py-2.5 px-4 rounded-xl bg-[#171717] group-hover:bg-[#E65A7F] text-white font-extrabold text-xs flex items-center justify-center gap-2 transition shadow-xs"
                     >
                       <ShoppingBag className="w-3.5 h-3.5" />
-                      <span>Mağazada Aç ({item.store_name})</span>
+                      <span>{item.product_url.includes("-x-g") ? "Mağaza kategorisinde ara" : "Ürün sayfasını aç"} ({item.store_name})</span>
                       <ExternalLink className="w-3.5 h-3.5" />
                     </a>
                   </div>
@@ -615,7 +628,7 @@ export const VerifiedKombinShowcase: React.FC = () => {
 
             {/* Legal Notice Footer */}
             <div className="p-4 rounded-2xl bg-neutral-100 border border-[#171717]/10 text-xs text-[#171717]/70 font-medium">
-              {current.verification_summary.legal_notice}
+              Ürün adları, görselleri, fiyatları ve mağaza bağlantıları son kayıt tarihine aittir; satın almadan önce mağazada kontrol edin. Bu vitrin bir stil önerisidir. Ticari ilişki ve bağlantı niteliği varsa ayrıca açıklanmalıdır.
             </div>
           </div>
         </div>

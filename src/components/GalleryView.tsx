@@ -232,7 +232,7 @@ export const GalleryView: React.FC<GalleryViewProps> = ({
                   <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
                   <div>
                     <div className="font-bold">Lisans Kodu: {selectedAsset.licenseId}</div>
-                    <div className="text-[10px] text-emerald-400/80">Ticari reklam, billboard ve sosyal medya için %100 onaylıdır.</div>
+                    <div className="text-[10px] text-emerald-400/80">Ticari reklam, billboard ve sosyal medya için yayın öncesi hak kontrolü gerektirir.</div>
                   </div>
                 </div>
               </div>

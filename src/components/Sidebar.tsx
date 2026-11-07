@@ -280,7 +280,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
         <div className="pt-3 pb-1">
           <div className="text-[11px] font-semibold text-neutral-400 uppercase tracking-wider px-3 mb-2">
-            Hukuki & Telif Güvencesi
+            Hak ve Lisans Kontrolü
           </div>
         </div>
 
@@ -295,7 +295,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
         >
           <div className="flex items-center gap-3">
             <ShieldCheck className="w-4 h-4 text-emerald-400" />
-            <span>Ticari Lisans & Sertifika</span>
+            <span>Yayın Öncesi Hak Kontrolü</span>
           </div>
           <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
         </button>

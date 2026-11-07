@@ -348,7 +348,7 @@ const DRINK_CANS: DrinkCanItem[] = [
     canPatternHex: "#FCD34D",
     badgeHex: "#B8A1CF",
     modelPair: AI_MODELS.find((m) => m.id === "kenzo-takahashi") || AI_MODELS[0],
-    keyBenefits: ["Magnezyum & Çinko", "Doğal Gazlı Karbonatlı", "Gece Boyu Sosyalleşme", "Ertesi Gün %100 Zindelik"],
+    keyBenefits: ["Magnezyum & Çinko", "Doğal Gazlı Karbonatlı", "Akşam Sosyalleşmesi", "Ferah İçim Konsepti"],
   },
 ];
 
@@ -596,7 +596,7 @@ export const InteractiveAdFormatsSection: React.FC<InteractiveAdFormatsSectionPr
                 6 CANLI AKIŞ MODELİ
               </span>
               <span className="px-3 py-1 rounded-full text-[11px] font-bold bg-[#41631E]/10 text-[#41631E]">
-                %100 Telifsiz Ticari Lisans
+                Ticari hakları proje bazında kontrol edin
               </span>
             </div>
 
@@ -1634,7 +1634,7 @@ export const InteractiveAdFormatsSection: React.FC<InteractiveAdFormatsSectionPr
             </h4>
             <p className="text-xs sm:text-sm text-white/70 font-normal leading-relaxed">
               Bu 6 inovatif reklam formatını kendi ürünleriniz (otomotiv, spor giyim, gurme gıda, lüks saat veya içecek)
-              ve istediğiniz GuzelAI yapay zeka modeliyle 24 saat içinde yayına hazır hale getirebiliriz.
+              ve seçtiğiniz GuzelAI yapay zeka modeliyle yaratıcı bir taslak olarak uyarlayabiliriz. Yayın takvimi proje kapsamına göre belirlenir.
             </p>
           </div>
 

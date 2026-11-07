@@ -19,7 +19,7 @@ export const ProjectInquiryModal: React.FC<ProjectInquiryModalProps> = ({
   const [budget, setBudget] = useState("$5,000 - $15,000");
   const [message, setMessage] = useState("");
   const [submitted, setSubmitted] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [copyError, setCopyError] = useState(false);
 
   if (!isOpen) return null;
 
@@ -33,13 +33,16 @@ export const ProjectInquiryModal: React.FC<ProjectInquiryModalProps> = ({
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
+    const brief = `GuzelAI proje özeti\nAd: ${name}\nE-posta: ${email}\nHizmetler: ${selectedServices.join(", ")}\nBütçe: ${budget}\nMesaj: ${message}`;
+    try {
+      await navigator.clipboard.writeText(brief);
+      setCopyError(false);
       setSubmitted(true);
-    }, 600);
+    } catch {
+      setCopyError(true);
+    }
   };
 
   const resetAndClose = () => {
@@ -78,10 +81,10 @@ export const ProjectInquiryModal: React.FC<ProjectInquiryModalProps> = ({
               <CheckCircle2 className="w-8 h-8" />
             </div>
             <h3 className="text-2xl font-extrabold text-[#171717]">
-              {t.contactModal.successTitle}
+              Proje özeti kopyalandı
             </h3>
             <p className="text-sm text-[#171717]/75 max-w-md mx-auto leading-relaxed">
-              {t.contactModal.successMessage}
+              Özeti kendi iletişim kanalınızda kullanabilirsiniz. Bu işlem GuzelAI'ye mesaj göndermedi.
             </p>
             <div className="pt-4">
               <button
@@ -99,10 +102,10 @@ export const ProjectInquiryModal: React.FC<ProjectInquiryModalProps> = ({
                 GUZELAI MEDYA &bull; BRIEF
               </span>
               <h3 className="text-2xl sm:text-3xl font-extrabold text-[#171717] tracking-tight">
-                {t.contactModal.title}
+                Proje özeti hazırlayın
               </h3>
               <p className="text-xs sm:text-sm text-[#171717]/70 leading-relaxed">
-                {t.contactModal.subtitle}
+                Bilgileri doldurup metni kopyalayın. Şu anda bu form mesaj göndermiyor; iletişim adresi eklendiğinde sayfada duyuracağız.
               </p>
             </div>
 
@@ -201,20 +204,14 @@ export const ProjectInquiryModal: React.FC<ProjectInquiryModalProps> = ({
               />
             </div>
 
-            {/* Submit Button */}
+            {copyError && <p role="alert" className="text-sm text-red-700">Kopyalama başarısız oldu. Tarayıcınızın pano iznini kontrol edip yeniden deneyin.</p>}
+            {/* Copy the brief locally; there is no submission endpoint yet. */}
             <button
               type="submit"
-              disabled={isSubmitting}
               className="w-full py-3.5 rounded-full bg-[#E65A7F] hover:bg-[#D9496F] text-white text-xs sm:text-sm font-bold tracking-tight transition shadow-md shadow-[#E65A7F]/30 flex items-center justify-center gap-2"
             >
-              {isSubmitting ? (
-                <span>{t.contactModal.submittingBtn}</span>
-              ) : (
-                <>
-                  <span>{t.contactModal.submitBtn}</span>
-                  <Send className="w-4 h-4" />
-                </>
-              )}
+              <span>Özeti kopyala</span>
+              <Send className="w-4 h-4" />
             </button>
           </form>
         )}

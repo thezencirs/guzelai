@@ -68,9 +68,9 @@ export const AI_MODELS: AIModel[] = [
     ],
     exactPromptSnippet: "Candid luxury lifestyle photo shot on a smartphone, vertical 3:4 / 9:16, polished look of a high-end Instagram supercar reel. Preserve exact facial likeness and brunette identity lock. Subject sitting sideways in open driver doorway of champagne-beige Ferrari 360 Spider convertible with tan leather interior, bare feet resting on door sill, knees together, hand brushing temple, relaxed sultry confident mood. Fitted long-sleeved red mini dress with soft jersey texture, small red bow in hair, sun-kissed glowing skin, shallow depth of field.",
     stats: {
-      campaignsCount: 68,
-      engagementRate: "%16.4",
-      popularity: 99,
+      campaignsCount: 0,
+      engagementRate: "Ölçülmedi",
+      popularity: 0,
     },
     beautyRoutine: {
       morningSteps: [
@@ -117,9 +117,9 @@ export const AI_MODELS: AIModel[] = [
       "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800&auto=format&fit=crop&q=85",
     ],
     stats: {
-      campaignsCount: 54,
-      engagementRate: "%14.8",
-      popularity: 99,
+      campaignsCount: 0,
+      engagementRate: "Ölçülmedi",
+      popularity: 0,
     },
     beautyRoutine: {
       morningSteps: [
@@ -158,9 +158,9 @@ export const AI_MODELS: AIModel[] = [
     commercialNiches: ["running_shoes", "nail_polish", "lipstick", "streetwear"],
     voiceSampleText: "Konnichiwa! Porselen bebek teninin gizi cildi güneşe hiç maruz bırakmamakta ve kiraz çiçeği nemlendiricisi kullanmakta!",
     stats: {
-      campaignsCount: 29,
-      engagementRate: "%11.2",
-      popularity: 94,
+      campaignsCount: 0,
+      engagementRate: "Ölçülmedi",
+      popularity: 0,
     },
     beautyRoutine: {
       morningSteps: [
@@ -199,9 +199,9 @@ export const AI_MODELS: AIModel[] = [
     commercialNiches: ["furniture", "sandals", "dress", "hair_care"],
     voiceSampleText: "Geleceğin piksel piksellerinde bile nem dengesi 1 numaradır! Mavi ışık koruyucu serumlarımı asla ihmal etmem.",
     stats: {
-      campaignsCount: 19,
-      engagementRate: "%9.7",
-      popularity: 89,
+      campaignsCount: 0,
+      engagementRate: "Ölçülmedi",
+      popularity: 0,
     },
     beautyRoutine: {
       morningSteps: [
@@ -238,9 +238,9 @@ export const AI_MODELS: AIModel[] = [
     commercialNiches: ["running_shoes", "sandals", "hair_care", "lingerie"],
     voiceSampleText: "Koşu bandında 10 kilometre koşsam da cildim nefes almalı. Ağır fondötenler yerine terle bütünleşen koruyucu serumlar tek tercihim.",
     stats: {
-      campaignsCount: 36,
-      engagementRate: "%10.8",
-      popularity: 96,
+      campaignsCount: 0,
+      engagementRate: "Ölçülmedi",
+      popularity: 0,
     },
     beautyRoutine: {
       morningSteps: [
@@ -287,9 +287,9 @@ export const AI_MODELS: AIModel[] = [
       "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=800&auto=format&fit=crop&q=85",
     ],
     stats: {
-      campaignsCount: 62,
-      engagementRate: "%15.9",
-      popularity: 99,
+      campaignsCount: 0,
+      engagementRate: "Ölçülmedi",
+      popularity: 0,
     },
     beautyRoutine: {
       morningSteps: [
@@ -327,9 +327,9 @@ export const AI_MODELS: AIModel[] = [
     commercialNiches: ["furniture", "sandals", "hair_care", "dress"],
     voiceSampleText: "Güzellik karmaşadan arınmaktır. Bir koltuğa uzandığında teninle ortamın ahşap, keten ve yün dokuları bir ahenk içinde konuşmalı.",
     stats: {
-      campaignsCount: 24,
-      engagementRate: "%8.9",
-      popularity: 91,
+      campaignsCount: 0,
+      engagementRate: "Ölçülmedi",
+      popularity: 0,
     },
     beautyRoutine: {
       morningSteps: [
@@ -376,9 +376,9 @@ export const AI_MODELS: AIModel[] = [
       "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=800&auto=format&fit=crop&q=85",
     ],
     stats: {
-      campaignsCount: 51,
-      engagementRate: "%16.2",
-      popularity: 99,
+      campaignsCount: 0,
+      engagementRate: "Ölçülmedi",
+      popularity: 0,
     },
     beautyRoutine: {
       morningSteps: [
@@ -415,9 +415,9 @@ export const AI_MODELS: AIModel[] = [
     commercialNiches: ["dress", "sandals", "nail_polish", "furniture"],
     voiceSampleText: "Işıltı içeriden gelir ama doğru nem ile dışarı taşar. Saf shea yağı ve altın aydınlatıcı benim imza ikilimdir.",
     stats: {
-      campaignsCount: 52,
-      engagementRate: "%11.5",
-      popularity: 99,
+      campaignsCount: 0,
+      engagementRate: "Ölçülmedi",
+      popularity: 0,
     },
     beautyRoutine: {
       morningSteps: [
@@ -454,9 +454,9 @@ export const AI_MODELS: AIModel[] = [
     commercialNiches: ["furniture", "running_shoes", "dress", "hair_care"],
     voiceSampleText: "İyi bir takım elbise keskin bir duruş ister. Bakımlı bir cilt ve düzenli sakal bakımı erkeğin en güçlü aksesuarıdır.",
     stats: {
-      campaignsCount: 31,
-      engagementRate: "%9.0",
-      popularity: 93,
+      campaignsCount: 0,
+      engagementRate: "Ölçülmedi",
+      popularity: 0,
     },
     beautyRoutine: {
       morningSteps: [
@@ -503,9 +503,9 @@ export const AI_MODELS: AIModel[] = [
       "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=800&auto=format&fit=crop&q=85",
     ],
     stats: {
-      campaignsCount: 58,
-      engagementRate: "%17.2",
-      popularity: 99,
+      campaignsCount: 0,
+      engagementRate: "Ölçülmedi",
+      popularity: 0,
     },
     beautyRoutine: {
       morningSteps: [
@@ -552,9 +552,9 @@ export const AI_MODELS: AIModel[] = [
       "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800&auto=format&fit=crop&q=85",
     ],
     stats: {
-      campaignsCount: 72,
-      engagementRate: "%14.3",
-      popularity: 99,
+      campaignsCount: 0,
+      engagementRate: "Ölçülmedi",
+      popularity: 0,
     },
     beautyRoutine: {
       morningSteps: [
@@ -600,9 +600,9 @@ export const AI_MODELS: AIModel[] = [
       "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=900&auto=format&fit=crop&q=85",
     ],
     stats: {
-      campaignsCount: 64,
-      engagementRate: "%16.1",
-      popularity: 99,
+      campaignsCount: 0,
+      engagementRate: "Ölçülmedi",
+      popularity: 0,
     },
     beautyRoutine: {
       morningSteps: [
@@ -634,14 +634,14 @@ export const AI_MODELS: AIModel[] = [
     height: "185 cm",
     skinType: "Akdeniz Bronzu & Keskin Elmacık Kemikleri",
     hairDefault: "Dokulu Kısa Kahve Dalgalar",
-    bio: "Dinamik çatı katı çekimleri, low-angle sneaker aksiyonları ve sokak modası reklamlarının enerjik sentetik erkek modeli. 100% telifsiz AI.",
+    bio: "Dinamik çatı katı çekimleri, low-angle sneaker aksiyonları ve sokak modası reklamlarının enerjik sentetik erkek modeli. hakları kontrol edilmesi gereken AI.",
     tags: ["Sneaker", "Sokak Modası", "Dinamik Hareket", "Güneş Işığı"],
     commercialNiches: ["running_shoes", "streetwear", "hair_care", "furniture"],
     voiceSampleText: "Şehrin ritmi adımlarında başlar. Hareket ederken hem ayakkabının konforunu hem de güneşin enerjisini hissetmelisin!",
     stats: {
-      campaignsCount: 39,
-      engagementRate: "%11.0",
-      popularity: 95,
+      campaignsCount: 0,
+      engagementRate: "Ölçülmedi",
+      popularity: 0,
     },
     beautyRoutine: {
       morningSteps: [

@@ -117,7 +117,7 @@ export const VideoStudioView: React.FC<VideoStudioViewProps> = ({
           <div>
             <h1 className="text-base font-bold text-white tracking-tight">Create Your Video</h1>
             <p className="text-xs text-neutral-400">
-              Kamera hareketleri, 100% telifsiz AI manken ve start/end enterpolasyonu ile ticari video reklamı
+              Kamera hareketleri, hakları kontrol edilmesi gereken AI manken ve start/end enterpolasyonu ile ticari video reklamı
             </p>
           </div>
         </div>

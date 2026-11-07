@@ -7,6 +7,7 @@ import { AiStudioSection } from "../components/AiStudioSection";
 import { ProjectsSection } from "../components/ProjectsSection";
 import { MagazineSection } from "../components/MagazineSection";
 import { GuzelAiFooter } from "../components/GuzelAiFooter";
+import { SocialArchiveSection } from "../components/SocialArchiveSection";
 import { VerifiedKombinShowcase } from "../components/VerifiedKombinShowcase";
 import { PinterestAiModelPromptHub } from "../components/PinterestAiModelPromptHub";
 import {
@@ -85,13 +86,14 @@ export const HomePage: React.FC<HomePageProps> = ({
           <p className="text-lg leading-relaxed">Leyla ile küçük anlar, sıcak sohbetler. Dostluk ve gündelik hayattan paylaşmak isteyeceğin kısa hikâyeler. Leyla gerçek bir kişi değil, GüzelAI’nin kurgusal yapay zekâ karakteridir.</p>
           <p>28 yaşındaki kurgusal Leyla’nın dünyası: sıcak bir çay, ince bir espri ve arkadaşına göndermek istediğin bir cümle.</p>
           <div className="flex flex-wrap gap-4">
-            <a className="px-5 py-3 rounded-full bg-[#171717] text-white font-bold" href="https://www.instagram.com/guzelaicom/" target="_blank" rel="noopener noreferrer">Instagram’da izle</a>
+            <a className="px-5 py-3 rounded-full bg-[#171717] text-white font-bold" href="#sosyal-paylasimlar">Reels arşivine bak</a>
             <a className="px-5 py-3 rounded-full bg-emerald-500 text-black font-bold" href="https://whatsapp.com/channel/0029VbDetYc3mFYDwZSry016" target="_blank" rel="noopener noreferrer">WhatsApp kanalına katıl</a>
             <a className="px-5 py-3 rounded-full border border-[#171717] font-bold" href="#kombinler">Kombin Linklerini Gör</a>
           </div>
           <p className="text-sm text-neutral-600">Görseller ve hikâyeler yapay zekâ desteğiyle hazırlanır.</p>
         </div>
       </section>
+      <SocialArchiveSection />
       {/* 2. Web App Direct Page Launchers Bar (Prominent Portal Cards) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-20">
         <div className="bg-white/90 backdrop-blur-xl rounded-3xl p-6 sm:p-8 border border-[#171717]/10 shadow-xl">
@@ -105,7 +107,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               </h2>
             </div>
             <span className="text-xs text-[#171717]/60 font-medium">
-              Her biri bağımsız ve tam donanımlı web sayfalarıdır
+              Hizmetleri ve yaratıcı prototipleri keşfedin
             </span>
           </div>
 
@@ -185,7 +187,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                   Web Siteleri Sayfası
                 </h3>
                 <p className="text-xs text-[#171717]/65 mt-1 leading-relaxed">
-                  Ödüllü 3D WebGL web tasarımları, çoklu cihaz simülatörü ve sinematik marka portalları.
+                  3D WebGL tasarım konseptleri, çoklu cihaz önizlemesi ve sinematik marka sayfaları.
                 </p>
               </div>
               <div className="flex items-center gap-1.5 text-xs font-bold text-[#1f8787] mt-4 pt-3 border-t border-[#171717]/5">

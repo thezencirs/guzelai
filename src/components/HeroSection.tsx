@@ -172,7 +172,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               {/* Floating Soft Badge: Zero Copyright License */}
               <div className="absolute -bottom-4 -left-4 bg-white/95 backdrop-blur px-3.5 py-2 rounded-xl border border-[#41631E]/20 text-[#41631E] shadow-lg flex items-center gap-2 text-xs font-bold">
                 <ShieldCheck className="w-4 h-4 text-[#41631E]" />
-                <span>%100 Telifsiz Ticari Güvence</span>
+                <span>Ticari kullanım koşullarını kontrol edin</span>
               </div>
             </div>
           </div>

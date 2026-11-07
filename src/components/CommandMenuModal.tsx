@@ -227,8 +227,8 @@ export const CommandMenuModal: React.FC<CommandMenuModalProps> = ({
       },
       {
         id: "studio-license",
-        title: "Ticari Lisans & Telif Belgesi",
-        subtitle: "%100 ticari kullanım ve telif güvencesi detayları",
+        title: "Ticari Kullanım ve Hak Kontrolü",
+        subtitle: "Yayın öncesi lisans ve izin kontrol listesi",
         category: "Stüdyo Araçları",
         icon: <ShieldCheck className="w-4 h-4 text-emerald-400" />,
         action: () => {

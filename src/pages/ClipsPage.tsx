@@ -123,12 +123,12 @@ export const ClipsPage: React.FC<ClipsPageProps> = ({
           {/* Quick Stats Banner */}
           <div className="flex items-center gap-3">
             <div className="p-3 bg-white rounded-2xl border border-[#171717]/10 shadow-xs text-center min-w-[100px]">
-              <div className="text-xl font-black text-[#E65A7F]">5.4x</div>
-              <div className="text-[10px] text-[#171717]/60 font-bold uppercase">Ort. ROAS</div>
+              <div className="text-xl font-black text-[#E65A7F]">9:16</div>
+              <div className="text-[10px] text-[#171717]/60 font-bold uppercase">Mobil Kadraj</div>
             </div>
             <div className="p-3 bg-white rounded-2xl border border-[#171717]/10 shadow-xs text-center min-w-[100px]">
-              <div className="text-xl font-black text-[#44BDBD]">%87</div>
-              <div className="text-[10px] text-[#171717]/60 font-bold uppercase">İlk 3sn Tutma</div>
+              <div className="text-xl font-black text-[#44BDBD]">3 sn</div>
+              <div className="text-[10px] text-[#171717]/60 font-bold uppercase">Açılış Planı</div>
             </div>
             <div className="p-3 bg-white rounded-2xl border border-[#171717]/10 shadow-xs text-center min-w-[100px]">
               <div className="text-xl font-black text-[#171717]">9:16</div>

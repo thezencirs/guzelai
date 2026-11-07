@@ -101,7 +101,7 @@ export const CINEMATIC_EXPERIENCES: WebExperience[] = [
       soundScape: "Derin Bass V8 Motor Sesi, Sahil Dalgaları ve Sinematik Çello",
       microInteractions: ["3D Araba Rengi Değiştirici", "Gerçekçi Gaz Pedalı Basınç Efekti", "Valentina Cruz Sesli Turu"],
       fps: "60 FPS WebGL / Three.js",
-      roasLift: "%380 Artırılmış VIP Rezervasyon",
+      roasLift: "Tasarım konsepti",
     },
     clientReview: {
       quote: "GuzelAI web sitemizi sıradan bir araba galerisinden çıkarıp Cannes Film Festivali düzeyinde bir sinematik deneyime dönüştürdü. Ziyaretçiler sitede ortalama 6.5 dakika vakit geçiriyor.",
@@ -136,7 +136,7 @@ export const CINEMATIC_EXPERIENCES: WebExperience[] = [
       soundScape: "Podyum Topuk Sesleri, İpek Hışırtısı ve Fransız Ambient House",
       microInteractions: ["Kumaş Fizik Simülasyonu", "360° Podyum Scrubber", "Canlı Beden ve Ten Uyumu"],
       fps: "120 FPS Smooth Fluid Motion",
-      roasLift: "%420 Artırılmış Ön Sipariş",
+      roasLift: "Tasarım konsepti",
     },
     clientReview: {
       quote: "Fiziksel podyuma harcadığımız yüz binlerce avroluk bütçenin onda birine dünya çapında milyonlarca kadına ulaşan interaktif bir sanat eseri elde ettik.",
@@ -171,7 +171,7 @@ export const CINEMATIC_EXPERIENCES: WebExperience[] = [
       soundScape: "Kristal Yankıları, İpek Nefesi ve Ağır Neoklasik Piyano",
       microInteractions: ["İmleçle Işık Tutma Feneri", "Karat Büyütme Karşılaştırıcısı", "Sertifika Hologramı"],
       fps: "60 FPS Raymarched Shaders",
-      roasLift: "%290 Yüksek Sepet Ortalaması",
+      roasLift: "Tasarım konsepti",
     },
     clientReview: {
       quote: "Mücevher satışı dokunma ve güven işidir. GuzelAI'nin 3D ışık kırılımı teknolojisi, müşterilerimize kolyeyi sanki ellerinde tutuyormuş hissini kusursuz yaşatıyor.",
@@ -206,7 +206,7 @@ export const CINEMATIC_EXPERIENCES: WebExperience[] = [
       soundScape: "Şişe Kapağı Açılış Sesi, Köpürme Pıtırtısı ve Doğal Yağmur Sesi",
       microInteractions: ["Şişeyi Sallama & Köpürtme", "Tat Dengesi Kaydırıcısı", "Probiyotik Canlılık Sayacı"],
       fps: "60 FPS Fluid Particle Dynamics",
-      roasLift: "%510 Abonelik Başlangıç Oranı",
+      roasLift: "Tasarım konsepti",
     },
     clientReview: {
       quote: "İçeceğimizin şişelenmiş canlılığını geleneksel e-ticaret siteleriyle anlatamıyorduk. Bu web sitesi sayesinde kombucha değil, bir yaşam enerjisi satıyoruz.",
@@ -241,7 +241,7 @@ export const CINEMATIC_EXPERIENCES: WebExperience[] = [
       soundScape: "Agresif Synthwave Beat (130 BPM), Ayak Darbe Bası ve Yağmur",
       microInteractions: ["Sneaker Patlatılmış Montajı (Exploded View)", "Hız ve Zemin Simülasyonu", "Neon Renk Özelleştirici"],
       fps: "60 FPS 3D Exploded Physics",
-      roasLift: "%640 Lansman Satış Hızı",
+      roasLift: "Tasarım konsepti",
     },
     clientReview: {
       quote: "İlk 500 çift 12 dakikada tükendi. Sitedeki Matrix tarzı 360 derece dondurma efekti sosyal medyada viral oldu.",
@@ -680,8 +680,8 @@ export const CinematicWebSitesSection: React.FC<CinematicWebSitesSectionProps> =
                   <span className="font-bold text-[#E65A7F] block truncate">{exp.cinematicDirecting.soundScape}</span>
                 </div>
                 <div className="p-3 rounded-2xl bg-black/40 border border-white/10 space-y-1">
-                  <span className="text-[10px] font-mono text-white/50 uppercase block">ROAS Artışı</span>
-                  <span className="font-bold text-amber-300 block">{exp.cinematicDirecting.roasLift}</span>
+                  <span className="text-[10px] font-mono text-white/50 uppercase block">Kreatif hedef</span>
+                  <span className="font-bold text-amber-300 block">Marka görünürlüğü</span>
                 </div>
               </div>
 
@@ -743,14 +743,8 @@ export const CinematicWebSitesSection: React.FC<CinematicWebSitesSectionProps> =
                 </p>
               </div>
 
-              {/* Quote / Client Review */}
-              <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 text-xs italic text-white/70">
-                "{exp.clientReview.quote}"
-                <div className="text-[11px] font-bold text-white not-italic mt-1.5 flex items-center gap-2">
-                  <span>{exp.clientReview.author}</span>
-                  <span className="text-white/40">&bull;</span>
-                  <span className="text-[#44BDBD]">{exp.clientReview.role}</span>
-                </div>
+              <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 text-xs text-white/70">
+                Bu çalışma yaratıcı web sitesi konseptidir; müşteri yorumu veya ölçülmüş kampanya sonucu içermez.
               </div>
             </div>
           </div>

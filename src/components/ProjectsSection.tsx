@@ -72,6 +72,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ t, onOpenStudi
             <p className="text-base text-[#171717]/70 font-normal leading-relaxed">
               {t.projects.subtitle}
             </p>
+            <p className="text-xs text-[#171717]/60">Bu bölümdeki çalışmalar yaratıcı konsept örnekleridir. Stok görseller yalnızca temsili amaçla kullanılır; müşteri sonucu veya gerçek kampanya performansı göstermez.</p>
           </div>
 
           {/* Filter Pills */}
@@ -144,7 +145,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ t, onOpenStudi
                   {/* Bottom Metric Bar */}
                   <div className="pt-4 border-t border-[#171717]/6 flex items-center justify-between text-xs">
                     <span className="font-extrabold text-[#171717]" style={{ color: project.color }}>
-                      {project.metric}
+                      Konsept çalışma
                     </span>
                     <span className="text-[#171717]/50 group-hover:text-[#171717] font-semibold transition">
                       İncele &rarr;
@@ -198,9 +199,9 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ t, onOpenStudi
                 </p>
 
                 <div className="p-4 rounded-2xl bg-[#FAF8F5] border border-[#171717]/8 flex items-center justify-between">
-                  <span className="text-xs text-[#171717]/60 font-semibold">Kampanya Başarı Metriği:</span>
+                  <span className="text-xs text-[#171717]/60 font-semibold">Çalışma türü:</span>
                   <span className="text-sm font-extrabold text-[#171717]">
-                    {selectedProject.metric}
+                    Yaratıcı konsept; doğrulanmış müşteri sonucu değildir.
                   </span>
                 </div>
 

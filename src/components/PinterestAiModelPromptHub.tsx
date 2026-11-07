@@ -498,16 +498,14 @@ export const PinterestAiModelPromptHub: React.FC = () => {
           <div className="space-y-3 max-w-3xl">
             <div className="inline-flex flex-wrap items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/15 border border-emerald-400/30 text-emerald-300 text-xs font-extrabold tracking-wide">
               <ShieldCheck className="w-4 h-4" />
-              <span>%100 YAPAY ZEKA SANAL MANKEN GARANTİSİ (GERÇEK KİŞİ DEĞİLDİR • TELİFSİZ)</span>
+              <span>KURGUSAL AI MODEL KONSEPTLERİ • KULLANIM HAKLARINI KONTROL EDİN</span>
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight">
-              Pinterest <span className="text-[#E65A7F]">@thezencirs/guzelaicom</span> AI Manken & Tersine Mühendislik Stüdyosu
+              Pinterest için <span className="text-[#E65A7F]">AI Manken</span> Prompt Stüdyosu
             </h2>
             <p className="text-sm sm:text-base text-white/75 leading-relaxed">
-              Pinterest panomuzdaki tüm modellerin <strong>tersine mühendislik (reverse-engineering)</strong> ile çıkarılmış
-              ışık, lens, cilt dokusu (<em>Nano Banana Pro Raw Skin</em>) ve çoklu açı promptları. Tüm mankenlerimiz{" "}
-              <strong>%100 yapay zeka üretimi kurgusal karakterlerdir</strong> ve sosyal medya kombinlerimizde{" "}
-              <span className="text-amber-300 font-bold">3 Kadın : 2 Erkek : 1 Çocuk (Kız/Erkek)</span> altın oranıyla paylaşılır.
+              Kurgusal karakterler için ışık, lens, cilt dokusu ve farklı açılar hakkında prompt taslakları.
+              Her görseli yayın öncesinde kişi benzerliği, yaşa uygunluk ve kullanım hakları açısından kontrol edin.
             </p>
           </div>
 
@@ -516,10 +514,10 @@ export const PinterestAiModelPromptHub: React.FC = () => {
             <div className="flex items-center justify-between">
               <span className="text-[11px] font-mono uppercase tracking-wider text-amber-300 font-bold flex items-center gap-1.5">
                 <Users className="w-4 h-4" />
-                Sosyal Medya Kombin Kotası (6'lı Döngü)
+                Örnek İçerik Planı (6'lı Döngü)
               </span>
               <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-bold">
-                AKTİF KURAL
+                PLAN TASLAĞI
               </span>
             </div>
             <div className="grid grid-cols-3 gap-2 text-center">
@@ -586,7 +584,7 @@ export const PinterestAiModelPromptHub: React.FC = () => {
             rel="noopener noreferrer"
             className="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 text-xs font-bold text-white flex items-center gap-2 transition"
           >
-            <span>Resmi Pinterest Panosunu Aç</span>
+            <span>Pinterest bağlantısını aç</span>
             <ExternalLink className="w-3.5 h-3.5 text-[#E65A7F]" />
           </a>
         </div>

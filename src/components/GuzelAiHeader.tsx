@@ -179,7 +179,7 @@ export const GuzelAiHeader: React.FC<GuzelAiHeaderProps> = ({
           >
             <span>Kombin Linkleri</span>
             <span className="text-[9px] px-1.5 py-0.2 rounded-full font-black bg-emerald-500 text-black">
-              DOĞRULANMIŞ
+              STİL ÖNERİSİ
             </span>
           </button>
 
@@ -374,7 +374,7 @@ export const GuzelAiHeader: React.FC<GuzelAiHeaderProps> = ({
             >
               <span className="font-bold text-emerald-700">Kombin & E-Ticaret Linkleri</span>
               <span className="text-xs px-2 py-0.5 rounded-full bg-emerald-500 text-black font-black">
-                DOĞRULANMIŞ
+                STİL ÖNERİSİ
               </span>
             </button>
             <button

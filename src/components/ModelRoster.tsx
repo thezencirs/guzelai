@@ -250,7 +250,7 @@ export const ModelRoster: React.FC<ModelRosterProps> = ({
                       MARKA İŞBİRLİĞİNE HAZIR
                     </span>
                     <span className="px-2 py-0.5 rounded-full bg-black/70 backdrop-blur text-neutral-300 text-[10px] font-medium border border-white/10">
-                      100% Telifsiz
+                      Hakları Kontrol Edin
                     </span>
                   </div>
                 )}
@@ -453,7 +453,7 @@ export const ModelRoster: React.FC<ModelRosterProps> = ({
                   <div className="flex items-center gap-2 text-xs">
                     <span className="px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center gap-1 font-semibold text-[11px]">
                       <ShieldCheck className="w-3.5 h-3.5" />
-                      100% Ticari Telifsiz
+                      Ticari Hakları Kontrol Edin
                     </span>
                   </div>
                 </div>

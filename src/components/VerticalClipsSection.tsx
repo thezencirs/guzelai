@@ -495,7 +495,7 @@ export const VerticalClipsSection: React.FC<VerticalClipsSectionProps> = ({
                         Seçilen Model: <span className="text-[#E65A7F]">{selectedModel.name}</span>
                       </span>
                       <span className="text-[#41631E] font-bold flex items-center gap-1">
-                        <CheckCircle2 className="w-3.5 h-3.5" /> %100 Telifsiz Ticari Güvence
+                        <CheckCircle2 className="w-3.5 h-3.5" /> Ticari kullanım koşullarını kontrol edin
                       </span>
                     </div>
 
@@ -892,7 +892,7 @@ export const VerticalClipsSection: React.FC<VerticalClipsSectionProps> = ({
                       Dikey Reklamınızı İndirin & Kanallarda Yayınlayın
                     </h3>
                     <p className="text-sm text-[#171717]/75 leading-relaxed">
-                      Filminiz TikTok, Instagram Reels ve YouTube Shorts formatlarına uygun olarak 9:16 (1080x1920) çözünürlükte, telifsiz sentetik manken ile derlendi.
+                      Klip taslağı 9:16 formatı için hazırlandı. Görsel, ses ve model haklarını yayın öncesinde kontrol edin.
                     </p>
                   </div>
 
@@ -917,7 +917,7 @@ export const VerticalClipsSection: React.FC<VerticalClipsSectionProps> = ({
                     <div className="flex justify-between py-1">
                       <span className="text-[#171717]/60">Ticari Lisans:</span>
                       <span className="font-bold text-[#41631E] flex items-center gap-1">
-                        <CheckCircle2 className="w-3.5 h-3.5" /> %100 Telifsiz Ticari Hak
+                        <CheckCircle2 className="w-3.5 h-3.5" /> Ticari hakları kontrol edin
                       </span>
                     </div>
                   </div>

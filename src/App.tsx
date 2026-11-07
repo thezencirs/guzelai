@@ -392,7 +392,7 @@ export default function App() {
               </button>
 
               <span className="text-white/60 hidden lg:inline text-[11px]">
-                GuzelAI Commercial Studio Engine &bull; %100 Telifsiz Ticari Lisans
+                GuzelAI Commercial Studio Engine &bull; Ticari hakları proje bazında kontrol edin
               </span>
               <button
                 id="btn-studio-language-modal"

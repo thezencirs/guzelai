@@ -82,11 +82,16 @@ export const GuzelAiFooter: React.FC<GuzelAiFooterProps> = ({
             <div className="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-2">
               <div className="flex items-center gap-2 text-xs font-bold text-white">
                 <ShieldCheck className="w-4 h-4 text-[#41631E]" />
-                <span>%100 Ticari Kullanım Güvencesi</span>
+                <span>İçerik ve kullanım bilgileri</span>
               </div>
               <p className="text-[11px] text-white/60 leading-relaxed">
-                {t.footer.safeNotice}
+                AI ile hazırlanan görsellerin ve üçüncü taraf marka öğelerinin kullanım koşulları projeye göre değerlendirilir.
               </p>
+              <nav aria-label="Yasal ve kurumsal bilgiler" className="flex flex-wrap gap-x-4 gap-y-2 pt-2 text-[11px]">
+                <a href="/hakkimizda/" className="underline hover:text-white">Hakkımızda</a>
+                <a href="/iletisim/" className="underline hover:text-white">İletişim</a>
+                <a href="/gizlilik-politikasi/" className="underline hover:text-white">Gizlilik ve çerezler</a>
+              </nav>
             </div>
           </div>
         </div>
@@ -117,7 +122,7 @@ export const GuzelAiFooter: React.FC<GuzelAiFooterProps> = ({
               <span>🔒 Özel Yönetim</span>
             </a>
             <span className="text-[11px] text-white/40">
-              GuzelAI Medya Şirketi &bull; Global AI Creative Studio
+              GuzelAI Medya &bull; AI yaratıcı konseptler
             </span>
           </div>
         </div>

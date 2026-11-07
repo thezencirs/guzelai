@@ -373,7 +373,7 @@ export const PhotoshootWizard: React.FC<PhotoshootWizardProps> = ({
             className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-950/60 text-emerald-300 border border-emerald-800/80 text-xs font-semibold hover:bg-emerald-900/40 transition"
           >
             <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-            <span>%100 Telifsiz Ticari Lisans</span>
+            <span>Ticari hakları proje bazında kontrol edin</span>
           </button>
 
           {/* Navigation Controls */}
@@ -895,7 +895,7 @@ export const PhotoshootWizard: React.FC<PhotoshootWizardProps> = ({
                 <div>
                   <h2 className="text-lg font-bold text-white">Ambiance & Environment (Reklam Mekanı ve Kurgusu)</h2>
                   <p className="text-xs text-neutral-400 mt-0.5">
-                    Moda, mobilya, spor ayakkabı veya kozmetik için özel tasarlanmış telifsiz ticari mekan kurguları.
+                    Moda, mobilya, spor ayakkabı veya kozmetik için tasarlanmış ticari mekan konseptleri. Yayın öncesi kullanım haklarını kontrol edin.
                   </p>
                 </div>
                 <span className="text-xs bg-purple-500/20 text-purple-300 border border-purple-500/30 px-2.5 py-1 rounded-lg font-medium self-start">

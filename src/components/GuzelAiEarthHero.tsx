@@ -69,7 +69,7 @@ const WORLD_HUBS: WorldLocationHub[] = [
     model: AI_MODELS.find((m) => m.id === "valentina-cruz") || AI_MODELS[0],
     highlightTag: "Ferrari 360 Spider & Günbatımı Kırmızı Mini Elbise",
     signatureLook: "Kırmızı Mini Elbise, Kırmızı Saç Kurdelesi & Şampanya Convertible",
-    roasMetric: "5.6x ROAS",
+    roasMetric: "AI MODA KONSEPTİ",
     soundtrackLabel: "Riviera Sunset Chill & Deep Bass (120 BPM)",
   },
   {
@@ -84,7 +84,7 @@ const WORLD_HUBS: WorldLocationHub[] = [
     model: AI_MODELS.find((m) => m.id === "scarlett-vance") || AI_MODELS[0],
     highlightTag: "Podyum Işığı & 6 Açılı Katalog Çekimi",
     signatureLook: "Kahve Nappa Deri Büstiyer & Rugan Platform Çizme",
-    roasMetric: "3.9x ROAS",
+    roasMetric: "AI MODA KONSEPTİ",
     soundtrackLabel: "Luxury Lounge Deep House (124 BPM)",
   },
   {
@@ -99,7 +99,7 @@ const WORLD_HUBS: WorldLocationHub[] = [
     model: AI_MODELS.find((m) => m.id === "yuki-bloom") || AI_MODELS[1],
     highlightTag: "Ultra Makro Cam Ten & Pirinç Özlü Serum",
     signatureLook: "Kore Porselen Işıltısı & Sakura Pembe Saç",
-    roasMetric: "4.4x ROAS",
+    roasMetric: "AI MODA KONSEPTİ",
     soundtrackLabel: "Neo-Tokyo Cyber Synth & Ambient Chime",
   },
   {
@@ -114,7 +114,7 @@ const WORLD_HUBS: WorldLocationHub[] = [
     model: AI_MODELS.find((m) => m.id === "mateo-silva") || AI_MODELS[3] || AI_MODELS[0],
     highlightTag: "Gökdelen Gün Batımı & Düşük Açı Dinamik Takip",
     signatureLook: "AeroSprint Neon Runner & Oversize Kapüşonlu",
-    roasMetric: "5.2x ROAS",
+    roasMetric: "AI MODA KONSEPTİ",
     soundtrackLabel: "High-Energy Synthwave Pulse",
   },
   {
@@ -129,7 +129,7 @@ const WORLD_HUBS: WorldLocationHub[] = [
     model: AI_MODELS.find((m) => m.id === "elena-rostova") || AI_MODELS[2] || AI_MODELS[0],
     highlightTag: "360° Gerdanlık Yavaş Dönüşü & Kadife Işık",
     signatureLook: "Zümrüt Damla Kolye & Siyah Saten Elbise",
-    roasMetric: "3.5x ROAS",
+    roasMetric: "AI MODA KONSEPTİ",
     soundtrackLabel: "Neo-Classical Piano & Velvet Strings",
   },
   {
@@ -144,7 +144,7 @@ const WORLD_HUBS: WorldLocationHub[] = [
     model: AI_MODELS.find((m) => m.id === "aura-kaya") || AI_MODELS[0],
     highlightTag: "Boğaz Rüzgarı & Beyaz Amber Koku Görseli",
     signatureLook: "İpek Şifon Elbise & Altın Detaylı Küpeler",
-    roasMetric: "4.1x ROAS",
+    roasMetric: "AI MODA KONSEPTİ",
     soundtrackLabel: "Mediterranean Sunset Chill & Silk Strings",
   },
   {
@@ -159,7 +159,7 @@ const WORLD_HUBS: WorldLocationHub[] = [
     model: AI_MODELS.find((m) => m.id === "chloe-bennett") || AI_MODELS[4] || AI_MODELS[0],
     highlightTag: "Doğal El Kamerası & 15s Dönüşüm Kurgusu",
     signatureLook: "California Sunset Athleisure & Podcast Mic",
-    roasMetric: "4.8x ROAS",
+    roasMetric: "AI MODA KONSEPTİ",
     soundtrackLabel: "Lo-Fi Coffee Shop Acoustic Beat",
   },
 ];
