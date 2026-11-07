@@ -859,7 +859,7 @@ export const GuzelAiEarthHero: React.FC<GuzelAiEarthHeroProps> = ({
             <div className="flex flex-wrap items-center gap-3 pt-2">
               <button
                 onClick={() => document.getElementById(`model-${currentHub.id.replace("hub-", "")}`)?.scrollIntoView({ behavior: "smooth" })}
-                className="px-6 py-3 rounded-full font-extrabold text-xs sm:text-sm text-white transition shadow-xl flex items-center gap-2"
+                className="px-6 py-3 rounded-full font-extrabold text-xs sm:text-sm text-[#111827] transition shadow-xl flex items-center gap-2"
                 style={{ backgroundColor: currentHub.colorHex }}
               >
                 <Sparkles className="w-4 h-4" />
@@ -1012,7 +1012,7 @@ export const GuzelAiEarthHero: React.FC<GuzelAiEarthHeroProps> = ({
                   onClick={() => selectHub(idx)}
                   className={`px-3.5 py-1.5 rounded-xl font-extrabold text-xs transition flex items-center gap-2 whitespace-nowrap border ${
                     isSelected
-                      ? "text-white shadow-md scale-105"
+                      ? "text-[#111827] shadow-md scale-105"
                       : "bg-white/5 text-white/60 hover:text-white border-white/10 hover:bg-white/10"
                   }`}
                   style={{
@@ -1021,7 +1021,7 @@ export const GuzelAiEarthHero: React.FC<GuzelAiEarthHeroProps> = ({
                   }}
                 >
                   <span
-                    className={`w-2 h-2 rounded-full ${isSelected ? "bg-white animate-ping" : "bg-white/40"}`}
+                    className={`w-2 h-2 rounded-full ${isSelected ? "bg-[#111827] animate-ping" : "bg-white/40"}`}
                   />
                   <span>{hub.cityName}</span>
                 </button>

@@ -39,8 +39,8 @@ export const ContinentalModelCollection: React.FC = () => {
 
         <div className="grid gap-7 lg:grid-cols-2">
           {CONTINENTAL_MODELS.map((model, index) => (
-            <article key={model.id} id={`model-${model.id}`} className="group overflow-hidden rounded-[28px] border border-white/10 bg-[#101824] shadow-[0_24px_70px_rgba(0,0,0,0.22)]">
-              <div className="relative aspect-[4/5] overflow-hidden bg-slate-900 sm:aspect-[5/4]">
+            <article key={model.id} id={`model-${model.id}`} className="group scroll-mt-24 overflow-hidden rounded-[28px] border border-white/10 bg-[#101824] shadow-[0_24px_70px_rgba(0,0,0,0.22)]">
+              <div className="relative aspect-[4/5] overflow-hidden bg-slate-900">
                 <img src={model.image} alt={model.imageAltTR} loading={index < 2 ? "eager" : "lazy"} decoding="async" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.035]" />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#07101b] via-transparent to-black/10" />
                 <div className="absolute left-5 top-5 rounded-full border border-white/25 bg-black/45 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] backdrop-blur-md">
@@ -54,6 +54,7 @@ export const ContinentalModelCollection: React.FC = () => {
 
               <div className="space-y-5 p-5 sm:p-6">
                 <p className="text-sm leading-7 text-slate-200">{model.story}</p>
+                <p className="border-l-2 border-cyan-300/45 pl-3 text-xs leading-6 text-slate-400">{model.culturalNoteTR}</p>
                 <div className="flex flex-wrap gap-2">
                   {model.tags.map((tag) => <span key={tag} className="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[11px] text-slate-300">{tag}</span>)}
                 </div>
