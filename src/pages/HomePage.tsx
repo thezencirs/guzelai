@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { TranslationSchema } from "../i18n/translations";
 import { GuzelAiEarthHero } from "../components/GuzelAiEarthHero";
 import { ContinentalModelCollection } from "../components/ContinentalModelCollection";
+import { ChildModelCollection } from "../components/ChildModelCollection";
+import { BrandCaseStudy } from "../components/BrandCaseStudy";
 import { ServicesSection } from "../components/ServicesSection";
 import { InteractiveAdFormatsSection } from "../components/InteractiveAdFormatsSection";
 import { AiStudioSection } from "../components/AiStudioSection";
@@ -45,6 +47,13 @@ export const HomePage: React.FC<HomePageProps> = ({
   onSelectModelForDressUp,
   onSelectModelForPhotoshoot,
 }) => {
+  useEffect(() => {
+    const id = window.location.hash.slice(1);
+    if (!["dunya-modelleri", "cocuk-modeller", "vuli-marka-ornegi", "vuli-sistem"].includes(id)) return;
+    const frame = window.requestAnimationFrame(() => document.getElementById(id)?.scrollIntoView());
+    return () => window.cancelAnimationFrame(frame);
+  }, []);
+
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: "smooth" });
@@ -73,7 +82,16 @@ export const HomePage: React.FC<HomePageProps> = ({
         onScrollToWebsites={onNavigateWebsites}
       />
 
+      <nav aria-label="Model ve marka örnekleri" className="bg-[#080d16] px-4 pt-6 sm:px-6">
+        <div className="mx-auto flex max-w-7xl flex-wrap gap-3 border-b border-white/10 pb-6">
+          <a href="#dunya-modelleri" className="rounded-full border border-white/20 px-4 py-2 text-xs font-bold text-white transition hover:bg-white/10">Yetişkin model atlası</a>
+          <a href="#cocuk-modeller" className="rounded-full border border-white/20 px-4 py-2 text-xs font-bold text-white transition hover:bg-white/10">Çocuk karakter atlası</a>
+          <a href="#vuli-marka-ornegi" className="rounded-full bg-[#d8b878] px-4 py-2 text-xs font-bold text-[#192625] transition hover:bg-[#e5c88f]">VÜLİ marka örneği</a>
+        </div>
+      </nav>
       <ContinentalModelCollection />
+      <ChildModelCollection />
+      <BrandCaseStudy onOpenContactModal={onOpenContactModal} />
 
       {/* 1.5. Verified E-Commerce Kombin & Video Links Showcase (#kombinler) */}
       <VerifiedKombinShowcase />

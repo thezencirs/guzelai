@@ -1,17 +1,19 @@
 import React, { useState } from "react";
 import { Check, Copy, Globe2, MapPin, Sparkles } from "lucide-react";
 import { CONTINENTAL_MODELS } from "../data/continentalModels";
+import { copyText } from "../utils/clipboard";
 
 export const ContinentalModelCollection: React.FC = () => {
   const [copiedId, setCopiedId] = useState<string | null>(null);
 
   const copyPrompt = async (id: string, prompt: string) => {
     try {
-      await navigator.clipboard.writeText(prompt);
+      if (!await copyText(prompt)) throw new Error("Copy failed");
       setCopiedId(id);
       window.setTimeout(() => setCopiedId((current) => current === id ? null : current), 2200);
     } catch {
-      setCopiedId(null);
+      setCopiedId(`failed:${id}`);
+      window.setTimeout(() => setCopiedId((current) => current === `failed:${id}` ? null : current), 2200);
     }
   };
 
@@ -63,7 +65,7 @@ export const ContinentalModelCollection: React.FC = () => {
                     <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#9ed3dc]">Görsel üretim promptu</span>
                     <button type="button" onClick={() => copyPrompt(model.id, model.prompt)} className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-white/15 px-3 py-1.5 text-[11px] font-semibold text-white transition hover:bg-white/10" aria-label={`${model.name} promptunu kopyala`}>
                       {copiedId === model.id ? <Check className="h-3.5 w-3.5" /> : <Copy className="h-3.5 w-3.5" />}
-                      {copiedId === model.id ? "Kopyalandı" : "Kopyala"}
+                      {copiedId === model.id ? "Kopyalandı" : copiedId === `failed:${model.id}` ? "Seçerek kopyala" : "Kopyala"}
                     </button>
                   </div>
                   <p className="whitespace-pre-wrap break-words font-mono text-[11px] leading-6 text-slate-300 sm:text-xs">{model.prompt}</p>
