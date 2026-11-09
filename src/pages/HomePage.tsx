@@ -11,6 +11,7 @@ import { ProjectsSection } from "../components/ProjectsSection";
 import { MagazineSection } from "../components/MagazineSection";
 import { GuzelAiFooter } from "../components/GuzelAiFooter";
 import { SocialArchiveSection } from "../components/SocialArchiveSection";
+import { ServicePackagesSection } from "../components/ServicePackagesSection";
 import { VerifiedKombinShowcase } from "../components/VerifiedKombinShowcase";
 import { PinterestAiModelPromptHub } from "../components/PinterestAiModelPromptHub";
 import {
@@ -256,6 +257,8 @@ export const HomePage: React.FC<HomePageProps> = ({
           onOpenStudio={() => onOpenFullStudio("templates")}
         />
       </section>
+
+      <ServicePackagesSection />
 
       {/* 4. Interactive Ad Formats */}
       <section id="interactive-formats-section">
