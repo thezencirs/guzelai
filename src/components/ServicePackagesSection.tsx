@@ -1,44 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 
-const packages = [
-  {
-    name: "Kampanya görseli",
-    audience: "Tek ürün veya kısa bir lansman için",
-    items: ["Ürün ve hedef kitleye uygun görsel yön", "Seçilen yetişkin AI modelle kampanya taslağı", "Yayın öncesi görsel ve kullanım hakkı kontrolü"],
-  },
-  {
-    name: "Sosyal içerik serisi",
-    audience: "Düzenli Instagram ve TikTok yayını için",
-    items: ["Tekrarlanabilir renk ve tipografi kuralları", "Aynı modelle uyumlu görsel konseptleri", "Reels kapağı, açıklama ve yayın planı taslağı"],
-  },
-  {
-    name: "Marka yüzü ve kimlik",
-    audience: "Uzun soluklu bir marka dili kurmak için",
-    items: ["Kurgusal karakter ve referans görselleri", "Logo, renk, web ve sosyal görsel yönü", "Yeni çekimler için karakter tutarlılığı dosyası"],
-  },
+const plans = [
+  { name: "Başlangıç", tag: "Düzenli görünürlük", audience: "Tek marka, tek ana kanal", items: ["Aylık içerik planı ve marka tonu", "8 statik sosyal medya görseli", "4 kısa video taslağı / kurgu", "1 ürün veya hizmet kampanyası", "1 revizyon turu / teslim"], note: "Yayınlama ve reklam bütçesi ayrı planlanır." },
+  { name: "Büyüme", tag: "Çok kanallı üretim", audience: "Sosyal medya + ürün vitrini", items: ["Aylık strateji ve performans görüşmesi", "12 statik görsel + 8 kısa video", "2 ürün çekimi konsepti / ay", "Web açılış sayfası içerik güncellemesi", "2 revizyon turu / teslim"], note: "Ürün gönderimi, çekim ve entegrasyon kapsamı teklifte netleşir." },
+  { name: "Marka Stüdyosu", tag: "Uçtan uca marka ekibi", audience: "Kampanya, web ve içerik birlikte", items: ["Marka kılavuzu ve tutarlı model dosyası", "16 statik görsel + 12 kısa video", "Aylık kampanya ve ürün vitrini seti", "Web sitesi içerik ve tasarım desteği", "Öncelikli planlama + 2 revizyon turu"], note: "Yeni site geliştirme ve reklam harcaması ayrıca fiyatlanır." },
 ] as const;
+const extras = ["E-ticaret ürün görselleri", "Web sitesi tasarımı / yenileme", "Reklam kreatifleri", "Influencer / AI marka yüzü", "SEO içerikleri", "E-posta kampanyası", "Basın ve sunum kiti", "Çok dilli içerik"];
 
-export const ServicePackagesSection: React.FC = () => (
-  <section id="hizmet-paketleri" className="bg-[#f3f0ea] py-20 text-[#171717]">
+export const ServicePackagesSection: React.FC = () => {
+  const [plan, setPlan] = useState<string>(plans[1].name);
+  const [selected, setSelected] = useState<string[]>([]);
+  const [brand, setBrand] = useState("");
+  const [site, setSite] = useState("");
+  const [goal, setGoal] = useState("");
+  const toggle = (value: string) => setSelected((current) => current.includes(value) ? current.filter((item) => item !== value) : [...current, value]);
+  const subject = encodeURIComponent(`GuzelAI aylık iş ortaklığı: ${plan}`);
+  const body = encodeURIComponent(`Merhaba GuzelAI,\n\nAylık paket: ${plan}\nMarka: ${brand || "(doldurulmadı)"}\nWeb / sosyal hesap: ${site || "(doldurulmadı)"}\nHedef: ${goal || "(doldurulmadı)"}\nEk işler: ${selected.join(", ") || "Yok"}\n\nLütfen kapsam, teslim takvimi ve aylık fiyat teklifini paylaşın.`);
+  return <section id="hizmet-paketleri" className="bg-[#f3f0ea] py-20 text-[#171717]">
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <p className="text-xs font-bold uppercase tracking-[.2em] text-[#a72c55]">Birlikte çalışalım</p>
-      <h2 className="mt-3 max-w-3xl font-serif text-4xl font-semibold sm:text-5xl">Markanız için doğru üretim yolunu seçin.</h2>
-      <p className="mt-5 max-w-2xl text-sm leading-7 text-[#171717]/70">Ürününüzü ve hedefinizi anlatın. Kapsamı, teslimleri ve fiyatı size özel teklifimizde netleştirelim.</p>
-      <div className="mt-9 grid gap-5 md:grid-cols-3">
-        {packages.map((item) => {
-          const subject = encodeURIComponent(`GuzelAI teklif talebi: ${item.name}`);
-          const body = encodeURIComponent(`Merhaba GuzelAI,\n\n${item.name} paketi için görüşmek istiyorum.\n\nMarkam/ürünüm: \nHedef kitlem: \nİstediğim teslimler: \nZamanlamam: `);
-          return <article key={item.name} className="flex flex-col rounded-[28px] border border-[#171717]/10 bg-white p-6 shadow-sm sm:p-7">
-            <h3 className="font-serif text-2xl font-semibold">{item.name}</h3>
-            <p className="mt-2 text-sm text-[#171717]/60">{item.audience}</p>
-            <ul className="mt-7 flex-1 space-y-3 text-sm leading-6">
-              {item.items.map((detail) => <li key={detail} className="flex gap-2"><span aria-hidden="true" className="text-[#a72c55]">✓</span><span>{detail}</span></li>)}
-            </ul>
-            <a href={`mailto:info@guzelai.com?subject=${subject}&body=${body}`} className="mt-8 inline-flex justify-center rounded-full bg-[#171717] px-5 py-3 text-sm font-bold text-white hover:bg-[#a72c55]">Bu paket için teklif iste</a>
-          </article>;
-        })}
-      </div>
-      <p className="mt-5 text-xs leading-5 text-[#171717]/60">Bağlantı e-posta uygulamanızda taslak açar. Talep, Gönder düğmesine bastığınızda iletilir.</p>
+      <p className="text-xs font-bold uppercase tracking-[.2em] text-[#a72c55]">GuzelAI abonelik modeli</p>
+      <h2 className="mt-3 max-w-4xl font-serif text-4xl font-semibold sm:text-5xl">Markanızın yaratıcı ekibi, her ay yanınızda.</h2>
+      <p className="mt-5 max-w-3xl text-sm leading-7 text-[#171717]/70">Sosyal medya, video, ürün görselleri ve web içeriğini tek bir marka çizgisinde üretelim. Paketi ve ek işleri seçin; kapsamı ve aylık fiyatı yazılı teklif ile kesinleştirelim.</p>
+      <div className="mt-10 grid gap-5 lg:grid-cols-3">{plans.map((item) => <article key={item.name} className={`flex flex-col rounded-[28px] border p-6 sm:p-7 ${plan === item.name ? "border-[#a72c55] bg-white shadow-xl" : "border-[#171717]/10 bg-white/70"}`}><span className="text-xs font-bold uppercase tracking-[.18em] text-[#a72c55]">{item.tag}</span><h3 className="mt-4 font-serif text-3xl font-semibold">{item.name}</h3><p className="mt-2 text-sm text-[#171717]/60">{item.audience}</p><ul className="mt-7 flex-1 space-y-3 text-sm leading-6">{item.items.map((detail) => <li key={detail} className="flex gap-2"><span aria-hidden="true" className="text-[#a72c55]">✓</span><span>{detail}</span></li>)}</ul><p className="mt-6 border-t border-[#171717]/10 pt-4 text-xs leading-5 text-[#171717]/60">{item.note}</p><button type="button" onClick={() => { setPlan(item.name); document.getElementById("abonelik-brief")?.scrollIntoView({ behavior: "smooth", block: "center" }); }} className="mt-6 rounded-full bg-[#171717] px-5 py-3 text-sm font-bold text-white hover:bg-[#a72c55]">{plan === item.name ? "Seçili paket" : "Bu paketi seç"}</button></article>)}</div>
+      <div id="abonelik-brief" className="mt-12 scroll-mt-24 rounded-[30px] bg-[#192625] p-6 text-white sm:p-9"><div className="grid gap-8 lg:grid-cols-[.85fr_1.15fr]"><div><p className="text-xs font-bold uppercase tracking-[.2em] text-[#d8b878]">İşinizi bize anlatın</p><h3 className="mt-4 font-serif text-3xl sm:text-4xl">Sizin için doğru kapsamı kuralım.</h3><p className="mt-5 text-sm leading-7 text-white/70">Seçili paket: <strong className="text-white">{plan}</strong>. Bu bir teklif hazırlama adımıdır; ödeme veya abonelik başlatmaz. Dosya yükleme ve proje paneli hesap altyapısı tamamlandığında açılacaktır.</p></div><div className="space-y-4"><div className="grid gap-4 sm:grid-cols-2"><label className="text-xs font-bold">Marka adı<input value={brand} onChange={(event) => setBrand(event.target.value)} placeholder="Markanız" className="mt-2 w-full rounded-xl border border-white/20 bg-white p-3 text-sm text-[#192625]" /></label><label className="text-xs font-bold">Web veya sosyal hesap<input value={site} onChange={(event) => setSite(event.target.value)} placeholder="https://..." className="mt-2 w-full rounded-xl border border-white/20 bg-white p-3 text-sm text-[#192625]" /></label></div><label className="block text-xs font-bold">Öncelikli hedef<textarea value={goal} onChange={(event) => setGoal(event.target.value)} rows={3} placeholder="Satış, lansman, marka görünürlüğü..." className="mt-2 w-full rounded-xl border border-white/20 bg-white p-3 text-sm text-[#192625]" /></label><div><p className="mb-3 text-xs font-bold">Ek işler</p><div className="flex flex-wrap gap-2">{extras.map((extra) => <button type="button" key={extra} onClick={() => toggle(extra)} aria-pressed={selected.includes(extra)} className={`rounded-full border px-3 py-2 text-xs transition ${selected.includes(extra) ? "border-[#d8b878] bg-[#d8b878] text-[#192625]" : "border-white/25 text-white hover:border-white"}`}>{extra}</button>)}</div></div><a href={`mailto:info@guzelai.com?subject=${subject}&body=${body}`} className="inline-flex rounded-full bg-[#d8b878] px-6 py-3 text-sm font-bold text-[#192625] hover:bg-[#e8c995]">Teklif e-postasını hazırla</a><p className="text-xs text-white/60">E-posta uygulamanız açılır; talep ancak Gönder düğmesine bastığınızda iletilir.</p></div></div></div>
     </div>
-  </section>
-);
+  </section>;
+};
