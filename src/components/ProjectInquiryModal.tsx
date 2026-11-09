@@ -36,10 +36,18 @@ export const ProjectInquiryModal: React.FC<ProjectInquiryModalProps> = ({
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const brief = `GuzelAI proje özeti\nAd: ${name}\nE-posta: ${email}\nHizmetler: ${selectedServices.join(", ")}\nBütçe: ${budget}\nMesaj: ${message}`;
+    const subject = `GuzelAI proje talebi: ${selectedServices.join(", ")}`;
+    const mailto = `mailto:info@guzelai.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(brief)}`;
+    setCopyError(false);
+    setSubmitted(true);
+    window.location.href = mailto;
+  };
+
+  const copyBrief = async () => {
+    const brief = `GuzelAI proje özeti\nAd: ${name}\nE-posta: ${email}\nHizmetler: ${selectedServices.join(", ")}\nBütçe: ${budget}\nMesaj: ${message}`;
     try {
       await navigator.clipboard.writeText(brief);
       setCopyError(false);
-      setSubmitted(true);
     } catch {
       setCopyError(true);
     }
@@ -81,12 +89,15 @@ export const ProjectInquiryModal: React.FC<ProjectInquiryModalProps> = ({
               <CheckCircle2 className="w-8 h-8" />
             </div>
             <h3 className="text-2xl font-extrabold text-[#171717]">
-              Proje özeti kopyalandı
+              E-posta taslağınız hazır
             </h3>
             <p className="text-sm text-[#171717]/75 max-w-md mx-auto leading-relaxed">
-              Özeti kendi iletişim kanalınızda kullanabilirsiniz. Bu işlem GuzelAI'ye mesaj göndermedi.
+              E-posta uygulamanızda gönder düğmesine basın. Uygulama açılmadıysa özeti kopyalayıp info@guzelai.com adresine kendiniz gönderebilirsiniz.
             </p>
             <div className="pt-4">
+              <button onClick={copyBrief} className="mr-3 px-6 py-3 rounded-full border border-[#171717]/20 text-xs font-bold hover:bg-white">
+                Özeti kopyala
+              </button>
               <button
                 onClick={resetAndClose}
                 className="px-6 py-3 rounded-full bg-[#171717] text-white text-xs font-bold hover:bg-[#262626] transition"
@@ -105,7 +116,7 @@ export const ProjectInquiryModal: React.FC<ProjectInquiryModalProps> = ({
                 Proje özeti hazırlayın
               </h3>
               <p className="text-xs sm:text-sm text-[#171717]/70 leading-relaxed">
-                Bilgileri doldurup metni kopyalayın. Şu anda bu form mesaj göndermiyor; iletişim adresi eklendiğinde sayfada duyuracağız.
+                Projenizi kısaca anlatın. Gönder düğmesi e-posta uygulamanızda info@guzelai.com adresine hazır bir taslak açar.
               </p>
             </div>
 
@@ -205,12 +216,11 @@ export const ProjectInquiryModal: React.FC<ProjectInquiryModalProps> = ({
             </div>
 
             {copyError && <p role="alert" className="text-sm text-red-700">Kopyalama başarısız oldu. Tarayıcınızın pano iznini kontrol edip yeniden deneyin.</p>}
-            {/* Copy the brief locally; there is no submission endpoint yet. */}
             <button
               type="submit"
               className="w-full py-3.5 rounded-full bg-[#E65A7F] hover:bg-[#D9496F] text-white text-xs sm:text-sm font-bold tracking-tight transition shadow-md shadow-[#E65A7F]/30 flex items-center justify-center gap-2"
             >
-              <span>Özeti kopyala</span>
+              <span>E-posta taslağı oluştur</span>
               <Send className="w-4 h-4" />
             </button>
           </form>

@@ -16,7 +16,7 @@ PAGES = {
   "iletisim": (
     "GuzelAI Medya İletişim",
     "GuzelAI Medya'ya proje, içerik ve hak sahipliği konularında ulaşın.",
-    """<p>İletişim adresimiz henüz yayımlanmadı. Ana sayfadaki <a href="/#contact-section">proje özeti aracında</a> briefinizi hazırlayıp kopyalayabilirsiniz; bu işlem mesaj göndermez.</p><p>Bir görselin, ürün bilgisinin veya bağlantının düzeltilmesini istiyorsanız ilgili sayfanın adresini ve düzeltme nedenini not edin. Kişisel verilerinizi yalnızca gerekli ölçüde paylaşın.</p><p>Doğrulanmış bir kurumsal e-posta veya posta adresi eklendiğinde bu sayfa güncellenecektir.</p>"""
+    """<p>AI model, kampanya görseli, kısa video veya marka kimliği projeniz için <a href="mailto:info@guzelai.com">info@guzelai.com</a> adresine yazın. Ürününüzü, hedef kitlenizi, istediğiniz teslimleri ve zamanlamayı kısaca belirtin.</p><p>Ana sayfadaki <a href="/#contact-section">proje özeti aracı</a> e-posta taslağı hazırlamanıza yardımcı olur. Mesaj, e-posta uygulamanızda Gönder'e bastığınızda iletilir.</p><p>Bir görselin, ürün bilgisinin veya bağlantının düzeltilmesini istiyorsanız ilgili sayfanın adresini ve düzeltme nedenini ekleyin. Kişisel verilerinizi yalnızca gerekli ölçüde paylaşın.</p><h2>Sosyal hesaplarımız</h2><p><a href="https://www.instagram.com/guzelaicom/">Instagram</a> · <a href="https://www.tiktok.com/@guzelaicom">TikTok</a> · <a href="https://www.youtube.com/@guzelaicom">YouTube</a> · <a href="https://x.com/guzelaicom">X</a> · <a href="https://www.pinterest.com/guzelaicom/">Pinterest</a></p>"""
   ),
   "gizlilik-politikasi": (
     "Gizlilik ve Çerez Politikası",

@@ -2,6 +2,7 @@ import React from "react";
 import { Language, TranslationSchema, SUPPORTED_LANGUAGES } from "../i18n/translations";
 import { GuzelAiLogo } from "./GuzelAiLogo";
 import { Globe, ShieldCheck, Heart } from "lucide-react";
+import { SOCIAL_LINKS } from "../data/socialLinks";
 
 interface GuzelAiFooterProps {
   lang?: Language;
@@ -43,6 +44,10 @@ export const GuzelAiFooter: React.FC<GuzelAiFooterProps> = ({
               <span className="w-2 h-2 rounded-full bg-[#41631E]" />
               <span>{t.footer.location} &bull; Global Creative Delivery</span>
             </div>
+            <a className="inline-block text-sm font-bold text-white underline underline-offset-4 hover:text-[#44BDBD]" href="mailto:info@guzelai.com">info@guzelai.com</a>
+            <nav aria-label="Sosyal medya hesapları" className="flex flex-wrap gap-x-4 gap-y-2 pt-1">
+              {SOCIAL_LINKS.map((social) => <a key={social.name} href={social.url} target="_blank" rel="noopener noreferrer" className="text-xs text-white/70 underline underline-offset-4 hover:text-white">{social.name}</a>)}
+            </nav>
           </div>
 
           {/* Links Column 1: Services */}
