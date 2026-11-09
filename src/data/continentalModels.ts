@@ -114,7 +114,7 @@ export const CONTINENTAL_MODELS: ContinentalModel[] = [
   },
   {
     id: "oceania",
-    continent: "Okyanusya / Avustralya",
+    continent: "Okyanusya",
     location: "Melbourne, Avustralya",
     lat: -37.8136,
     lon: 144.9631,

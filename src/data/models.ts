@@ -1,5 +1,5 @@
 import { AIModel, ProductPreset, TextureOption, WardrobeOption, AccessoryItem } from "../types";
-import { CONTINENTAL_MODELS } from "./continentalModels";
+import { ATLAS_MODELS } from "./modelAtlas";
 
 export const AI_MODELS: AIModel[] = [
 {
@@ -665,7 +665,7 @@ export const AI_MODELS: AIModel[] = [
   },
 ];
 
-AI_MODELS.push(...CONTINENTAL_MODELS.map((entry): AIModel => ({
+AI_MODELS.push(...ATLAS_MODELS.map((entry): AIModel => ({
   id: `continent-${entry.id}`,
   name: entry.name,
   title: entry.role,

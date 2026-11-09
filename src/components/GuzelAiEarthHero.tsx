@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState, useCallback } from "react";
 import * as THREE from "three";
 import { TranslationSchema } from "../i18n/translations";
 import { AI_MODELS } from "../data/models";
-import { CONTINENTAL_MODELS } from "../data/continentalModels";
+import { ATLAS_MODELS } from "../data/modelAtlas";
 import { AIModel } from "../types";
 import {
   Sparkles,
@@ -57,7 +57,7 @@ interface WorldLocationHub {
 }
 
 // Seven real geographic points, each linked to its fictional adult model.
-const WORLD_HUBS: WorldLocationHub[] = CONTINENTAL_MODELS.map((entry) => ({
+const WORLD_HUBS: WorldLocationHub[] = ATLAS_MODELS.map((entry) => ({
   id: `hub-${entry.id}`,
   cityName: entry.location.toLocaleUpperCase("tr-TR"),
   country: entry.continent,
@@ -842,7 +842,7 @@ export const GuzelAiEarthHero: React.FC<GuzelAiEarthHeroProps> = ({
           {/* Left: Editorial Mission & Active Hub Info (6 cols) */}
           <div className="lg:col-span-6 space-y-4 pointer-events-auto text-left">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/15 text-xs font-extrabold tracking-wider uppercase text-white shadow-xl">
-              <span className="text-[#44BDBD]">0{activeIndex + 1} / 0{worldHubs.length}</span>
+              <span className="text-[#44BDBD]">{String(activeIndex + 1).padStart(2, "0")} / {worldHubs.length}</span>
               <span className="text-white/40">&bull;</span>
               <span style={{ color: currentHub.colorHex }}>{currentHub.categoryBadge}</span>
             </div>
@@ -858,7 +858,7 @@ export const GuzelAiEarthHero: React.FC<GuzelAiEarthHeroProps> = ({
             {/* Quick Actions */}
             <div className="flex flex-wrap items-center gap-3 pt-2">
               <button
-                onClick={() => document.getElementById(`model-${currentHub.id.replace("hub-", "")}`)?.scrollIntoView({ behavior: "smooth" })}
+                onClick={() => window.dispatchEvent(new CustomEvent("guzelai:show-model", { detail: currentHub.id.replace("hub-", "") }))}
                 className="px-6 py-3 rounded-full font-extrabold text-xs sm:text-sm text-[#111827] transition shadow-xl flex items-center gap-2"
                 style={{ backgroundColor: currentHub.colorHex }}
               >
