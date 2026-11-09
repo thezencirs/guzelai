@@ -21,7 +21,10 @@ export default async function handler(req, res) {
 
     const expectedAudience =
       process.env.GOOGLE_CLIENT_ID || process.env.VITE_GOOGLE_CLIENT_ID;
-    if (expectedAudience && profile.aud !== expectedAudience) {
+    if (!expectedAudience) {
+      return res.status(503).json({ error: "Google girişi henüz yapılandırılmadı." });
+    }
+    if (profile.aud !== expectedAudience) {
       return res.status(401).json({ error: "Google istemci kimliği uyuşmuyor." });
     }
 

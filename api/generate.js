@@ -1,9 +1,11 @@
+import { resolveApiKey } from "../lib/ai-session.js";
+
 export default async function handler(req,res){
   if(req.method!=="POST") return res.status(405).json({error:"Method not allowed"});
   const prompt=req.body?.prompt;
   if(!prompt) return res.status(400).json({error:"Prompt gerekli"});
-  const key=process.env.GEMINI_API_KEY;
-  if(!key) return res.status(200).json({text:"Demo modu aktif. GEMINI_API_KEY Vercel ortam değişkenine eklendiğinde gerçek AI üretimi başlayacak. Fikriniz: "+prompt});
+  const key=resolveApiKey(req).key;
+  if(!key) return res.status(503).json({error:"AI üretimi henüz bu hesap için etkin değil."});
   try{
     const r=await fetch("https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent?key="+encodeURIComponent(key),{
       method:"POST",
