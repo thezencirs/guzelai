@@ -94,6 +94,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ t, onOpenStudi
         </div>
 
         {/* Asymmetric Editorial Portfolio Grid */}
+        {activeFilter === "all" || activeFilter === "design" ? <a href="#vuli-marka-ornegi" className="group mb-6 grid overflow-hidden rounded-[30px] bg-[#192625] text-[#f7f3eb] md:grid-cols-2" aria-label="VÜLİ güzellik markası portfolyosunu incele"><div className="flex flex-col justify-between p-8 sm:p-12"><div><span className="text-xs font-bold uppercase tracking-[.2em] text-[#d8b878]">Öne çıkan portfolyo · kurgusal marka</span><h3 className="mt-9 font-serif text-5xl sm:text-6xl">VÜLİ</h3><p className="mt-5 max-w-md text-sm leading-7 text-[#d4ded4]">Stratejiden ürün ailesine; logo, ambalaj, kampanya, web ve sosyal görsel diliyle tamamlanmış güzellik markası konsepti.</p></div><span className="mt-10 inline-flex items-center gap-2 text-sm font-bold text-[#d8b878]">Vaka çalışmasını incele <ArrowUpRight className="h-4 w-4 transition group-hover:translate-x-1" /></span></div><img src="/assets/vuli/collection.png" alt="VÜLİ kurgusal lüks güzellik markasının üç parçalı koleksiyon görseli" loading="lazy" className="h-80 w-full object-cover md:h-full" /></a> : null}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8">
           {filteredProjects.map((project, idx) => {
             // Asymmetric widths: 7 cols & 5 cols
