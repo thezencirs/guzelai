@@ -1,0 +1,13 @@
+import dotenv from "dotenv";
+import { neon } from "@neondatabase/serverless";
+import handler from "../api/inquiries/create.js";
+dotenv.config({ path: ".env.local" });
+const request = { method: "POST", headers: { "x-forwarded-for": "192.0.2.44" }, socket: {}, body: { brand: "GuzelAI QA", email: "qa-test@guzelai.com", website: "https://example.com", goal: "Gerçek başvuru kayıt akışını denemek istiyorum.", plan: "Büyüme", extras: ["SEO içerikleri"] } };
+const response = { status(code) { this.code = code; return this; }, setHeader() {}, json(data) { this.data = data; return this; } };
+await handler(request, response);
+if (response.code !== 201 || !response.data.id) throw new Error(`Insert failed: ${JSON.stringify(response.data)}`);
+const sql = neon(process.env.DATABASE_URL);
+const rows = await sql`SELECT brand, status FROM inquiries WHERE id = ${response.data.id}`;
+if (rows.length !== 1 || rows[0].brand !== "GuzelAI QA" || rows[0].status !== "new") throw new Error("Read-back failed");
+await sql`DELETE FROM inquiries WHERE id = ${response.data.id}`;
+console.log("inquiry insert/read/delete verified");
