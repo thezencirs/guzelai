@@ -45,7 +45,7 @@ interface SidebarProps {
 export const Sidebar: React.FC<SidebarProps> = ({
   activeTab,
   onSelectTab,
-  creditsRemaining = 40,
+  creditsRemaining = 0,
   onOpenCampaignModal,
   onBackToAgencyHome,
   onOpenAnalyticsModal,
@@ -306,21 +306,21 @@ export const Sidebar: React.FC<SidebarProps> = ({
         {/* Credits Pill */}
         <div className="bg-neutral-800/80 rounded-xl p-3 border border-neutral-700/60">
           <div className="flex items-center justify-between text-xs mb-1.5">
-            <span className="text-neutral-400 font-medium">Kalan AI Kredisi</span>
-            <span className="text-white font-bold font-mono">{creditsRemaining} / 50</span>
+            <span className="text-neutral-400 font-medium">AI üretim bakiyesi</span>
+            <span className="text-white font-bold font-mono">{creditsRemaining}</span>
           </div>
           <div className="w-full h-1.5 bg-neutral-700 rounded-full overflow-hidden">
             <div
               className="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"
-              style={{ width: `${(creditsRemaining / 50) * 100}%` }}
+              style={{ width: "0%" }}
             />
           </div>
           <div className="flex items-center justify-between text-[10px] text-neutral-400 mt-2">
             <span className="flex items-center gap-1 text-emerald-400 font-medium">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-              Ticari Kullanıma Açık
+              Abonelik henüz etkin değil
             </span>
-            <span className="text-purple-400 hover:underline cursor-pointer">Kredi Yükle</span>
+            <span className="text-purple-400">Teklif isteyin</span>
           </div>
         </div>
 

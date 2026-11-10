@@ -217,7 +217,7 @@ export const GuzelAiHeader: React.FC<GuzelAiHeaderProps> = ({
                       : "text-emerald-600 bg-emerald-50"
                   }`}
                 >
-                  {currentUser.credits}K
+                  Hesap
                 </span>
               </>
             ) : (
@@ -229,7 +229,7 @@ export const GuzelAiHeader: React.FC<GuzelAiHeaderProps> = ({
                 />
                 <span className="hidden sm:inline">Giriş & Profil</span>
                 <span className="text-[9px] font-mono px-1 py-0.2 rounded-full bg-amber-400 text-black font-extrabold">
-                  +50
+                  Yeni
                 </span>
               </>
             )}
@@ -365,7 +365,7 @@ export const GuzelAiHeader: React.FC<GuzelAiHeaderProps> = ({
             >
               <span className="font-bold text-emerald-700">Giriş / Profil Portalı</span>
               <span className="text-xs px-2 py-0.5 rounded-full bg-amber-400 text-black font-black">
-                {currentUser?.isLoggedIn ? `${currentUser.credits} Kredi` : "+50 KREDİ"}
+                {currentUser?.isLoggedIn ? "Müşteri hesabı" : "Hesap oluştur"}
               </span>
             </button>
             <button
@@ -409,7 +409,7 @@ export const GuzelAiHeader: React.FC<GuzelAiHeaderProps> = ({
                 </span>
               </div>
               <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-amber-400 text-black font-extrabold">
-                {currentUser?.isLoggedIn ? `${currentUser.credits} Kredi` : "+50 Hediye Kredi"}
+                {currentUser?.isLoggedIn ? "Müşteri hesabı" : "Hesap oluştur"}
               </span>
             </button>
 

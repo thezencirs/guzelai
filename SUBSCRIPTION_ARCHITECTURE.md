@@ -1,7 +1,7 @@
 # GuzelAI abonelik ve üretim altyapısı
 
 ## Canlıdaki durum
-Paket seçimi ve marka özeti `POST /api/inquiries/create` üzerinden GüzelAI'ye özel Neon veritabanındaki `inquiries` tablosuna kaydedilir. Form doğrulaması, gizli bot alanı ve IP başına saatlik sınır vardır. Ödeme, gerçek abonelik, dosya yükleme veya sipariş kaydı başlatılmaz. Eski sahte kayıt ekranları kaldırıldı. Kalan yerel kredi sayaçları yetkilendirme veya faturalama kaynağı olarak kullanılmamalıdır. Platform GEMINI_API_KEY yapılandırılmamıştır; yapılandırılsa bile doğrulanmış ücretli oturum olmadan sunucu anahtarı kullanılmaz.
+Paket seçimi ve marka özeti `POST /api/inquiries/create` üzerinden GüzelAI'ye özel Neon veritabanındaki `inquiries` tablosuna kaydedilir. Form doğrulaması, gizli bot alanı ve IP başına saatlik sınır vardır. Neon Auth ile gerçek e-posta hesabı açılabilir; müşteri panelindeki iş kayıtları henüz hesaba bağlanmaz. Ödeme, gerçek abonelik, dosya yükleme veya sipariş kaydı başlatılmaz. Eski sahte kayıt ve hediye kredi ekranları kaldırıldı. Kalan yerel kredi sayaçları yetkilendirme veya faturalama kaynağı olarak kullanılmamalıdır. Platform GEMINI_API_KEY yapılandırılmamıştır; yapılandırılsa bile doğrulanmış ücretli oturum olmadan sunucu anahtarı kullanılmaz.
 
 ## Hedef akış
 1. Müşteri gerçek hesabını açar; doğrulanmış e-posta ve sunucu oturumu alır.

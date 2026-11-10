@@ -10,6 +10,7 @@ import { GuzelAiPageLoader } from "./components/GuzelAiPageLoader";
 import { ArrowLeft, BarChart3, Command } from "lucide-react";
 import { useStudioAnalytics } from "./hooks/useStudioAnalytics";
 import { useGlobalKeyboardShortcuts } from "./hooks/useGlobalKeyboardShortcuts";
+import { authClient } from "./auth";
 
 // Code-Splitting: Lazy-Loaded Independent Web App Pages
 const HomePage = lazy(() => import("./pages/HomePage"));
@@ -98,14 +99,20 @@ export default function App() {
 
   // User Auth State
   const [isAuthModalOpen, setIsAuthModalOpen] = useState<boolean>(false);
-  const [currentUser, setCurrentUser] = useState<UserProfile | null>(() => {
-    try {
-      const saved = localStorage.getItem("guzelai_user");
-      return saved ? JSON.parse(saved) : null;
-    } catch (e) {
-      return null;
-    }
-  });
+  const [currentUser, setCurrentUser] = useState<UserProfile | null>(null);
+
+  useEffect(() => {
+    localStorage.removeItem("guzelai_user");
+    if (!authClient) return;
+    let active = true;
+    authClient.getSession().then((result) => {
+      if (!active || !result.data?.user) return;
+      const user = result.data.user;
+      setCurrentUser({ id: user.id, name: user.name || user.email, email: user.email, role: "brand", plan: "free", credits: 0, isLoggedIn: true });
+      setCreditsRemaining(0);
+    }).catch(() => {});
+    return () => { active = false; };
+  }, []);
 
   // Language: Turkish default ("tr"), 12 Global languages fully supported
   const [currentLang, setCurrentLang] = useState<Language>("tr");
@@ -120,9 +127,7 @@ export default function App() {
   const [isCampaignModalOpen, setIsCampaignModalOpen] = useState<boolean>(false);
   const [isAnalyticsModalOpen, setIsAnalyticsModalOpen] = useState<boolean>(false);
   const [isCommandMenuOpen, setIsCommandMenuOpen] = useState<boolean>(false);
-  const [creditsRemaining, setCreditsRemaining] = useState<number>(() => {
-    return currentUser?.credits || 50;
-  });
+  const [creditsRemaining, setCreditsRemaining] = useState<number>(0);
 
   // Custom Analytics Tracking Hook: tracks view durations for different studio modules
   const {
@@ -217,12 +222,12 @@ export default function App() {
   const handleLoginSuccess = (user: UserProfile) => {
     setCurrentUser(user);
     setCreditsRemaining(user.credits);
-    localStorage.setItem("guzelai_user", JSON.stringify(user));
   };
 
   const handleLogout = () => {
+    void authClient?.signOut();
     setCurrentUser(null);
-    localStorage.removeItem("guzelai_user");
+    setCreditsRemaining(0);
   };
 
   // Deploy newly created model to live roster
