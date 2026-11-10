@@ -278,6 +278,24 @@ export const AMBIANCE_PRESETS: AmbiancePreset[] = [
     image: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=600&auto=format&fit=crop&q=80",
     recommendedLighting: "chiaroscuro",
   },
+  {
+    id: "zencirsai_warm_boucle_salon",
+    name: "@thezencirsai Kavisli Bukle & Traverten Kemerli Salon",
+    industry: "Lüks İç Mimari, Mobilya & Haute Couture (@thezencirsai)",
+    description: "16mm geniş açı 3.6m tavan, kemerli traverten nişler, kavisli fildişi bukle kanepe ve 2700K sıcak gün batımı.",
+    backgroundPrompt: "16mm wide angle ultra-photorealistic warm minimalist luxury living room curated by @thezencirsai, curved cream boucle sofa, travertine coffee table, limewash arched niches with 2700K hidden LED, oak chevron floor",
+    image: "/data/collages/mb-22-viral-warm-minimalist-boucle-living.jpg",
+    recommendedLighting: "golden_hour",
+  },
+  {
+    id: "zencirsai_beverly_hills_glass_mansion",
+    name: "@thezencirsai x GüzelAI Beverly Hills 120M$ Cam Malikane",
+    industry: "Milyoner Yaşam, Mücevher & Gece Modası (@thezencirsai)",
+    description: "4.2m panoramik sürgülü cam cephe, monolitik traverten şömine ve Los Angeles alacakaranlık sonsuzluk havuzu.",
+    backgroundPrompt: "16mm wide-angle Beverly Hills 120M dollar glass mansion living room and infinity pool terrace at twilight, monolithic travertine fireplace, ivory boucle sectional sofa, warm 2700K architectural lighting",
+    image: "/data/collages/mb-30-guzelai-beverly-hills-mansion.jpg",
+    recommendedLighting: "cinematic",
+  },
 ];
 
 export const SAMPLE_PRODUCT_PRESETS = [
