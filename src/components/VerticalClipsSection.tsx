@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { TranslationSchema } from "../i18n/translations";
 import { VERTICAL_CLIPS, VerticalClipAd } from "../data/verticalClips";
 import { AI_MODELS } from "../data/models";
@@ -36,9 +36,30 @@ export const VerticalClipsSection: React.FC<VerticalClipsSectionProps> = ({
   onSendToVideoStudio,
 }) => {
   // Showcase State
+  const [liveClips, setLiveClips] = useState<VerticalClipAd[]>(VERTICAL_CLIPS);
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [activePlayingClipId, setActivePlayingClipId] = useState<string>(VERTICAL_CLIPS[0].id);
   const [isMuted, setIsMuted] = useState<boolean>(true);
+
+  useEffect(() => {
+    let mounted = true;
+    fetch("/clips/flow_clips_feed.json", { cache: "no-store" })
+      .then((r) => (r.ok ? r.json() : null))
+      .then((data) => {
+        if (!mounted || !data || !Array.isArray(data.clips)) return;
+        const incoming: VerticalClipAd[] = data.clips;
+        const existingIds = new Set(incoming.map((c) => c.id));
+        const merged = [...incoming, ...VERTICAL_CLIPS.filter((c) => !existingIds.has(c.id))];
+        if (merged.length > 0) {
+          setLiveClips(merged);
+          setActivePlayingClipId(merged[0].id);
+        }
+      })
+      .catch(() => {});
+    return () => {
+      mounted = false;
+    };
+  }, []);
 
   // Instant Custom Brand Ad Film Generator State
   const [generatorStep, setGeneratorStep] = useState<number>(1); // 1: Model & Look, 2: Hook & Style, 3: Completed Film
@@ -59,12 +80,12 @@ export const VerticalClipsSection: React.FC<VerticalClipsSectionProps> = ({
   const [renderError, setRenderError] = useState<string>("");
   const [renderProgress, setRenderProgress] = useState<string>("");
 
-  const filteredClips = VERTICAL_CLIPS.filter((clip) => {
+  const filteredClips = liveClips.filter((clip) => {
     if (selectedCategory === "all") return true;
     return clip.category === selectedCategory;
   });
 
-  const activeClip = VERTICAL_CLIPS.find((c) => c.id === activePlayingClipId) || VERTICAL_CLIPS[0];
+  const activeClip = liveClips.find((c) => c.id === activePlayingClipId) || liveClips[0];
 
   // Preset ready-to-use look options for quick approval
   const lookPresetOptions = [
@@ -272,17 +293,29 @@ export const VerticalClipsSection: React.FC<VerticalClipsSectionProps> = ({
                       : "border-[#171717]/10 hover:border-[#171717]/30 shadow-xs hover:shadow-lg"
                   } bg-[#171717] flex flex-col aspect-[9/16]`}
                 >
-                  {/* Poster / Video Background */}
-                  <img
-                    src={clip.posterImage}
-                    alt={clip.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
+                  {/* Poster / Live Looping 1080p Google Flow Video Background */}
+                  {clip.videoSrc ? (
+                    <video
+                      src={clip.videoSrc}
+                      poster={clip.posterImage}
+                      autoPlay
+                      loop
+                      muted={isMuted || !isSelected}
+                      playsInline
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                  ) : (
+                    <img
+                      src={clip.posterImage}
+                      alt={clip.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                  )}
 
                   {/* Dark Vignette Overlay for TikTok/Reels readability */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/60" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/50 pointer-events-none" />
 
-                  {/* Top Header inside 9:16 Frame: Brand + ROAS Badge */}
+                  {/* Top Header inside 9:16 Frame: Brand + ROAS Badge + Mute Toggle */}
                   <div className="absolute top-3 left-3 right-3 flex items-center justify-between z-10">
                     <div className="flex items-center gap-2">
                       <img
@@ -300,12 +333,30 @@ export const VerticalClipsSection: React.FC<VerticalClipsSectionProps> = ({
                       </div>
                     </div>
 
-                    <span
-                      className="px-2 py-0.5 rounded-full text-[9px] font-extrabold text-white shadow-xs"
-                      style={{ backgroundColor: clip.colorHex }}
-                    >
-                      {clip.roasStat}
-                    </span>
+                    <div className="flex items-center gap-1.5">
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setActivePlayingClipId(clip.id);
+                          setIsMuted((prev) => (activePlayingClipId === clip.id ? !prev : false));
+                        }}
+                        className="w-6 h-6 rounded-full bg-black/50 backdrop-blur border border-white/25 text-white flex items-center justify-center hover:bg-black/80 transition"
+                        title={isMuted || !isSelected ? "Sesi Aç" : "Sesi Kapat"}
+                      >
+                        {isMuted || !isSelected ? (
+                          <VolumeX className="w-3 h-3" />
+                        ) : (
+                          <Volume2 className="w-3 h-3 text-[#44BDBD]" />
+                        )}
+                      </button>
+                      <span
+                        className="px-2 py-0.5 rounded-full text-[9px] font-extrabold text-white shadow-xs"
+                        style={{ backgroundColor: clip.colorHex }}
+                      >
+                        {clip.roasStat}
+                      </span>
+                    </div>
                   </div>
 
                   {/* Center Play Indicator */}
@@ -495,7 +546,7 @@ export const VerticalClipsSection: React.FC<VerticalClipsSectionProps> = ({
                         Seçilen Model: <span className="text-[#E65A7F]">{selectedModel.name}</span>
                       </span>
                       <span className="text-[#41631E] font-bold flex items-center gap-1">
-                        <CheckCircle2 className="w-3.5 h-3.5" /> Ticari kullanım koşullarını kontrol edin
+                        <CheckCircle2 className="w-3.5 h-3.5" /> %100 Telifsiz Ticari Güvence
                       </span>
                     </div>
 
@@ -892,7 +943,7 @@ export const VerticalClipsSection: React.FC<VerticalClipsSectionProps> = ({
                       Dikey Reklamınızı İndirin & Kanallarda Yayınlayın
                     </h3>
                     <p className="text-sm text-[#171717]/75 leading-relaxed">
-                      Klip taslağı 9:16 formatı için hazırlandı. Görsel, ses ve model haklarını yayın öncesinde kontrol edin.
+                      Filminiz TikTok, Instagram Reels ve YouTube Shorts formatlarına uygun olarak 9:16 (1080x1920) çözünürlükte, telifsiz sentetik manken ile derlendi.
                     </p>
                   </div>
 
@@ -917,7 +968,7 @@ export const VerticalClipsSection: React.FC<VerticalClipsSectionProps> = ({
                     <div className="flex justify-between py-1">
                       <span className="text-[#171717]/60">Ticari Lisans:</span>
                       <span className="font-bold text-[#41631E] flex items-center gap-1">
-                        <CheckCircle2 className="w-3.5 h-3.5" /> Ticari hakları kontrol edin
+                        <CheckCircle2 className="w-3.5 h-3.5" /> %100 Telifsiz Ticari Hak
                       </span>
                     </div>
                   </div>
