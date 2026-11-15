@@ -3,15 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>@thezencirsai — Sabit Mimari Mekanlar, İlham Panosu (Moodboard) &amp; Mekanda Duruşu Stüdyosu | guzelai.com</title>
-  <meta name="description" content="@thezencirsai İç Mimarlık Enstitüsü tarafından kurgulanan sabit mimari mekanlar, dekorasyon ilham panoları (moodboard) ve 16mm geniş açı mekanda duruşu vitrini." />
+  <title>@thezencirsai — İç Mekan &amp; Dış Mekan Mimarlık, İlham Panosu (Moodboard) &amp; Mekanda Duruşu | guzelai.com</title>
+  <meta name="description" content="@thezencirsai Mimarlık &amp; İç Mimarlık Enstitüsü tarafından kurgulanan sabit iç mekan ve dış mekan mimari projeleri, ilham panoları (moodboard) ve 16mm geniş açı mekanda duruşu vitrini." />
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif; }
     body { background: #f4f1ea; color: #191716; line-height: 1.5; }
-    header { background: #141312; color: #f7f3eb; padding: 42px 24px; text-align: center; border-bottom: 3px solid #c69e52; }
+    header { background: #141312; color: #f7f3eb; padding: 42px 24px 32px; text-align: center; border-bottom: 3px solid #c69e52; }
     header .kicker { display: inline-block; background: rgba(198,158,82,0.18); color: #e5c378; border: 1px solid #c69e52; font-size: 12px; font-weight: 800; padding: 6px 14px; border-radius: 999px; letter-spacing: 1px; margin-bottom: 14px; }
     header h1 { font-size: clamp(24px, 4vw, 38px); font-weight: 900; letter-spacing: -0.5px; margin-bottom: 10px; }
-    header p { max-width: 780px; margin: 0 auto; color: #cac3b8; font-size: 15px; }
+    header p { max-width: 820px; margin: 0 auto 22px; color: #cac3b8; font-size: 15px; }
+    .filter-bar { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 12px; }
+    .filter-btn { background: rgba(255,255,255,0.08); color: #f5efe4; border: 1px solid rgba(198,158,82,0.45); padding: 10px 18px; border-radius: 999px; font-size: 13px; font-weight: 800; cursor: pointer; transition: all 0.2s; }
+    .filter-btn.active, .filter-btn:hover { background: #c69e52; color: #141312; border-color: #c69e52; }
     .container { max-width: 1220px; margin: 36px auto; padding: 0 20px; display: flex; flex-direction: column; gap: 36px; }
     .space-card { background: #ffffff; border-radius: 28px; border: 1px solid #e2dacb; padding: 28px; box-shadow: 0 18px 45px rgba(20,18,16,0.06); }
     .space-header { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; padding-bottom: 20px; border-bottom: 1px solid #eee7da; margin-bottom: 22px; }
@@ -42,24 +45,243 @@
     .node-btn { background: #181615; color: #f2d59b; text-decoration: none; font-size: 12px; font-weight: 800; padding: 8px 14px; border-radius: 10px; }
     footer { max-width: 1220px; margin: 20px auto 50px; padding: 0 20px; text-align: center; color: #6c655d; font-size: 12px; }
   </style>
+  <script>
+    function filterSpaces(wing, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+      document.querySelectorAll('.space-card').forEach(card => {
+        if (wing === 'all' || card.getAttribute('data-wing') === wing) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
 </head>
 <body>
   <header>
-    <span class="kicker">🏛️ @THEZENCIRSAI İÇ MİMARLIK ENSTİTÜSÜ • SABİT MİMARİ MEKANLAR</span>
-    <h1>İlham Panosu (Moodboard) &amp; Mekanda Duruşu Stüdyosu</h1>
-    <p>Her dekorasyon fikri önce malzeme, doku ve mobilya <strong>İlham Panosu (Moodboard)</strong> olarak tasarlanır; ardından <strong>16mm geniş açı gerçek mekanda duruşu</strong> ve doğrulanmış mağaza linkleriyle uygulanır.</p>
+    <span class="kicker">🏛️ @THEZENCIRSAI MİMARLIK ENSTİTÜSÜ • İÇ MEKAN &amp; DIŞ MEKAN STÜDYOSU</span>
+    <h1>İlham Panosu (Moodboard) &amp; Mekanda Duruşu Vitrini</h1>
+    <p>Her iç mekan ve dış mekan mimari konsepti önce malzeme, doku ve mobilya <strong>İlham Panosu (Moodboard)</strong> olarak tasarlanır; ardından <strong>16mm geniş açı gerçek mekanda duruşu (Flow)</strong> ve doğrulanmış mağaza linkleriyle uygulanır.</p>
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterSpaces('all', this)">🏛️ Tüm Mimari Mekanlar</button>
+      <button class="filter-btn" onclick="filterSpaces('ic_mekan', this)">🛋️ İç Mekan Mimarisi (Salon, Mutfak, Yatak, Banyo)</button>
+      <button class="filter-btn" onclick="filterSpaces('dis_mekan', this)">🌿 Dış Mekan, Cephe &amp; Teras Mimarisi</button>
+    </div>
   </header>
   <main class="container">
-    <article class="space-card" id="mb-22-viral-warm-minimalist-boucle-living">
+    <article class="space-card" id="mb-06-mediterranean-terracotta" data-wing="dis_mekan">
         <div class="space-header">
           <div>
-            <span class="style-badge">🏛️ SABİT MİMARİ MEKAN • WARM MINIMALIST • WIDE LIVING ROOM</span>
+            <span class="style-badge">🌿 DIŞ MEKAN, CEPHE & TERAS MİMARİSİ • MEDITERRANEAN VILLA • PB &amp; PI</span>
+            <h2>Akdeniz Kemerli Villa &amp; Terracotta Keten Salon</h2>
+            <p class="hook-text">Kemerli kireç sıva nişler, zeytin ağacı sehpa ve terracotta keten uyumu. Linkler ilk yorumda.</p>
+          </div>
+          <div class="formula-box">
+            <small>MİMARİ 60-30-10 ORAN KURALI</small>
+            <strong>%60 Ana Mimari Hacim • %30 Doğal Doku • %10 Kontrast Vurgu</strong>
+          </div>
+        </div>
+
+        <div class="dual-stage">
+          <div class="stage-box">
+            <div class="stage-tag">1. ADIM • İLHAM PANOSU (MOODBOARD)</div>
+            <img src="/pinterest-models/mb-06-mediterranean-terracotta-moodboard.jpg" alt="Akdeniz Kemerli Villa &amp; Terracotta Keten Salon İlham Panosu Moodboard" loading="lazy" />
+          </div>
+          <div class="stage-box">
+            <div class="stage-tag">2. ADIM • 16mm GENİŞ AÇI MEKANDA DURUŞU (8K FLOW)</div>
+            <img src="/data/collages/mb-06-mediterranean-terracotta.jpg" alt="Akdeniz Kemerli Villa &amp; Terracotta Keten Salon Mekanda Duruşu" loading="lazy" />
+          </div>
+        </div>
+
+        <div class="specs-row"></div>
+        <div class="swatches-row"><span class="swatch" title="Limewash Chalk (LW-102)"><i style="background:#E5DEC9"></i>Limewash Chalk <small>LW-102</small></span><span class="swatch" title="Sunbaked Terracotta (TC-408)"><i style="background:#B55A3C"></i>Sunbaked Terracotta <small>TC-408</small></span><span class="swatch" title="Carved Olive Wood (OW-301)"><i style="background:#7A5835"></i>Carved Olive Wood <small>OW-301</small></span><span class="swatch" title="Raw Travertine (TR-204)"><i style="background:#CBBBA0"></i>Raw Travertine <small>TR-204</small></span><span class="swatch" title="Woven Seagrass (SG-510)"><i style="background:#9E8B66"></i>Woven Seagrass <small>SG-510</small></span></div>
+
+        <div class="nodes-section">
+          <h3>📌 İlham Panosundaki Parçaların Mekanda Duruşu &amp; Doğrulanmış Mağaza Linkleri</h3>
+          <ul class="nodes-list"><li>
+            <span class="pin-num">01</span>
+            <div class="node-info">
+              <strong>Terracotta Keten Modüler Kanepe</strong>
+              <small>Sunbaked Terracotta Linen • Normod / Zara Home</small>
+            </div>
+            <a class="node-btn" href="https://guzelai.com/go/ZNC-06-1" target="_blank" rel="noopener">Mağazada Gör (ZNC-06-1) →</a>
+          </li><li>
+            <span class="pin-num">02</span>
+            <div class="node-info">
+              <strong>Masif Zeytin Ağacı Heykelsi Sehpa</strong>
+              <small>Carved Solid Olive Wood • Mudo Concept / Hamm Design</small>
+            </div>
+            <a class="node-btn" href="https://guzelai.com/go/ZNC-06-2" target="_blank" rel="noopener">Mağazada Gör (ZNC-06-2) →</a>
+          </li><li>
+            <span class="pin-num">03</span>
+            <div class="node-info">
+              <strong>Kemerli Niş &amp; Antik Seramik Amfora</strong>
+              <small>Handcrafted Clay Amphora • Zara Home / Chakra</small>
+            </div>
+            <a class="node-btn" href="https://guzelai.com/go/ZNC-06-3" target="_blank" rel="noopener">Mağazada Gör (ZNC-06-3) →</a>
+          </li><li>
+            <span class="pin-num">04</span>
+            <div class="node-info">
+              <strong>Seramik Çan Sarkıt Aydınlatma</strong>
+              <small>Textured Plaster Ceramic • IKEA Türkiye</small>
+            </div>
+            <a class="node-btn" href="https://guzelai.com/go/ZNC-06-4" target="_blank" rel="noopener">Mağazada Gör (ZNC-06-4) →</a>
+          </li><li>
+            <span class="pin-num">05</span>
+            <div class="node-info">
+              <strong>Doğal Deniz Otu (Seagrass) Hasır Halı</strong>
+              <small>Handwoven Seagrass Jute • IKEA / Halıca</small>
+            </div>
+            <a class="node-btn" href="https://guzelai.com/go/ZNC-06-5" target="_blank" rel="noopener">Mağazada Gör (ZNC-06-5) →</a>
+          </li></ul>
+        </div>
+      </article>
+<article class="space-card" id="mb-10-malibu-coastal" data-wing="dis_mekan">
+        <div class="space-header">
+          <div>
+            <span class="style-badge">🌿 DIŞ MEKAN, CEPHE & TERAS MİMARİSİ • MALIBU ORGANIC COASTAL • DK &amp; AY</span>
+            <h2>Malibu Sahil Villası: Beyaz Belçika Keteni &amp; Ağartılmış Sedir Salon</h2>
+            <p class="hook-text">Ferah sahil mimarisi: Bulut beyazı Belçika keteni, ağartılmış sedir ve doğal jüt. Linkler ilk yorumda.</p>
+          </div>
+          <div class="formula-box">
+            <small>MİMARİ 60-30-10 ORAN KURALI</small>
+            <strong>%60 Ana Mimari Hacim • %30 Doğal Doku • %10 Kontrast Vurgu</strong>
+          </div>
+        </div>
+
+        <div class="dual-stage">
+          <div class="stage-box">
+            <div class="stage-tag">1. ADIM • İLHAM PANOSU (MOODBOARD)</div>
+            <img src="/pinterest-models/mb-10-malibu-coastal-moodboard.jpg" alt="Malibu Sahil Villası: Beyaz Belçika Keteni &amp; Ağartılmış Sedir Salon İlham Panosu Moodboard" loading="lazy" />
+          </div>
+          <div class="stage-box">
+            <div class="stage-tag">2. ADIM • 16mm GENİŞ AÇI MEKANDA DURUŞU (8K FLOW)</div>
+            <img src="/data/collages/mb-10-malibu-coastal.jpg" alt="Malibu Sahil Villası: Beyaz Belçika Keteni &amp; Ağartılmış Sedir Salon Mekanda Duruşu" loading="lazy" />
+          </div>
+        </div>
+
+        <div class="specs-row"></div>
+        <div class="swatches-row"><span class="swatch" title="Bleached Driftwood Cedar (DC-104)"><i style="background:#D6CBB9"></i>Bleached Driftwood Cedar <small>DC-104</small></span><span class="swatch" title="Cloud Belgian Linen (BL-001)"><i style="background:#F7F5F0"></i>Cloud Belgian Linen <small>BL-001</small></span><span class="swatch" title="Raw Coral Limestone (CL-208)"><i style="background:#E4DDD0"></i>Raw Coral Limestone <small>CL-208</small></span><span class="swatch" title="Woven Abaca Rope (AR-312)"><i style="background:#B59C78"></i>Woven Abaca Rope <small>AR-312</small></span><span class="swatch" title="Seafoam Mist (SM-504)"><i style="background:#9CB4B0"></i>Seafoam Mist <small>SM-504</small></span></div>
+
+        <div class="nodes-section">
+          <h3>📌 İlham Panosundaki Parçaların Mekanda Duruşu &amp; Doğrulanmış Mağaza Linkleri</h3>
+          <ul class="nodes-list"><li>
+            <span class="pin-num">01</span>
+            <div class="node-info">
+              <strong>Bulut Beyazı Belçika Keteni Derin Kanepe</strong>
+              <small>Cloud White Belgian Flax Linen • Zara Home / Normod</small>
+            </div>
+            <a class="node-btn" href="https://guzelai.com/go/ZNC-10-1" target="_blank" rel="noopener">Mağazada Gör (ZNC-10-1) →</a>
+          </li><li>
+            <span class="pin-num">02</span>
+            <div class="node-info">
+              <strong>Ağartılmış Kök Ahşap Heykelsi Sehpa</strong>
+              <small>Sculpted Bleached Driftwood • Mudo Concept</small>
+            </div>
+            <a class="node-btn" href="https://guzelai.com/go/ZNC-10-2" target="_blank" rel="noopener">Mağazada Gör (ZNC-10-2) →</a>
+          </li><li>
+            <span class="pin-num">03</span>
+            <div class="node-info">
+              <strong>Abaka Halat Örgü &amp; Tik Ağacı Berjer</strong>
+              <small>Woven Abaca Rope &amp; Teak • IKEA / Vivense</small>
+            </div>
+            <a class="node-btn" href="https://guzelai.com/go/ZNC-10-3" target="_blank" rel="noopener">Mağazada Gör (ZNC-10-3) →</a>
+          </li><li>
+            <span class="pin-num">04</span>
+            <div class="node-info">
+              <strong>Oluklu Beyaz Seramik Fener Sarkıt</strong>
+              <small>Ribbed Matte White Ceramic • IKEA Türkiye</small>
+            </div>
+            <a class="node-btn" href="https://guzelai.com/go/ZNC-10-4" target="_blank" rel="noopener">Mağazada Gör (ZNC-10-4) →</a>
+          </li><li>
+            <span class="pin-num">05</span>
+            <div class="node-info">
+              <strong>Kalın El Örgüsü Doğal Jüt Halı</strong>
+              <small>Chunky Hand-Braided Jute • IKEA / Chakra</small>
+            </div>
+            <a class="node-btn" href="https://guzelai.com/go/ZNC-10-5" target="_blank" rel="noopener">Mağazada Gör (ZNC-10-5) →</a>
+          </li></ul>
+        </div>
+      </article>
+<article class="space-card" id="mb-11-alpine-chalet" data-wing="ic_mekan">
+        <div class="space-header">
+          <div>
+            <span class="style-badge">🛋️ İÇ MEKAN MİMARİSİ & DEKORASYON • SWISS ALPINE CHALET • ID &amp; MO</span>
+            <h2>İsviçre Modern Dağ Evi: Vals Kuvarsit Taş, Karaçam &amp; Shearling Salon</h2>
+            <p class="hook-text">Modern dağ evi sıcaklığı: Vals kuvarsit taş şömine, konyak nubuk ve shearling yün. Linkler ilk yorumda.</p>
+          </div>
+          <div class="formula-box">
+            <small>MİMARİ 60-30-10 ORAN KURALI</small>
+            <strong>%60 Ana Mimari Hacim • %30 Doğal Doku • %10 Kontrast Vurgu</strong>
+          </div>
+        </div>
+
+        <div class="dual-stage">
+          <div class="stage-box">
+            <div class="stage-tag">1. ADIM • İLHAM PANOSU (MOODBOARD)</div>
+            <img src="/pinterest-models/mb-11-alpine-chalet-moodboard.jpg" alt="İsviçre Modern Dağ Evi: Vals Kuvarsit Taş, Karaçam &amp; Shearling Salon İlham Panosu Moodboard" loading="lazy" />
+          </div>
+          <div class="stage-box">
+            <div class="stage-tag">2. ADIM • 16mm GENİŞ AÇI MEKANDA DURUŞU (8K FLOW)</div>
+            <img src="/data/collages/mb-11-alpine-chalet.jpg" alt="İsviçre Modern Dağ Evi: Vals Kuvarsit Taş, Karaçam &amp; Shearling Salon Mekanda Duruşu" loading="lazy" />
+          </div>
+        </div>
+
+        <div class="specs-row"></div>
+        <div class="swatches-row"><span class="swatch" title="Vals Grey Quartzite (VQ-702)"><i style="background:#5E6164"></i>Vals Grey Quartzite <small>VQ-702</small></span><span class="swatch" title="Alpine Larch Timber (AL-304)"><i style="background:#9E7B56"></i>Alpine Larch Timber <small>AL-304</small></span><span class="swatch" title="Saddle Cognac Nubuck (CN-409)"><i style="background:#8A4F2D"></i>Saddle Cognac Nubuck <small>CN-409</small></span><span class="swatch" title="Ivory Shearling Wool (SW-102)"><i style="background:#EDE7DC"></i>Ivory Shearling Wool <small>SW-102</small></span><span class="swatch" title="Forged Matte Black (FB-909)"><i style="background:#232325"></i>Forged Matte Black <small>FB-909</small></span></div>
+
+        <div class="nodes-section">
+          <h3>📌 İlham Panosundaki Parçaların Mekanda Duruşu &amp; Doğrulanmış Mağaza Linkleri</h3>
+          <ul class="nodes-list"><li>
+            <span class="pin-num">01</span>
+            <div class="node-info">
+              <strong>Antrasit &amp; Konyak Nubuk Modüler L-Koltuk</strong>
+              <small>Charcoal &amp; Cognac Nubuck • Enza Home / Normod</small>
+            </div>
+            <a class="node-btn" href="https://guzelai.com/go/ZNC-11-1" target="_blank" rel="noopener">Mağazada Gör (ZNC-11-1) →</a>
+          </li><li>
+            <span class="pin-num">02</span>
+            <div class="node-info">
+              <strong>Ekru Shearling (Kuzu Postu Dokulu) Berjer</strong>
+              <small>Ivory Shearling &amp; Solid Larch • Zara Home / Mudo Concept</small>
+            </div>
+            <a class="node-btn" href="https://guzelai.com/go/ZNC-11-2" target="_blank" rel="noopener">Mağazada Gör (ZNC-11-2) →</a>
+          </li><li>
+            <span class="pin-num">03</span>
+            <div class="node-info">
+              <strong>Masif Kütük Blok Karaçam Orta Sehpa</strong>
+              <small>Solid Brushed Alpine Larch • Mudo Concept / Hamm</small>
+            </div>
+            <a class="node-btn" href="https://guzelai.com/go/ZNC-11-3" target="_blank" rel="noopener">Mağazada Gör (ZNC-11-3) →</a>
+          </li><li>
+            <span class="pin-num">04</span>
+            <div class="node-info">
+              <strong>Minimalist Sıcak Bronz Halka Avize</strong>
+              <small>Warm LED Bronze Ring • Vivense / Koçtaş</small>
+            </div>
+            <a class="node-btn" href="https://guzelai.com/go/ZNC-11-4" target="_blank" rel="noopener">Mağazada Gör (ZNC-11-4) →</a>
+          </li><li>
+            <span class="pin-num">05</span>
+            <div class="node-info">
+              <strong>Yüksek Havlı Berberi Yün Salon Halısı</strong>
+              <small>High-Pile Moroccan Berber Wool • IKEA / Halıca</small>
+            </div>
+            <a class="node-btn" href="https://guzelai.com/go/ZNC-11-5" target="_blank" rel="noopener">Mağazada Gör (ZNC-11-5) →</a>
+          </li></ul>
+        </div>
+      </article>
+<article class="space-card" id="mb-22-viral-warm-minimalist-boucle-living" data-wing="ic_mekan">
+        <div class="space-header">
+          <div>
+            <span class="style-badge">🛋️ İÇ MEKAN MİMARİSİ & DEKORASYON • WARM MINIMALIST • WIDE LIVING ROOM</span>
             <h2>Krem Bukle Köşe Koltuk, Traverten Şömine &amp; Çıtalı Meşe TV Ünitesi</h2>
             <p class="hook-text">Ferah ve zamansız salon dekorasyonu: Tavandan zemine traverten TV-şömine duvarı, çıtalı meşe nişler ve kavisli krem bukle köşe koltuk uyumu ✨ Kombin ve mağaza linkleri ilk yorumda 👇 Kaydedip kendi eviniz için ilham alabilirsiniz.</p>
           </div>
           <div class="formula-box">
-            <small>BAŞ İÇ MİMAR 60-30-10 ORAN KURALI</small>
-            <strong>%60 Ana Mimari Hacim • %30 Doğal Doku • %10 Kontrast Vurgu</strong>
+            <small>MİMARİ 60-30-10 ORAN KURALI</small>
+            <strong>60-30-10 KURALI: %60 Krem Bukle &amp; Traverten • %30 Çıtalı Meşe • %10 Siyah &amp; Bronz Vurgu</strong>
           </div>
         </div>
 
@@ -69,12 +291,12 @@
             <img src="/pinterest-models/mb-22-viral-warm-minimalist-boucle-living-moodboard.jpg" alt="Krem Bukle Köşe Koltuk, Traverten Şömine &amp; Çıtalı Meşe TV Ünitesi İlham Panosu Moodboard" loading="lazy" />
           </div>
           <div class="stage-box">
-            <div class="stage-tag">2. ADIM • 16mm GENİŞ AÇI MEKANDA DURUŞU (8K)</div>
+            <div class="stage-tag">2. ADIM • 16mm GENİŞ AÇI MEKANDA DURUŞU (8K FLOW)</div>
             <img src="/data/collages/mb-22-viral-warm-minimalist-boucle-living.jpg" alt="Krem Bukle Köşe Koltuk, Traverten Şömine &amp; Çıtalı Meşe TV Ünitesi Mekanda Duruşu" loading="lazy" />
           </div>
         </div>
 
-        <div class="specs-row"></div>
+        <div class="specs-row"><span class="spec-pill">📐 TV &amp; ŞÖMİNE DUVARI: Tavandan Zemine Honlu Traverten + Yanlarda 2700K Işıklı Çıtalı Meşe</span><span class="spec-pill">📐 OTURMA GRUBU: Kavisli Krem Bukle Köşe Koltuk &amp; Yuvarlak Traverten Orta Sehpa</span><span class="spec-pill">📐 ZEMİN &amp; TEKSTİL: Balıksırtı Meşe Parke Üzeri Dokuma Krem Yün Halı &amp; Keten Perde</span></div>
         <div class="swatches-row"><span class="swatch" title="Roman Travertine (RT-101)"><i style="background:#D8C9B5"></i>Roman Travertine <small>RT-101</small></span><span class="swatch" title="Fluted White Oak (WO-204)"><i style="background:#B58D63"></i>Fluted White Oak <small>WO-204</small></span><span class="swatch" title="Ivory Loop Bouclé (IB-102)"><i style="background:#EFECE6"></i>Ivory Loop Bouclé <small>IB-102</small></span><span class="swatch" title="Sheer Belgian Linen (BL-108)"><i style="background:#E5DEC9"></i>Sheer Belgian Linen <small>BL-108</small></span><span class="swatch" title="Matte Espresso Bronze (EB-901)"><i style="background:#2A2521"></i>Matte Espresso Bronze <small>EB-901</small></span></div>
 
         <div class="nodes-section">
@@ -117,16 +339,16 @@
           </li></ul>
         </div>
       </article>
-<article class="space-card" id="mb-24-viral-fluted-oak-island-kitchen">
+<article class="space-card" id="mb-24-viral-fluted-oak-island-kitchen" data-wing="ic_mekan">
         <div class="space-header">
           <div>
-            <span class="style-badge">🏛️ SABİT MİMARİ MEKAN • ORGANIC MODERN • WATERFALL ISLAND KITCHEN</span>
+            <span class="style-badge">🛋️ İÇ MEKAN MİMARİSİ & DEKORASYON • ORGANIC MODERN • WATERFALL ISLAND KITCHEN</span>
             <h2>Krem Kuvarsit Şelale Ada, Çıtalı Açık Meşe &amp; Işıklı Kahve Nişi Mutfak</h2>
             <p class="hook-text">En çok kaydedilen ferah mutfak tasarımı: Krem-altın damarlı şelale mermer ada, çıtalı açık meşe dolaplar ve gizli aydınlatmalı kahve köşesi 🤍 Kombin ve ürün linkleri ilk yorumda 👇</p>
           </div>
           <div class="formula-box">
-            <small>BAŞ İÇ MİMAR 60-30-10 ORAN KURALI</small>
-            <strong>%60 Ana Mimari Hacim • %30 Doğal Doku • %10 Kontrast Vurgu</strong>
+            <small>MİMARİ 60-30-10 ORAN KURALI</small>
+            <strong>60-30-10 KURALI: %60 Çıtalı Açık Meşe • %30 Taj Mahal Kuvarsit • %10 Pirinç &amp; Hazeran</strong>
           </div>
         </div>
 
@@ -136,12 +358,12 @@
             <img src="/pinterest-models/mb-24-viral-fluted-oak-island-kitchen-moodboard.jpg" alt="Krem Kuvarsit Şelale Ada, Çıtalı Açık Meşe &amp; Işıklı Kahve Nişi Mutfak İlham Panosu Moodboard" loading="lazy" />
           </div>
           <div class="stage-box">
-            <div class="stage-tag">2. ADIM • 16mm GENİŞ AÇI MEKANDA DURUŞU (8K)</div>
+            <div class="stage-tag">2. ADIM • 16mm GENİŞ AÇI MEKANDA DURUŞU (8K FLOW)</div>
             <img src="/data/collages/mb-24-viral-fluted-oak-island-kitchen.jpg" alt="Krem Kuvarsit Şelale Ada, Çıtalı Açık Meşe &amp; Işıklı Kahve Nişi Mutfak Mekanda Duruşu" loading="lazy" />
           </div>
         </div>
 
-        <div class="specs-row"></div>
+        <div class="specs-row"><span class="spec-pill">📐 ŞELALE ADA TEZGAH: Taj Mahal Krem Kuvarsit Yanlardan Zemine İnen Şelale Kesim Ada</span><span class="spec-pill">📐 GİZLİ KAHVE NİŞİ: Çıtalı Meşe Boy Dolap İçinde 2700K Aydınlatmalı Kahvaltı &amp; Kahve İstasyonu</span><span class="spec-pill">📐 BAR OTURUMU: Doğal Meşe ve Hazeran Sırtlı 3'lü Ada Bar Sandalyesi</span></div>
         <div class="swatches-row"><span class="swatch" title="Taj Mahal Quartzite (TM-105)"><i style="background:#E5DDD0"></i>Taj Mahal Quartzite <small>TM-105</small></span><span class="swatch" title="Fluted Light Oak (LO-208)"><i style="background:#C2A17A"></i>Fluted Light Oak <small>LO-208</small></span><span class="swatch" title="Natural Cane Mesh (CM-304)"><i style="background:#D1B58E"></i>Natural Cane Mesh <small>CM-304</small></span><span class="swatch" title="Brushed Satin Brass (SB-401)"><i style="background:#B89658"></i>Brushed Satin Brass <small>SB-401</small></span><span class="swatch" title="Warm Alabaster Wall (AW-101)"><i style="background:#ECE8E1"></i>Warm Alabaster Wall <small>AW-101</small></span></div>
 
         <div class="nodes-section">
@@ -184,16 +406,16 @@
           </li></ul>
         </div>
       </article>
-<article class="space-card" id="mb-26-viral-arched-mirror-entryway-foyer">
+<article class="space-card" id="mb-26-viral-arched-mirror-entryway-foyer" data-wing="ic_mekan">
         <div class="space-header">
           <div>
-            <span class="style-badge">🏛️ SABİT MİMARİ MEKAN • LUXURY ENTRYWAY • ARCHED MIRROR &amp; CONSOLE</span>
+            <span class="style-badge">🛋️ İÇ MEKAN MİMARİSİ & DEKORASYON • LUXURY ENTRYWAY • ARCHED MIRROR &amp; CONSOLE</span>
             <h2>Arkadan Işıklı Dev Kemerli Boy Aynası, Oluklu Meşe Dresuar &amp; Bukle Puf Antre</h2>
             <p class="hook-text">Evin ilk izlenimini değiştiren en popüler antre ve koridor fikri: Arkadan gizli ışıklı dev kemerli boy aynası, duvara monte oluklu meşe dresuar ve altında çift krem bukle puf ✨ Linkler ilk yorumda 👇</p>
           </div>
           <div class="formula-box">
-            <small>BAŞ İÇ MİMAR 60-30-10 ORAN KURALI</small>
-            <strong>%60 Ana Mimari Hacim • %30 Doğal Doku • %10 Kontrast Vurgu</strong>
+            <small>MİMARİ 60-30-10 ORAN KURALI</small>
+            <strong>60-30-10 KURALI: %60 Bej Mermer &amp; Mikrosement • %30 Oluklu Meşe &amp; Bukle • %10 Antik Bronz</strong>
           </div>
         </div>
 
@@ -203,12 +425,12 @@
             <img src="/pinterest-models/mb-26-viral-arched-mirror-entryway-foyer-moodboard.jpg" alt="Arkadan Işıklı Dev Kemerli Boy Aynası, Oluklu Meşe Dresuar &amp; Bukle Puf Antre İlham Panosu Moodboard" loading="lazy" />
           </div>
           <div class="stage-box">
-            <div class="stage-tag">2. ADIM • 16mm GENİŞ AÇI MEKANDA DURUŞU (8K)</div>
+            <div class="stage-tag">2. ADIM • 16mm GENİŞ AÇI MEKANDA DURUŞU (8K FLOW)</div>
             <img src="/data/collages/mb-26-viral-arched-mirror-entryway-foyer.jpg" alt="Arkadan Işıklı Dev Kemerli Boy Aynası, Oluklu Meşe Dresuar &amp; Bukle Puf Antre Mekanda Duruşu" loading="lazy" />
           </div>
         </div>
 
-        <div class="specs-row"></div>
+        <div class="specs-row"><span class="spec-pill">📐 KEMERLİ BOY AYNASI: Tavandan Zemine Antik Bronz Çerçeveli + 2700K Gizli Halo Ledli Ayna</span><span class="spec-pill">📐 YÜZEN DRESUAR: Yerden +78 cm Duvara Monte Yuvarlatılmış Köşeli Oluklu Meşe Dresuar</span><span class="spec-pill">📐 PUF YERLEŞİMİ: Dresuar Altına Tam Sığan Ø45 cm Çift Krem Bukle Silindir Puf</span></div>
         <div class="swatches-row"><span class="swatch" title="Microcement Greige (MG-104)"><i style="background:#C8BEAF"></i>Microcement Greige <small>MG-104</small></span><span class="swatch" title="Fluted Honey Oak (HO-302)"><i style="background:#9E7348"></i>Fluted Honey Oak <small>HO-302</small></span><span class="swatch" title="Ivory Bouclé Pouf (BP-101)"><i style="background:#EFECE6"></i>Ivory Bouclé Pouf <small>BP-101</small></span><span class="swatch" title="Antique Bronze Frame (AB-805)"><i style="background:#382E26"></i>Antique Bronze Frame <small>AB-805</small></span><span class="swatch" title="Cream Limestone Tile (CL-201)"><i style="background:#DFD5C5"></i>Cream Limestone Tile <small>CL-201</small></span></div>
 
         <div class="nodes-section">
@@ -251,16 +473,16 @@
           </li></ul>
         </div>
       </article>
-<article class="space-card" id="mb-29-viral-cozy-glass-balcony-winter-lounge">
+<article class="space-card" id="mb-29-viral-cozy-glass-balcony-winter-lounge" data-wing="dis_mekan">
         <div class="space-header">
           <div>
-            <span class="style-badge">🏛️ SABİT MİMARİ MEKAN • BIOPHILIC SUNROOM • GLASS BALCONY LOUNGE</span>
+            <span class="style-badge">🌿 DIŞ MEKAN, CEPHE & TERAS MİMARİSİ • BIOPHILIC SUNROOM • GLASS BALCONY LOUNGE</span>
             <h2>Katlanır Cam Balkon, Tik Ağacı L Koltuk, Hasır Sarkıt &amp; Kış Bahçesi</h2>
             <p class="hook-text">Balkonunu dört mevsim yaşayan bir odaya dönüştürmek isteyenler için en çok kaydedilen cam balkon &amp; kış bahçesi kurgusu 🌿 Tik L koltuk, hasır sarkıtlar ve masaüstü şömine linkleri ilk yorumda 👇</p>
           </div>
           <div class="formula-box">
-            <small>BAŞ İÇ MİMAR 60-30-10 ORAN KURALI</small>
-            <strong>%60 Ana Mimari Hacim • %30 Doğal Doku • %10 Kontrast Vurgu</strong>
+            <small>MİMARİ 60-30-10 ORAN KURALI</small>
+            <strong>60-30-10 KURALI: %60 Tik Ahşap &amp; Terracotta • %30 Yulaf Keten Minder • %10 Canlı Zeytin &amp; Ateş</strong>
           </div>
         </div>
 
@@ -270,12 +492,12 @@
             <img src="/pinterest-models/mb-29-viral-cozy-glass-balcony-winter-lounge-moodboard.jpg" alt="Katlanır Cam Balkon, Tik Ağacı L Koltuk, Hasır Sarkıt &amp; Kış Bahçesi İlham Panosu Moodboard" loading="lazy" />
           </div>
           <div class="stage-box">
-            <div class="stage-tag">2. ADIM • 16mm GENİŞ AÇI MEKANDA DURUŞU (8K)</div>
+            <div class="stage-tag">2. ADIM • 16mm GENİŞ AÇI MEKANDA DURUŞU (8K FLOW)</div>
             <img src="/data/collages/mb-29-viral-cozy-glass-balcony-winter-lounge.jpg" alt="Katlanır Cam Balkon, Tik Ağacı L Koltuk, Hasır Sarkıt &amp; Kış Bahçesi Mekanda Duruşu" loading="lazy" />
           </div>
         </div>
 
-        <div class="specs-row"></div>
+        <div class="specs-row"><span class="spec-pill">📐 L KOLTUK YERLEŞİMİ: Balkon Köşesini Tam Kavrayan Masif Tik Ağacı Karkas + Yıkanabilir Keten Minder</span><span class="spec-pill">📐 TAVAN &amp; AYDINLATMA: Ahşap Lambri Tavan + Çift El Örgüsü Rattan Sarkıt (2400K Rustik Ampul)</span><span class="spec-pill">📐 ODAK &amp; DOĞA: Jüt Yuvarlak Halı, Rattan Orta Sehpa Üstü Bio-Etanol Şömine &amp; Saksı Zeytin</span></div>
         <div class="swatches-row"><span class="swatch" title="Burmese Teak Wood (TW-402)"><i style="background:#8E5E38"></i>Burmese Teak Wood <small>TW-402</small></span><span class="swatch" title="Oatmeal Outdoor Linen (OL-105)"><i style="background:#DED5C6"></i>Oatmeal Outdoor Linen <small>OL-105</small></span><span class="swatch" title="Terracotta Floor Tile (TF-603)"><i style="background:#9E5B3E"></i>Terracotta Floor Tile <small>TF-603</small></span><span class="swatch" title="Woven Rattan Cane (RC-308)"><i style="background:#C89B62"></i>Woven Rattan Cane <small>RC-308</small></span><span class="swatch" title="Mediterranean Olive (MO-701)"><i style="background:#4A593D"></i>Mediterranean Olive <small>MO-701</small></span></div>
 
         <div class="nodes-section">
@@ -318,16 +540,16 @@
           </li></ul>
         </div>
       </article>
-<article class="space-card" id="mb-25-viral-hotel-luxury-master-bedroom">
+<article class="space-card" id="mb-25-viral-hotel-luxury-master-bedroom" data-wing="ic_mekan">
         <div class="space-header">
           <div>
-            <span class="style-badge">🏛️ SABİT MİMARİ MEKAN • 5-STAR BOUTIQUE HOTEL • MASTER BEDROOM &amp; VANITY</span>
+            <span class="style-badge">🛋️ İÇ MEKAN MİMARİSİ & DEKORASYON • 5-STAR BOUTIQUE HOTEL • MASTER BEDROOM &amp; VANITY</span>
             <h2>5 Yıldızlı Otel Konforunda Kadife Başlıklı Yatak Odası &amp; Makyaj Köşesi</h2>
             <p class="hook-text">Yatak odasında 5 yıldızlı otel dinginliği: Tavandan zemine dikey dilimli kadife yatak başı, iki yanda füme ayna &amp; küre sarkıtlar ve oluklu ceviz makyaj masası ✨ Ürün linkleri ilk yorumda 👇</p>
           </div>
           <div class="formula-box">
-            <small>BAŞ İÇ MİMAR 60-30-10 ORAN KURALI</small>
-            <strong>%60 Ana Mimari Hacim • %30 Doğal Doku • %10 Kontrast Vurgu</strong>
+            <small>MİMARİ 60-30-10 ORAN KURALI</small>
+            <strong>60-30-10 KURALI: %60 Vizon Kadife &amp; Keten • %30 Ceviz &amp; Füme Ayna • %10 Kehribar Cam Işık</strong>
           </div>
         </div>
 
@@ -337,12 +559,12 @@
             <img src="/pinterest-models/mb-25-viral-hotel-luxury-master-bedroom-moodboard.jpg" alt="5 Yıldızlı Otel Konforunda Kadife Başlıklı Yatak Odası &amp; Makyaj Köşesi İlham Panosu Moodboard" loading="lazy" />
           </div>
           <div class="stage-box">
-            <div class="stage-tag">2. ADIM • 16mm GENİŞ AÇI MEKANDA DURUŞU (8K)</div>
+            <div class="stage-tag">2. ADIM • 16mm GENİŞ AÇI MEKANDA DURUŞU (8K FLOW)</div>
             <img src="/data/collages/mb-25-viral-hotel-luxury-master-bedroom.jpg" alt="5 Yıldızlı Otel Konforunda Kadife Başlıklı Yatak Odası &amp; Makyaj Köşesi Mekanda Duruşu" loading="lazy" />
           </div>
         </div>
 
-        <div class="specs-row"></div>
+        <div class="specs-row"><span class="spec-pill">📐 YATAK BAŞI DUVARI: Tavandan Zemine Dikey Dilimli Vizon Kadife Döşeme + Yanlarda Füme Ayna</span><span class="spec-pill">📐 MAKYAJ KÖŞESİ: Oluklu Ceviz Çekmeceli Makyaj Masası &amp; Halo Işıklı Yuvarlak Ayna</span><span class="spec-pill">📐 AYAK UCU &amp; AYDINLATMA: Krem Bukle Ayak Ucu Bankı + Komodin Üstü Kehribar Cam Küre Sarkıtlar</span></div>
         <div class="swatches-row"><span class="swatch" title="Warm Greige Velvet (GV-203)"><i style="background:#9E9284"></i>Warm Greige Velvet <small>GV-203</small></span><span class="swatch" title="Fluted Warm Walnut (WW-508)"><i style="background:#5E432E"></i>Fluted Warm Walnut <small>WW-508</small></span><span class="swatch" title="Smoked Bronze Mirror (BM-802)"><i style="background:#3B3530"></i>Smoked Bronze Mirror <small>BM-802</small></span><span class="swatch" title="Amber Glass Globe (AG-405)"><i style="background:#C88B48"></i>Amber Glass Globe <small>AG-405</small></span><span class="swatch" title="Hotel Crisp Sateen (CS-101)"><i style="background:#F4F1EA"></i>Hotel Crisp Sateen <small>CS-101</small></span></div>
 
         <div class="nodes-section">
@@ -385,16 +607,16 @@
           </li></ul>
         </div>
       </article>
-<article class="space-card" id="mb-27-viral-open-plan-dining-living-combo">
+<article class="space-card" id="mb-27-viral-open-plan-dining-living-combo" data-wing="ic_mekan">
         <div class="space-header">
           <div>
-            <span class="style-badge">🏛️ SABİT MİMARİ MEKAN • OPEN-PLAN SALON • ROUND TRAVERTINE DINING</span>
+            <span class="style-badge">🛋️ İÇ MEKAN MİMARİSİ & DEKORASYON • OPEN-PLAN SALON • ROUND TRAVERTINE DINING</span>
             <h2>Açık Plan Yuvarlak Traverten Yemek Masası, Işıklı Cam Vitrin &amp; Salon Bütünlüğü</h2>
             <p class="hook-text">Salon ve yemek alanını bir arada çözen en kullanışlı yerleşim: Sirkülasyonu rahatlatan yuvarlak traverten yemek masası, kavisli ceviz-bukle sandalyeler ve ışıklı cam vitrin ✨ Kombin linkleri ilk yorumda 👇</p>
           </div>
           <div class="formula-box">
-            <small>BAŞ İÇ MİMAR 60-30-10 ORAN KURALI</small>
-            <strong>%60 Ana Mimari Hacim • %30 Doğal Doku • %10 Kontrast Vurgu</strong>
+            <small>MİMARİ 60-30-10 ORAN KURALI</small>
+            <strong>60-30-10 KURALI: %60 Traverten &amp; Krem Bukle • %30 Ceviz &amp; Oluklu Cam • %10 Alabaster &amp; Pirinç</strong>
           </div>
         </div>
 
@@ -404,12 +626,12 @@
             <img src="/pinterest-models/mb-27-viral-open-plan-dining-living-combo-moodboard.jpg" alt="Açık Plan Yuvarlak Traverten Yemek Masası, Işıklı Cam Vitrin &amp; Salon Bütünlüğü İlham Panosu Moodboard" loading="lazy" />
           </div>
           <div class="stage-box">
-            <div class="stage-tag">2. ADIM • 16mm GENİŞ AÇI MEKANDA DURUŞU (8K)</div>
+            <div class="stage-tag">2. ADIM • 16mm GENİŞ AÇI MEKANDA DURUŞU (8K FLOW)</div>
             <img src="/data/collages/mb-27-viral-open-plan-dining-living-combo.jpg" alt="Açık Plan Yuvarlak Traverten Yemek Masası, Işıklı Cam Vitrin &amp; Salon Bütünlüğü Mekanda Duruşu" loading="lazy" />
           </div>
         </div>
 
-        <div class="specs-row"></div>
+        <div class="specs-row"><span class="spec-pill">📐 YUVARLAK MASA AVANTAJI: Ø150 cm Sütun Ayaklı Traverten Masa ile Açık Salonda Kesintisiz Geçiş</span><span class="spec-pill">📐 IŞIKLI VİTRİN DUVARI: Tavandan Zemine Bronz Çerçeveli Oluklu Cam &amp; 2700K Gizli Ledli Büfe</span><span class="spec-pill">📐 SANDALYE &amp; AVİZE: Kavisli Ceviz Sırtlı Bukle Sandalyeler + Katmanlı Alabaster Taş Avize</span></div>
         <div class="swatches-row"><span class="swatch" title="Honed Beige Travertine (BT-106)"><i style="background:#D6C6B2"></i>Honed Beige Travertine <small>BT-106</small></span><span class="swatch" title="Curved American Walnut (AW-404)"><i style="background:#6E4B32"></i>Curved American Walnut <small>AW-404</small></span><span class="swatch" title="Cream Bouclé Weave (CB-102)"><i style="background:#EFEBE3"></i>Cream Bouclé Weave <small>CB-102</small></span><span class="swatch" title="Bronze Fluted Glass (FG-709)"><i style="background:#4D4339"></i>Bronze Fluted Glass <small>FG-709</small></span><span class="swatch" title="Warm Alabaster Stone (AS-201)"><i style="background:#E8DFC8"></i>Warm Alabaster Stone <small>AS-201</small></span></div>
 
         <div class="nodes-section">
@@ -452,16 +674,16 @@
           </li></ul>
         </div>
       </article>
-<article class="space-card" id="mb-28-viral-bright-marble-double-vanity-bath">
+<article class="space-card" id="mb-28-viral-bright-marble-double-vanity-bath" data-wing="ic_mekan">
         <div class="space-header">
           <div>
-            <span class="style-badge">🏛️ SABİT MİMARİ MEKAN • BRIGHT SPA BATHROOM • CALACATTA GOLD &amp; FLUTED OAK</span>
+            <span class="style-badge">🛋️ İÇ MEKAN MİMARİSİ & DEKORASYON • BRIGHT SPA BATHROOM • CALACATTA GOLD &amp; FLUTED OAK</span>
             <h2>Ferah Calacatta Gold Mermer, Çift Lavabolu Oluklu Meşe Hilton Banyo</h2>
             <p class="hook-text">Ferah, aydınlık ve zamansız banyo dekorasyonu: Sıcak altın damarlı Calacatta mermer, duvara monte oluklu meşe çift lavabo dolabı ve ışıklı kapsül aynalar 🤍 Ürün linkleri ilk yorumda 👇</p>
           </div>
           <div class="formula-box">
-            <small>BAŞ İÇ MİMAR 60-30-10 ORAN KURALI</small>
-            <strong>%60 Ana Mimari Hacim • %30 Doğal Doku • %10 Kontrast Vurgu</strong>
+            <small>MİMARİ 60-30-10 ORAN KURALI</small>
+            <strong>60-30-10 KURALI: %60 Calacatta Gold Mermer • %30 Oluklu Bal Meşe • %10 Şampanya Altın Batarya</strong>
           </div>
         </div>
 
@@ -471,12 +693,12 @@
             <img src="/pinterest-models/mb-28-viral-bright-marble-double-vanity-bath-moodboard.jpg" alt="Ferah Calacatta Gold Mermer, Çift Lavabolu Oluklu Meşe Hilton Banyo İlham Panosu Moodboard" loading="lazy" />
           </div>
           <div class="stage-box">
-            <div class="stage-tag">2. ADIM • 16mm GENİŞ AÇI MEKANDA DURUŞU (8K)</div>
+            <div class="stage-tag">2. ADIM • 16mm GENİŞ AÇI MEKANDA DURUŞU (8K FLOW)</div>
             <img src="/data/collages/mb-28-viral-bright-marble-double-vanity-bath.jpg" alt="Ferah Calacatta Gold Mermer, Çift Lavabolu Oluklu Meşe Hilton Banyo Mekanda Duruşu" loading="lazy" />
           </div>
         </div>
 
-        <div class="specs-row"></div>
+        <div class="specs-row"><span class="spec-pill">📐 ÇİFT LAVABO DOLABI: Yerden +35 cm Asılı Oluklu Meşe Gövde + Entegre Calacatta Mermer Evye</span><span class="spec-pill">📐 AYNA &amp; BATARYA: Çift Kapsül (Pill) Arkadan Ledli Ayna + Sıva Altı Fırçalanmış Gold Batarya</span><span class="spec-pill">📐 DUŞ &amp; ŞAMPUAN NİŞİ: Çerçevesiz Cam Duş Kabini + 2700K IP67 Gizli Ledli Mermer Şampuan Nişi</span></div>
         <div class="swatches-row"><span class="swatch" title="Calacatta Gold Marble (CG-101)"><i style="background:#EFECE6"></i>Calacatta Gold Marble <small>CG-101</small></span><span class="swatch" title="Fluted Honey Oak (HO-304)"><i style="background:#B88C5E"></i>Fluted Honey Oak <small>HO-304</small></span><span class="swatch" title="Champagne Brushed Gold (BG-402)"><i style="background:#C5A368"></i>Champagne Brushed Gold <small>BG-402</small></span><span class="swatch" title="Warm Taupe Vein (TV-209)"><i style="background:#B5A592"></i>Warm Taupe Vein <small>TV-209</small></span><span class="swatch" title="Turkish Cotton Ecru (TC-103)"><i style="background:#F5F2EB"></i>Turkish Cotton Ecru <small>TC-103</small></span></div>
 
         <div class="nodes-section">
@@ -519,16 +741,16 @@
           </li></ul>
         </div>
       </article>
-<article class="space-card" id="mb-23-viral-paris-classic-modern-living">
+<article class="space-card" id="mb-23-viral-paris-classic-modern-living" data-wing="ic_mekan">
         <div class="space-header">
           <div>
-            <span class="style-badge">🏛️ SABİT MİMARİ MEKAN • PARISIAN NEOCLASSICAL • MODERN SALON</span>
+            <span class="style-badge">🛋️ İÇ MEKAN MİMARİSİ & DEKORASYON • PARISIAN NEOCLASSICAL • MODERN SALON</span>
             <h2>Parisian Çıtalı Yüksek Tavan, Balıksırtı Parke &amp; Deve Tüyü Keten Salon</h2>
             <p class="hook-text">Klasik ve modernin en zarif buluşması: Beyaz çıtalı yüksek duvarlar, balıksırtı meşe parke, sıcak deve tüyü keten koltuk ve siyah mermer orta sehpa kontrastı ✨ Kombin linkleri ilk yorumda 👇</p>
           </div>
           <div class="formula-box">
-            <small>BAŞ İÇ MİMAR 60-30-10 ORAN KURALI</small>
-            <strong>%60 Ana Mimari Hacim • %30 Doğal Doku • %10 Kontrast Vurgu</strong>
+            <small>MİMARİ 60-30-10 ORAN KURALI</small>
+            <strong>60-30-10 KURALI: %60 Alabaster Çıtalı Duvar • %30 Balıksırtı Meşe &amp; Deve Tüyü Keten • %10 Siyah Mermer</strong>
           </div>
         </div>
 
@@ -538,12 +760,12 @@
             <img src="/pinterest-models/mb-23-viral-paris-classic-modern-living-moodboard.jpg" alt="Parisian Çıtalı Yüksek Tavan, Balıksırtı Parke &amp; Deve Tüyü Keten Salon İlham Panosu Moodboard" loading="lazy" />
           </div>
           <div class="stage-box">
-            <div class="stage-tag">2. ADIM • 16mm GENİŞ AÇI MEKANDA DURUŞU (8K)</div>
+            <div class="stage-tag">2. ADIM • 16mm GENİŞ AÇI MEKANDA DURUŞU (8K FLOW)</div>
             <img src="/data/collages/mb-23-viral-paris-classic-modern-living.jpg" alt="Parisian Çıtalı Yüksek Tavan, Balıksırtı Parke &amp; Deve Tüyü Keten Salon Mekanda Duruşu" loading="lazy" />
           </div>
         </div>
 
-        <div class="specs-row"></div>
+        <div class="specs-row"><span class="spec-pill">📐 DUVAR ÇITALAMA: 4cm Klasik Poliüretan Çerçeve Çıta + İçinde Dokulu Soyut Tablo</span><span class="spec-pill">📐 KOLTUK &amp; SEHPA: Sıcak Deve Tüyü (Camel) Keten Koltuk + Alçak Nero Marquina Siyah Mermer Sehpa</span><span class="spec-pill">📐 ZEMİN &amp; TAVAN: 45° Fransız Balıksırtı (Chevron) Bal Meşe Parke + Heykelsi Pirinç Avize</span></div>
         <div class="swatches-row"><span class="swatch" title="Haussmann Alabaster (HA-101)"><i style="background:#EFECE6"></i>Haussmann Alabaster <small>HA-101</small></span><span class="swatch" title="Chevron Honey Oak (CO-305)"><i style="background:#A87B4F"></i>Chevron Honey Oak <small>CO-305</small></span><span class="swatch" title="Camel Taupe Linen (CL-208)"><i style="background:#B59B82"></i>Camel Taupe Linen <small>CL-208</small></span><span class="swatch" title="Nero Marquina Marble (NM-902)"><i style="background:#1E1F21"></i>Nero Marquina Marble <small>NM-902</small></span><span class="swatch" title="Antique Brushed Brass (AB-404)"><i style="background:#B89352"></i>Antique Brushed Brass <small>AB-404</small></span></div>
 
         <div class="nodes-section">
@@ -588,7 +810,7 @@
       </article>
   </main>
   <footer>
-    ⚖️ Yasal Uyarı &amp; Şeffaflık Bildirimi: Bu vitrin herhangi bir mobilya markası veya mağaza ile ücretli ortaklık ya da sponsorluk içermez; tamamen editoryal mimarlık, iç mimarlık, ilham panosu (moodboard) ve mekan tasarımı bilgilendirmesi amaçlıdır (#reklam #işbirliğideğil #işbirliğiyoktur #yapayzeka).
+    ⚖️ Yasal Uyarı &amp; Şeffaflık Bildirimi: Bu vitrin herhangi bir mobilya markası veya mağaza ile ücretli ortaklık ya da sponsorluk içermez; tamamen editoryal iç ve dış mekan mimarisi, ilham panosu (moodboard) ve mekan tasarımı bilgilendirmesi amaçlıdır (#reklam #işbirliğideğil #işbirliğiyoktur #yapayzeka).
   </footer>
 </body>
 </html>
