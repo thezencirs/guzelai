@@ -1,5 +1,20 @@
 [
   {
+    "id": "vert916_araba_guzelai_leyla_001_monaco_ferrari_roma_spider_riviera",
+    "modelId": "guzelai-leyla-001",
+    "modelName": "Leyla",
+    "title": "Monte-Carlo Sahil Yolu: Şampanya Ferrari Roma Spider, Rolex Cosmograph Daytona & Riviera 🏎️✨",
+    "location": "Monte-Carlo Larvotto & Grande Corniche Sahil Yolu",
+    "category": "araba",
+    "aspectRatio": "9:16",
+    "resolution": "1080x1920",
+    "videoUrl": "/clips/vert916_araba_guzelai_leyla_001_monaco_ferrari_roma_spider_riviera.mp4",
+    "posterUrl": "/clips/vert916_araba_guzelai_leyla_001_monaco_ferrari_roma_spider_riviera_poster.jpg",
+    "storeUrl": "https://www.ferrari.com/en-EN/auto/ferrari-roma-spider",
+    "brandBadge": "FERRARI • ROLEX • TOM FORD • Ferrari Roma Spider & Daytona Oysterflex",
+    "updatedAt": "2026-11-25T09:02:12"
+  },
+  {
     "id": "vert916_otel_valentina_cruz_como_villa_deste_royal_terrace",
     "modelId": "valentina-cruz",
     "modelName": "Valentina Cruz",
